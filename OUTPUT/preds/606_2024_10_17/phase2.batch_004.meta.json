@@ -1,0 +1,11 @@
+{
+  "offer_key": "606_2024_10_17",
+  "phase": "phase2",
+  "batch_index": 4,
+  "batch_start": 12,
+  "items_in_batch": 3,
+  "prompt_version": "prompts_v1",
+  "created_utc": "2025-12-23T13:22:41.092232Z",
+  "pdf_text_sha256": "7b514779b37d84cd23910672f0458a1c5deabd00dc762e7e3f3f2496a36bd861",
+  "prompt_sha256": "738cfc66ba90ed0805eb7db729f10d387368c1712b9d2db6514aa49d77e154c3"
+}

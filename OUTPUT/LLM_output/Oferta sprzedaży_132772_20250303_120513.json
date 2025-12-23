@@ -1,0 +1,271 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 8mm-G1/8 wew. z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Indeks: 3192 08 10 10;LP: 1;JM: szt.;Cena netto: 21,94 PLN;rabat: 60,3464 %;Cena netto-rabat: 8,70 PLN;Wartość netto: 87,00 PLN;Termin realizacji: 1-2 dni;Ilość: szt.;3192 08 10 10"
+      },
+      {
+        "id": "2",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 6mm-R3/8 z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Indeks: 3109 06 17 10;LP: 2;JM: szt.;Cena netto: 22,11 PLN;rabat: 60,199 %;Cena netto-rabat: 8,80 PLN;Wartość netto: 88,00 PLN;Termin realizacji: 1-2 dni;Ilość: szt.;3109 06 17 10"
+      },
+      {
+        "id": "3",
+        "id_oferty": "132772",
+        "opis": "mufka G3/8 wew. G3/8 wew. z mag.",
+        "grupa_materialow": "mufki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Indeks: 0902 00 17 10;LP: 3;JM: szt.;Cena netto: 13,83 PLN;rabat: 55,1699 %;Cena netto-rabat: 6,20 PLN;Wartość netto: 62,00 PLN;Termin realizacji: 1-2 dni;Ilość: szt.;0902 00 17 10"
+      },
+      {
+        "id": "4",
+        "id_oferty": "132772",
+        "opis": "złączka prosta, gwint wew G1/4, przewód fi 8 mm z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3114 08 13 10"
+      },
+      {
+        "id": "5",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 12mm-R1/4 z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3109 12 13 10"
+      },
+      {
+        "id": "6",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 16mm-G3/8 zew. z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3199 16 17 5"
+      },
+      {
+        "id": "7",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa Ø6 mm-R1/8 z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3109 06 10 30"
+      },
+      {
+        "id": "8",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa Ø4 mm-R1/8 z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3109 04 10 10"
+      },
+      {
+        "id": "9",
+        "id_oferty": "132772",
+        "opis": "przyłączka prosta wtykowa Ø8 mm - R1/4 zew. z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3175 08 13 10"
+      },
+      {
+        "id": "10",
+        "id_oferty": "132772",
+        "opis": "złączka wtykowa prosta Ø6 mm-M5x0,8 zew. z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3101 06 19 20"
+      },
+      {
+        "id": "11",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 6mm-M5x0,8 zew. z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3199 06 19 20"
+      },
+      {
+        "id": "12",
+        "id_oferty": "132772",
+        "opis": "złączka redukcyjna prosta wtykowa 6-8mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 06 08 30"
+      },
+      {
+        "id": "13",
+        "id_oferty": "132772",
+        "opis": "złączka prosta wtykowa Ø4 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 04 00 30"
+      },
+      {
+        "id": "14",
+        "id_oferty": "132772",
+        "opis": "złączka wtykowa prosta Ø6 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 06 00 30"
+      },
+      {
+        "id": "15",
+        "id_oferty": "132772",
+        "opis": "złączka redukcyjna prosta wtykowa 4-6mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 04 06 10"
+      },
+      {
+        "id": "16",
+        "id_oferty": "132772",
+        "opis": "złączka wtykowa prosta Ø12 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 12 00 10"
+      },
+      {
+        "id": "17",
+        "id_oferty": "132772",
+        "opis": "przyłączka prosta wtykowa z króćcem 6-12mm z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3166 06 12 10"
+      },
+      {
+        "id": "18",
+        "id_oferty": "132772",
+        "opis": "złączka redukcyjna prosta wtykowa 8-12mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 08 12 10"
+      },
+      {
+        "id": "19",
+        "id_oferty": "132772",
+        "opis": "przewód teflonowy Ø4x2mm, naturalny z mag.",
+        "grupa_materialow": "kable",
+        "numer_oem": "PTFE4x2 50 mb.",
+        "producent": "",
+        "serial_numbers": "3175 08 13"
+      },
+      {
+        "id": "20",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 7 IP 68, RAL 7035",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "99300.HL",
+        "producent": "",
+        "serial_numbers": "3192 08 10;30 szt;2,04 PLN;30 %;1,43 PLN;42,90 PLN;1-2 dni;z mag."
+      },
+      {
+        "id": "21",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 13.5 IP 68, RAL 7035 (6-12mm) z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "99303.HL",
+        "producent": "",
+        "serial_numbers": "3109 12 13;30 szt;2,52 PLN;30 %;1,76 PLN;52,80 PLN;6-12mm;z mag."
+      },
+      {
+        "id": "22",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 11 IP 68, RAL 7035 (5-10mm) z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "99302.HL",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "23",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 9 IP 68, RAL 7035 z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "99301.HL",
+        "producent": "",
+        "serial_numbers": "30 szt;2,41 PLN;30 %;1,69 PLN;50,70 PLN"
+      },
+      {
+        "id": "24",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 16 IP 68, RAL 7035 z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "99304.HL",
+        "producent": "",
+        "serial_numbers": "30 szt;3,37 PLN;30 %;2,36 PLN;70,80 PLN"
+      },
+      {
+        "id": "25",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG7 szara z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90710.HL",
+        "producent": "",
+        "serial_numbers": "Ilość: 30 szt;Cena netto: 0,41 PLN;rabat: 30 %;Cena netto-rabat: 0,29 PLN;Wartość netto: 8,70 PLN;Termin realizacji: 1-2 dni;Z mag."
+      },
+      {
+        "id": "26",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG13,5 szara z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90713.HL",
+        "producent": "",
+        "serial_numbers": "Ilość: 30 szt;Cena netto: 0,42 PLN;rabat: 30 %;Cena netto-rabat: 0,29 PLN;Wartość netto: 8,70 PLN;Termin realizacji: 1-2 dni;Z mag."
+      },
+      {
+        "id": "27",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG11 szara z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90712.HL",
+        "producent": "",
+        "serial_numbers": "Ilość: 30 szt;Cena netto: 0,35 PLN;rabat: 30 %;Cena netto-rabat: 0,25 PLN;Wartość netto: 7,50 PLN;Termin realizacji: 1-2 dni;Z mag."
+      },
+      {
+        "id": "28",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG9 szara z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90711.HL",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "29",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG16 szara z mag.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90714.HL",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 29
+  }
+]

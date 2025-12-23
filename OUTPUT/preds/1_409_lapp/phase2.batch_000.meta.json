@@ -1,0 +1,11 @@
+{
+  "offer_key": "1_409_lapp",
+  "phase": "phase2",
+  "batch_index": 0,
+  "batch_start": 0,
+  "items_in_batch": 3,
+  "prompt_version": "prompts_v1",
+  "created_utc": "2025-12-23T15:40:30.283601Z",
+  "pdf_text_sha256": "3c5a2919b604a8e9a7fb151bc9387a8ac677e2b858559e2e11a10840f26ee851",
+  "prompt_sha256": "55731316f71ca215a42ca00130eea147e65a20ae905b5a9999964ecf0a3e8fc1"
+}

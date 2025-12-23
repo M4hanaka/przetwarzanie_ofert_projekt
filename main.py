@@ -10,7 +10,7 @@ PDF_INPUT_PATH = "/home/karol_zych/OFERTY/oferty_pdf_1/1_144_weidmuller.pdf"
 OUTPUT_PATH = "/home/karol_zych/przetwarzanie_ofert_projekt/OUTPUT/out.json"
 
 # BATCH
-BATCH_INPUT_DIR = "/home/karol_zych/OFERTY/oferty_pdf_1" # _1 /or/ _2
+BATCH_INPUT_DIR = "/home/karol_zych/OFERTY/oferty_pdf_2" # _1 /or/ _2
 VIEW_TEXT_DIR = "OUTPUT/view_text"
 BATCH_OUTPUT_DIR = "OUTPUT/LLM_output"
 

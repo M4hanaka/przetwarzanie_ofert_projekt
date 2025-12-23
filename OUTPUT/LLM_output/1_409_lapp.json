@@ -37,7 +37,7 @@
         "opis": "H05V-K 1X0,75 BK; Linki pojedyncze",
         "grupa_materialow": "kable",
         "numer_oem": "H05V-K",
-        "producent": "Lapp",
+        "producent": "",
         "serial_numbers": "CN: 85444995;4510012"
       },
       {
@@ -46,7 +46,7 @@
         "opis": "Przewód podłączeniowy, Seria Food & Beverage hygienic (dla przemysłu spożywczego), TPE, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej, 5M",
         "grupa_materialow": "kable",
         "numer_oem": "RKH4.4-5/TFG",
-        "producent": "Lapp",
+        "producent": "",
         "serial_numbers": "CN: 85444290"
       },
       {
@@ -55,14 +55,14 @@
         "opis": "Przewód podłączeniowy, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej",
         "grupa_materialow": "kable",
         "numer_oem": "RKH4.4-10/TFG",
-        "producent": "Lapp",
+        "producent": "",
         "serial_numbers": "CN: 85444290"
       },
       {
         "id": "7",
         "id_oferty": "",
         "opis": "MBC 5100 Presostat",
-        "grupa_materialow": "automatyka",
+        "grupa_materialow": "inne",
         "numer_oem": "061B001066",
         "producent": "",
         "serial_numbers": "CN: 90322000"

@@ -25,7 +25,7 @@
       {
         "id": "3",
         "id_oferty": "198122024",
-        "opis": "EFB O-ring",
+        "opis": "O-ring",
         "grupa_materialow": "inne",
         "numer_oem": "130031S",
         "producent": "EFB",
@@ -87,27 +87,27 @@
       },
       {
         "id": "10",
-        "id_oferty": "",
+        "id_oferty": "198122024",
         "opis": "EFB O-ring",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "DKW SERVICE",
         "serial_numbers": "140113"
       },
       {
         "id": "11",
-        "id_oferty": "",
+        "id_oferty": "198122024",
         "opis": "EFB O-ring",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "DKW SERVICE",
         "serial_numbers": "140023"
       },
       {
         "id": "12",
-        "id_oferty": "",
+        "id_oferty": "198122024",
         "opis": "EFB O-ring",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "DKW SERVICE",
         "serial_numbers": "140129"
@@ -141,25 +141,25 @@
       },
       {
         "id": "16",
-        "id_oferty": "198122024",
+        "id_oferty": "",
         "opis": "O-ring",
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "DKW SERVICE",
-        "serial_numbers": "EFB;140119"
+        "serial_numbers": "140119"
       },
       {
         "id": "17",
-        "id_oferty": "198122024",
+        "id_oferty": "",
         "opis": "O-ring",
         "grupa_materialow": "inne",
         "numer_oem": "140011EFB",
         "producent": "DKW SERVICE",
-        "serial_numbers": "EFB"
+        "serial_numbers": ""
       },
       {
         "id": "18",
-        "id_oferty": "198122024",
+        "id_oferty": "",
         "opis": "Gasket",
         "grupa_materialow": "inne",
         "numer_oem": "",
@@ -222,7 +222,7 @@
       },
       {
         "id": "25",
-        "id_oferty": "",
+        "id_oferty": "198122024",
         "opis": "Washer",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
@@ -231,7 +231,7 @@
       },
       {
         "id": "26",
-        "id_oferty": "",
+        "id_oferty": "198122024",
         "opis": "Washer",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
@@ -240,7 +240,7 @@
       },
       {
         "id": "27",
-        "id_oferty": "",
+        "id_oferty": "198122024",
         "opis": "Washer",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
@@ -260,7 +260,7 @@
         "id": "29",
         "id_oferty": "198122024",
         "opis": "Filter",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "filtry",
         "numer_oem": "",
         "producent": "DKW SERVICE",
         "serial_numbers": "260751"
@@ -269,7 +269,7 @@
         "id": "30",
         "id_oferty": "198122024",
         "opis": "Oil filter",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "filtry",
         "numer_oem": "",
         "producent": "DKW SERVICE",
         "serial_numbers": "230003"

@@ -1,0 +1,11 @@
+{
+  "offer_key": "Oferta sprzedaży_132772_20250303_120513",
+  "phase": "phase2",
+  "batch_index": 1,
+  "batch_start": 3,
+  "items_in_batch": 3,
+  "prompt_version": "prompts_v1",
+  "created_utc": "2025-12-23T14:01:00.344556Z",
+  "pdf_text_sha256": "cc7eb558e3726c0c3a84141f9657c8530bfdde432e0d1b10ad5e02eba708d6d2",
+  "prompt_sha256": "4feeb8efafcf56be04ce91100e7d6bc8d24064031e9ffa3ecb1a41ec6d6863ba"
+}

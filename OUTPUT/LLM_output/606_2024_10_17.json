@@ -38,7 +38,7 @@
         "grupa_materialow": "uszczelki",
         "numer_oem": "GU00113",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "szt."
       },
       {
         "id": "5",
@@ -47,7 +47,7 @@
         "grupa_materialow": "uszczelki",
         "numer_oem": "WP11800",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "szt."
       },
       {
         "id": "6",
@@ -56,7 +56,7 @@
         "grupa_materialow": "uszczelki",
         "numer_oem": "WP12267",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "szt."
       },
       {
         "id": "7",
@@ -101,7 +101,7 @@
         "grupa_materialow": "sprężyny",
         "numer_oem": "WP01054",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "J.m.: szt.;Ilość: 32;Cena netto EUR: 6,97;Wartość netto EUR: 223,04"
       },
       {
         "id": "12",
@@ -110,7 +110,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "WP16548",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "szt. 32;Cena netto EUR 40,21;Wartość netto EUR 1 286,72"
       },
       {
         "id": "13",
@@ -119,7 +119,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "WP17274",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "szt. 1;Cena netto EUR 46,31;Wartość netto EUR 46,31"
       }
     ],
     "liczba_elementow": 13

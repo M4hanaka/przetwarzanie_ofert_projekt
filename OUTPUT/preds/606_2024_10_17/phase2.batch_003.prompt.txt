@@ -1,0 +1,270 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 2 TASK: DETAILED ITEMS (MINIMAL OfferItem SCHEMA)
+
+You will receive:
+- the same offer text,
+- a subset of items from Phase 1 ("items_preview").
+
+For EACH of these preview items produce one fully detailed object
+according to the OfferItem schema with EXACTLY the following fields:
+
+- "id": primary key for the item, use a simple running counter "1", "2", "3", ...
+- "id_oferty": offer ID for all items in this file (if unknown, use an empty string "").
+- "opis": original description of the item, based on the PDF text (do not translate).
+- "grupa_materialow": material group or product category inferred from the context.
+- "numer_oem": main OEM / article / item number for this product.
+- "producent": manufacturer name.
+- "serial_numbers": other identification or classification codes (CN, PKWiU, indices, etc.).
+
+GENERAL RULES FOR ALL FIELDS:
+- Use only information that appears in the offer text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Do NOT invent values that are not supported by the text.
+- If a field is missing, use an empty string "".
+- Prefer empty fields over guessed or incorrect values.
+
+VERY IMPORTANT – MISSING DATA:
+- If the offer text does not clearly specify an offer ID, OEM number, manufacturer,
+  or other codes, leave the corresponding field empty ("").
+- Empty is BETTER than incorrect. Never fabricate a product code or manufacturer.
+
+DESCRIPTION FIELD ("opis"):
+- Do NOT append price, discounts, totals or other numeric columns to "opis".
+- Do NOT copy "kwota_ceny_oferty" into "opis".
+- "opis" must describe ONLY the product itself (name, type, variant, parameters) and MUST NOT contain the OEM/article number.
+- If the preview opis begins with a product code (e.g. "140017 EFB O-ring", "3RH2911-1HA22 - BLOK STYKÓW"),
+  remove that code entirely from "opis".
+- The removed code must be placed into "numer_oem" (if it is indeed the OEM/article number).
+- After removing the OEM from the start, keep everything else exactly as in the PDF (no translation, no rewriting).
+
+TABLE STRUCTURE AND COLUMN MAPPING:
+
+Whenever possible, use the table headers to map columns to fields. Typical mappings:
+
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID"
+  → candidate for "numer_oem".
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi"
+  → main product name used in "opis".
+- "CN", "PKWiU", "Indeks", "Nr magazynowy"
+  → candidates for "serial_numbers" (classification or internal codes).
+
+Examples of table headers:
+- "Lp Kod produktu Nazwa produktu Ilość Cena/sztukę Cena końcowa"
+  • numer_oem from "Kod produktu"
+  • opis built mainly from "Nazwa produktu"
+- "Poz. Nr artykułu Ilość j.m. Cena jednostkowa Cena"
+  • numer_oem from "Nr artykułu"
+  • opis built from product name / description column
+- "Lp. Nazwa towaru/usługi Dostępność Ilość jm. Cena przed rabatem Rabat % Cena netto Wartość netto VAT"
+  • typically NO dedicated product code column; in such case numer_oem may be empty if no clear code is present.
+
+Never treat columns such as "Dostępność", "Rabat %", "VAT", "Cena", "Wartość netto", "Wartość brutto"
+as sources of product codes.
+
+KEY FIELDS (MUST NOT BE GUESSED):
+
+1) numer_oem
+
+- This is the MAIN product code (OEM / article / item number).
+- Prefer values from dedicated columns with headers like:
+  "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID".
+- If there is NO dedicated column, you may treat as numer_oem a short alphanumeric code
+  at the very beginning of the row, placed before the product name and separated by a space or dash,
+  for example: "ABC-123 - Moduł wejściowy 24V DC".
+- NEVER assign CN, PKWiU, HS, tariff numbers, or any long numeric codes (8+ digits) to "numer_oem".
+- If a row contains:
+  • a short article number (e.g. "1119902", "3RH2911-1HA22") AND
+  • classification codes ("CN: 85369010", "PKWiU 27.33.13.0"),
+  then:
+  • numer_oem = short article number
+  • serial_numbers = "CN: ...;PKWiU: ..."
+- If you are NOT sure that a value is a product code, set "numer_oem" to an empty string "".
+- If the preview opis contains a product code at the beginning
+  (e.g. "ABC-123 - Opis produktu", "4500123 O-ring"),
+  this code must be extracted into "numer_oem" and removed from "opis".
+- The final opis must NEVER contain the OEM/article number.
+
+2) serial_numbers
+
+- This field collects all identification or classification codes related to the item
+  that are NOT the main OEM/article number.
+- Typical examples:
+  • customs codes (e.g. "CN 85369010"),
+  • PKWiU codes,
+  • internal warehouse numbers or catalogue indices,
+  • any additional structured codes that clearly refer to this item.
+- If a header contains words "CN", "PKWiU", "Indeks", "Nr magazynowy", etc.,
+  you may treat the values from that column as elements of "serial_numbers".
+- Merge all such codes into ONE string separated by semicolons, for example:
+  "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456".
+- Always add prefixes like "CN:" or "PKWiU:" when the code type is clear.
+- Do NOT include pure technical parameters such as voltage, current, power, frequency,
+  IP rating, dimensions, weight, etc.
+- Do NOT duplicate numer_oem here (even if the same number appears again with a different label).
+- If you do not see any such codes, set "serial_numbers" to "".
+
+OTHER FIELDS:
+
+- id:
+  • Use a simple integer-like string "1", "2", "3", ...
+  • The order should follow the order of items in Phase 1.
+
+- id_oferty:
+  • If an offer ID is visible in the header or in a dedicated field, copy it exactly.
+  • If multiple IDs are present, use the one that clearly identifies the offer document.
+  • If you cannot find any offer ID, use an empty string "".
+
+  To extract id_oferty, search the header for typical patterns:
+  - "Numer / Data wystawienia: <ID> / <date>"
+  - "Oferta Nr <ID>"
+  - "Offer No.: <ID>"
+  - "Numer Oferty / data <ID>"
+  If multiple values look like offer IDs, choose the one explicitly labeled as the offer number.
+  If none exists, set "".
+
+- grupa_materialow:
+  • Assign a short, general category based on the description and context of the item.
+  • Examples of categories: "złączki", "kable", "wyłączniki", "bezpieczniki",
+    "akcesoria montażowe", "automatyka", "mechanika", "inne".
+  • If you are not sure, choose the closest reasonable category.
+
+- producent:
+  • Use the manufacturer name present directly in the item line or clearly associated with the product
+    (e.g. SIEMENS, LAPP, SICK, KRONES).
+  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
+    that the supplier is also the manufacturer.
+  • If no manufacturer can be determined with certainty, set producent to "".
+
+STRICT CARDINALITY CONSTRAINT (CRUCIAL):
+
+You are given exactly 3 preview items (Item 10 to Item 12).
+For EACH input item you MUST return EXACTLY ONE OfferItem object.
+
+- The output JSON ARRAY MUST contain exactly 3 elements.
+- The order of objects in the output array MUST match the order of input items
+  (first object corresponds to Item 10, last object to Item 12).
+- Do NOT merge different items into one object.
+- Do NOT create any additional or synthetic items.
+- Do NOT repeat the same item multiple times.
+- If you are uncertain, still return exactly one best-effort object per input item,
+  but never invent fields that are not visible in the text.
+
+ITEMS TO PROCESS:
+
+Item 10 (preview):
+  opis: GU00060 uszczelka m
+  kwota_ceny_oferty: 13.78
+
+Item 11 (preview):
+  opis: GU00064 o-ring
+  kwota_ceny_oferty: 1.28
+
+Item 12 (preview):
+  opis: GU00077 o-ring
+  kwota_ceny_oferty: 1.28
+
+
+OUTPUT FORMAT (MANDATORY):
+
+Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
+The array MUST have exactly 3 elements and MUST be the ONLY thing in your answer.
+Return only ONE JSON array and NO additional text, comments or explanations.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+ul. Wał Miedzeszyński 131B
+Spolex Sp. z o.o.
+04-987 Warszawa
+tel.: +48 22 351 71 91
+NIP 521-32-44-645
+fax.: +48 22 270 29 70
+REGON: 015493360
+biuro@spolex.com
+BDO: 000526547
+Oferta numer: O/2024/606 Data: 2024-03-18
+SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE
+ul. Elewatorska 13
+19-203 Grajewo
+NIP: 7190000425
+L.p. Nazwa produktu Kod J.m. Ilość Cena netto EUR Wartość netto EUR
+1 o-ring GU00064 szt. 32 1,28 40,96
+2 o-ring GU00077 szt. 32 1,28 40,96
+3 uszczelka GU00112 szt. 64 7,01 448,64
+4 uszczelka GU00113 szt. 32 5,94 190,08
+5 uszczelka WP11800 szt. 32 30,25 968,00
+6 uszczelka WP12267 szt. 32 19,52 624,64
+7 uszczelka WP12268 szt. 32 32,03 1 024,96
+8 sprężyna WP12598 szt. 32 5,73 183,36
+9 membrana WP21069 szt. 32 54,88 1 756,16
+10 uszczelka GU00060 m 3 13,78 41,34
+11 o-ring GU00064 szt. 32 1,28 40,96
+12 o-ring GU00077 szt. 32 1,28 40,96
+13 uszczelka GU00112 szt. 64 7,01 448,64
+14 uszczelka GU00113 szt. 32 5,94 190,08
+15 sprężyna WP01054 szt. 32 6,97 223,04
+16 uszczelka WP12267 szt. 64 19,52 1 249,28
+17 membrana WP16548 szt. 32 40,21 1 286,72
+18 uszczelka WP17274 szt. 1 46,31 46,31
+19 uszczelka GU00113 szt. 50 5,94 297,00
+Suma netto (EUR) 9 142,09
+Podatek vat 23% (EUR) 2 102,69
+Wartość brutto (EUR) 11 244,78
+Termin ważności: 30 dni
+Termin dostawy: 14 dni
+Warunki płatności: przelew 30 dni
+Warunki dostawy: Ex-works (Włochy)
+Płatności:
+Załączniki:
+Sąd Rejonowy dla M.St. Warszawy ING BANK SLĄSKI S.A., SWIFT: INGBPLPW
+XII Wydział Gospodarczy KRS Rachunek bankowy PLN: PL 89 1050 1025 1000 0022 7336 6050
+KRS: 0000163618 Rachunek bankowy EUR: PL 80 1050 1025 1000 0022 7751 2865
+1 z 2
+
+=== PAGE 1 TABLE 2 ===
+Suma netto (EUR) | 9 142,09
+Podatek vat 23% (EUR) | 2 102,69
+Wartość brutto (EUR) | 11 244,78
+
+=== PAGE 2 TEXT ===
+Ważne: pozycje 1-9 dotyczą nalewaka WA04629
+pozycje 10-18 dotyczą nalewaka WA03365
+Gwarancja:
+W przypadku zamówienia, wartość części będzie przeliczona na złotówki zgodnie ze średnim kursem EURO w NBP, obowiązującym w dniu
+wystawienia faktury.
+Z poważaniem,
+Tomasz Brodaczewski
+tbrodaczewski@spolex.com
++48 504 225 531
+Sąd Rejonowy dla M.St. Warszawy ING BANK SLĄSKI S.A., SWIFT: INGBPLPW
+XII Wydział Gospodarczy KRS Rachunek bankowy PLN: PL 89 1050 1025 1000 0022 7336 6050
+KRS: 0000163618 Rachunek bankowy EUR: PL 80 1050 1025 1000 0022 7751 2865
+2 z 2
+[PDF_TEXT_END]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Lagerbuchse",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116000227",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Lagerbuchse",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116306112",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Lagerbuchse",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116632376",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]
