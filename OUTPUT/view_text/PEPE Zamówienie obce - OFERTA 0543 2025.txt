@@ -1,0 +1,69 @@
+=== PAGE 1 TEXT ===
+NrOFERTA 0543/2025
+OFERTA CENOWA
+ORYGINA(cid:224)
+2025-03-25 Solec Kujawski 2025-03-25
+data i miejsce wystawienia dokumentu termin realizacji
+Sprzedawca: "PePe" Sp. z o.o. Nabywca: SPÓ(cid:224)DZIELNIA MLECZARSKA "MLEKPOL" W
+Adres: 86-050 Solec Kujawski, Powsta(cid:276)ców 9 D GRAJEWIE
+NIP: 554-01-70-091 Adres: 19-203 Grajewo, Elewatorska 13
+Telefon: 52/387-30-13, 52/387-90-67 NIP: 719-000-04-25
+E-mail: pepe@pepesolec.pl www.pepesolec.pl
+Odbiorca: ZPM Sokó(cid:225)ka
+Adres: 16-100 Sokó(cid:225)ka, Ko(cid:225)(cid:225)(cid:261)taja 65
+Forma p(cid:225)atno(cid:286)ci: przelew 30 dni
+Cena Warto(cid:286)(cid:252) Stawka
+Lp. Nazwa Ilo(cid:286)(cid:252) Jm
+netto netto VAT
+1 (cid:285)ruba M10x'80 A2 DIN 933 1100 110,40 110,40 23%
+2 (cid:285)ruba M'8x'50 A2 DIN 912 1100 63,40 63,40 23%
+3 (cid:285)ruba M'6x'16 A2 DIN 933 1100 16,02 16,02 23%
+4 (cid:285)ruba M'4x40 A2 DIN 912 1100 21,30 21,30 23%
+5 (cid:285)ruba M'6x'25 A2 DIN 912 1100 25,40 25,40 23%
+6 Podk(cid:225)adka '8,4 A2 DIN 125 2100 7,47 14,94 23%
+7 Podk(cid:225)adka '6,4 A2 DIN 125 2100 6,65 13,30 23%
+8 Podk(cid:225)adka '5,3 A2 DIN 125 2100 3,58 7,16 23%
+9 Podk(cid:225)adka '4,3 A2 DIN 125 2100 3,15 6,30 23%
+10 Nakr(cid:266)tka M12 DIN 934 A2 1100 24,70 24,70 23%
+11 Us(cid:225)uga transportowa 1um. 22,00 22,00 23%
+Netto % VAT Brutto
+324,92 23% 74,73 399,65
+324,92 Razem 74,73 399,65
+Razem do zap(cid:225)aty: 399,65 PLN
+(cid:54)(cid:225)ownie:trzysta dziewi(cid:266)(cid:252)dziesi(cid:261)t dziewi(cid:266)(cid:252) z(cid:225)otych sze(cid:286)(cid:252)dziesi(cid:261)t pi(cid:266)(cid:252) groszy
+nazwisko i podpis osoby upowa(cid:298)nionej do odebrania Wystawi(cid:225)(a): Sylwia Sikora
+dokumentu
+Rachunki bankowe PLN: Strona 1 ostatnia
+BNP PARIBAS 94 1750 1051 0000 0000 1126 0489
+Rachunki bankowe EUR:
+BNP PARIBAS SWIFT: PPABPLPK 16 1750 1051 0000 0000 1126 0535
+
+=== PAGE 1 TABLE 1 ===
+|  | OFERTA CENOWA |  |  |  |  | NrOFERTA 0543/2025 |  |  | 
+ |  |  |  |  |  |  | ORYGINA(cid:224) |  |  | 
+ |  | 2025-03-25 Solec Kujawski data i miejsce wystawienia dokumentu |  |  |  |  | 2025-03-25 termin realizacji |  |  | 
+Sprzedawca: "PePe" Sp. z o.o. Adres: 86-050 Solec Kujawski, Powsta(cid:276)ców 9 D NIP: 554-01-70-091 Telefon: 52/387-30-13, 52/387-90-67 E-mail: pepe@pepesolec.pl www.pepesolec.pl |  |  |  |  | Nabywca: SPÓ(cid:224)DZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE Adres: 19-203 Grajewo, Elewatorska 13 NIP: 719-000-04-25 |  |  |  |  | 
+Odbiorca: ZPM Sokó(cid:225)ka Adres: 16-100 Sokó(cid:225)ka, Ko(cid:225)(cid:225)(cid:261)taja 65 |  |  |  |  |  |  |  |  |  | 
+Forma p(cid:225)atno(cid:286)ci: przelew 30 dni |  |  |  |  |  |  |  |  |  | 
+Lp. | Nazwa |  | Ilo(cid:286)(cid:252) | Jm | Cena netto | Warto(cid:286)(cid:252) netto |  | Stawka VAT |  | 
+1 | (cid:285)ruba M10x'80 A2 DIN 933 |  | 1 | 100 | 110,40 | 110,40 |  | 23% |  | 
+2 | (cid:285)ruba M'8x'50 A2 DIN 912 |  | 1 | 100 | 63,40 | 63,40 |  | 23% |  | 
+3 | (cid:285)ruba M'6x'16 A2 DIN 933 |  | 1 | 100 | 16,02 | 16,02 |  | 23% |  | 
+4 | (cid:285)ruba M'4x40 A2 DIN 912 |  | 1 | 100 | 21,30 | 21,30 |  | 23% |  | 
+5 | (cid:285)ruba M'6x'25 A2 DIN 912 |  | 1 | 100 | 25,40 | 25,40 |  | 23% |  | 
+6 | Podk(cid:225)adka '8,4 A2 DIN 125 |  | 2 | 100 | 7,47 | 14,94 |  | 23% |  | 
+7 | Podk(cid:225)adka '6,4 A2 DIN 125 |  | 2 | 100 | 6,65 | 13,30 |  | 23% |  | 
+8 | Podk(cid:225)adka '5,3 A2 DIN 125 |  | 2 | 100 | 3,58 | 7,16 |  | 23% |  | 
+9 | Podk(cid:225)adka '4,3 A2 DIN 125 |  | 2 | 100 | 3,15 | 6,30 |  | 23% |  | 
+10 | Nakr(cid:266)tka M12 DIN 934 A2 |  | 1 | 100 | 24,70 | 24,70 |  | 23% |  | 
+11 | Us(cid:225)uga transportowa |  | 1 | um. | 22,00 | 22,00 |  | 23% |  | 
+ |  |  |  |  |  | Netto |  | % | VAT | Brutto
+ |  |  |  |  |  | 324,92 |  | 23% | 74,73 | 399,65
+ |  |  |  |  |  | 324,92 |  | Razem | 74,73 | 399,65
+
+=== PAGE 1 TABLE 2 ===
+Razem do zap(cid:225)aty: 399,65 PLN | 
+(cid:54)(cid:225)ownie:trzysta dziewi(cid:266)(cid:252)dziesi(cid:261)t dziewi(cid:266)(cid:252) z(cid:225)otych sze(cid:286)(cid:252)dziesi(cid:261)t pi(cid:266)(cid:252) groszy |
+
+=== PAGE 1 TABLE 3 ===
+| nazwisko i podpis osoby upowa(cid:298)nionej do odebrania dokumentu |  | Wystawi(cid:225)(a): Sylwia Sikora |

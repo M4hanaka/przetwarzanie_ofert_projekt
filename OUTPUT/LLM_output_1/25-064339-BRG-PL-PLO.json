@@ -1,0 +1,20 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "25064339",
+        "opis": "XUMO-01-16 drylin R - wkładka ślizgowa okrągła, otwarta z materiału iglidur X (wymiar metryczny) - wkładka dwuczęściowa",
+        "grupa_materialow": "złączki",
+        "numer_oem": "XUMO-01-16",
+        "producent": "igus Sp. z o.o.",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]
+

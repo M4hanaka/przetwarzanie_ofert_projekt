@@ -1,0 +1,57 @@
+=== PAGE 1 TEXT ===
+Data sporządzenia wydruku:
+21.06.2023
+STERCONTROL Sp. z o.o.
+Aleksandra Ostrowskiego 9, 53-238 WROCŁAW
+Tel.: 71 719 90 09, NIP: 8943182214, KRS:0000956640
+Sprzedawca: Klient:
+STERCONTROL Spółka z ograniczoną odpowiedzialnością SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE
+Aleksandra Ostrowskiego 9 Elewatorska 13
+53-238 WROCŁAW 19-203 Grajewo
+NIP: 8943182214 NIP: 7190000425
+Oferta TS 10034/AJA/M15/2023
+Lp Symbol Opis Ilość j.m. Cena netto Wartość netto Termin dostawy Waluta
+1 110030009 MULTIrep X5 - Repeater 5-fach 1,00 szt. 3 320,00 3 320,00 z magazynu PLN
+- power supply: 24 VDC +/-20
+- battery: 0,3 A
+- connection: 5 x 9-pole Sub D
+- transmission rate: 9,6 kBit/s bis 12
+MBit/s
+- assemblage: 35 mm outshine
+- dimensions (HxBxT): 105 x 145 x 40 mm
+- degree of protect
+2 110050006 PROFIBUS Diagnostic connector, 90° fast 3,00 szt. 252,00 756,00 z magazynu PLN
+connect, 972-0DP10
+według stawki VAT wartość netto kwota VAT wartość brutto
+Podstawowy podatek VAT 23% 4 076,00 937,48 5 013,48
+Razem: 4 076,00 937,48 5 013,48
+Razem: 5 013,48 PLN
+Słownie: pięć tysięcy trzynaście PLN 48/100
+Warunki płatności: przelew 30 dni
+Warunki dostawy: Koszty dostawy (netto):
+po stronie dostawcy
+Dostawy towarów z oferty będą realizowane cześciowo, w momencie dostępności towaru na naszym magazynie.
+W związku z globalnym kryzysem wywołanym przez COVID-19 nie możemy obecnie podać wiążących terminów
+dostaw.
+Wszelkie modyfikacje treści oferty wymagają potwierdzenia przez obie strony w formie pisemnej pod rygorem
+nieważności.
+Uwagi:
+Ważność oferty: 14dni; Gwarancja: 12mc
+W przypadku cen oferowanych w walucie EURO istnieje możliwość płatności w: EUR (powyżej 1000 EUR) lub
+PLN (wszelkie płatności dokonywane w PLN liczone będą wg kursu sprzedaży PKO BP z dnia wystawienia
+faktury).
+Walutę w jakiej będzie dokonywana płatność należy określić najpóźniej w dniu złożenia zamówienia.
+W przypadku braku określenia waluty w dniu złożenia zamówienia faktura wystawiana będzie w PLN.
+Przygotował(a): Jaśkowski Adam
+
+=== PAGE 1 TABLE 1 ===
+Lp | Symbol | Opis | Ilość | j.m. | Cena netto | Wartość netto | Termin dostawy | Waluta
+1 | 110030009 | MULTIrep X5 - Repeater 5-fach - power supply: 24 VDC +/-20 - battery: 0,3 A - connection: 5 x 9-pole Sub D - transmission rate: 9,6 kBit/s bis 12 MBit/s - assemblage: 35 mm outshine - dimensions (HxBxT): 105 x 145 x 40 mm - degree of protect | 1,00 | szt. | 3 320,00 | 3 320,00 | z magazynu | PLN
+2 | 110050006 | PROFIBUS Diagnostic connector, 90° fast connect, 972-0DP10 | 3,00 | szt. | 252,00 | 756,00 | z magazynu | PLN
+
+=== PAGE 1 TABLE 2 ===
+według stawki VAT | wartość netto | kwota VAT | wartość brutto
+Podstawowy podatek VAT 23% | 4 076,00 | 937,48 | 5 013,48
+
+=== PAGE 1 TABLE 3 ===
+Razem: | 5 013,48 PLN

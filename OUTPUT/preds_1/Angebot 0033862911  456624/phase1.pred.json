@@ -1,0 +1,52 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "10010 Dichtungssatz",
+      "kwota_ceny_oferty": 908.01
+    },
+    {
+      "position_id": 2,
+      "opis": "10020 Verschleißteilsatz Lagerung",
+      "kwota_ceny_oferty": 381.69
+    },
+    {
+      "position_id": 3,
+      "opis": "10030 Zylinderstift ISO 2338 5 m6x12 A2",
+      "kwota_ceny_oferty": 0.22
+    },
+    {
+      "position_id": 4,
+      "opis": "10040 O-Ring 70x2 EPDM peroxid 70SH",
+      "kwota_ceny_oferty": 1.78
+    },
+    {
+      "position_id": 5,
+      "opis": "10050 O-Ring 67x3 FKM/FEP-coated",
+      "kwota_ceny_oferty": 18.69
+    },
+    {
+      "position_id": 6,
+      "opis": "10060 O-Ring 180x3 EPDM peroxid 70SH",
+      "kwota_ceny_oferty": 69.63
+    },
+    {
+      "position_id": 7,
+      "opis": "10070 O-Ring 119x3 EPDM peroxid 70SH",
+      "kwota_ceny_oferty": 2.36
+    },
+    {
+      "position_id": 8,
+      "opis": "10080 Rillenkugellager 95x120x13",
+      "kwota_ceny_oferty": 1593.81
+    },
+    {
+      "position_id": 9,
+      "opis": "10090 Rillenkugellager 120x150x16",
+      "kwota_ceny_oferty": 2239.25
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "Terminal Zebra MC9300",
+      "kwota_ceny_oferty": 1675.0
+    },
+    {
+      "position_id": 2,
+      "opis": "3-letni kontrakt serwisowy do terminali Zebra MC9300",
+      "kwota_ceny_oferty": 290.0
+    },
+    {
+      "position_id": 3,
+      "opis": "Bateria do terminali Zebra MC9300 (7000mAh)",
+      "kwota_ceny_oferty": 83.0
+    },
+    {
+      "position_id": 4,
+      "opis": "4-stanowiskowa ładowarka baterii do terminali Zebra MC9300",
+      "kwota_ceny_oferty": 243.0
+    },
+    {
+      "position_id": 5,
+      "opis": "Zasilacz uniwersalny do terminali, tabletów, skanerów i kiosków Zebra",
+      "kwota_ceny_oferty": 37.0
+    },
+    {
+      "position_id": 6,
+      "opis": "Kabel DC do zasilaczy skanerów, tabletów, terminali i kiosków Zebra",
+      "kwota_ceny_oferty": 7.0
+    },
+    {
+      "position_id": 7,
+      "opis": "Folia ochronna na ekran do terminali MC9300 (5pack)",
+      "kwota_ceny_oferty": 34.0
+    },
+    {
+      "position_id": 8,
+      "opis": "Gumowy futerał do terminali Zebra MC9300",
+      "kwota_ceny_oferty": 8.0
+    },
+    {
+      "position_id": 9,
+      "opis": "Rysik do terminali i tabletów Zebra (3pack)",
+      "kwota_ceny_oferty": 37.0
+    },
+    {
+      "position_id": 10,
+      "opis": "Drukarka Zebra ZT411",
+      "kwota_ceny_oferty": 1261.0
+    },
+    {
+      "position_id": 11,
+      "opis": "3-letni kontrakt serwisowy do drukarek Zebra ZT411",
+      "kwota_ceny_oferty": 220.0
+    },
+    {
+      "position_id": 12,
+      "opis": "Tablet Zebra ET40",
+      "kwota_ceny_oferty": 655.0
+    },
+    {
+      "position_id": 13,
+      "opis": "Zasilacz do terminali, drukarek, skanerów i tabletów Zebra (EU)",
+      "kwota_ceny_oferty": 21.0
+    },
+    {
+      "position_id": 14,
+      "opis": "Kabel USB-C do terminali i skanerów Zebra (1m)",
+      "kwota_ceny_oferty": 8.0
+    },
+    {
+      "position_id": 15,
+      "opis": "Obudowa ochronna do tabletów Zebra ET40/ET45",
+      "kwota_ceny_oferty": 65.0
+    },
+    {
+      "position_id": 16,
+      "opis": "Rysik do terminali i tabletów Zebra (3pack)",
+      "kwota_ceny_oferty": 37.0
+    },
+    {
+      "position_id": 17,
+      "opis": "Folia ochronna na ekran Gamber-Johnson do tabletów Zebra ET40/ET45",
+      "kwota_ceny_oferty": 29.0
+    },
+    {
+      "position_id": 18,
+      "opis": "Uchwyt Brodit do tabletów Zebra ET40/ET45",
+      "kwota_ceny_oferty": 550.0
+    },
+    {
+      "position_id": 19,
+      "opis": "Blokada sprężynowa Brodit do uchwytów do tabletów Zebra ET40/ET45",
+      "kwota_ceny_oferty": 200.0
+    }
+  ]
+}

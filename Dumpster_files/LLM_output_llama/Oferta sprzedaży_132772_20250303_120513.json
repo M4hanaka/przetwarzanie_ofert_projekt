@@ -1,0 +1,172 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 8mm-G1/8 wew. z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3192 08 10"
+      },
+      {
+        "id": "2",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 6mm-R3/8 z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3109 06 17"
+      },
+      {
+        "id": "3",
+        "id_oferty": "132772",
+        "opis": "mufka G3/8 wew. G3/8 wew. z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0902 00 17"
+      },
+      {
+        "id": "4",
+        "id_oferty": "132772",
+        "opis": "złączka prosta, gwint wew G1/4, przewód fi 8 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3114 08 13"
+      },
+      {
+        "id": "5",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 12mm-R1/4 z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3109 12 13"
+      },
+      {
+        "id": "6",
+        "id_oferty": "132772",
+        "opis": "przyłączka kątowa wtykowa 16mm-G3/8 zew. z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3199 16 17"
+      },
+      {
+        "id": "7",
+        "id_oferty": "132772",
+        "opis": "złączka prosta wtykowa Ø4 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 04 00"
+      },
+      {
+        "id": "8",
+        "id_oferty": "132772",
+        "opis": "złączka wtykowa prosta Ø6 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 06 00"
+      },
+      {
+        "id": "9",
+        "id_oferty": "132772",
+        "opis": "złączka redukcyjna prosta wtykowa 4-6mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 04 06"
+      },
+      {
+        "id": "10",
+        "id_oferty": "132772",
+        "opis": "złączka wtykowa prosta Ø12 mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 12 00"
+      },
+      {
+        "id": "11",
+        "id_oferty": "132772",
+        "opis": "przyłączka prosta wtykowa z króćcem 6-12mm z mag.",
+        "grupa_materialow": "przyłączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3166 06 12"
+      },
+      {
+        "id": "12",
+        "id_oferty": "132772",
+        "opis": "złączka redukcyjna prosta wtykowa 8-12mm z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "3106 08 12"
+      },
+      {
+        "id": "13",
+        "id_oferty": "132772",
+        "opis": "przewód teflonowy Ø4x2mm, naturalny z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "PTFE4x2",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 7 IP 68, RAL 7035 1-2 dni",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "99300.HL",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "132772",
+        "opis": "HELUTOP HT-PG 13.5 IP 68, RAL 7035 (6-12mm) z mag.",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "99303.HL",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG7 szara z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "90710.HL",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG13,5 szara z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "90713.HL",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "132772",
+        "opis": "Nakrętka KMK-PA PG11 szara z mag.",
+        "grupa_materialow": "złączki",
+        "numer_oem": "90712.HL",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 18
+  }
+]

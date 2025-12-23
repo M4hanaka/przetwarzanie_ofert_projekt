@@ -1,0 +1,308 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Oferta
+ifmelectronicsp.zo.o.•Węglowa7•40-105Katowice
+Numeroferty 202086378
+Numerklienta 5289400
+Data 14.02.2024
+Państwareferencjaczujniki
+ZPMMRĄGOWO
+RadosławOrganek
+Kormoranów1 opracowaneprzez zespółifm
+11-700Mrągowo Nrtelefonu +48327056400
+Strona 1
+NIP:
+7190000425
+SzanowniPaństwo
+Wodpowiedzinazapytaniemamyprzyjemnośćprzedstawićofertęnanastępująceprodukty:
+Poz. Artykuł Opis Datawysyłkitowaru Ilość Cena Sumanetto
+Datadostawy jednostkowa
+[EUR] [EUR]
+0010 PV7004 PV-010-REG14-UFRVG/US// 04.03.2024 1SZT 116,38 116,38
+07.03.2024
+Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;
+sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1
+szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:RO
+Kodtaryfycelnej:90262020
+0020 PL1504 PL-010-REA12-A-DKG/US// 29.02.2024 1SZT 238,52 238,52
+05.03.2024
+Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-0,1...1MPa;G1/2gwintzewnętrzny;sygnał
+analogowy;IO-Link(ustawiany);4...20;(skalowany;1:5)mA;Konektor;-25...110; (Montażzabudowanybez
+przeciekówzuszczelnieniemmetal-na-metal.Abysprawdzićdopuszczalnetemperaturydlainnychuszczelnień
+proszęsprawdzićmateriałyuszczelekwdziale“Akcesoria”)°C;IP67;IP68;IP69;ciśnieniewzględne;próżnia;
+Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm
+(www.ifm.com/pl)
+Krajpochodzenia:DE
+Kodtaryfycelnej:90262020
+0030 PV7004 PV-010-REG14-UFRVG/US// 04.03.2024 2SZT 116,38 232,76
+07.03.2024
+Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;
+sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1
+szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:RO
+Kodtaryfycelnej:90262020
+0040 AL1950 IO-LinkMasterCLIoT8PIP20 14.02.2024 1SZT 349,67 349,67
+19.02.2024
+MasterIO-LinkzinterfejsemIoT;Liczbawejśćbinarnych8;Liczbawyjśćbinarnych8;IP20;Sztukwopakowaniu
+1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:DE
+Kodtaryfycelnej:85176200
+ifmelectronicsp.zo.o. mBankS.A. SądRejonowywKatowicach
+OddziałRegionalnywKatowicach WydziałGospodarczy
+Węglowa7 NrkontaPL:50114010780000311144001009 NrKRS: 0000213915
+40-105Katowice NIP:PL6342531910 NrBDO: 000030763
+Tel.: +48327056400
+Fax: +48327056455 NrkontaEUR:45114010780000311144001002
+e-mail: info.pl@ifm.com SWIFT:BREXPLPWKAT
+Internet: www.ifm.com.pl
+
+=== PAGE 2 TEXT ===
+Oferta
+Numeroferty 202086378
+Numerklienta 5289400
+Data 14.02.2024
+Państwareferencjaczujniki
+Strona 2
+Poz. Artykuł Opis Datawysyłkitowaru Ilość Cena Sumanetto
+Datadostawy jednostkowa
+[EUR] [EUR]
+0050 EVC002 ADOGH040MSS0005H04 14.02.2024 4SZT 12,89 51,56
+19.02.2024
+Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolor
+pomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki
+pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami
+gwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:PL
+Kodtaryfycelnej:85444290
+0060 VSA001 VIBRATIONSENSOR 14.02.2024 4SZT 186,30 745,20
+19.02.2024
+Akcelerometr;analogowy;Liczbaosipomiaru1;Zakrespomiarowywibracji-25...25g;Zakresczęstotliwości
+1...6000Hz;Temperaturaotoczenia-30...125°C;IP67;IP68;IP69K;Konektor;Sztukwopakowaniu1szt.;
+gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:DE
+Kodtaryfycelnej:90318080
+0070 E30493 ADAPTVIBM08-R/A-M12-S 14.02.2024 4SZT 33,48 133,92
+19.02.2024
+Adaptermontażowy;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami
+gwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:DE
+Kodtaryfycelnej:90319000
+0080 IFT203 IFB3004BBPKG/M/V4A/US-104-DPS 14.02.2024 1SZT 41,19 41,19
+19.02.2024
+Czujnikindukcyjny;M12x1/L=45mm;Strefadziałania4mmmontażzabudowany;normalnieotwarte;DC;
+PNP;M12Konektor;IP68;IP69K; ("COP");3-przewodowy;Temperaturaotoczenia0...100°C;Częstotliwość
+przełączania800Hz;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami
+gwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:RO
+Kodtaryfycelnej:85365019
+0090 VSE100 DIAGNOSTICELECTRONICS 14.02.2024 1SZT 745,29 745,29
+19.02.2024
+Elektronikaprzetwarzającadlaczujnikówwibracji;Całkowitailośćwejśćiwyjść16; (konfigurowalne);Ethernet;
+TCP/IP;114x50x105mm;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnaz
+warunkamigwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:DE
+Kodtaryfycelnej:90318080
+0100 EVC527 ADOGH040MSS0005C04 14.02.2024 4SZT 13,97 55,88
+19.02.2024
+Przewódzgniazdem;Napięciezasilania<50VAC;5m;PUR;Materiałobudowyobudowa:TPUkolor
+pomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki
+pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami
+gwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:PL
+Kodtaryfycelnej:85444290
+ifmelectronicsp.zo.o. mBankS.A. SądRejonowywKatowicach
+OddziałRegionalnywKatowicach WydziałGospodarczy
+Węglowa7 NrkontaPL:50114010780000311144001009 NrKRS: 0000213915
+40-105Katowice NIP:PL6342531910 NrBDO: 000030763
+Tel.: +48327056400
+Fax: +48327056455 NrkontaEUR:45114010780000311144001002
+e-mail: info.pl@ifm.com SWIFT:BREXPLPWKAT
+Internet: www.ifm.com.pl
+
+=== PAGE 3 TEXT ===
+Oferta
+Numeroferty 202086378
+Numerklienta 5289400
+Data 14.02.2024
+Państwareferencjaczujniki
+Strona 3
+Poz. Artykuł Opis Datawysyłkitowaru Ilość Cena Sumanetto
+Datadostawy jednostkowa
+[EUR] [EUR]
+0110 EVC002 ADOGH040MSS0005H04 14.02.2024 1SZT 12,89 12,89
+19.02.2024
+Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolor
+pomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki
+pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami
+gwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:PL
+Kodtaryfycelnej:85444290
+0120 SM6020 SMR12XGXFRKG/US-100 05.03.2024 1SZT 459,65 459,65
+08.03.2024
+Przepływomierzelektromagnetyczny;PNP/NPN;sygnałprzełączający;sygnałanalogowy;sygnałimpulsowy;
+IO-Link;sygnałczęstotliwościowy;Zakrespomiarowy0,05...35l/min;Temperaturamedium-20...90°C;
+Wytrzymałośćnaciśnienie16bar;G1/2DN15;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:
+60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)
+Krajpochodzenia:DE
+Kodtaryfycelnej:90261021
+Koszttransportu 10,90
+Wartośćnetto : 3.193,81EUR
+VAT23,00% : 734,58EUR
+Wartośćbrutto : 3.928,39EUR
+Warunkipłatności :30dnioddatywystawieniaFV
+Warunkidostawy :standard
+Opłatytransportowe :Dozamówieniazostanądoliczonekosztytransportu,któremogąsięróżnićwzależnościodwybranejmetody
+dostawy.Prosimyosprawdzeniewchwilizamówienia.
+Czasdostawy :Dostawastandardowazwyklezajmuje2-3dnirobocze,prosimyosprawdzeniewchwilizamówienia.
+Naszestandardowewarunkisprzedażysadostępnenażyczenie.
+Ważnośćoferty :PowyższaofertaniezawierapodatkuVATijestważnado15.03.2024.
+Oferowanacenazachowujeważnośćtylko,jeżelizamówieniezawierajasneodwołaniedopowyższegonumeru
+oferty.
+Komentarz :Wszystkieusługi,któreniezostałyzaoferowane,będąoddzielniezafakturowane.
+Tendokumentzostałutworzonyelektronicznieizachowujewartośćprawnąnawetbezpodpisu.
+Mamynadzieję,żeofertaspełniaPaństwaoczekiwaniaioczekujemynazamówienienaadres:
+info.pl@ifm.com
+Inneproduktyiakcesoriamożnaznaleźćnawww.ifm.com.
+ifmelectronicsp.zo.o. mBankS.A. SądRejonowywKatowicach
+OddziałRegionalnywKatowicach WydziałGospodarczy
+Węglowa7 NrkontaPL:50114010780000311144001009 NrKRS: 0000213915
+40-105Katowice NIP:PL6342531910 NrBDO: 000030763
+Tel.: +48327056400
+Fax: +48327056455 NrkontaEUR:45114010780000311144001002
+e-mail: info.pl@ifm.com SWIFT:BREXPLPWKAT
+Internet: www.ifm.com.pl
+[PDF_TEXT_END]

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "SICK Sp. z o.o.",
+    "data_oferty": "2024-01-17",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "21004439",
+        "opis": "Presence Inspection License",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK 1128701;1128701"
+      },
+      {
+        "id": "2",
+        "id_oferty": "21004439",
+        "opis": "Czujnik wizyjny 3D Visionary-T Mini",
+        "grupa_materialow": "czujniki",
+        "numer_oem": "V3S145-1AAAAAA",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK 1127086;Czas dostawy: ok. 3 tygodnie;Rabat 18,00 %;Cena po rabacie 7 242,07 PLN;Wartość po rabacie 7 242,07 PLN;https://www.sick.com/1127086;● Zintegrowana aplikacja: Strumień danych z możliwością dostępu do danych w urządzeniu. Możliwość wczytania do urządzenia gotowych aplikacji Key Apps i tworzenie własnych aplikacji."
+      },
+      {
+        "id": "3",
+        "id_oferty": "21004439",
+        "opis": "Radiator Visionary",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK 2127749;Czas dostawy: ok. 3-4 tygodnie;Rabat 10,00 %;Cena po rabacie 291,58 PLN;Wartość po rabacie 291,58 PLN;https://www.sick.com/2127749;● Opis: Radiator (2-częściowy) ze śrubami.;2127749"
+      },
+      {
+        "id": "4",
+        "id_oferty": "21004439",
+        "opis": "Zestaw do mocowania Visionary",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK 2124497;Czas dostawy: na stanie;https://www.sick.com/2124497;2124497"
+      },
+      {
+        "id": "5",
+        "id_oferty": "21004439",
+        "opis": "YN2X18-100EG1MRJA8",
+        "grupa_materialow": "przewody",
+        "numer_oem": "YN2X18-100EG1MRJA8",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK 2094785;Czas dostawy: na stanie;https://www.sick.com/2094785;2094785"
+      },
+      {
+        "id": "6",
+        "id_oferty": "21004439",
+        "opis": "YG2A28-100UA6XLEAX",
+        "grupa_materialow": "przewody",
+        "numer_oem": "YG2A28-100UA6XLEAX",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK 2114689;Czas dostawy: na stanie;https://www.sick.com/2114689;2114689"
+      }
+    ],
+    "liczba_elementow": 6
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "Elmark Spółka Jawna Jędrzejewska",
+    "data_oferty": "2023-09-15",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OO/000930/23/9",
+        "opis": "Przewód połączeniowy 8-pin, zakończony gniazdem M12 prostym, długość 3 m, do wyłączników bezpieczeństwa RFID 3SE63 lub 3SE5324",
+        "grupa_materialow": "kable",
+        "numer_oem": "3SX5601-2GA03",
+        "producent": "Siemens",
+        "serial_numbers": "CN: 85444290; PKWiU: 27.90.44.0"
+      },
+      {
+        "id": "2",
+        "id_oferty": "OO/000930/23/9",
+        "opis": "Kolumna sygnalizacyjna programowalna 70 mm, 9 segmentów, z syreną, złączę M12 męskie 8-pin",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "8WD4613-5JH37",
+        "producent": "Siemens",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "OO/000930/23/9",
+        "opis": "Zintegrowana stopa z rurą 100 mm do programowalnych kolumn sygnalizacyjnych 70 mm, IP66/69K",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "8WD4618-0DA",
+        "producent": "Siemens",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 3
+  }
+]

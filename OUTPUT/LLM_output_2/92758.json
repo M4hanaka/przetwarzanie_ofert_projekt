@@ -1,0 +1,325 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "",
+        "opis": "Cup station",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116282543"
+      },
+      {
+        "id": "2",
+        "id_oferty": "0000092758",
+        "opis": "Gelenklager",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8104981201;Reference: enquiry 000092758 Pos.: 30;Total weight of position: 2,40 KG;8104981201"
+      },
+      {
+        "id": "3",
+        "id_oferty": "0000092758",
+        "opis": "Pump",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8180004311;Reference: enquiry 000092758 Pos.: 30;Total weight of position: 0,06 KG;8180004311"
+      },
+      {
+        "id": "4",
+        "id_oferty": "",
+        "opis": "O-Ring 8180004311",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8180004311;8180004311"
+      },
+      {
+        "id": "5",
+        "id_oferty": "",
+        "opis": "Gleitdichtring mit O-Ring D75A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8104684145;Reference: enquiry 0000092758 Pos.: 50;8104684145"
+      },
+      {
+        "id": "6",
+        "id_oferty": "",
+        "opis": "Führungsring D75A",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8104684148;Reference: enquiry 0000092758 Pos.: 60;8104684148"
+      },
+      {
+        "id": "7",
+        "id_oferty": "",
+        "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8180028493;Reference: enquiry 0000092758 Pos.: 70;8180028493"
+      },
+      {
+        "id": "8",
+        "id_oferty": "",
+        "opis": "Dichtring 8108114300",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "ZM05545B00250027A;8108114300"
+      },
+      {
+        "id": "9",
+        "id_oferty": "",
+        "opis": "Abstreifring AS25-33x4/7FKM3-85",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8104683953;Reference: enquiry 000092758 Pos.: 90;8104683953"
+      },
+      {
+        "id": "10",
+        "id_oferty": "",
+        "opis": "Rotary valve attachment",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8108177837"
+      },
+      {
+        "id": "11",
+        "id_oferty": "",
+        "opis": "Abstreifer",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8108177837"
+      },
+      {
+        "id": "12",
+        "id_oferty": "",
+        "opis": "Führungsring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8104683442"
+      },
+      {
+        "id": "13",
+        "id_oferty": "",
+        "opis": "Wellendichtring 238B-00300-40A-FKM",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8180005780;Reference: enquiry 0000092758 Pos.: 130;8180005780"
+      },
+      {
+        "id": "14",
+        "id_oferty": "",
+        "opis": "Outlet 8104684427",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8104684427"
+      },
+      {
+        "id": "15",
+        "id_oferty": "",
+        "opis": "Dichtungssatz 600-1000ml DS D80 FKM",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8104684427;Reference: enquiry 0000092758 Pos.: 150;8104684427"
+      },
+      {
+        "id": "16",
+        "id_oferty": "",
+        "opis": "Usit-Ring HY 6,1-13,1-1 EPDM 291/1.4404",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8180015678"
+      },
+      {
+        "id": "17",
+        "id_oferty": "0000092758",
+        "opis": "Sink plate",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "Old item no.: 8116312377;Reference: enquiry 0000092758 Pos.: 160;8116312377"
+      },
+      {
+        "id": "18",
+        "id_oferty": "",
+        "opis": "O-Ring 8108148496",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8108148496"
+      },
+      {
+        "id": "19",
+        "id_oferty": "",
+        "opis": "Tank 8104684829",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8104684829"
+      },
+      {
+        "id": "20",
+        "id_oferty": "",
+        "opis": "Dichtungssatz 8104684829",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8104684829"
+      },
+      {
+        "id": "21",
+        "id_oferty": "",
+        "opis": "O-Ring 8116312284",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "DIN11864-R-40X5-FKM-80+3A+FDA;8116312284"
+      },
+      {
+        "id": "22",
+        "id_oferty": "",
+        "opis": "Vapour distributor",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116290531"
+      },
+      {
+        "id": "23",
+        "id_oferty": "",
+        "opis": "O-Ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116290532"
+      },
+      {
+        "id": "24",
+        "id_oferty": "",
+        "opis": "Cup lifter",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116626993"
+      },
+      {
+        "id": "25",
+        "id_oferty": "",
+        "opis": "Führungsstange",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116000138"
+      },
+      {
+        "id": "26",
+        "id_oferty": "",
+        "opis": "Gleitdichtring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116004866"
+      },
+      {
+        "id": "27",
+        "id_oferty": "",
+        "opis": "O-Ring 8116000227",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116000227"
+      },
+      {
+        "id": "28",
+        "id_oferty": "",
+        "opis": "Lagerbuchse 8116306112",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116306112"
+      },
+      {
+        "id": "29",
+        "id_oferty": "",
+        "opis": "Lagerbuchse",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116632376"
+      },
+      {
+        "id": "30",
+        "id_oferty": "",
+        "opis": "Dichtung",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "SAUGLEITUNG;8116306115"
+      },
+      {
+        "id": "31",
+        "id_oferty": "",
+        "opis": "Spiralschlauch 25,000STK",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "20/27x3,5, 50m;8116005387"
+      },
+      {
+        "id": "32",
+        "id_oferty": "",
+        "opis": "Auflage",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "support;8116305493"
+      },
+      {
+        "id": "33",
+        "id_oferty": "",
+        "opis": "Buchse",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "EA000-107-00018;8116631456"
+      },
+      {
+        "id": "34",
+        "id_oferty": "",
+        "opis": "Hülse",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116631469"
+      },
+      {
+        "id": "35",
+        "id_oferty": "",
+        "opis": "Gelenklager",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "SpoldzielniaMleczarska MLEKPOLL Ampack GmbH",
+        "serial_numbers": "8116281969"
+      }
+    ],
+    "liczba_elementow": 35
+  }
+]

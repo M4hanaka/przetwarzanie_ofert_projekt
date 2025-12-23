@@ -1,0 +1,37 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "TURCK Sp. z o.o.",
+    "data_oferty": "2023-11-13",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "1398586",
+        "opis": "Moduł pomiaru prądu do 12 czujników AC, montaż na szynę DIN, zasilanie przez magistralę płyty montażowej",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "100027058",
+        "producent": "TURCK",
+        "serial_numbers": "CN: 90314990"
+      },
+      {
+        "id": "2",
+        "id_oferty": "1398586",
+        "opis": "Monitor warunków w szafach: czujniki temperatury, wilgotności, dystansu do drzwi, wejścia/wyjścia cyfrowe i analogowe, ethernet 1Gb/100Mb",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "100040397",
+        "producent": "TURCK",
+        "serial_numbers": "CN: 90314990"
+      },
+      {
+        "id": "3",
+        "id_oferty": "1398586",
+        "opis": "Licencja SIINEOS",
+        "grupa_materialow": "oprogramowanie",
+        "numer_oem": "100047244",
+        "producent": "TURCK",
+        "serial_numbers": "CN: 49119900"
+      }
+    ],
+    "liczba_elementow": 3
+  }
+]

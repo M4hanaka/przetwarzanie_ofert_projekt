@@ -1,0 +1,97 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "Tetra Pak sp. z o.o.",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "6-4722 6562 46 O-ring 97.79 x 5.33",
+      "kwota_ceny_oferty": 43.03
+    },
+    {
+      "position_id": 2,
+      "opis": "6-4722 7153 02 Support ring axial 5.33 x 110",
+      "kwota_ceny_oferty": 218.66
+    },
+    {
+      "position_id": 3,
+      "opis": "6-4306 0000 07 Guide band 110",
+      "kwota_ceny_oferty": 82.82
+    },
+    {
+      "position_id": 4,
+      "opis": "6-4722 1418 03 Guide band 40 x 9.5",
+      "kwota_ceny_oferty": 37.06
+    },
+    {
+      "position_id": 5,
+      "opis": "6-4723 1370 08 O-ring 40.87x3.53 Foodgrade",
+      "kwota_ceny_oferty": 22.77
+    },
+    {
+      "position_id": 6,
+      "opis": "6-4722 7151 02 Support ring axial 3.53 x 40.2",
+      "kwota_ceny_oferty": 118.75
+    },
+    {
+      "position_id": 7,
+      "opis": "6-4723 1370 06 O-ring 32.92x3.53 Foodgrade",
+      "kwota_ceny_oferty": 19.96
+    },
+    {
+      "position_id": 8,
+      "opis": "6-4723 1370 15 O-ring 69.44x3.53 Foodgrade",
+      "kwota_ceny_oferty": 32.94
+    },
+    {
+      "position_id": 9,
+      "opis": "6-4723 1370 35 O-ring 16.3x2.4 Foodgrade",
+      "kwota_ceny_oferty": 13.98
+    },
+    {
+      "position_id": 10,
+      "opis": "6-4723 1370 34 O-ring 100x3.55 Foodgrade",
+      "kwota_ceny_oferty": 43.81
+    },
+    {
+      "position_id": 11,
+      "opis": "6-4722 7152 02 Support ring radial 3.53 x 109.8",
+      "kwota_ceny_oferty": 218.36
+    },
+    {
+      "position_id": 12,
+      "opis": "6-4723 1370 14 O-ring 63.09x3.53 Foodgrade",
+      "kwota_ceny_oferty": 30.65
+    },
+    {
+      "position_id": 13,
+      "opis": "6-4722 5033 03 Guide ring 4",
+      "kwota_ceny_oferty": 203.6
+    },
+    {
+      "position_id": 14,
+      "opis": "6-4723 1370 74 O-ring 72x4 Foodgrade",
+      "kwota_ceny_oferty": 33.81
+    },
+    {
+      "position_id": 15,
+      "opis": "6-4723 1370 72 O-ring 89x5 Foodgrade",
+      "kwota_ceny_oferty": 39.91
+    },
+    {
+      "position_id": 16,
+      "opis": "6-4722 5289 01 O-ring 150 x 4 NBR",
+      "kwota_ceny_oferty": 12.29
+    },
+    {
+      "position_id": 17,
+      "opis": "6-4722 1178 19 Support ring 110",
+      "kwota_ceny_oferty": 48.1
+    },
+    {
+      "position_id": 18,
+      "opis": "6-4722 0942 17 Valve sealing 100 x 110 x 7.5",
+      "kwota_ceny_oferty": 156.11
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Data sporządzenia wydruku:
+21.06.2023
+STERCONTROL Sp. z o.o.
+Aleksandra Ostrowskiego 9, 53-238 WROCŁAW
+Tel.: 71 719 90 09, NIP: 8943182214, KRS:0000956640
+Sprzedawca: Klient:
+STERCONTROL Spółka z ograniczoną odpowiedzialnością SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE
+Aleksandra Ostrowskiego 9 Elewatorska 13
+53-238 WROCŁAW 19-203 Grajewo
+NIP: 8943182214 NIP: 7190000425
+Oferta TS 10034/AJA/M15/2023
+Lp Symbol Opis Ilość j.m. Cena netto Wartość netto Termin dostawy Waluta
+1 110030009 MULTIrep X5 - Repeater 5-fach 1,00 szt. 3 320,00 3 320,00 z magazynu PLN
+- power supply: 24 VDC +/-20
+- battery: 0,3 A
+- connection: 5 x 9-pole Sub D
+- transmission rate: 9,6 kBit/s bis 12
+MBit/s
+- assemblage: 35 mm outshine
+- dimensions (HxBxT): 105 x 145 x 40 mm
+- degree of protect
+2 110050006 PROFIBUS Diagnostic connector, 90° fast 3,00 szt. 252,00 756,00 z magazynu PLN
+connect, 972-0DP10
+według stawki VAT wartość netto kwota VAT wartość brutto
+Podstawowy podatek VAT 23% 4 076,00 937,48 5 013,48
+Razem: 4 076,00 937,48 5 013,48
+Razem: 5 013,48 PLN
+Słownie: pięć tysięcy trzynaście PLN 48/100
+Warunki płatności: przelew 30 dni
+Warunki dostawy: Koszty dostawy (netto):
+po stronie dostawcy
+Dostawy towarów z oferty będą realizowane cześciowo, w momencie dostępności towaru na naszym magazynie.
+W związku z globalnym kryzysem wywołanym przez COVID-19 nie możemy obecnie podać wiążących terminów
+dostaw.
+Wszelkie modyfikacje treści oferty wymagają potwierdzenia przez obie strony w formie pisemnej pod rygorem
+nieważności.
+Uwagi:
+Ważność oferty: 14dni; Gwarancja: 12mc
+W przypadku cen oferowanych w walucie EURO istnieje możliwość płatności w: EUR (powyżej 1000 EUR) lub
+PLN (wszelkie płatności dokonywane w PLN liczone będą wg kursu sprzedaży PKO BP z dnia wystawienia
+faktury).
+Walutę w jakiej będzie dokonywana płatność należy określić najpóźniej w dniu złożenia zamówienia.
+W przypadku braku określenia waluty w dniu złożenia zamówienia faktura wystawiana będzie w PLN.
+Przygotował(a): Jaśkowski Adam
+
+=== PAGE 1 TABLE 1 ===
+Lp | Symbol | Opis | Ilość | j.m. | Cena netto | Wartość netto | Termin dostawy | Waluta
+1 | 110030009 | MULTIrep X5 - Repeater 5-fach - power supply: 24 VDC +/-20 - battery: 0,3 A - connection: 5 x 9-pole Sub D - transmission rate: 9,6 kBit/s bis 12 MBit/s - assemblage: 35 mm outshine - dimensions (HxBxT): 105 x 145 x 40 mm - degree of protect | 1,00 | szt. | 3 320,00 | 3 320,00 | z magazynu | PLN
+2 | 110050006 | PROFIBUS Diagnostic connector, 90° fast connect, 972-0DP10 | 3,00 | szt. | 252,00 | 756,00 | z magazynu | PLN
+
+=== PAGE 1 TABLE 2 ===
+według stawki VAT | wartość netto | kwota VAT | wartość brutto
+Podstawowy podatek VAT 23% | 4 076,00 | 937,48 | 5 013,48
+
+=== PAGE 1 TABLE 3 ===
+Razem: | 5 013,48 PLN
+[PDF_TEXT_END]

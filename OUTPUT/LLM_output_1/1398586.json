@@ -1,0 +1,37 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "Turck Sp z o o",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "",
+        "opis": "Moduł pomiaru prądu",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "",
+        "producent": "Turck Sp z o.o.",
+        "serial_numbers": "CN: 90314990;EAN: 4047101538373;100027058"
+      },
+      {
+        "id": "2",
+        "id_oferty": "",
+        "opis": "Monitor warunków w szafach",
+        "grupa_materialow": "monitoring",
+        "numer_oem": "IM18-CCM60-MTI/24VDC",
+        "producent": "TURCK Sp z o o",
+        "serial_numbers": "Kod celny: 90314990;Kraj pochodzenia: DE;EAN: 4047101600872;Grupa materiałowaD3;Waga:0,223KG;Szac.data dostawy: 1 SZTna 15.11.2023;Uzależnione od aktualnych stanów magazynowych"
+      },
+      {
+        "id": "3",
+        "id_oferty": "",
+        "opis": "IM18-CCM_SIINEOS_LICENCE",
+        "grupa_materialow": "A1",
+        "numer_oem": "IM18-CCM_SIINEOS_LICENCE",
+        "producent": "TURCK Sp z o o",
+        "serial_numbers": "CN: 49119900;EAN: 4047101635331;100047244"
+      }
+    ],
+    "liczba_elementow": 3
+  }
+]

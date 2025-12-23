@@ -1,0 +1,28 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "Elmark Spółka Jawna Jędrzejewska",
+    "data_oferty": "2024-04-22",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OO/001399/24/4",
+        "opis": "SCALANCE X005 — unmanaged switch 5× RJ45 10/100 Mbit/s, IP30, zasilanie 24 V DC, diagnostyka LED",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "6GK5005-0BA10-1AA3",
+        "producent": "Siemens",
+        "serial_numbers": "CN: 85176200; PKWiU: 26.30.23.0"
+      },
+      {
+        "id": "2",
+        "id_oferty": "OO/001399/24/4",
+        "opis": "Blok styków pomocniczych 2NO+2NC, montaż czołowy, do styczników serii 3RT2 oraz 3RH21",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "3RH2911-1HA22",
+        "producent": "Siemens",
+        "serial_numbers": "CN: 85365080; PKWiU: 27.33.11.0"
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

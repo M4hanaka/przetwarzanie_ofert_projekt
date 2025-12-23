@@ -1,0 +1,181 @@
+[
+  {
+    "id": "O/2024/606",
+    "nazwa_dostawcy": "Spolex Sp. z o.o.",
+    "data_oferty": "2024-03-18",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "",
+        "opis": "o-ring",
+        "grupa_materialow": "",
+        "numer_oem": "GU00064",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "",
+        "opis": "o-ring ",
+        "grupa_materialow": "",
+        "numer_oem": "GU00077",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "GU00112",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "GU00113",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "WP11800",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "WP12267",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "WP12268",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "",
+        "opis": "sprężyna ",
+        "grupa_materialow": "",
+        "numer_oem": "WP12598",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "",
+        "opis": "membrana ",
+        "grupa_materialow": "",
+        "numer_oem": "WP21069",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "",
+        "numer_oem": "GU00060",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "",
+        "opis": "o-ring ",
+        "grupa_materialow": "",
+        "numer_oem": "GU00064",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "12",
+        "id_oferty": "",
+        "opis": "o-ring ",
+        "grupa_materialow": "",
+        "numer_oem": "GU00077",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "13",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "GU00112",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "GU00113",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "",
+        "opis": "sprężyna ",
+        "grupa_materialow": "sprężyny",
+        "numer_oem": "WP01054",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "WP12267",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "",
+        "opis": "membrana ",
+        "grupa_materialow": "membrany",
+        "numer_oem": "WP16548",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "WP17274",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "19",
+        "id_oferty": "",
+        "opis": "uszczelka ",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "GU00113",
+        "producent": "Spolex Sp. z o.o.",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 19
+  }
+]

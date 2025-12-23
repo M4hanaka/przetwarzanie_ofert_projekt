@@ -1,0 +1,28 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "SaniGut-stal",
+    "data_oferty": "2024-04-30",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "24/IV/30-2",
+        "opis": "Zawór klapowy SV04 DIN DN80, PAMS-ZF-ASI 304 EPDM",
+        "grupa_materialow": "armatura",
+        "numer_oem": "560400801320/ASI",
+        "producent": "M&S",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "24/IV/30-2",
+        "opis": "Zawór klapowy SV04 DIN DN100, PAMS-ZF-ASI 304 EPDM",
+        "grupa_materialow": "armatura",
+        "numer_oem": "560401001320/ASI",
+        "producent": "M&S",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

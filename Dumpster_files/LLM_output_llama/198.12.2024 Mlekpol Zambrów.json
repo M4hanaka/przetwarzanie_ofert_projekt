@@ -1,0 +1,172 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "198122024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140017"
+      },
+      {
+        "id": "2",
+        "id_oferty": "198122024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "130027"
+      },
+      {
+        "id": "3",
+        "id_oferty": "198122024",
+        "opis": "O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "130031S",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "",
+        "opis": "O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140017"
+      },
+      {
+        "id": "5",
+        "id_oferty": "198122024",
+        "opis": "O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "130027"
+      },
+      {
+        "id": "6",
+        "id_oferty": "",
+        "opis": "EBF O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140017"
+      },
+      {
+        "id": "7",
+        "id_oferty": "198122024",
+        "opis": "O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140119"
+      },
+      {
+        "id": "8",
+        "id_oferty": "198122024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140011"
+      },
+      {
+        "id": "9",
+        "id_oferty": "198122024",
+        "opis": "Gasket",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "160131"
+      },
+      {
+        "id": "10",
+        "id_oferty": "198122024",
+        "opis": "Gasket",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "160130"
+      },
+      {
+        "id": "11",
+        "id_oferty": "198122024",
+        "opis": "Gasket",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "m;630005"
+      },
+      {
+        "id": "12",
+        "id_oferty": "198122024",
+        "opis": "O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140188"
+      },
+      {
+        "id": "13",
+        "id_oferty": "198122024",
+        "opis": "Washer",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0135096"
+      },
+      {
+        "id": "14",
+        "id_oferty": "198122024",
+        "opis": "Washer",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0134673"
+      },
+      {
+        "id": "15",
+        "id_oferty": "198122024",
+        "opis": "Washer",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0100036"
+      },
+      {
+        "id": "16",
+        "id_oferty": "198122024",
+        "opis": "Seat valv",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0123798"
+      },
+      {
+        "id": "17",
+        "id_oferty": "198122024",
+        "opis": "Filter",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "260751"
+      },
+      {
+        "id": "18",
+        "id_oferty": "198122024",
+        "opis": "Oil filter",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "230003"
+      }
+    ],
+    "liczba_elementow": 18
+  }
+]

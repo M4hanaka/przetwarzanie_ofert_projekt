@@ -1,0 +1,28 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "ENITRA Sp. z o.o.",
+    "data_oferty": "2025-04-01",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OF/PiT/MMG/2025/03748",
+        "opis": "Taśma transportująca EDU06W-FF, szerokość 120 mm, długość 4300 mm, połączenie Flexproof EF (zgrzewane na zygzak)",
+        "grupa_materialow": "taśmy transportujące",
+        "numer_oem": "EDU06W-FF",
+        "producent": "ENITRA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "OF/PiT/MMG/2025/03748",
+        "opis": "Koszt spedycji",
+        "grupa_materialow": "",
+        "numer_oem": "030G 03G",
+        "producent": "ENITRA",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

@@ -1,0 +1,45 @@
+=== PAGE 1 TEXT ===
+ATM GROUP sp. z o.o. sp. k
+ul. Jankowicka 19
+44-321 Marklowice
+POLAND
+Oferta handlowa № 20250411_01
+Marklowice 11.04.2025r
+Szanowny Pan Paweł Szylin
+Spółdzielnia Mleczarska „Mlekpol”
+Oddział w Sokółce
+ul. Hugona Kołłątaja 65
+16-100 Sokółka
+tel. kom: +48 887 444 733
+e-mail: pawel.szylin@mlekpol.com.pl
+W nawiązaniu do rozmowy przesyłam ofertę na części zamienne do maszyn ATM:
+1. Części zamienne
+Pozycja Numer części Ilość Opis Cena/szt
+1 Nakrętka DST 1 Maszyna Pick&place 420,00 zł
+2 201.07.03.02.25 1 Izolator plastra PEEK 1kg. – LWB-004 510,00 zł
+3 201.07.03.02.27 1 Izolator plastra PEEK 3/5kg. – LWB-004 590,00 zł
+4 201.07.03.02.21 1 Izolator plastra PEEK 10kg. – LWB-004 640,00 zł
+5 Merkel 16x26 FDA 12 Uszczelnienie końcówki nalewowej PAC 12.0 46,00 zł
+Suma 2 712,00 zł
+2. Warunki realizacji zamówienia
+• Termin realizacji: Towar dostarczono
+• Warunki płatności:
+- 100% - Po dostawie w terminie 14 dni
+• Oferta ważna: 30 dni od daty przygotowania.
+• Składając zamówienie proszę powołać się na numer niniejszej oferty.
+W przypadku jakichkolwiek zapytań z Państwa strony proszę o kontakt:
+Franciszek Smusz - Tel. Kom: +48 501 242 055 Mail. fsmusz@atmg.eu
+Z poważaniem
+Franciszek Smusz
+1
+
+=== PAGE 1 TABLE 1 ===
+Pozycja | Numer części | Ilość | Opis | Cena/szt
+1 | Nakrętka DST | 1 | Maszyna Pick&place | 420,00 zł
+2 | 201.07.03.02.25 | 1 | Izolator plastra PEEK 1kg. – LWB-004 | 510,00 zł
+3 | 201.07.03.02.27 | 1 | Izolator plastra PEEK 3/5kg. – LWB-004 | 590,00 zł
+4 | 201.07.03.02.21 | 1 | Izolator plastra PEEK 10kg. – LWB-004 | 640,00 zł
+5 | Merkel 16x26 FDA | 12 | Uszczelnienie końcówki nalewowej PAC 12.0 | 46,00 zł
+
+=== PAGE 1 TABLE 2 ===
+Suma | 2 712,00 zł

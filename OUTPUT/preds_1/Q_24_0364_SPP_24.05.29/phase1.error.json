@@ -1,0 +1,3 @@
+{
+  "error": "1 validation error for OfferScan\n  Invalid JSON: EOF while parsing a string at line 1 column 4628 [type=json_invalid, input_value='{ \"id\": \"\", \"nazwa_dosta...ion_id\": 53, \"opis\": \"9', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.12/v/json_invalid"
+}

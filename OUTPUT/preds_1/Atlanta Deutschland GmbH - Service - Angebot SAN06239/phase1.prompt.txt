@@ -1,0 +1,575 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Atlanta Deutschland GmbH • Kammererstraße 18 • 71636 Ludwigsburg
+Quote no. Date
+Spoldzielnia Mleczarska "Mlekpol" W Grajewie SAN06239 21.02.2025
+Grzegorz Lehr
+ul. Elewatorska 13
+85-453 Bydgoszcz
+Polen Customer no. D11325
+Advisor Marina Parfenova
+Phone +49 7141/14156-21
+E-mail m.parfenova@atlanta
+-deutschland.de
+Sales person Service
+Quote
+inquiry per Mail Grzegorz Lehr 21.02.2025
+Ship to:
+Spoldzielnia Mleczarska "Mlekpol" W Grajewie
+ul. Elewatorska 13
+85-453 Bydgoszcz
+Polen
+Project Mlekpol
+KOM-Number K824-E07
+Serial Number A131205
+Type of machine Omega
+Item No. Description Quantity Price Amount
+EUR EUR
+Validity of quotation: 4 weeks
+Serviceartikelnr. SCODE00282
+Artikel 8200-169 Mlekpol
+Serial Number A131205
+10010003002 tie rod extension attack chain 2 PCS 299,20 598,40
+country of origin: IT
+material: ST37
+tariff no: 84229090
+delivery time: 21 days
+net weight: 1,5 kg
+total weight net/Pos.: 3 kg
+10000002308 spacer 2 PCS 73,60 147,20
+country of origin: IT
+material: ST37
+tariff no: 73181900
+delivery time: 21 days
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 2 TEXT ===
+page 2
+Item No. Description Quantity Price Amount
+EUR EUR
+net weight: 0,546 kg
+total weight net/Pos.: 1,092 kg
+10000002972 shaft 2 PCS 56,50 113,00
+country of origin: IT
+material: ST37
+tariff no: 84831095
+delivery time: 20 days
+net weight: 0,292 kg
+total weight net/Pos.: 0,584 kg
+20410001071 Deep groove ball bearings 4 PCS 14,40 57,60
+country of origin: IT
+material: ST37
+tariff no: 84821090
+delivery time: 21 days
+net weight: 0,098 kg
+total weight net/Pos.: 0,392 kg
+94200060 Shaft 4 PCS 171,70 686,80
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 28 days
+net weight: 4,75 kg
+total weight net/Pos.: 19 kg
+94000170 Mechanical stop 1 PCS 190,80 190,80
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 20 days
+net weight: 0,53 kg
+total weight net/Pos.: 0,53 kg
+94000120 Welder shape 1 PCS 249,00 249,00
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 14 days
+net weight: 0,359 kg
+total weight net/Pos.: 0,359 kg
+86000001141 Cartridge Heater 2 PCS 71,40 142,80
+country of origin: ES
+material: V2A
+tariff no: 85168020
+delivery time: 21 days
+net weight: 0,116 kg
+total weight net/Pos.: 0,232 kg
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 3 TEXT ===
+page 3
+Item No. Description Quantity Price Amount
+EUR EUR
+20545000745 Adjusting ring 5 PCS 14,60 73,00
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 21 days
+net weight: 0,103 kg
+total weight net/Pos.: 0,515 kg
+94000230 Caliper support bushing 2 PCS 157,40 314,80
+country of origin: IT
+tariff no: 84229090
+delivery time: 28 days
+net weight: 0,96 kg
+total weight net/Pos.: 1,92 kg
+10000002305 Mounting base sliding clamp 2 PCS 22,60 45,20
+country of origin: IT
+material: ST37
+tariff no: 84229090
+delivery time: 21 days
+net weight: 0,5 kg
+total weight net/Pos.: 1 kg
+94200020 Console 2 PCS 111,10 222,20
+country of origin: IT
+material: ST 37 verzinkt
+tariff no: 84799070
+delivery time: 21 days
+net weight: 0,134 kg
+total weight net/Pos.: 0,268 kg
+20410000616 Deep groove ball bearings 4 PCS 12,00 48,00
+country of origin: PT
+material: Stahl, Kunststoff
+tariff no: 84821090
+delivery time: 21 days
+net weight: 0,045 kg
+total weight net/Pos.: 0,18 kg
+20525000093 Circlip 2 PCS 2,30 4,60
+country of origin: IT
+material: ST37
+tariff no: 73182400
+delivery time: 14 days
+net weight: 0,008 kg
+total weight net/Pos.: 0,016 kg
+82405004006 Magnetic Sensor 12 PCS 59,40 712,80
+country of origin: IT
+material: ST37
+tariff no: 85365019
+delivery time: 21 days
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 4 TEXT ===
+page 4
+Item No. Description Quantity Price Amount
+EUR EUR
+net weight: 0,037 kg
+total weight net/Pos.: 0,444 kg
+40600004501 Pneumatic cylinder 2 PCS 352,38 704,76
+country of origin: DE
+material: Stahl, Kunststoff
+tariff no: 84123100
+delivery time: 35 days
+net weight: 3,6 kg
+total weight net/Pos.: 7,2 kg
+40600005312 Pneumatic cylinder 2 PCS 210,80 421,60
+country of origin: DE
+material: ST37
+tariff no: 84123100
+delivery time: 21 days
+net weight: 0,936 kg
+total weight net/Pos.: 1,872 kg
+40600005316 Pneumatic cylinder 2 PCS 200,13 400,26
+country of origin: DE
+material: Stahl, Kunststoff
+tariff no: 84123100
+delivery time: 21 days
+net weight: 1,5 kg
+total weight net/Pos.: 3 kg
+40600005318 Pneumatic cylinder 2 PCS 162,80 325,60
+country of origin: DE
+material:
+tariff no: 84123100
+delivery time: 35 days
+net weight: 0,304 kg
+total weight net/Pos.: 0,608 kg
+40300010368 Flow controller 4 PCS 39,60 158,40
+country of origin: DE-HE
+material: ST37
+tariff no: 84818059
+delivery time: 21 days
+net weight: 0,03 kg
+total weight net/Pos.: 0,12 kg
+40300010369 Adjustment 4 PCS 43,00 172,00
+country of origin: IT
+material: Stahl, Kunststoff
+tariff no: 73181491
+delivery time: 20 days
+net weight: 0,033 kg
+total weight net/Pos.: 0,132 kg
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 5 TEXT ===
+page 5
+Item No. Description Quantity Price Amount
+EUR EUR
+10000002912 Compression Spring 2 PCS 7,30 14,60
+country of origin: IT
+material: ST 37 verzinkt
+tariff no: 73202081
+delivery time: 20 days
+net weight: 0,003 kg
+total weight net/Pos.: 0,006 kg
+10010004407 Welding contrast 2 PCS 574,77 1.149,54
+country of origin: IT
+material: ST37
+tariff no: 83016000
+delivery time: 21 days
+net weight: 2,88 kg
+total weight net/Pos.: 5,76 kg
+10000004406 Contrast Rubber 2 PCS 78,80 157,60
+country of origin: IT
+material: Gummi
+tariff no: 84229090
+delivery time: 21 days
+net weight: 0,096 kg
+total weight net/Pos.: 0,192 kg
+10000001630 Pulley Pin 2 PCS 109,41 218,82
+country of origin: IT
+material: ST37
+tariff no: 84229090
+delivery time: 40 days
+net weight: 1,9 kg
+total weight net/Pos.: 3,8 kg
+10000001631 Pulley Pin 2 PCS 100,70 201,40
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 20 days
+net weight: 1,12 kg
+total weight net/Pos.: 2,24 kg
+20410001632 Deep groove ball bearing 16 PCS 18,10 289,60
+country of origin: KR
+material: ST37
+tariff no: 84821090
+delivery time: 21 days
+net weight: 0,118 kg
+total weight net/Pos.: 1,888 kg
+10000001634 Spacer 4 PCS 12,10 48,40
+country of origin: IT
+material: ST37
+tariff no: 94039010
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 6 TEXT ===
+page 6
+Item No. Description Quantity Price Amount
+EUR EUR
+delivery time: 40 days
+net weight: 0,06 kg
+total weight net/Pos.: 0,24 kg
+10000001635 Spacer 4 PCS 24,68 98,70
+country of origin: IT
+material: ST37
+tariff no: 94039010
+delivery time: 20 days
+net weight: 0,054 kg
+total weight net/Pos.: 0,216 kg
+10000001636 Clamping unit 2 PCS 29,60 59,20
+country of origin: IT
+material: ST37
+tariff no: 94039010
+delivery time: 20 days
+net weight: 0,171 kg
+total weight net/Pos.: 0,342 kg
+10000001637 Spacer 4 PCS 24,70 98,80
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 35 days
+net weight: 0,039 kg
+total weight net/Pos.: 0,156 kg
+20310003011 Green belt - close ring 3 PCS 295,20 885,60
+country of origin: DE-BW
+material: Polyurethan
+tariff no: 40103900
+delivery time: 14 days
+net weight: 1,7 kg
+total weight net/Pos.: 5,1 kg
+20310003016 Green belt length 7000 mm 2 PCS 242,30 484,60
+country of origin: DE
+material: Polyurethan
+tariff no: 40103900
+delivery time: 21 days
+net weight: 1,5 kg
+total weight net/Pos.: 3 kg
+10010006947 Clamping unit 2 PCS 511,70 1.023,40
+country of origin: IT
+material: AlMg3
+tariff no: 76169990
+delivery time: 21 days
+net weight: 2,92 kg
+total weight net/Pos.: 5,84 kg
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 7 TEXT ===
+page 7
+Item No. Description Quantity Price Amount
+EUR EUR
+10000001551 Pulley for bolt 10000001284 6 PCS 29,40 176,40
+country of origin: IT
+material: ST37
+tariff no: 73182900
+delivery time: 14 days
+net weight: 0,057 kg
+total weight net/Pos.: 0,342 kg
+20410001552 Deep groove ball bearings 2 PCS 42,90 85,80
+country of origin: DE
+material: ST37
+tariff no: 84821090
+delivery time: 21 days
+net weight: 0,018 kg
+total weight net/Pos.: 0,036 kg
+10000001865 Shaft for locking 2 PCS 96,79 193,58
+country of origin: IT
+material: ST37
+tariff no: 84831095
+delivery time: 20 days
+net weight: 2,58 kg
+total weight net/Pos.: 5,16 kg
+20450001681 Flanged bearing 4 PCS 90,90 363,60
+country of origin: JP
+material: ST37
+tariff no: 84832000
+delivery time: 14 days
+net weight: 1,119 kg
+total weight net/Pos.: 4,476 kg
+10000001682 Shaft 2 PCS 95,90 191,80
+country of origin: IT
+material: ST37
+tariff no: 84831095
+delivery time: 28 days
+net weight: 1,7 kg
+total weight net/Pos.: 3,4 kg
+10000007992 Shaft 2 PCS 151,50 303,00
+country of origin: IT
+material: STAHL
+tariff no: 84835080
+delivery time: 21 days
+net weight: 1,32 kg
+total weight net/Pos.: 2,64 kg
+10000006774 bilanciere 2 PCS 279,90 559,80
+country of origin: IT
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+
+=== PAGE 8 TEXT ===
+page 8
+Item No. Description Quantity Price Amount
+EUR EUR
+material: ST37
+tariff no: 84229090
+delivery time: 21 days
+net weight: 1,4 kg
+total weight net/Pos.: 2,8 kg
+10000006779 bracket pin 2 PCS 112,00 224,00
+country of origin: IT
+material: ST37
+tariff no: 84229090
+delivery time: 21 days
+net weight: 0,73 kg
+total weight net/Pos.: 1,46 kg
+20440020068 Bushing 4 PCS 16,40 65,60
+country of origin: IT
+material: ST37
+tariff no: 84833080
+delivery time: 21 days
+net weight: 0,05 kg
+total weight net/Pos.: 0,2 kg
+10000006775 Tensioner pulley 4 PCS 114,90 459,60
+country of origin: IT
+material: ST37
+tariff no: 84835080
+delivery time: 21 days
+net weight: 0,467 kg
+total weight net/Pos.: 1,868 kg
+10000006781 Spacer 4 PCS 14,60 58,40
+country of origin: IT
+material: ST37
+tariff no: 84835080
+delivery time: 21 days
+net weight: 0,05 kg
+total weight net/Pos.: 0,2 kg
+20410001071 Deep groove ball bearings 8 PCS 14,40 115,20
+country of origin: IT
+material: ST37
+tariff no: 84821090
+delivery time: 21 days
+net weight: 0,098 kg
+total weight net/Pos.: 0,784 kg
+10000005802 Steel track with double cutting 4 PCS 629,45 2.517,80
+country of origin: IT
+material: ST37
+tariff no: 84229090
+delivery time: 21 days
+net weight: 23,82 kg
+Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
+Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
+71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
+Germany BIC/S.W.I.F.T.-Code SOLA DES 1LBG BIC/S.W.I.F.T.-Code SOLA DE ST 600 Internet: www.atlanta-deutschland.de
+General Manager IBAN DE70 6045 0050 0030 1818 89 IBAN DE17 6005 0101 0008 9605 13 Amtsgericht Stuttgart HRB 722588
+Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
+[PDF_TEXT_END]

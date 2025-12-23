@@ -1,0 +1,109 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "I.H.S. Krško",
+    "data_oferty": "2023-10-24",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "23/0717",
+        "opis": "Drive of blockade",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054458",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "23/0717",
+        "opis": "Driven roller",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "036382",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "23/0717",
+        "opis": "Roller chain 1/2\", 45 links",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "009886",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "23/0717",
+        "opis": "ROLLER GAMMA — D/8 B3, X=998 Y=1018 Z=1080, stainless tube and shaft",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054283",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "23/0717",
+        "opis": "Bearing plate Al",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054485",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "23/0717",
+        "opis": "Bearing plate Al",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054484",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "23/0717",
+        "opis": "Drive complex",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054448",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "23/0717",
+        "opis": "Fixing plate (AISI)",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "068166",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "23/0717",
+        "opis": "Fixing plate 03284055_Z (AISI)",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "068167",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "23/0717",
+        "opis": "Lever bolt head (AISI304)",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "068076",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "23/0717",
+        "opis": "Torque arm VF 49",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054496",
+        "producent": "I.H.S.",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 11
+  }
+]

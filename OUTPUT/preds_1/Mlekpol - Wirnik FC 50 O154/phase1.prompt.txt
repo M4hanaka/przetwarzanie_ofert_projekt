@@ -1,0 +1,189 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE Warszawa, 26.10.2023
+ul. Elewatorska 13
+19-203 Grajewo
+Pan Robert Dudziński
+Dostawa do:
+MLEKPOL Grajewo ZPM w Zambrowie
+Polowa 8
+18-300 Zambrów
+Oferta nr 63/10/2023
+Szanowni Państwo,
+dziękujemy za zainteresowanie i pozwalamy sobie przedstawić ofertę na części zamienne
+do pompy Fristam:
+Lp. Numer artykułu Nazwa części Ilość Cena Wartość
+szt. EUR/szt. EUR
+1 0584632009 Wirnik FC 50 Ø154 2 199,82 399,64
+do pompy s/n: 0584530005
+2 0584632014 Wirnik FC 50 Ø166 2 192,21 384,42
+do pompy s/n: 0584530003
+3 0826390018 Zestaw naprawczy uszczelnienia wału 9.400B 2N21V2 6 171,39 1 028,34
+4 0584650002 Wałek FC 50-154/4,5 F - 1.4404 1 242,77 242,77
+5 0133200000 Nakrętka M16x1,5 6 10,61 63,66
+Razem 2 118,83
+Rabat 12,50% 264,87
+Do zapłaty 1 853,96
+Warunki dostawy:
+Cena: FCA Zambrów, bez VAT
+Termin dostawy: ok. 5 tygodni od daty złożenia zamówienia
+Warunki płatności: 100% płatne w ciągu 30 dni od daty dostawy w PLN po kursie NBP sprzedaż
+z dnia wystawienia faktury
+Ważność oferty: 31.12.2023
+Łączymy pozdrowienia
+FRISTAM POLSKA
+Przemysław Kierznowski
+FRISTAM POLSKA Sp. z o.o.; ul. Belgradzka 4 / 56; 02-793 Warszawa
+Tel. : + 48 22 852 02 04; K. +48 608 369 333
+fristam@fristam.com.pl
+Siedziba: ul. Belgradzka 4 / 56; 02-793 Warszawa
+Prezes Zarządu: Joachim Friedsch
+Prokurent: Dariusz Szymański
+Sąd Rejonowy dla Miasta Stołecznego Warszawy, XIII Wydział Gospodarczy KRS 0000205658
+NIP: 951-16-37-714 REGON: 012330998 Kapitał zakładowy 91 800 PLN
+Citi BH (SWIFT CITIPLPX): PLN: 15 1030 0019 0109 8530 0013 8951 €: PL 85 1030 0019 0109 7860 1003 2708
+
+=== PAGE 1 TABLE 1 ===
+Lp. | Numer artykułu | Nazwa części | Ilość szt. | Cena EUR/szt. | Wartość EUR
+1 | 0584632009 | Wirnik FC 50 Ø154 do pompy s/n: 0584530005 | 2 | 199,82 | 399,64
+2 | 0584632014 | Wirnik FC 50 Ø166 do pompy s/n: 0584530003 | 2 | 192,21 | 384,42
+3 | 0826390018 | Zestaw naprawczy uszczelnienia wału 9.400B 2N21V2 | 6 | 171,39 | 1 028,34
+4 | 0584650002 | Wałek FC 50-154/4,5 F - 1.4404 | 1 | 242,77 | 242,77
+5 | 0133200000 | Nakrętka M16x1,5 | 6 | 10,61 | 63,66
+ |  |  | Razem |  | 2 118,83
+ |  |  | Rabat 12,50% |  | 264,87
+ |  |  | Do zapłaty |  | 1 853,96
+[PDF_TEXT_END]

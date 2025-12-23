@@ -1,0 +1,109 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "230717",
+        "opis": "Drive of blockade",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "2PCS;709,44;1.418,88;054458"
+      },
+      {
+        "id": "2",
+        "id_oferty": "230717",
+        "opis": "Driven roller",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "6PCS;100,37;602,22;036382"
+      },
+      {
+        "id": "3",
+        "id_oferty": "230717",
+        "opis": "Roller chain 1/2\"",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "10SET;8,21;82,10;45 links;009886"
+      },
+      {
+        "id": "4",
+        "id_oferty": "230717",
+        "opis": "ROLLER GAMMA",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "20 D/8 B3 X=998 Y=1018 Z=1080 STAINLESS TUBE AND SHAFT;054283"
+      },
+      {
+        "id": "5",
+        "id_oferty": "230717",
+        "opis": "Bearing plate Al",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "02020057_Symmetry;054485"
+      },
+      {
+        "id": "6",
+        "id_oferty": "230717",
+        "opis": "Bearing plate Al",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "054484"
+      },
+      {
+        "id": "7",
+        "id_oferty": "230717",
+        "opis": "Drive complex",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "054448"
+      },
+      {
+        "id": "8",
+        "id_oferty": "230717",
+        "opis": "Fixing plate",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "068166"
+      },
+      {
+        "id": "9",
+        "id_oferty": "230717",
+        "opis": "03284055_Z",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "03284055_Z",
+        "producent": "",
+        "serial_numbers": "068167"
+      },
+      {
+        "id": "10",
+        "id_oferty": "230717",
+        "opis": "Lever bolt head",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Aisi304;068076"
+      },
+      {
+        "id": "11",
+        "id_oferty": "230717",
+        "opis": "Torque arm VF 49",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "054496"
+      }
+    ],
+    "liczba_elementow": 11
+  }
+]

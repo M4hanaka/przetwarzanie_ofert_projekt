@@ -1,0 +1,109 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "",
+        "opis": "ÖLFLEX CLASSIC 110 2X1,5; ÖLFLEX® PVC, żyły numerowane",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "CN: 85444995;1119902"
+      },
+      {
+        "id": "2",
+        "id_oferty": "",
+        "opis": "ÖLFLEX CLASSIC 110 2X0,5; ÖLFLEX® PVC, żyły numerowane",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "CN: 85444995;1119752"
+      },
+      {
+        "id": "3",
+        "id_oferty": "",
+        "opis": "ÖLFLEX CLASSIC 110 CY 2X0,5; ÖLFLEX® PVC, żyły numerowane, ekranowany",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "CN: 85444995;1135752"
+      },
+      {
+        "id": "4",
+        "id_oferty": "",
+        "opis": "H05V-K 1X0,75 BK; Linki pojedyncze",
+        "grupa_materialow": "kable",
+        "numer_oem": "H05V-K",
+        "producent": "Lapp",
+        "serial_numbers": "CN: 85444995;4510012"
+      },
+      {
+        "id": "5",
+        "id_oferty": "",
+        "opis": "Przewód podłączeniowy, Seria Food & Beverage hygienic (dla przemysłu spożywczego), TPE, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej, 5M",
+        "grupa_materialow": "kable",
+        "numer_oem": "RKH4.4-5/TFG",
+        "producent": "Lapp",
+        "serial_numbers": "CN: 85444290"
+      },
+      {
+        "id": "6",
+        "id_oferty": "",
+        "opis": "Przewód podłączeniowy, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej",
+        "grupa_materialow": "kable",
+        "numer_oem": "RKH4.4-10/TFG",
+        "producent": "Lapp",
+        "serial_numbers": "CN: 85444290"
+      },
+      {
+        "id": "7",
+        "id_oferty": "",
+        "opis": "MBC 5100 Presostat",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "061B001066",
+        "producent": "",
+        "serial_numbers": "CN: 90322000"
+      },
+      {
+        "id": "8",
+        "id_oferty": "",
+        "opis": "Cable Tie, 5.6\"L (142mm), Intermediate, Polypropylene, Green",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "PLT1.5I-M109",
+        "producent": "",
+        "serial_numbers": "CN: 39269097"
+      },
+      {
+        "id": "9",
+        "id_oferty": "",
+        "opis": "Opaska zaciskowa 1opk=1000szt",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "PLT2S-M109",
+        "producent": "",
+        "serial_numbers": "CN: 39269097"
+      },
+      {
+        "id": "10",
+        "id_oferty": "",
+        "opis": "ETHERLINE H CAT.5e4X2XAWG24/1; ETHERLINE®, okablowanie przemysłowe",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "Lapp",
+        "serial_numbers": "CN: 85444995;2170296"
+      },
+      {
+        "id": "11",
+        "id_oferty": "",
+        "opis": "ETHERLINE Y FLEX FC UL (CMG) CAT5 2x2x22; ETHERLINE®, okablowanie przemysłowe",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "Lapp",
+        "serial_numbers": "CN: 85444993;2170886"
+      }
+    ],
+    "liczba_elementow": 11
+  }
+]

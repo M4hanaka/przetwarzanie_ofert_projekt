@@ -1,0 +1,109 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "Elmark Spółka Jawna Jędrzejewska",
+    "data_oferty": "2024-01-08",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "ÖLFLEX CLASSIC 110 2x1,5; przewód PVC, żyły numerowane",
+        "grupa_materialow": "kable",
+        "numer_oem": "1119902",
+        "producent": "LAPP",
+        "serial_numbers": "CN: 85444995; PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "2",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "ÖLFLEX CLASSIC 110 2x0,5; przewód PVC, żyły numerowane",
+        "grupa_materialow": "kable",
+        "numer_oem": "1119752",
+        "producent": "LAPP",
+        "serial_numbers": "CN: 85444995; PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "3",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "ÖLFLEX CLASSIC 110 CY 2x0,5; przewód PVC ekranowany, żyły numerowane",
+        "grupa_materialow": "kable",
+        "numer_oem": "1135752",
+        "producent": "LAPP",
+        "serial_numbers": "CN: 85444995; PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "4",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "Przewód H05V-K 1x0,75 BK; linki pojedyncze",
+        "grupa_materialow": "kable",
+        "numer_oem": "4510012",
+        "producent": "",
+        "serial_numbers": "CN: 85444995; PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "5",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "Przewód podłączeniowy Food & Beverage hygienic, złącze żeńskie M12 proste 4-stykowe, 5 m",
+        "grupa_materialow": "kable",
+        "numer_oem": "RKH4.4-5/TFG",
+        "producent": "",
+        "serial_numbers": "CN: 85444290; PKWiU: 27.90.44.0"
+      },
+      {
+        "id": "6",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "Przewód podłączeniowy M12 żeński, prosty 4-stykowy, stal nierdzewna",
+        "grupa_materialow": "kable",
+        "numer_oem": "RKH4.4-10/TFG",
+        "producent": "",
+        "serial_numbers": "CN: 85444290; PKWiU: 27.90.44.0"
+      },
+      {
+        "id": "7",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "Presostat MBC 5100",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "061B001066",
+        "producent": "",
+        "serial_numbers": "CN: 90322000"
+      },
+      {
+        "id": "8",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "Opaska zaciskowa 142 mm, zielona, polipropylen, 1 opakowanie",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "PLT1.5I-M109",
+        "producent": "",
+        "serial_numbers": "CN: 39269097; PKWiU: 22.29.29.0"
+      },
+      {
+        "id": "9",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "Opaska zaciskowa (1 opak. = 1000 szt.)",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "PLT2S-M109",
+        "producent": "",
+        "serial_numbers": "CN: 39269097; PKWiU: 22.29.29.0"
+      },
+      {
+        "id": "10",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "ETHERLINE H CAT.5e 4x2xAWG24/1; okablowanie przemysłowe",
+        "grupa_materialow": "kable",
+        "numer_oem": "2170296",
+        "producent": "LAPP",
+        "serial_numbers": "CN: 85444995; PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "11",
+        "id_oferty": "OO/000409/24/1",
+        "opis": "ETHERLINE Y FLEX FC UL CAT5 2x2x22; okablowanie przemysłowe",
+        "grupa_materialow": "kable",
+        "numer_oem": "2170886",
+        "producent": "LAPP",
+        "serial_numbers": "CN: 85444993; PKWiU: 27.32.13.0"
+      }
+    ],
+    "liczba_elementow": 11
+  }
+]

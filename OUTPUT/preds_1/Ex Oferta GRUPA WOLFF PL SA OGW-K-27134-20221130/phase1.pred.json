@@ -1,0 +1,17 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "1 GW-140-400494 PANEL DEKOMPRESYJNY BRILEX TYP KER 1130X1520",
+      "kwota_ceny_oferty": 650.0
+    },
+    {
+      "position_id": 2,
+      "opis": "2 GW-140-400440 CZUJNIK OTWARCIA PANELU SE-ATEX ; WERSJA STANDARDOWA ATEX",
+      "kwota_ceny_oferty": 107.0
+    }
+  ]
+}

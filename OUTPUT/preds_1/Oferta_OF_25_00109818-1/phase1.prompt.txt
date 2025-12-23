@@ -1,0 +1,167 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Oferta Nr OF_25_00109818-1/350
+Sprzedawca Data wystawienia: 22.04.2025
+Sonepar Polska Sp. z o.o. Data ważności: 23.04.2025
+Obrońców Westerplatte 81
+40-335 Katowice Sposób płatności: Przelew 45 dni
+NIP: 6340135676 BDO: 000003064 Numer zamówienia odbiorcy:
+KONTO BANKOWE: BNP PARIBAS 34 1600 1462 1829 1527 5000 0001
+Oddział: Białystok
+. 15-688, ul.Przędzalniana 60
+Tel.: 85 662 89 60
+E-mail: bialystok@sonepar.pl
+Nabywca Odbiorca
+Spółdzielnia Mleczarska "MLEKPOL" w Grajewie Spółdzielnia Mleczarska "MLEKPOL" w Grajewie
+ul. Elewatorska 13 ul. Elewatorska 13
+19-203 GRAJEWO 19-203 GRAJEWO
+POL POL
+NIP: 7190000425 NIP: 7190000425
+KOD Klienta: K00268 KOD Klienta: K00268
+Strona 1/1
+lp Symbol Nazwa Ilość JM Cena bazowa Czas realizacji
+Symbol_producenta Typ b% Cena oferty Wartość netto Wartość brutto Uwagi
+1 P10067428 Czujnik optyczny odbiciowy 2,000 szt 1 075,00 22.04.2025 https://alfaelektro.pl/produktid/6999411e4d262e1cb9921ade15c667cbf62f971c
+FT25RLHPSM4 FT-25-RLH-PS-M4 PNP NO/NC 0,00% 1 075,00 2 150,00 2 644,50
+około 3 tygodnie
+Razem: Netto Brutto
+2 150,00 PLN 2 644,50 PLN
+OFERTĘ PRZYGOTOWAŁ: OPIEKUN KLIENTA:
+Urszula Karpowicz Urszula Karpowicz
+Sprzedaż odbywa się w oparciu o Ogólne Warunki Sprzedaży firmy "Sonepar Polska” sp. z o.o. dostępne w każdym punkcie
+sprzedaży oraz na www.sonepar.pl. Informacja o przetwarzaniu danych osobowych -
+http://sonepar.pl/kontakt/klauzula-informacyjna
+[PDF_TEXT_END]

@@ -1,0 +1,82 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "RTA-3.0-17-03 a Stożek",
+      "kwota_ceny_oferty": 213.49
+    },
+    {
+      "position_id": 2,
+      "opis": "1K-ZB-0404 Rozeta M10",
+      "kwota_ceny_oferty": 19.34
+    },
+    {
+      "position_id": 3,
+      "opis": "1K-RE-0306 Pas 600-5M",
+      "kwota_ceny_oferty": 54.15
+    },
+    {
+      "position_id": 4,
+      "opis": "RTA-3.0-01-12 łożysko",
+      "kwota_ceny_oferty": 92.82
+    },
+    {
+      "position_id": 5,
+      "opis": "RTA-3.0-14-00 a Wałek 86",
+      "kwota_ceny_oferty": 1215.76
+    },
+    {
+      "position_id": 6,
+      "opis": "RTA-2.0-00-05 wałek",
+      "kwota_ceny_oferty": 66.52
+    },
+    {
+      "position_id": 7,
+      "opis": "1K-ZB-1101 kółko Acla",
+      "kwota_ceny_oferty": 162.16
+    },
+    {
+      "position_id": 8,
+      "opis": "1K-RE-0303 Pasek 450",
+      "kwota_ceny_oferty": 54.92
+    },
+    {
+      "position_id": 9,
+      "opis": "1K-RE-0304 Pasek 475",
+      "kwota_ceny_oferty": 58.01
+    },
+    {
+      "position_id": 10,
+      "opis": "RTA-3.0-01-25 Koło pasowe 62",
+      "kwota_ceny_oferty": 168.92
+    },
+    {
+      "position_id": 11,
+      "opis": "RTA-3.0-15-00 Walec 52",
+      "kwota_ceny_oferty": 1077.44
+    },
+    {
+      "position_id": 12,
+      "opis": "1K-ZB-1101 Kółko Acla",
+      "kwota_ceny_oferty": 162.16
+    },
+    {
+      "position_id": 13,
+      "opis": "1E-sq-0113 Krańcówka",
+      "kwota_ceny_oferty": 50.28
+    },
+    {
+      "position_id": 14,
+      "opis": "RTF-4.1-10.20 Guma docisku do spawania folii",
+      "kwota_ceny_oferty": 19.26
+    },
+    {
+      "position_id": 15,
+      "opis": "RTA-4.0-11.09 Taśma oporowa",
+      "kwota_ceny_oferty": 29.39
+    }
+  ]
+}

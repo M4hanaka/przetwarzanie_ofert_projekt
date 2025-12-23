@@ -1,0 +1,81 @@
+=== PAGE 1 TEXT ===
+nowoczesne technologie pakowania
+Wrocław, 24-05-15
+SPÓŁDZIELNIA MLECZARSKA
+MLEKPOL W GRAJEWIE
+Robert Dudziński
+Polowa 8
+Dot.: Oferta na części zamienne do owijarki. 18-300 Zambrów
+Szanowny Panie,
+w nawiązaniu do zapytania przesyłam ofertę na części zamienne do owijarek OBS Rotomatic, proszę zwrócić uwagę, że
+jedna część jest w zapytaniu w dwóch pozycjach:
+Lp. Numer i nazwa części Ilość Jm Cena zł/szt Razem PLN
+1 RTA-3.0-17-03 a Stożek 2 szt 213,49 426,97
+2 1K-ZB-0404 Rozeta M10 2 szt 19,34 38,68
+3 1K-RE-0306 Pas 600-5M 2 szt 54,15 108,29
+4 RTA-3.0-01-12 łożysko 4 szt 92,82 371,28
+5 RTA-3.0-14-00 a Wałek 86 3 szt 1215,76 3647,28
+6 RTA-2.0-00-05 wałek 4 szt 66,52 266,08
+7 1K-ZB-1101 kółko Acla 15 szt 162,16 2432,43
+8 1K-RE-0303 Pasek 450 3 szt 54,92 164,76
+9 1K-RE-0304 Pasek 475 3 szt 58,01 174,04
+10 RTA-3.0-01-25 Koło pasowe 62 1 szt 168,92 168,92
+11 RTA-3.0-15-00 Walec 52 3 szt 1077,44 3232,32
+12 1K-ZB-1101 Kółko Acla 20 szt 162,16 3243,24
+13 1E-sq-0113 Krańcówka 2 szt 50,28 100,56
+14 RTF-4.1-10.20 Guma docisku do spawania folii 4 szt 19,26 77,04
+15 RTA-4.0-11.09 Taśma oporowa 6 szt 29,39 176,36
+Łącznie PLN: 14628,24
+Podane ceny są tylko dla wymienionych ilości.
+Wszystkie ceny netto bez VAT.
+Koszty wysyłki z magazynu Manuli: 30,00 / 200,00 zł netto (paczka/paleta) w zależności od sposobu wysyłki
+W przypadku zmian kursów walut, lub wzrostu cen surowców do produkcji zastrzegamy sobie prawo zmiany cen
+Mam nadzieję, że przedstawiona oferta odpowiada Państwa wymaganiom. W razie jakichkolwiek pytań pozostaję do
+dyspozycji.
+Termin płatności: przelew 30 dni.
+Przybliżony termin dostawy: około 2,5 tygodnia od złożenia zamówienia
+Termin ważności oferty: 15 dni
+Sprzedaż części zostanie wykonana z wyłączeniem rękojmi ustawowej, a w miejsce wyłączonej rękojmi ustawowej,
+udzielamy gwarancji umownej na zamówione części eksploatacyjne, na następujących zasadach: warunki gwarancji
+określamy w dokumentach Kart Gwarancyjnych.
+Okres gwarancji wynosi: 1 miesiąc od daty wystawienia faktury VAT przy sprzedaży wysyłkowej i samodzielnym
+montażu części przez Klienta; 6 miesięcy od daty montażu przez serwis Manuli Ekobal Sp. z o.o. na podstawie osobnej
+oferty.
+Sprzedaż jest wykonywana na podstawie Ogólnych Warunków Umowy Sprzedaży, znajdujących się na stronie
+www.manuliekobal.pl, stanowiących integralną część dokumentów sprzedaży, oraz przesyłanych na życzenie Klienta.
+Zamówienia prosimy wysyłać na adres: serwis@manuliekobal.pl
+Manuli Ekobal Sp. z o.o. Regon: 017334512, BDO: 000057152
+54-615 Wrocław, ul. Rakietowa 50 Sąd Rejonowy Wrocław-Fabryczna,
+tel.: +48 71 3467900-29 IX Wydział Gospodarczy KRS
+e-mail: info@manuliekobal.pl, www.manuliekobal.pl KRS: 0000021830
+NIP: 527-23-49-015 KZ: 1.550.000,00 PLN
+
+=== PAGE 1 TABLE 1 ===
+Lp. |  |  | Numer i nazwa części |  |  | Ilość |  |  | Jm |  |  | Cena zł/szt | Razem PLN
+1 |  |  | RTA-3.0-17-03 a Stożek |  |  | 2 |  |  | szt |  |  | 213,49 | 426,97
+2 |  |  | 1K-ZB-0404 Rozeta M10 |  |  | 2 |  |  | szt |  |  | 19,34 | 38,68
+3 |  |  | 1K-RE-0306 Pas 600-5M |  |  | 2 |  |  | szt |  |  | 54,15 | 108,29
+4 |  |  | RTA-3.0-01-12 łożysko |  |  | 4 |  |  | szt |  |  | 92,82 | 371,28
+5 |  |  | RTA-3.0-14-00 a Wałek 86 |  |  | 3 |  |  | szt |  |  | 1215,76 | 3647,28
+6 |  |  | RTA-2.0-00-05 wałek |  |  | 4 |  |  | szt |  |  | 66,52 | 266,08
+ | 7 |  |  | 1K-ZB-1101 kółko Acla |  |  | 15 |  |  | szt |  | 162,16 | 2432,43
+8 |  |  | 1K-RE-0303 Pasek 450 |  |  | 3 |  |  | szt |  |  | 54,92 | 164,76
+9 |  |  | 1K-RE-0304 Pasek 475 |  |  | 3 |  |  | szt |  |  | 58,01 | 174,04
+10 |  |  | RTA-3.0-01-25 Koło pasowe 62 |  |  | 1 |  |  | szt |  |  | 168,92 | 168,92
+11 |  |  | RTA-3.0-15-00 Walec 52 |  |  | 3 |  |  | szt |  |  | 1077,44 | 3232,32
+ | 12 |  |  | 1K-ZB-1101 Kółko Acla |  |  | 20 |  |  | szt |  | 162,16 | 3243,24
+13 |  |  | 1E-sq-0113 Krańcówka |  |  | 2 |  |  | szt |  |  | 50,28 | 100,56
+14 |  |  | RTF-4.1-10.20 Guma docisku do spawania folii |  |  | 4 |  |  | szt |  |  | 19,26 | 77,04
+15 |  |  | RTA-4.0-11.09 Taśma oporowa |  |  | 6 |  |  | szt |  |  | 29,39 | 176,36
+ |  |  |  |  |  |  |  |  |  |  |  | Łącznie PLN: | 14628,24
+
+=== PAGE 2 TEXT ===
+nowoczesne technologie pakowania
+Serwis Manuli Ekobal Sp. z o.o.
+Andrzej Szymański
+Tel . 603 703 737
+Manuli Ekobal Sp. z o.o. Regon: 017334512, BDO: 000057152
+54-615 Wrocław, ul. Rakietowa 50 Sąd Rejonowy Wrocław-Fabryczna,
+tel.: +48 71 3467900-29 IX Wydział Gospodarczy KRS
+e-mail: info@manuliekobal.pl, www.manuliekobal.pl KRS: 0000021830
+NIP: 527-23-49-015 KZ: 1.550.000,00 PLN

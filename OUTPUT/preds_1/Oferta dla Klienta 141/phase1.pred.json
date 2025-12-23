@@ -1,0 +1,22 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "4D157-1 SILIKON (GA,GU15,GU30-GU70,LR20) MGUM-030001-002",
+      "kwota_ceny_oferty": 39.0
+    },
+    {
+      "position_id": 2,
+      "opis": "SZBE-A-BQ1E1GG MUSZ-200006-002",
+      "kwota_ceny_oferty": 370.0
+    },
+    {
+      "position_id": 3,
+      "opis": "Transport materiału USŁ-Transport",
+      "kwota_ceny_oferty": 25.0
+    }
+  ]
+}

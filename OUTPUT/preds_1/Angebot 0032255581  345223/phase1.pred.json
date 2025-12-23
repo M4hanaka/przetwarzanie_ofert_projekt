@@ -1,0 +1,47 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "10010 O-Ring 10x2 FFKM 70SH",
+      "kwota_ceny_oferty": 17.22
+    },
+    {
+      "position_id": 2,
+      "opis": "10020 Dichtung FGN1 DN 150",
+      "kwota_ceny_oferty": 19.72
+    },
+    {
+      "position_id": 3,
+      "opis": "10030 Zylinderstift ISO 2338 4 m6x8",
+      "kwota_ceny_oferty": 0.56
+    },
+    {
+      "position_id": 4,
+      "opis": "10040 O-Ring 67x3 FKM/FEP-coated",
+      "kwota_ceny_oferty": 18.69
+    },
+    {
+      "position_id": 5,
+      "opis": "10050 O-Ring 58x2 FFKM 70SH",
+      "kwota_ceny_oferty": 91.39
+    },
+    {
+      "position_id": 6,
+      "opis": "10060 Rillenkugellager 61916 80,04x1",
+      "kwota_ceny_oferty": 759.68
+    },
+    {
+      "position_id": 7,
+      "opis": "10070 Rillenkugellager 61915 75,04x1",
+      "kwota_ceny_oferty": 740.98
+    },
+    {
+      "position_id": 8,
+      "opis": "10080 O-Ring 100x3 EPDM peroxid 70SH",
+      "kwota_ceny_oferty": 14.91
+    }
+  ]
+}

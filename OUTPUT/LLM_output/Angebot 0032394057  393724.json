@@ -1,0 +1,28 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "32394057",
+        "opis": "O-Ring 51x2,5 NBR 70SH",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "10010",
+        "producent": "KRONES AG",
+        "serial_numbers": "ST: 0162202272;Menge: 100;Einzelpreis: 0,38;Gesamtpreis: 38,00;Lieferzeit: ca. 4 Tage;Benennung: O-Ring 51x2,5 NBR 70SH;Pos.: 1;Sachnummer: 0162202272;EUR: 0,38;EUR: 38,00;Teile zur Maschine K431104 Contiform;Lieferzeit: 4 Tage;Kunden-Nr: 02-785 WARSZAWA;Angebots-Nr: 32394057;Datum: 31.01.2024;Tagesdatum: 3135 0531;Miroslaw Bienkowski;Ihr Ansprechpartner;Telefon-Nr +48 2254 94-261;Telefax-Nr;E-Mail-Adresse Miroslaw.Bienkowski@krones.pl;Gültigkeitszeitraum: 31.01.2024 bis 30.04.2024;ca. 4 Tage;Lieferzeit ab Werk komplett;Mlekpol;Anfrage durch;3937/24;Anfrage-Nr:;31.01.2024;Anfrage-Datum:;Sehr geehrte Damen und Herren;Lieferbedingungen : DAP Geliefert benannter Ort Bydgoszcz;Es gelten die allgemeinen Liefer-und Zahlungsbedingungen der KRONES AG. Währung EUR"
+      },
+      {
+        "id": "2",
+        "id_oferty": "32394057",
+        "opis": "O-Ring 38x5 60SH",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "10020",
+        "producent": "KRONES AG",
+        "serial_numbers": "ST: 0903004792;Menge: 100;Einzelpreis: 6,18;Gesamtpreis: 618,00;Lieferzeit: ca. 4 Tage;Benennung: O-Ring 38x5 60SH;Pos.: 2;Sachnummer: 0903004792;EUR: 6,18;EUR: 618,00;Teile zur Maschine K431104 Contiform;Lieferzeit: 4 Tage;Kunden-Nr: 02-785 WARSZAWA;Angebots-Nr: 32394057;Datum: 31.01.2024;Tagesdatum: 3135 0531;Miroslaw Bienkowski;Ihr Ansprechpartner;Telefon-Nr +48 2254 94-261;Telefax-Nr;E-Mail-Adresse Miroslaw.Bienkowski@krones.pl;Gültigkeitszeitraum: 31.01.2024 bis 30.04.2024;ca. 4 Tage;Lieferzeit ab Werk komplett;Mlekpol;Anfrage durch;3937/24;Anfrage-Nr:;31.01.2024;Anfrage-Datum:;Sehr geehrte Damen und Herren;Lieferbedingungen : DAP Geliefert benannter Ort Bydgoszcz;Es gelten die allgemeinen Liefer-und Zahlungsbedingungen der KRONES AG. Währung EUR"
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "1398586",
+        "opis": "100027058 1 SZT 1.101,58 za 1 SZT 1.101,58",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "100027058"
+      },
+      {
+        "id": "2",
+        "id_oferty": "1398586",
+        "opis": "IM18-CCM51-12I Moduł pomiaru prądu",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "IM18-CCM51-12I",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "1398586",
+        "opis": "100040397 1 SZT 1.750,00 za 1 SZT 1.750,00",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "100040397"
+      },
+      {
+        "id": "4",
+        "id_oferty": "1398586",
+        "opis": "Moduł pomiaru prądu",
+        "grupa_materialow": "złączki",
+        "numer_oem": "IM18-CCM51-12I",
+        "producent": "TURCK",
+        "serial_numbers": "Kod celny: 90314990;Kraj pochodzenia: DE;EAN: 4047101538373"
+      },
+      {
+        "id": "5",
+        "id_oferty": "1398586",
+        "opis": "Monitor warunków w szafach",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "IM18-CCM60-MTI/24VDC",
+        "producent": "TURCK",
+        "serial_numbers": "EAN: 4047101600872"
+      },
+      {
+        "id": "6",
+        "id_oferty": "1398586",
+        "opis": "Kod celny: 49119900; Kraj pochodzenia: DE; EAN: 4047101635331",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Kod celny: 49119900;Kraj pochodzenia: DE;EAN: 4047101635331"
+      }
+    ],
+    "liczba_elementow": 6
+  }
+]
