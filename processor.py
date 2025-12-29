@@ -228,13 +228,11 @@ def _phase1_scan_pdf(pdf_text: str, offer_key: str, status_tracker: StatusTracke
             odir = _offer_dir(offer_key)
             _write_json(odir / "phase1.pred.json", scan_dict)
             meta = {
-                "offer_key": offer_key,
-                "phase": "phase1",
-                "prompt_version": PROMPT_VERSION,
-                "created_utc": datetime.utcnow().isoformat() + "Z",
-                "pdf_text_sha256": _sha256(pdf_text),
-                "prompt_sha256": _sha256(full_prompt),
-                "items_preview_count": len(scan_dict.get("items_preview", []) or []),
+            "offer_key": offer_key,
+            "phase": "phase1",
+            "prompt_version": PROMPT_VERSION,
+            "created_utc": datetime.utcnow().isoformat() + "Z",
+            "items_preview_count": len(scan_dict.get("items_preview", []) or []),
             }
             _write_json(odir / "phase1.meta.json", meta)
 
@@ -349,15 +347,13 @@ def _process_single_batch(
             batch_tag = f"{batch_idx:03d}"
             _write_json(odir / f"phase2.batch_{batch_tag}.pred.json", raw_results)
             meta = {
-                "offer_key": offer_key,
-                "phase": "phase2",
-                "batch_index": batch_idx,
-                "batch_start": start_idx,          # UWAGA: start_idx, nie batch_start
-                "items_in_batch": len(items),
-                "prompt_version": PROMPT_VERSION,
-                "created_utc": datetime.utcnow().isoformat() + "Z",
-                "pdf_text_sha256": _sha256(pdf_text),
-                "prompt_sha256": _sha256(full_prompt),
+            "offer_key": offer_key,
+            "phase": "phase2",
+            "batch_index": batch_idx,
+            "batch_start": batch_start,
+            "items_in_batch": len(batch_items),
+            "prompt_version": PROMPT_VERSION,
+            "created_utc": datetime.utcnow().isoformat() + "Z",
             }
             _write_json(odir / f"phase2.batch_{batch_tag}.meta.json", meta)
 

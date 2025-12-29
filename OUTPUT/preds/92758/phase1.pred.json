@@ -10,178 +10,218 @@
     },
     {
       "position_id": 2,
-      "opis": "Gelenklager 8104981201",
-      "kwota_ceny_oferty": 330.29
+      "opis": "Gelenklager 633 991 12",
+      "kwota_ceny_oferty": 0.0
     },
     {
       "position_id": 3,
+      "opis": "Dosing station 8104981201",
+      "kwota_ceny_oferty": 330.29
+    },
+    {
+      "position_id": 4,
+      "opis": "Membran 8104981201",
+      "kwota_ceny_oferty": 0.0
+    },
+    {
+      "position_id": 5,
       "opis": "Pump 8180004311",
       "kwota_ceny_oferty": 12.6
     },
     {
-      "position_id": 4,
-      "opis": "O-Ring 8180004311",
+      "position_id": 6,
+      "opis": "O-Ring 120x3 AP302 EPDM-70 FDA+3A",
       "kwota_ceny_oferty": 121.77
     },
     {
-      "position_id": 5,
+      "position_id": 7,
       "opis": "Gleitdichtring 8104684145",
       "kwota_ceny_oferty": 50.53
     },
     {
-      "position_id": 6,
+      "position_id": 8,
       "opis": "Führungsring 8104684148",
+      "kwota_ceny_oferty": 0.0
+    },
+    {
+      "position_id": 9,
+      "opis": "Piston attachment 8180028493",
       "kwota_ceny_oferty": 9.82
     },
     {
-      "position_id": 7,
-      "opis": "O-Ring 8180028493",
+      "position_id": 10,
+      "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
       "kwota_ceny_oferty": 105.14
     },
     {
-      "position_id": 8,
+      "position_id": 11,
       "opis": "Dichtring 8108114300",
       "kwota_ceny_oferty": 35.37
     },
     {
-      "position_id": 9,
+      "position_id": 12,
       "opis": "Abstreifring 8104683953",
       "kwota_ceny_oferty": 15.39
     },
     {
-      "position_id": 10,
+      "position_id": 13,
       "opis": "Rotary valve attachment 8108177837",
       "kwota_ceny_oferty": 42.56
     },
     {
-      "position_id": 11,
+      "position_id": 14,
       "opis": "Abstreifer 8108177837",
       "kwota_ceny_oferty": 25.39
     },
     {
-      "position_id": 12,
+      "position_id": 15,
       "opis": "Führungsring 8104683442",
       "kwota_ceny_oferty": 33.17
     },
     {
-      "position_id": 13,
+      "position_id": 16,
       "opis": "Wellendichtring 8180005780",
       "kwota_ceny_oferty": 9.82
     },
     {
-      "position_id": 14,
-      "opis": "O-Ring 8180028493",
+      "position_id": 17,
+      "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
       "kwota_ceny_oferty": 105.14
     },
     {
-      "position_id": 15,
+      "position_id": 18,
       "opis": "Outlet 8104684427",
       "kwota_ceny_oferty": 127.51
     },
     {
-      "position_id": 16,
+      "position_id": 19,
       "opis": "Dichtungssatz 8104684427",
       "kwota_ceny_oferty": 23.72
     },
     {
-      "position_id": 17,
+      "position_id": 20,
       "opis": "Usit-Ring 8180015678",
       "kwota_ceny_oferty": 8.07
     },
     {
-      "position_id": 18,
+      "position_id": 21,
       "opis": "Sink plate 8116312377",
       "kwota_ceny_oferty": 11.83
     },
     {
-      "position_id": 19,
-      "opis": "O-Ring 8108148496",
+      "position_id": 22,
+      "opis": "O-Ring 235/78,97x3,53-E7502-EPDM70 FD",
       "kwota_ceny_oferty": 8.07
     },
     {
-      "position_id": 20,
+      "position_id": 23,
+      "opis": "O-Ring 31,34x3,53 AP302 EPDM70 FDA+3A",
+      "kwota_ceny_oferty": 8.07
+    },
+    {
+      "position_id": 24,
       "opis": "Tank 8104684829",
       "kwota_ceny_oferty": 2044.3
     },
     {
-      "position_id": 21,
+      "position_id": 25,
       "opis": "Dichtungssatz 8104684829",
       "kwota_ceny_oferty": 33.26
     },
     {
-      "position_id": 22,
-      "opis": "O-Ring 8116312284",
+      "position_id": 26,
+      "opis": "O-Ring DIN11864-R-40X5-FKM-80+3A+FDA",
       "kwota_ceny_oferty": 12.26
     },
     {
-      "position_id": 23,
+      "position_id": 27,
       "opis": "Vapour distributor 8116290531",
       "kwota_ceny_oferty": 8.27
     },
     {
-      "position_id": 24,
-      "opis": "O-Ring 8116290532",
+      "position_id": 28,
+      "opis": "O-Ring 22,0x3,5-E7502-EPDM70 FDA+3A",
       "kwota_ceny_oferty": 12.26
     },
     {
-      "position_id": 25,
+      "position_id": 29,
+      "opis": "Connection 8116290532",
+      "kwota_ceny_oferty": 12.26
+    },
+    {
+      "position_id": 30,
+      "opis": "O-Ring 28,0x3,50-E7502-EPDM70 FDA+3A",
+      "kwota_ceny_oferty": 12.26
+    },
+    {
+      "position_id": 31,
       "opis": "Cup lifter 8116626993",
       "kwota_ceny_oferty": 198.1
     },
     {
-      "position_id": 26,
+      "position_id": 32,
       "opis": "Führungsstange 8116000138",
       "kwota_ceny_oferty": 16.2
     },
     {
-      "position_id": 27,
+      "position_id": 33,
       "opis": "Gleitdichtring 8116004866",
       "kwota_ceny_oferty": 7.53
     },
     {
-      "position_id": 28,
-      "opis": "O-Ring 8116000227",
+      "position_id": 34,
+      "opis": "O-Ring 229 / 59,92X3,53",
       "kwota_ceny_oferty": 93.26
     },
     {
-      "position_id": 29,
+      "position_id": 35,
+      "opis": "Lagerbuchse 8116000227",
+      "kwota_ceny_oferty": 93.26
+    },
+    {
+      "position_id": 36,
       "opis": "Lagerbuchse 8116306112",
       "kwota_ceny_oferty": 186.35
     },
     {
-      "position_id": 30,
+      "position_id": 37,
       "opis": "Lagerbuchse 8116632376",
       "kwota_ceny_oferty": 9.65
     },
     {
-      "position_id": 31,
+      "position_id": 38,
       "opis": "Dichtung 8116306115",
       "kwota_ceny_oferty": 19.82
     },
     {
-      "position_id": 32,
-      "opis": "Spiralschlauch 8116005387",
+      "position_id": 39,
+      "opis": "Spiralschlauch 25,000STK 20/27x3,5, 50m",
       "kwota_ceny_oferty": 12.27
     },
     {
-      "position_id": 33,
+      "position_id": 40,
       "opis": "Auflage 8116305493",
       "kwota_ceny_oferty": 163.06
     },
     {
-      "position_id": 34,
+      "position_id": 41,
       "opis": "Buchse 8116631456",
       "kwota_ceny_oferty": 8.9
     },
     {
-      "position_id": 35,
+      "position_id": 42,
+      "opis": "Buchse 8116631469",
+      "kwota_ceny_oferty": 11.65
+    },
+    {
+      "position_id": 43,
       "opis": "Hülse 8116631469",
       "kwota_ceny_oferty": 11.65
     },
     {
-      "position_id": 36,
+      "position_id": 44,
       "opis": "Gelenklager 8116281969",
-      "kwota_ceny_oferty": 95.19
+      "kwota_ceny_oferty": 163.06
     }
   ]
 }
