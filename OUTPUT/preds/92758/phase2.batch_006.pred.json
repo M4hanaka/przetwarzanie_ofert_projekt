@@ -2,10 +2,28 @@
   {
     "id": "1",
     "id_oferty": "",
-    "opis": "Dichtungssatz 600-1000ml DS D80 FKM",
-    "grupa_materialow": "akcesoria montażowe",
+    "opis": "O-Ring 8108148496",
+    "grupa_materialow": "inne",
+    "numer_oem": "8108148496",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Tank 8104684829",
+    "grupa_materialow": "inne",
     "numer_oem": "8104684829",
     "producent": "",
-    "serial_numbers": "Old item no.: 8104684829;Reference: enquiry 0000092758 Pos.: 190"
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Dichtungssatz 8104684829",
+    "grupa_materialow": "inne",
+    "numer_oem": "8104684829",
+    "producent": "",
+    "serial_numbers": ""
   }
 ]

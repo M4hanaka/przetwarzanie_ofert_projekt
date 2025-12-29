@@ -1,8 +1,8 @@
 import enum
 from datetime import datetime
 from typing import List, Optional
-from pydantic import BaseModel, Field, conlist
-
+from pydantic import BaseModel, Field, conlist, field_validator
+import re
 
 class Unit(enum.Enum):
     """Supported units for quantity."""
@@ -48,6 +48,21 @@ class OfferItemText(BaseModel):
         ),
     )
 
+class MaterialGroup(enum.Enum):
+    zlaczki = "złączki"
+    przylaczki = "przyłączki"
+    mufki = "mufki"
+    kable = "kable"
+    wylaczniki = "wyłączniki"
+    automatyka = "automatyka"
+    mechanika = "mechanika"
+    filtry = "filtry"
+    uszczelki = "uszczelki"
+    uszczelnienia = "uszczelnienia"
+    armatura = "armatura"
+    akcesoria_montazowe = "akcesoria montażowe"
+    oprogramowanie = "oprogramowanie"
+    inne = "inne"
 
 class OfferItem(BaseModel):
     """
@@ -95,13 +110,11 @@ class OfferItem(BaseModel):
     grupa_materialow: str = Field(
         ...,
         description=(
-            "Material group or product category inferred from the context of the item. "
-            "Use a short, general category like 'złączki', 'kable', 'wyłączniki', "
-            "'akcesoria montażowe', 'automatyka', 'mechanika', 'inne'. "
-            "If you are not sure, choose the closest reasonable category instead of "
-            "inventing something very specific."
+            "Material group/category. Use one of the predefined values. "
+            "If unsure, choose the closest general category."
         ),
     )
+
 
     numer_oem: str = Field(
         ...,
@@ -127,7 +140,7 @@ class OfferItem(BaseModel):
             "WEIDMULLER, LAPP, PHOENIX CONTACT. "
             "Use the name visible in the offer header, logo, or item description. "
             "Do NOT guess the manufacturer if it is not clearly stated in the text. "
-            "If the manufacturer cannot be identified at all, put a single dash ''."
+            "If the manufacturer cannot be identified, use an empty string ''."
         ),
     )
 
@@ -149,7 +162,75 @@ class OfferItem(BaseModel):
         ),
     )
 
+    _ALLOWED_GROUPS = {
+        "złączki", "przyłączki", "mufki", "kable", "wyłączniki",
+        "automatyka", "mechanika", "filtry", "uszczelki", "uszczelnienia",
+        "armatura", "akcesoria montażowe", "oprogramowanie", "inne",
+    }
 
+    _GROUP_ALIASES = {
+        "przewody": "kable",
+        "uszczelka": "uszczelki",
+        "uszczelnienie": "uszczelnienia",
+        "monitoring": "automatyka",
+    }
+
+    @field_validator("grupa_materialow", mode="before")
+    @classmethod
+    def validate_grupa_materialow(cls, v):
+        if not isinstance(v, str):
+            return "inne"
+        s = v.strip()
+        s = cls._GROUP_ALIASES.get(s, s)
+        return s if s in cls._ALLOWED_GROUPS else "inne"
+
+    @field_validator("serial_numbers", mode="before")
+    @classmethod
+    def validate_serial_numbers(cls, v):
+        return _clean_serial_numbers(v if isinstance(v, str) else "")
+
+    @field_validator("opis", mode="before")
+    @classmethod
+    def validate_opis(cls, v):
+        return _clean_opis(v if isinstance(v, str) else "")
+
+_PRICE_OR_NOISE_RE = re.compile(
+    r"(?i)\b("
+    r"pln|eur|vat|rabat|cena|wartość|ilość|termin|dostaw|na stanie|"
+    r"szt\.|j\.m\.|jm|kg|g|dni|%|https?://|www\."
+    r")\b"
+)
+
+def _clean_serial_numbers(value: str) -> str:
+    if not value:
+        return ""
+    v = value.strip()
+
+    # Jeśli zawiera ewidentny szum (ceny, rabaty, URL, terminy) – wyczyść do pustego
+    # (w tych ofertach i tak zwykle nie było CN/PKWiU, tylko śmieci).
+    if _PRICE_OR_NOISE_RE.search(v):
+        # wyjątek: pozwól zachować CN/PKWiU/EAN/ID jeśli są podane poprawnie
+        parts = [p.strip() for p in v.split(";") if p.strip()]
+        keep = []
+        for p in parts:
+            if re.match(r"(?i)^(CN:\s*\S+|PKWiU:\s*\S+|EAN:\s*\S+|ID:\s*\S+)$", p):
+                keep.append(p)
+        return ";".join(keep)
+    return v
+
+
+def _clean_opis(value: str) -> str:
+    if not value:
+        return ""
+    v = value.strip()
+    # Nie dopuszczaj ceny/rabatu/URL w opisie
+    if _PRICE_OR_NOISE_RE.search(v):
+        # minimalna sanitizacja: usuń fragmenty po typowych separatorach
+        # (nie zgadujemy, tylko tniemy śmieci)
+        v = re.split(r"(?i)\b(pln|eur|vat|rabat|cena|wartość|https?://|www\.)\b", v)[0].strip()
+    return v
+
+    
 class ItemPreview(BaseModel):
     """
     Lightweight item preview for Phase 1.

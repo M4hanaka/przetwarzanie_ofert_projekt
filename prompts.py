@@ -126,6 +126,8 @@ SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
 - installation, commissioning, configuration
 - inspections, maintenance, service work, travel costs
 - generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
 
 If a row description starts with or contains mainly these phrases,
 treat it as a service and SKIP it.
@@ -196,9 +198,11 @@ DESCRIPTION FIELD ("opis"):
 - Do NOT append price, discounts, totals or other numeric columns to "opis".
 - Do NOT copy "kwota_ceny_oferty" into "opis".
 - "opis" must describe ONLY the product itself (name, type, variant, parameters) and MUST NOT contain the OEM/article number.
-- If the preview opis begins with a product code (e.g. "140017 EFB O-ring", "3RH2911-1HA22 - BLOK STYKÓW"),
-  remove that code entirely from "opis".
-- The removed code must be placed into "numer_oem" (if it is indeed the OEM/article number).
+- If the preview opis begins with a product code-like token
+  (short alphanumeric code, often with dashes/slashes),
+  ALWAYS remove it from "opis" and put it into "numer_oem".
+- If the leading token is clearly NOT a product code (e.g. "LP", "JM", "szt.", "Cena"),
+  then do NOT treat it as numer_oem.
 - After removing the OEM from the start, keep everything else exactly as in the PDF (no translation, no rewriting).
 
 TABLE STRUCTURE AND COLUMN MAPPING:
@@ -227,6 +231,13 @@ as sources of product codes.
 
 KEY FIELDS (MUST NOT BE GUESSED):
 
+ADDITIONAL RULES FOR PRODUCT CODES (IMPORTANT):
+
+- If the table contains labels like:
+  "Nr produktu", "Nr produktu SICK", "Indeks", "Code", "Item code", "Material", "Article No."
+  treat the value as the main product code -> put it into "numer_oem".
+- Do NOT put such product codes into "serial_numbers".
+
 1) numer_oem
 
 - This is the MAIN product code (OEM / article / item number).
@@ -248,6 +259,14 @@ KEY FIELDS (MUST NOT BE GUESSED):
   this code must be extracted into "numer_oem" and removed from "opis".
 - The final opis must NEVER contain the OEM/article number.
 
+
+STRICT EXCLUSIONS FOR serial_numbers (MANDATORY):
+- serial_numbers MUST NOT contain:
+  prices (PLN/EUR), discounts (Rabat), VAT, totals (Wartość),
+  quantities (Ilość, J.m., szt.), delivery/availability (na stanie, termin realizacji),
+  URLs (http/https/www), or any logistics notes.
+- If you see only such information and no real codes, set serial_numbers to "".
+
 2) serial_numbers
 
 - This field collects all identification or classification codes related to the item
@@ -266,6 +285,9 @@ KEY FIELDS (MUST NOT BE GUESSED):
   IP rating, dimensions, weight, etc.
 - Do NOT duplicate numer_oem here (even if the same number appears again with a different label).
 - If you do not see any such codes, set "serial_numbers" to "".
+
+
+
 
 OTHER FIELDS:
 
