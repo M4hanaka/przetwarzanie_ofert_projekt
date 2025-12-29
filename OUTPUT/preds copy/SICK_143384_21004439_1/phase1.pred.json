@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "SICK Sp. z o.o.",
+  "data_oferty": "2024-01-17",
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "1128701 Presence Inspection License",
+      "kwota_ceny_oferty": 2722.5
+    },
+    {
+      "position_id": 2,
+      "opis": "1127086 V3S145-1AAAAAA Czujnik wizyjny 3D Visionary-T Mini",
+      "kwota_ceny_oferty": 7242.07
+    },
+    {
+      "position_id": 3,
+      "opis": "2127749 Radiator Visionary",
+      "kwota_ceny_oferty": 291.58
+    },
+    {
+      "position_id": 4,
+      "opis": "2124497 Zestaw do mocowania Visionary",
+      "kwota_ceny_oferty": 339.22
+    },
+    {
+      "position_id": 5,
+      "opis": "2094785 YN2X18-100EG1MRJA8",
+      "kwota_ceny_oferty": 670.82
+    },
+    {
+      "position_id": 6,
+      "opis": "2114689 YG2A28-100UA6XLEAX",
+      "kwota_ceny_oferty": 234.41
+    }
+  ]
+}

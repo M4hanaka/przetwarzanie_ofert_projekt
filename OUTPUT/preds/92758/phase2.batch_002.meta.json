@@ -2,10 +2,8 @@
   "offer_key": "92758",
   "phase": "phase2",
   "batch_index": 2,
-  "batch_start": 7,
-  "items_in_batch": 2,
+  "batch_start": 6,
+  "items_in_batch": 3,
   "prompt_version": "prompts_v1",
-  "created_utc": "2025-12-23T16:33:30.850661Z",
-  "pdf_text_sha256": "9df3bcba2d61880acdba5fbbd2842fd093b802d5043a54aa42c13195ee72d22b",
-  "prompt_sha256": "02bb3b33c9633b14692413883d61b14bf3d80a0d56044d7deb10fe01d69168bb"
+  "created_utc": "2025-12-29T14:05:04.827928Z"
 }

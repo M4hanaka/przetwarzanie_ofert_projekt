@@ -1,0 +1,11 @@
+{
+  "offer_key": "198.12.2024 Mlekpol Zambrów",
+  "phase": "phase2",
+  "batch_index": 11,
+  "batch_start": 33,
+  "items_in_batch": 2,
+  "prompt_version": "prompts_v1",
+  "created_utc": "2025-12-23T13:13:28.787265Z",
+  "pdf_text_sha256": "eb3a3ab5874497cab2a2bc272f4611c902520b9e8de8110621b3b372e563b118",
+  "prompt_sha256": "f84f5599d2cf4618d32d821e4b6dc95007e5d127427e4518b4d9c374d72e5d54"
+}

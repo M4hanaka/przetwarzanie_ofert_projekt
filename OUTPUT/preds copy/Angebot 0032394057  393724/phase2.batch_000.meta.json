@@ -1,0 +1,11 @@
+{
+  "offer_key": "Angebot 0032394057  393724",
+  "phase": "phase2",
+  "batch_index": 0,
+  "batch_start": 1,
+  "items_in_batch": 1,
+  "prompt_version": "prompts_v1",
+  "created_utc": "2025-12-23T13:56:10.042613Z",
+  "pdf_text_sha256": "f55f075846b0dae89baebc6c926332779fe7a2e81aa81c16f72d319de7f1df18",
+  "prompt_sha256": "98abacba0d2c0a94727bddc39153a9ab8bc441fc7587e8757aa2f8fac3050259"
+}
