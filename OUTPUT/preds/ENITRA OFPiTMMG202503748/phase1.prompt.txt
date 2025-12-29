@@ -105,6 +105,8 @@ SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
 - installation, commissioning, configuration
 - inspections, maintenance, service work, travel costs
 - generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
 
 If a row description starts with or contains mainly these phrases,
 treat it as a service and SKIP it.

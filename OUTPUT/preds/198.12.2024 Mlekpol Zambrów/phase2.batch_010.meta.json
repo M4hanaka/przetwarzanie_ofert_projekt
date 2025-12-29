@@ -5,7 +5,5 @@
   "batch_start": 30,
   "items_in_batch": 3,
   "prompt_version": "prompts_v1",
-  "created_utc": "2025-12-23T13:13:14.914055Z",
-  "pdf_text_sha256": "eb3a3ab5874497cab2a2bc272f4611c902520b9e8de8110621b3b372e563b118",
-  "prompt_sha256": "089ec486e3a048d1f3a30b6c54691270ae23a0ee7d424656ef29cb14809feaa8"
+  "created_utc": "2025-12-29T17:13:14.651984Z"
 }

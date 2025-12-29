@@ -1,18 +1,18 @@
 [
   {
     "id": "1",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "Filtr",
-    "grupa_materialow": "filtry",
+    "grupa_materialow": "filtracja",
     "numer_oem": "230036",
     "producent": "",
     "serial_numbers": ""
   },
   {
     "id": "2",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "Uszczelnienie siłownika",
-    "grupa_materialow": "uszczelnienia",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "350350000",
     "producent": "",
     "serial_numbers": ""

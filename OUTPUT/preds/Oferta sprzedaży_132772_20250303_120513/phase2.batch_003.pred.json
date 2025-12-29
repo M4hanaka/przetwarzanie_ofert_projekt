@@ -1,6 +1,6 @@
 [
   {
-    "id": "10",
+    "id": "1",
     "id_oferty": "132772",
     "opis": "złączka wtykowa prosta Ø6 mm-M5x0,8 zew. z mag.",
     "grupa_materialow": "złączki",
@@ -9,16 +9,16 @@
     "serial_numbers": ""
   },
   {
-    "id": "11",
+    "id": "2",
     "id_oferty": "132772",
     "opis": "przyłączka kątowa wtykowa 6mm-M5x0,8 zew. z mag.",
-    "grupa_materialow": "przyłączki",
+    "grupa_materialow": "złączki",
     "numer_oem": "3199 06 19 20",
     "producent": "",
     "serial_numbers": ""
   },
   {
-    "id": "12",
+    "id": "3",
     "id_oferty": "132772",
     "opis": "złączka redukcyjna prosta wtykowa 6-8mm z mag.",
     "grupa_materialow": "złączki",

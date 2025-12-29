@@ -1,0 +1,208 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Elmark Spółka Jawna Jędrzejewska
+ul. Lubelska 45
+10-410 Olsztyn
+Oferta do odbiorcy
+NIP: 7393338655
+Numer / Data wystawienia:
+BDO: 000464883
+OO/000930/23/9 / 15.09.2023
+ING Bank Śląski Data dokumentu: 15.09.2023
+PLN: PL 29 1050 1764 1000 0090 3012 1801 Nr klienta: MLEKPOL GRAJEWO
+EUR: PL 55 1050 1764 1000 0090 8054 1254 Odbiorca oferty: Organek Radosław
+SWIFT: INGPLPW Nasza osoba kontaktowa:
+Maciej Waśniewski
+SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W Tel. +48 89 537 66 06
+GRAJEWIE
+E-mail: m.wasniewski@elmarkasp.pl
+ul. Elewatorska 13
+Przedstawiciel terenowy:
+19-203 Grajewo
+Paweł Gardulski
+NIP: 7190000425
+Tel. +48 721 530 012
+E-mail: p.gardulski@elmarkasp.pl
+Spółdzielnia Mleczarska "MLEKPOL" Zakład Produkcji
+Mleczarskiej w Mrągowie
+ul. Kormoranów 1
+11-700 Mrągowo
+Cena przed
+Lp. Nazwa towaru/usługi Dostępność Ilość jm. Rabat % Cena netto Wartość netto VAT
+rabatem
+3SX5601-2GA03 - Connec(cid:415)on cable 8-pole Free cable
+end, 3 m long, straight socket M12, for 2 A and 30 V
+For safety switch RFID 3SE63 or safety switch with
+1 5-7 dni roboczych 1 szt 43,52 EUR 50,00% 21,76 EUR 21,76 EUR 23%
+tumbler 3SE5324
+CN: 85444290
+PKWiU: 27.90.44.0
+8WD4613-5JH37 - KOLUMNA SYGNALIZACYJNA
+PROGRAMOWALNA, 70MM, CONVENTIONAL, 9
+2 5-7 dni roboczych 1 szt 341,25 EUR 32,00% 232,05 EUR 232,05 EUR 23%
+SEGMENTÓW, Z SYRENĄ, PRZYŁĄCZE M12 MĘSKIE, 8-
+PIN
+8WD4618-0DA - STOPA ZINTEGROWANA Z RURĄ 100
+3 MM, DO PROGRAMOWALNYCH KOLUMN 5-7 dni roboczych 1 szt 29,40 EUR 32,00% 19,99 EUR 19,99 EUR 23%
+SYGNALIZACYJNYCH, 70 MM, IP66/69K
+Wartość netto oferty: 273,80 EUR
+Słownie: dwieście siedemdziesiąt trzy EUR 80/100
+Siemens
+OFERTA NIE REZERWUJE STANÓW MAGAZYNOWYCH.
+Jeżeli umowa nie stanowi inaczej, do każdej wysyłki poniżej 3000 zł netto doliczone będą koszty transportu w wysokości 30 zł netto.
+Faktura zostanie wystawiona wg kursu sprzedaży NBP z dnia poprzedzającego dzień wystawienia faktury lub z dnia poprzedzającego dzień sprzedaży
+jeżeli dzień wystawienia faktury będzie późniejszy.
+W przypadku przedpłaty cena jednostkowa zostanie przeliczona wg kursu sprzedaży NBP z dnia poprzedzającego dzień wystawienia faktury proformy.
+Po złożeniu zamówienia ewentualne koszty zwrotu towaru do dostawcy ponosi Zamawiający.
+Zawieranie umów sprzedaży towarów i usług odbywa się na podstawie ogólnych warunków sprzedaży dostępnych na stronie:
+www.elmarkasp.pl/ows.pdf
+1/2
+
+=== PAGE 1 TABLE 1 ===
+Lp. | Nazwa towaru/usługi | Dostępność | Ilość | jm. | Cena przed rabatem | Rabat % | Cena netto | Wartość netto | VAT
+1 | 3SX5601-2GA03 - Connec(cid:415)on cable 8-pole Free cable end, 3 m long, straight socket M12, for 2 A and 30 V For safety switch RFID 3SE63 or safety switch with tumbler 3SE5324 CN: 85444290 PKWiU: 27.90.44.0 | 5-7 dni roboczych | 1 | szt | 43,52 EUR | 50,00% | 21,76 EUR | 21,76 EUR | 23%
+2 | 8WD4613-5JH37 - KOLUMNA SYGNALIZACYJNA PROGRAMOWALNA, 70MM, CONVENTIONAL, 9 SEGMENTÓW, Z SYRENĄ, PRZYŁĄCZE M12 MĘSKIE, 8- PIN | 5-7 dni roboczych | 1 | szt | 341,25 EUR | 32,00% | 232,05 EUR | 232,05 EUR | 23%
+3 | 8WD4618-0DA - STOPA ZINTEGROWANA Z RURĄ 100 MM, DO PROGRAMOWALNYCH KOLUMN SYGNALIZACYJNYCH, 70 MM, IP66/69K | 5-7 dni roboczych | 1 | szt | 29,40 EUR | 32,00% | 19,99 EUR | 19,99 EUR | 23%
+
+=== PAGE 2 TEXT ===
+Maciej Waśniewski
+............................................. .............................................
+Podpis osoby uprawnionej do wystawienia faktury Data i podpis osoby upoważnionej do otrzymania faktury
+© Soneta 2023, enova365 2304.1.1 sn: 32680005
+2/2
+[PDF_TEXT_END]

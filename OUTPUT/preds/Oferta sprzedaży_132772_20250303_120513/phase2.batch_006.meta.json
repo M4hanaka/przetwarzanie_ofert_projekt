@@ -2,10 +2,8 @@
   "offer_key": "Oferta sprzedaży_132772_20250303_120513",
   "phase": "phase2",
   "batch_index": 6,
-  "batch_start": 19,
-  "items_in_batch": 2,
+  "batch_start": 18,
+  "items_in_batch": 3,
   "prompt_version": "prompts_v1",
-  "created_utc": "2025-12-23T14:17:27.645708Z",
-  "pdf_text_sha256": "cc7eb558e3726c0c3a84141f9657c8530bfdde432e0d1b10ad5e02eba708d6d2",
-  "prompt_sha256": "b2068e62c3142f1130507e71df4b9a4d12d9b1c40c1efb4ab89ba037db0d2850"
+  "created_utc": "2025-12-29T17:47:02.937432Z"
 }

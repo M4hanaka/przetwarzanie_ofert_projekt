@@ -1,7 +1,16 @@
 [
   {
+    "id": "28",
+    "id_oferty": "198/12/2024",
+    "opis": "Seat valv",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "0123798",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
     "id": "29",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "Filter",
     "grupa_materialow": "filtry",
     "numer_oem": "260751",
@@ -10,7 +19,7 @@
   },
   {
     "id": "30",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "Oil filter",
     "grupa_materialow": "filtry",
     "numer_oem": "230003",

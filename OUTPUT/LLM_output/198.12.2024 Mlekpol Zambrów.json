@@ -1,0 +1,325 @@
+[
+  {
+    "id": "198/12/2024",
+    "nazwa_dostawcy": "DKW SERVICE",
+    "data_oferty": "2024-12-27",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140017"
+      },
+      {
+        "id": "2",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "130027"
+      },
+      {
+        "id": "3",
+        "id_oferty": "198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "130031S",
+        "producent": "EFB",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140085"
+      },
+      {
+        "id": "5",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140255"
+      },
+      {
+        "id": "6",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140071"
+      },
+      {
+        "id": "7",
+        "id_oferty": "198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "140117EFB",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140041"
+      },
+      {
+        "id": "9",
+        "id_oferty": "198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140209"
+      },
+      {
+        "id": "10",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140113"
+      },
+      {
+        "id": "11",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140023"
+      },
+      {
+        "id": "12",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140129"
+      },
+      {
+        "id": "13",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140263"
+      },
+      {
+        "id": "14",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140234"
+      },
+      {
+        "id": "15",
+        "id_oferty": "198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140230"
+      },
+      {
+        "id": "16",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "140119"
+      },
+      {
+        "id": "17",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "EFB O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "140011EFB",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Gasket",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "160131"
+      },
+      {
+        "id": "19",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Gasket",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "160130"
+      },
+      {
+        "id": "20",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Gasket 5 m",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "630005"
+      },
+      {
+        "id": "21",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "EFB",
+        "serial_numbers": "140188"
+      },
+      {
+        "id": "22",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "O-ring",
+        "grupa_materialow": "inne",
+        "numer_oem": "1711353P",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "23",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Spring",
+        "grupa_materialow": "inne",
+        "numer_oem": "0129226-1",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "24",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Packing",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "95341792859"
+      },
+      {
+        "id": "25",
+        "id_oferty": "198/12/2024",
+        "opis": "Washer",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0135096"
+      },
+      {
+        "id": "26",
+        "id_oferty": "198/12/2024",
+        "opis": "Washer",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0134673"
+      },
+      {
+        "id": "27",
+        "id_oferty": "198/12/2024",
+        "opis": "Washer",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0100036"
+      },
+      {
+        "id": "28",
+        "id_oferty": "198/12/2024",
+        "opis": "Seat valv",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0123798"
+      },
+      {
+        "id": "29",
+        "id_oferty": "198/12/2024",
+        "opis": "Filter",
+        "grupa_materialow": "filtry",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "260751"
+      },
+      {
+        "id": "30",
+        "id_oferty": "198/12/2024",
+        "opis": "Oil filter",
+        "grupa_materialow": "filtry",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "230003"
+      },
+      {
+        "id": "31",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Filter",
+        "grupa_materialow": "filtry",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "230014"
+      },
+      {
+        "id": "32",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Bellows",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "0133774"
+      },
+      {
+        "id": "33",
+        "id_oferty": "Oferta cenowa Nr 198/12/2024",
+        "opis": "Ball",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "190044-1",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "34",
+        "id_oferty": "198/12/2024",
+        "opis": "Filtr",
+        "grupa_materialow": "filtracja",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "230036"
+      },
+      {
+        "id": "35",
+        "id_oferty": "198/12/2024",
+        "opis": "Uszczelnienie siłownika",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "350350000"
+      }
+    ],
+    "liczba_elementow": 35
+  }
+]

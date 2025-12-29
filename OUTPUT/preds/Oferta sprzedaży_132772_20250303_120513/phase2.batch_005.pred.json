@@ -6,7 +6,7 @@
     "grupa_materialow": "złączki",
     "numer_oem": "3106 12 00 10",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "szt."
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "grupa_materialow": "przyłączki",
     "numer_oem": "3166 06 12 10",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "szt."
   },
   {
     "id": "3",
@@ -24,6 +24,6 @@
     "grupa_materialow": "złączki",
     "numer_oem": "3106 08 12 10",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "szt."
   }
 ]

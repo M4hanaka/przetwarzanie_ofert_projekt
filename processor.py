@@ -116,6 +116,26 @@ def _guess_oem_from_description(opis: str) -> str:
 
     return ""
 
+OFFER_ID_PATTERNS = [
+    # OF/PiT/MMG/2025/03748 itp.
+    re.compile(r"(?i)\b(OF/[A-Z0-9]+(?:/[A-Z0-9]+){2,})\b"),
+    # 23/0717, 198/12/2024, 001399244 bywa bez separatorów
+    re.compile(r"(?i)\b(\d{1,6}/\d{1,6}(?:/\d{1,6})?)\b"),
+    # Oferta Nr 21004439 / Offer No.: 23/0717 / Numer oferty: ...
+    re.compile(r"(?i)\b(?:oferta\s*nr|offer\s*no\.?|numer\s*oferty|nr)\s*[:\-]?\s*([A-Z0-9][A-Z0-9\/\-\._]{2,40})\b"),
+]
+
+def _extract_offer_id_from_pdf_text(pdf_text: str) -> str:
+    if not pdf_text:
+        return ""
+    text = str(pdf_text)
+
+    for rx in OFFER_ID_PATTERNS:
+        m = rx.search(text)
+        if m:
+            return m.group(1).strip()
+    return ""
+
 
 # ---------------------------
 # Publiczne API: process_pdf
@@ -146,7 +166,7 @@ def _process_extracted_text(
 
 
     final_offer = _phase3_assemble_and_validate(
-        scan_data, all_processed_items, failed_items, total_items, status_tracker
+        pdf_text, scan_data, all_processed_items, failed_items, total_items, status_tracker
     )
 
     print("Final offer: ", final_offer)
@@ -446,12 +466,24 @@ def _process_single_batch(
 # Phase 3
 # ---------------------------
 
-def _clean_id(id_str: str) -> str:
-    numeric_only = "".join(c for c in str(id_str) if c.isdigit())
-    return numeric_only[-10:] if len(numeric_only) > 10 else numeric_only
+SERVICE_LINE_RE = re.compile(
+    r"(?i)\b("
+    r"koszt\s+(spedycji|transportu|dostawy)|spedycj|transport|przesyłk|"
+    r"kurier|ups|gls|dhl|handling|opłata\s+manipulacyjna|"
+    r"serwis|robocizna|dojazd|montaż|uruchomienie|instalac"
+    r")\b"
+)
+
+def _is_service_line(opis: str) -> bool:
+    if not opis:
+        return False
+    return bool(SERVICE_LINE_RE.search(str(opis)))
+
+
 
 
 def _phase3_assemble_and_validate(
+    pdf_text: str,
     scan_data: Dict[str, Any],
     all_processed_items: List[Dict[str, Any]],
     failed_items: List[Dict[str, Any]],
@@ -471,9 +503,16 @@ def _phase3_assemble_and_validate(
         k: v for k, v in scan_data.items() if k not in ["items_preview", "pozycje_oferty"]
     }
 
-    offer_items: List[Dict[str, Any]] = _deduplicate_items(list(all_processed_items or []))
+    offer_items = _deduplicate_items(list(all_processed_items or []))
+    before_service = len(offer_items)
+    offer_items = [it for it in offer_items if not _is_service_line(it.get("opis", ""))]
+
     if len(offer_items) != total_items:
-        print(f"[WARN] Items count mismatch after dedup: {len(offer_items)} vs {total_items}")
+        print(
+            f"[INFO] Items count differs from Phase1 preview: "
+            f"{len(offer_items)} vs {total_items} (dedup={before_service}, service_filtered={before_service - len(offer_items)})"
+        )
+
 
     print(f"Total items after deduplication: {len(offer_items)}/{total_items}")
 
@@ -483,15 +522,36 @@ def _phase3_assemble_and_validate(
     offer_data: Dict[str, Any] = dict(base_offer_data)
     offer_data["pozycje_oferty"] = offer_items
 
-    offer_data["id"] = _clean_id(str(offer_data.get("id", "")))
-    supplier_name = str(offer_data.get("nazwa_dostawcy", "") or "").strip()
+    # 1) ID oferty (nagłówek) – preferuj to co jest w scan_data, a jeśli puste, wyciągnij z pdf_text
+    # UWAGA: scan_data["id"] w Phase1 bywa puste; tu naprawiamy deterministycznie.
+    if not str(offer_data.get("id", "") or "").strip():
+        offer_data["id"] = _extract_offer_id_from_pdf_text(pdf_text)
 
+    # 2) Propagacja id_oferty do wszystkich pozycji (zachowujemy format z PDF!)
+    offer_id_for_items = ""
+
+    # a) spróbuj znaleźć pierwsze niepuste id_oferty zwrócone przez LLM
+    for it in offer_items:
+        candidate = str(it.get("id_oferty", "") or "").strip()
+        if candidate:
+            offer_id_for_items = candidate
+            break
+
+    # b) jeśli brak w itemach, weź z nagłówka
+    if not offer_id_for_items:
+        offer_id_for_items = str(offer_data.get("id", "") or "").strip()
+
+    # c) jedna pętla: id_oferty + producent + business logic
     for item in offer_items:
-        producent = str(item.get("producent", "") or "").strip()
-        if not producent or producent == "-":
-            item["producent"] = supplier_name
+        if not str(item.get("id_oferty", "") or "").strip():
+            item["id_oferty"] = offer_id_for_items
+
+        if item.get("producent") == "-":
+            item["producent"] = ""
+
         _apply_business_logic_to_item(item)
 
+    # liczba_elementow
     offer_data["liczba_elementow"] = len(offer_items)
 
     print("\n✓ Processing complete:")
@@ -502,46 +562,73 @@ def _phase3_assemble_and_validate(
 
     return offer_data
 
+NOISE_SERIAL_RE = re.compile(
+    r"(?i)\b(pln|eur|vat|rabat|cena|wartość|ilość|termin|na stanie|https?://|www\.)\b"
+)
+
+def _looks_like_product_code(token: str) -> bool:
+    """
+    Do swapu serial->oem: krótki kod, zwykle alnum lub cyfry; bez słów i bez walut/linków.
+    """
+    if not token:
+        return False
+    t = token.strip()
+    if NOISE_SERIAL_RE.search(t):
+        return False
+    # odrzuć ewidentne jednostki
+    if t.lower() in {"szt", "szt.", "jm", "j.m.", "kg", "g", "m"}:
+        return False
+    # minimalna heurystyka: ma cyfry albo jest alfanumeryczny z myślnikiem/slashem
+    has_digit = any(c.isdigit() for c in t)
+    has_alpha = any(c.isalpha() for c in t)
+    if has_alpha and has_digit:
+        return True
+    if has_digit and len(t) >= 4 and len(t) <= 20:
+        return True
+    if re.match(r"^[A-Z0-9][A-Z0-9\-\/\.]{2,30}$", t, re.IGNORECASE):
+        return True
+    return False
+
 
 def _apply_business_logic_to_item(item: Dict[str, Any]) -> None:
-    if "id_oferty" in item and item["id_oferty"] is not None:
-        item["id_oferty"] = _clean_id(item["id_oferty"])
+    # 1) NIE normalizuj id_oferty do cyfr – ma zostać w formie z PDF
+    if item.get("id_oferty") is None:
+        item["id_oferty"] = ""
 
     opis = str(item.get("opis", "")).strip()
     numer_oem = str(item.get("numer_oem", "")).strip()
     serial_raw = str(item.get("serial_numbers", "")).strip()
 
-    def _find_candidate_oem_in_description(text: str) -> str:
-        if not text:
-            return ""
-        tokens = text.replace(",", " ").split()
-        candidates = []
+    # 2) Wyczyść serial_numbers ze śmieci (ceny/rabaty/linki/terminy)
+    if serial_raw and NOISE_SERIAL_RE.search(serial_raw):
+        # zachowaj tylko poprawne elementy typu CN:/PKWiU:/EAN:/ID:
+        parts = [p.strip() for p in serial_raw.split(";") if p.strip()]
+        keep = []
+        for p in parts:
+            if re.match(r"(?i)^(CN:\s*\S+|PKWiU:\s*\S+|EAN:\s*\S+|ID:\s*\S+)$", p):
+                keep.append(p)
+        serial_raw = ";".join(keep)
 
-        for tok in tokens:
-            t = tok.strip()
-            if t.isdigit() and len(t) <= 3:
-                continue
-            if (any(ch.isdigit() for ch in t) and any(ch.isalpha() for ch in t)) or ("," in t or "-" in t):
-                candidates.append(t)
+    # 3) Swap serial_numbers -> numer_oem, gdy numer_oem pusty, a serial wygląda jak kod produktu
+    if not numer_oem and serial_raw:
+        parts = [p.strip() for p in serial_raw.split(";") if p.strip()]
+        if len(parts) == 1 and _looks_like_product_code(parts[0]) and not _looks_like_classification_code(parts[0]):
+            numer_oem = parts[0]
+            serial_raw = ""
 
-        candidates.sort(key=len, reverse=True)
-        return candidates[0] if candidates else ""
-
-    if numer_oem and numer_oem.isdigit() and len(numer_oem) <= 3:
-        guessed_oem = _find_candidate_oem_in_description(opis)
-        if guessed_oem:
-            numer_oem = guessed_oem
-
+    # 4) Jeżeli numer_oem wygląda jak klasyfikacja (CN/PKWiU), przenieś do serial_numbers
     extra_codes: List[str] = []
     if numer_oem and _looks_like_classification_code(numer_oem):
         extra_codes.append(numer_oem)
         numer_oem = ""
 
+    # 5) Heurystyczny OEM z opisu tylko jeśli nadal pusty (to jest „best effort”, ale ostrożnie)
     if not numer_oem:
         guessed = _guess_oem_from_description(opis)
-        if guessed:
+        if guessed and not _looks_like_classification_code(guessed):
             numer_oem = guessed
 
+    # 6) Sklej seriale + dodaj ewentualne CN/PKWiU z opisu
     serial_parts: List[str] = []
     if serial_raw:
         serial_parts = [p.strip() for p in serial_raw.split(";") if p.strip()]
@@ -555,12 +642,12 @@ def _apply_business_logic_to_item(item: Dict[str, Any]) -> None:
             token = f"CN: {cn}"
             if token not in serial_parts:
                 serial_parts.append(token)
-
         for pk in PKWIU_REGEX.findall(opis):
             token = f"PKWiU: {pk}"
             if token not in serial_parts:
                 serial_parts.append(token)
 
+    # 7) Final clean: usuń duplikaty i parametry techniczne
     numer_oem_clean = numer_oem.strip()
     cleaned_serials: List[str] = []
     seen = set()
@@ -570,21 +657,17 @@ def _apply_business_logic_to_item(item: Dict[str, Any]) -> None:
     for p in serial_parts:
         if not p:
             continue
-
         up = p.upper()
         if any(tp.strip().upper() in up for tp in TECH_PATTERNS):
             continue
-
         if numer_oem_clean and (p == numer_oem_clean or numer_oem_clean in p):
             continue
-
         if p not in seen:
             seen.add(p)
             cleaned_serials.append(p)
 
     item["numer_oem"] = numer_oem_clean
     item["serial_numbers"] = ";".join(cleaned_serials) if cleaned_serials else ""
-
 
 # ---------------------------
 # Deduplikacja

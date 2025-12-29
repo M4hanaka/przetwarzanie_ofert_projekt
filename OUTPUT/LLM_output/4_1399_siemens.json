@@ -1,0 +1,19 @@
+[
+  {
+    "id": "001399/24/4",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "001399/24/4",
+        "opis": "SCALANCE X005, IE ENTRY LEVEL SWITCH UNMANAGED 5X 10/100 MBIT/S RJ45 PORTS, LED DIAGNOSTICS, IP30, 24 V DC POWER SUPPLY, PROFINET-COMPLIANT SECURING COLLARS, MANUAL AVAILABLE AS A DOWNLOAD",
+        "grupa_materialow": "inne",
+        "numer_oem": "6GK5005-0BA10-1AA3",
+        "producent": "Siemens",
+        "serial_numbers": "CN: 85176200"
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

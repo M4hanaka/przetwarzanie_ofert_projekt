@@ -4,17 +4,17 @@
     "id_oferty": "24/IV/30-2",
     "opis": "Zawór klapowy SV04 DIN DN80 POL. PAMS-ZF-ASI 304 EPDM",
     "grupa_materialow": "złączki",
-    "numer_oem": "560400801320/ASI",
-    "producent": "",
-    "serial_numbers": "ASI;PAMS-ZF-ASI;304;EPDM"
+    "numer_oem": "560400801320",
+    "producent": "M&S",
+    "serial_numbers": "ASI;PAMS-ZF-ASI;304 EPDM"
   },
   {
     "id": "2",
     "id_oferty": "24/IV/30-2",
     "opis": "Zawór klapowy SV04 DIN DN100 POL. PAMS-ZF-ASI 304 EPDM",
     "grupa_materialow": "złączki",
-    "numer_oem": "560401001320/ASI",
-    "producent": "",
-    "serial_numbers": "ASI;PAMS-ZF-ASI;304;EPDM"
+    "numer_oem": "560401001320",
+    "producent": "M&S",
+    "serial_numbers": "ASI;PAMS-ZF-ASI;304 EPDM"
   }
 ]

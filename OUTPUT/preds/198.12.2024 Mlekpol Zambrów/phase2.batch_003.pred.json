@@ -1,29 +1,29 @@
 [
   {
     "id": "10",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "EFB O-ring",
-    "grupa_materialow": "inne",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "140113",
-    "producent": "",
+    "producent": "EFB",
     "serial_numbers": ""
   },
   {
     "id": "11",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "EFB O-ring",
-    "grupa_materialow": "inne",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "140023",
-    "producent": "",
+    "producent": "EFB",
     "serial_numbers": ""
   },
   {
     "id": "12",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id_oferty": "198/12/2024",
     "opis": "EFB O-ring",
-    "grupa_materialow": "inne",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "140129",
-    "producent": "",
+    "producent": "EFB",
     "serial_numbers": ""
   }
 ]

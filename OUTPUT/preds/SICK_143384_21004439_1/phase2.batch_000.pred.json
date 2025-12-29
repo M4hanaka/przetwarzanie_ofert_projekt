@@ -3,27 +3,27 @@
     "id": "1",
     "id_oferty": "21004439",
     "opis": "Presence Inspection License",
-    "grupa_materialow": "automatyka",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "1128701",
     "producent": "SICK",
-    "serial_numbers": ""
+    "serial_numbers": "CN: ;PKWiU: ;ID: 1128701"
   },
   {
     "id": "2",
     "id_oferty": "21004439",
     "opis": "V3S145-1AAAAAA Czujnik wizyjny 3D Visionary-T Mini",
-    "grupa_materialow": "automatyka",
+    "grupa_materialow": "czujniki",
     "numer_oem": "1127086",
     "producent": "SICK",
-    "serial_numbers": ""
+    "serial_numbers": "CN: ;PKWiU: ;ID: 1127086"
   },
   {
     "id": "3",
     "id_oferty": "21004439",
     "opis": "Radiator Visionary",
-    "grupa_materialow": "automatyka",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "2127749",
     "producent": "SICK",
-    "serial_numbers": ""
+    "serial_numbers": "CN: ;PKWiU: ;ID: 2127749"
   }
 ]

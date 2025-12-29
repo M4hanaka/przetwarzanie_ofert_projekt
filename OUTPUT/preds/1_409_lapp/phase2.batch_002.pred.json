@@ -1,15 +1,6 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "MBC 5100 Presostat",
-    "grupa_materialow": "inne",
-    "numer_oem": "061B001066",
-    "producent": "",
-    "serial_numbers": "CN: 90322000;"
-  },
-  {
-    "id": "2",
+    "id": "8",
     "id_oferty": "",
     "opis": "Cable Tie, 5.6\"L (142mm), Intermediate, Polypropylene, Green",
     "grupa_materialow": "akcesoria montażowe",
@@ -18,7 +9,7 @@
     "serial_numbers": "CN: 39269097;PKWiU: 22.29.29.0"
   },
   {
-    "id": "3",
+    "id": "9",
     "id_oferty": "",
     "opis": "Opaska zaciskowa 1opk=1000szt",
     "grupa_materialow": "akcesoria montażowe",
