@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "BZO 003580/22",
+    "opis": "WKH4.4-10/TFG",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6933095",
+    "producent": "TURCK",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "BZO 003580/22",
+    "opis": "RKH4.4-10/TFG",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6933088",
+    "producent": "TURCK",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "BZO 003580/22",
+    "opis": "WKH4.4-5/TFG",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6933094",
+    "producent": "TURCK",
+    "serial_numbers": ""
+  }
+]

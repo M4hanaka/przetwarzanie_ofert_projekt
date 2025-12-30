@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Pneumatic cylinder 2 PCS",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "40600005318",
+    "producent": "",
+    "serial_numbers": "country of origin: DE;material: ;tariff no: 84123100;delivery time: 35 days;net weight: 0,304 kg;total weight net/Pos.: 0,608 kg;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Flow controller 4 PCS",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "40300010368",
+    "producent": "",
+    "serial_numbers": "country of origin: DE-HE;material: ST37;tariff no: 84818059;delivery time: 21 days;net weight: 0,03 kg;total weight net/Pos.: 0,12 kg;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Adjustment 4 PCS",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "40300010369",
+    "producent": "",
+    "serial_numbers": "country of origin: IT;material: Stahl, Kunststoff;tariff no: 73181491;delivery time: 20 days;net weight: 0,033 kg;total weight net/Pos.: 0,132 kg;"
+  }
+]

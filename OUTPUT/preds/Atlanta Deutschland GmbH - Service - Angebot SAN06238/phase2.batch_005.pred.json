@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Pneumatic cylinder 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "40600004501",
+    "producent": "",
+    "serial_numbers": "country of origin: DE;material: Stahl, Kunststoff;tariff no: 84123100;delivery time: 35 days;net weight: 3,6 kg;total weight net/Pos.: 7,2 kg;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Pneumatic cylinder 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "40600005312",
+    "producent": "",
+    "serial_numbers": "country of origin: DE;material: ST37;tariff no: 84123100;delivery time: 21 days;net weight: 0,936 kg;total weight net/Pos.: 1,872 kg;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Pneumatic cylinder 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "40600005316",
+    "producent": "",
+    "serial_numbers": "country of origin: DE;material: Stahl, Kunststoff;tariff no: 84123100;delivery time: 21 days;net weight: 1,5 kg;total weight net/Pos.: 3 kg;"
+  }
+]

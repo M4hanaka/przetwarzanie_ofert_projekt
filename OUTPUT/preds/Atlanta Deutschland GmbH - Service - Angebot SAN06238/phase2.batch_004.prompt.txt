@@ -184,12 +184,12 @@ OTHER FIELDS:
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
-You are given exactly 3 preview items (Item 13 to Item 15).
+You are given exactly 1 preview items (Item 15 to Item 15).
 For EACH input item you MUST return EXACTLY ONE OfferItem object.
 
-- The output JSON ARRAY MUST contain exactly 3 elements.
+- The output JSON ARRAY MUST contain exactly 1 elements.
 - The order of objects in the output array MUST match the order of input items
-  (first object corresponds to Item 13, last object to Item 15).
+  (first object corresponds to Item 15, last object to Item 15).
 - Do NOT merge different items into one object.
 - Do NOT create any additional or synthetic items.
 - Do NOT repeat the same item multiple times.
@@ -197,14 +197,6 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
   but never invent fields that are not visible in the text.
 
 ITEMS TO PROCESS:
-
-Item 13 (preview):
-  opis: 20410000616 Deep groove ball bearings 4 PCS
-  kwota_ceny_oferty: 12.0
-
-Item 14 (preview):
-  opis: 20525000093 Circlip 2 PCS
-  kwota_ceny_oferty: 2.3
 
 Item 15 (preview):
   opis: 82405004006 Magnetic Sensor 12 PCS
@@ -214,7 +206,7 @@ Item 15 (preview):
 OUTPUT FORMAT (MANDATORY):
 
 Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
-The array MUST have exactly 3 elements and MUST be the ONLY thing in your answer.
+The array MUST have exactly 1 elements and MUST be the ONLY thing in your answer.
 Return only ONE JSON array and NO additional text, comments or explanations.
 
 

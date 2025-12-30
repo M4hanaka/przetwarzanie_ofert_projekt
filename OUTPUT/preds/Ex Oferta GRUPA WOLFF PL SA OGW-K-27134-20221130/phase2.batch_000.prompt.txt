@@ -1,0 +1,368 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 2 TASK: DETAILED ITEMS (MINIMAL OfferItem SCHEMA)
+
+You will receive:
+- the same offer text,
+- a subset of items from Phase 1 ("items_preview").
+
+For EACH of these preview items produce one fully detailed object
+according to the OfferItem schema with EXACTLY the following fields:
+
+- "id": primary key for the item, use a simple running counter "1", "2", "3", ...
+- "id_oferty": offer ID for all items in this file (if unknown, use an empty string "").
+- "opis": original description of the item, based on the PDF text (do not translate).
+- "grupa_materialow": material group or product category inferred from the context.
+- "numer_oem": main OEM / article / item number for this product.
+- "producent": manufacturer name.
+- "serial_numbers": other identification or classification codes (CN, PKWiU, indices, etc.).
+
+GENERAL RULES FOR ALL FIELDS:
+- Use only information that appears in the offer text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Do NOT invent values that are not supported by the text.
+- If a field is missing, use an empty string "".
+- Prefer empty fields over guessed or incorrect values.
+
+VERY IMPORTANT – MISSING DATA:
+- If the offer text does not clearly specify an offer ID, OEM number, manufacturer,
+  or other codes, leave the corresponding field empty ("").
+- Empty is BETTER than incorrect. Never fabricate a product code or manufacturer.
+
+DESCRIPTION FIELD ("opis"):
+- Do NOT append price, discounts, totals or other numeric columns to "opis".
+- Do NOT copy "kwota_ceny_oferty" into "opis".
+- "opis" must describe ONLY the product itself (name, type, variant, parameters) and MUST NOT contain the OEM/article number.
+- If the preview opis begins with a product code-like token
+  (short alphanumeric code, often with dashes/slashes),
+  ALWAYS remove it from "opis" and put it into "numer_oem".
+- If the leading token is clearly NOT a product code (e.g. "LP", "JM", "szt.", "Cena"),
+  then do NOT treat it as numer_oem.
+- After removing the OEM from the start, keep everything else exactly as in the PDF (no translation, no rewriting).
+
+TABLE STRUCTURE AND COLUMN MAPPING:
+
+Whenever possible, use the table headers to map columns to fields. Typical mappings:
+
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID"
+  → candidate for "numer_oem".
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi"
+  → main product name used in "opis".
+- "CN", "PKWiU", "Indeks", "Nr magazynowy"
+  → candidates for "serial_numbers" (classification or internal codes).
+
+Examples of table headers:
+- "Lp Kod produktu Nazwa produktu Ilość Cena/sztukę Cena końcowa"
+  • numer_oem from "Kod produktu"
+  • opis built mainly from "Nazwa produktu"
+- "Poz. Nr artykułu Ilość j.m. Cena jednostkowa Cena"
+  • numer_oem from "Nr artykułu"
+  • opis built from product name / description column
+- "Lp. Nazwa towaru/usługi Dostępność Ilość jm. Cena przed rabatem Rabat % Cena netto Wartość netto VAT"
+  • typically NO dedicated product code column; in such case numer_oem may be empty if no clear code is present.
+
+Never treat columns such as "Dostępność", "Rabat %", "VAT", "Cena", "Wartość netto", "Wartość brutto"
+as sources of product codes.
+
+KEY FIELDS (MUST NOT BE GUESSED):
+
+ADDITIONAL RULES FOR PRODUCT CODES (IMPORTANT):
+
+- If the table contains labels like:
+  "Nr produktu", "Nr produktu SICK", "Indeks", "Code", "Item code", "Material", "Article No."
+  treat the value as the main product code -> put it into "numer_oem".
+- Do NOT put such product codes into "serial_numbers".
+
+1) numer_oem
+
+- This is the MAIN product code (OEM / article / item number).
+- Prefer values from dedicated columns with headers like:
+  "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID".
+- If there is NO dedicated column, you may treat as numer_oem a short alphanumeric code
+  at the very beginning of the row, placed before the product name and separated by a space or dash,
+  for example: "ABC-123 - Moduł wejściowy 24V DC".
+- NEVER assign CN, PKWiU, HS, tariff numbers, or any long numeric codes (8+ digits) to "numer_oem".
+- If a row contains:
+  • a short article number (e.g. "1119902", "3RH2911-1HA22") AND
+  • classification codes ("CN: 85369010", "PKWiU 27.33.13.0"),
+  then:
+  • numer_oem = short article number
+  • serial_numbers = "CN: ...;PKWiU: ..."
+- If you are NOT sure that a value is a product code, set "numer_oem" to an empty string "".
+- If the preview opis contains a product code at the beginning
+  (e.g. "ABC-123 - Opis produktu", "4500123 O-ring"),
+  this code must be extracted into "numer_oem" and removed from "opis".
+- The final opis must NEVER contain the OEM/article number.
+
+
+STRICT EXCLUSIONS FOR serial_numbers (MANDATORY):
+- serial_numbers MUST NOT contain:
+  prices (PLN/EUR), discounts (Rabat), VAT, totals (Wartość),
+  quantities (Ilość, J.m., szt.), delivery/availability (na stanie, termin realizacji),
+  URLs (http/https/www), or any logistics notes.
+- If you see only such information and no real codes, set serial_numbers to "".
+
+2) serial_numbers
+
+- This field collects all identification or classification codes related to the item
+  that are NOT the main OEM/article number.
+- Typical examples:
+  • customs codes (e.g. "CN 85369010"),
+  • PKWiU codes,
+  • internal warehouse numbers or catalogue indices,
+  • any additional structured codes that clearly refer to this item.
+- If a header contains words "CN", "PKWiU", "Indeks", "Nr magazynowy", etc.,
+  you may treat the values from that column as elements of "serial_numbers".
+- Merge all such codes into ONE string separated by semicolons, for example:
+  "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456".
+- Always add prefixes like "CN:" or "PKWiU:" when the code type is clear.
+- Do NOT include pure technical parameters such as voltage, current, power, frequency,
+  IP rating, dimensions, weight, etc.
+- Do NOT duplicate numer_oem here (even if the same number appears again with a different label).
+- If you do not see any such codes, set "serial_numbers" to "".
+
+
+
+
+OTHER FIELDS:
+
+- id:
+  • Use a simple integer-like string "1", "2", "3", ...
+  • The order should follow the order of items in Phase 1.
+
+- id_oferty:
+  • If an offer ID is visible in the header or in a dedicated field, copy it exactly.
+  • If multiple IDs are present, use the one that clearly identifies the offer document.
+  • If you cannot find any offer ID, use an empty string "".
+
+  To extract id_oferty, search the header for typical patterns:
+  - "Numer / Data wystawienia: <ID> / <date>"
+  - "Oferta Nr <ID>"
+  - "Offer No.: <ID>"
+  - "Numer Oferty / data <ID>"
+  If multiple values look like offer IDs, choose the one explicitly labeled as the offer number.
+  If none exists, set "".
+
+- grupa_materialow:
+  • Assign a short, general category based on the description and context of the item.
+  • Examples of categories: "złączki", "kable", "wyłączniki", "bezpieczniki",
+    "akcesoria montażowe", "automatyka", "mechanika", "inne".
+  • If you are not sure, choose the closest reasonable category.
+
+- producent:
+  • Use the manufacturer name present directly in the item line or clearly associated with the product
+    (e.g. SIEMENS, LAPP, SICK, KRONES).
+  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
+    that the supplier is also the manufacturer.
+  • If no manufacturer can be determined with certainty, set producent to "".
+
+STRICT CARDINALITY CONSTRAINT (CRUCIAL):
+
+You are given exactly 2 preview items (Item 1 to Item 2).
+For EACH input item you MUST return EXACTLY ONE OfferItem object.
+
+- The output JSON ARRAY MUST contain exactly 2 elements.
+- The order of objects in the output array MUST match the order of input items
+  (first object corresponds to Item 1, last object to Item 2).
+- Do NOT merge different items into one object.
+- Do NOT create any additional or synthetic items.
+- Do NOT repeat the same item multiple times.
+- If you are uncertain, still return exactly one best-effort object per input item,
+  but never invent fields that are not visible in the text.
+
+ITEMS TO PROCESS:
+
+Item 1 (preview):
+  opis: 1 GW-140-400494 PANEL DEKOMPRESYJNY BRILEX TYP KER 1130X1520
+  kwota_ceny_oferty: 650.0
+
+Item 2 (preview):
+  opis: 2 GW-140-400440 CZUJNIK OTWARCIA PANELU SE-ATEX ; WERSJA STANDARDOWA ATEX
+  kwota_ceny_oferty: 107.0
+
+
+OUTPUT FORMAT (MANDATORY):
+
+Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
+The array MUST have exactly 2 elements and MUST be the ONLY thing in your answer.
+Return only ONE JSON array and NO additional text, comments or explanations.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+SZ. PAN RADOSŁAW ORGANEK Kraków 30.11.2022
+SPÓŁDZIELNIA MLECZARSKA MLEKPOL W GRAJEWIE
+UL. ELEWATORSKA 13
+19-203 GRAJEWO
+Projekt: PT-K-27129
+OFERTA NR OGW-K-27134-20221130
+Lp. 1 PANEL DEKOMPRESYJNY BRILEX TYP KER 1130X1520
+Nr katalogowy: GW-140-400494
+DANE TECHNICZNE:
+Typ: KER
+Wymiar kołnierza wewnętrznego: 1130x1520
+Powierzchnia: 17 150 cm2
+Ciśnienie rozrywające Pstat: 0,1 bara w 20 St.C
+Odporność na działanie próżni: 500 mm WC
+Odporność na temperaturę: -50 St.C - + 200 St.C
+Materiał: stal nierdzewna 316L
+Uszczelka: silikon FDA
+CENA netto ILOŚĆ WARTOŚĆ netto
+650,00 EUR 4 SZT 2 600,00 EUR
+1 / 3
+Dane finansowe (do faktury):
+GRUPA WOLFF
+info@g-w.eu GRUPA WOLFF sp. z o.o. sp.k. (dawniej GRUPA WOLFF sp.j.)
+ul. Spacerowa 5, 32-083 Balice, NIP: 679-22-53-664.
+ul. Spacerowa 5, www.g-w.eu
+Spółka zarejestrowana w Krajowym Rejestrze Sądowym przez
+32-083 Balice +48 12 2018 100 Sąd Rejonowy dla Krakowa - Śródmieścia XII Wydział
+Gospodarczy KRS: 0000942344, REGON: 351258092.
+
+=== PAGE 1 TABLE 1 ===
+Lp. 1 | PANEL DEKOMPRESYJNY BRILEX TYP KER 1130X1520 Nr katalogowy: GW-140-400494 DANE TECHNICZNE: Typ: KER Wymiar kołnierza wewnętrznego: 1130x1520 Powierzchnia: 17 150 cm2 Ciśnienie rozrywające Pstat: 0,1 bara w 20 St.C Odporność na działanie próżni: 500 mm WC Odporność na temperaturę: -50 St.C - + 200 St.C Materiał: stal nierdzewna 316L Uszczelka: silikon FDA |  |  | 
+ |  | CENA netto | ILOŚĆ | WARTOŚĆ netto
+ |  | 650,00 EUR | 4 SZT | 2 600,00 EUR
+
+=== PAGE 2 TEXT ===
+Oferta nr OGW-K-27134-20221130
+Lp. 2 CZUJNIK OTWARCIA PANELU SE-ATEX ; WERSJA STANDARDOWA ATEX
+Nr katalogowy: GW-140-400440
+DANE TECHNICZNE:
+Osłonka części łamliwej czujnika: tuba PTFE
+Długość kabla: 2m
+Zakres temperatury: - 25 / + 80 St.C
+Ui <40V
+Ii <57mA
+CENA netto ILOŚĆ WARTOŚĆ netto
+107,00 EUR 4 SZT 428,00 EUR
+Lp. 3 TRANSPORT
+Nr katalogowy: 47
+CENA netto ILOŚĆ WARTOŚĆ netto
+150,00 EUR 1 SZT 150,00 EUR
+SUMA netto: 3 178,00 EUR
+trzy tysiące sto siedemdziesiąt osiem EUR zero EUR / 100
+Załącznikiem do niniejszej oferty jest również podpisane – na razie jednostronnie przez nas - porozumienie w sprawie wystawiania i przesyłania faktur
+elektronicznych. Bardzo prosimy o jego uzupełnienie Państwa danymi rejestrowymi /ewidencyjnymi wraz z numerem NIP oraz adresem e-mail do
+przesyłania faktur elektronicznych, opatrzenie datą, podpisanie i odesłanie do nas – najlepiej z powołaniem się na numer naszej oferty „OGW’. Pozwoli
+to na uniknięcie niepotrzebnych problemów związanych z doręczaniem faktur w tradycyjny sposób. Podpisany skan porozumienia prosimy przesłać na
+adres sekretariat@g-w.eu
+W zakresie nieuregulowanym w ofercie znajdą zastosowanie Ogólne Warunki Sprzedaży i Świadczenia Usług* załączone do niniejszej Oferty oraz
+znajdujące się na stronie www.grupa-wolff.eu.
+Podana w ofercie cena nie zawiera podatku VAT. W przypadku ofert wyrażonych w euro (EUR) lub innej obcej walucie, zastrzegamy, że akceptujemy
+jedynie płatność całej kwoty brutto w walucie, w której została wystawiona faktura (dotyczy to każdej faktury, w tym faktury VAT oraz faktury pro forma)
+i na rachunek danej waluty wskazany na fakturze, z jednym wyjątkiem, o którym mowa poniżej.
+W konsekwencji, płatność, która nastąpi w innej walucie lub na inny rachunek bankowy nie będzie traktowana jak zapłata. Płatność dokonana w
+nieprawidłowy sposób, zostanie zwrócona niezwłocznie po otrzymaniu przez nas pełnej należnej kwoty (wartości brutto z faktury) w odpowiedniej
+walucie i na odpowiedni rachunek bankowy.
+Odbiorcy faktury (nabywcy towaru lub usługi) nie należą się odsetki lub jakakolwiek inna rekompensata, w wyniku zastosowania przez nas zasad
+określonych w trzech poprzednich zdaniach.
+Wyjątek od powyższych zasad zapłaty w walucie obcej, dotyczy jedynie faktury z naszego wystawienia z dopiskiem „MECHANIZM PODZIELONEJ
+PŁATNOSCI”, ALE JEDYNIE W CZĘŚCI DOTYCZĄCEJ WSKAZANEGO W NIEJ PODATKU VAT. Podatek ten należy zapłacić w kwocie PLN,
+przeliczonej z waluty obcej na PLN, wskazanej na fakturze płatnej w MECHANIZMIE PODZIELONEJ PŁATNOSCI. Natomiast płatność kwoty
+należności netto z faktury (wartość netto), również w przypadku faktury płatnej w mechanizmie podzielonej płatności powinna nastąpić w walucie, w
+której została wystawiona faktura i na rachunek danej waluty wskazany na fakturze, z konsekwencjami - w przypadku braku zastosowania się do
+powyższej płatności - opisanymi powyżej.
+2 / 3
+Dane finansowe (do faktury):
+GRUPA WOLFF
+info@g-w.eu GRUPA WOLFF sp. z o.o. sp.k. (dawniej GRUPA WOLFF sp.j.)
+ul. Spacerowa 5, 32-083 Balice, NIP: 679-22-53-664.
+ul. Spacerowa 5, www.g-w.eu
+Spółka zarejestrowana w Krajowym Rejestrze Sądowym przez
+32-083 Balice +48 12 2018 100 Sąd Rejonowy dla Krakowa - Śródmieścia XII Wydział
+Gospodarczy KRS: 0000942344, REGON: 351258092.
+
+=== PAGE 2 TABLE 1 ===
+Lp. 2 | CZUJNIK OTWARCIA PANELU SE-ATEX ; WERSJA STANDARDOWA ATEX Nr katalogowy: GW-140-400440 DANE TECHNICZNE: Osłonka części łamliwej czujnika: tuba PTFE Długość kabla: 2m Zakres temperatury: - 25 / + 80 St.C Ui <40V Ii <57mA |  |  | 
+ |  | CENA netto | ILOŚĆ | WARTOŚĆ netto
+ |  | 107,00 EUR | 4 SZT | 428,00 EUR
+
+=== PAGE 2 TABLE 2 ===
+Lp. 3 | TRANSPORT Nr katalogowy: 47 |  |  | 
+ |  | CENA netto | ILOŚĆ | WARTOŚĆ netto
+ |  | 150,00 EUR | 1 SZT | 150,00 EUR
+
+=== PAGE 2 TABLE 3 ===
+SUMA netto: | 3 178,00 EUR
+trzy tysiące sto siedemdziesiąt osiem EUR zero EUR / 100 |
+
+=== PAGE 3 TEXT ===
+Oferta nr OGW-K-27134-20221130
+Przedstawiona oferta do momentu zawarcia umowy może podlegać dalszym negocjacjom w zakresie technicznym i handlowym. W przypadku
+otrzymania od Państwa nowych wytycznych mających wpływ na koszty naszej wyceny, będziemy się kontaktować z Państwa firmą w celu uzgodnienia
+nowych warunków oferty.
+Potwierdzeniem przyjęcia niniejszej oferty jest złożenie zamówienia drogą e-mailową lub pocztą na adres wskazany w ofercie. Złożenie zamówienia
+oznacza akceptację oferty i wszystkich jej załączników. W przypadku niezgodności treści zamówienia z treścią oferty lub któregokolwiek z jej
+załączników, zamówienie nie będzie realizowane do momentu uzgodnienia nowych warunków oferty i przesłania przez Grupę WOLFF spółka z
+ograniczoną odpowiedzialnością spółka komandytowa potwierdzenia przyjęcia zamówienia. Otrzymanie przez Zamawiającego potwierdzenia przyjęcia
+zamówienia do jego realizacji, wysłanego drogą elektroniczną na wskazany w zamówieniu adres e-mail, jest jednoznaczne z zawarciem umowy.
+Oferta obejmuje swym zakresem tylko to co zostało w niej wprost wskazane, a za datę przeniesienia prawa do rozporządzania towarem jak właściciel,
+uznaje się datę zapłaty (wpływu środków w pełnej wysokości).
+Treść Oferty, w szczególności dane obliczeniowe oraz informacje techniczne zawarte w niniejszej ofercie są i pozostają własnością Grupy WOLFF
+spółka z ograniczoną odpowiedzialnością spółka komandytowa i stanowią zarazem jego tajemnicę. Oznacza to, że nie mogą być one udostępniane,
+przekazywane lub kopiowane bez pisemnej zgody właściciela oraz nie mogą być wykorzystywane w żadnym innym celu niż złożenie zamówienia w
+Grupie WOLFF spółka z ograniczoną odpowiedzialnością spółka komandytowa w oparciu o niniejszą ofertę. Wszelkie próby postąpienia wbrew w/w
+obostrzeniom będą prowadzić do wyciągnięcia stosownych konsekwencji.
+Jeśli nie zostało to wprost wskazane w treści niniejszej oferty, z zasady nie obejmuje ona wykonania projektu, prowadzenia prac budowlanych,
+uzyskania zgód, zezwoleń lub decyzji administracyjnych ani poniesienia kosztów związanych z ich wykonaniem czy uzyskaniem. Zakładamy, że przed
+podpisaniem umowy czy potwierdzeniem zamówienia zostaną uzgodnione wszelkie szczegóły dotyczące wymagań niezbędnych do rozpoczęcia i
+kontynuacji prac oraz harmonogram prac objętych zakresem niniejszej oferty. Termin realizacji zamówienia zostanie przez nas dochowany pod
+warunkiem udostępnienia nam frontu prac przez Klienta oraz uzyskania przez niego wszystkich niezbędnych dla realizacji umowy prawomocnych
+decyzji, zgód i pozwoleń administracyjnych.
+Treść oferty w języku angielskim ma charakter wyłącznie informacyjny. Wiążącym językiem oferty jest język polski.
+WARUNKI HANDLOWE
+SZACOWANY TERMIN DOSTAWY wysyłka w ciągu 4-5 tygodni z Niemiec (z wyłączeniem okresu świątecznego)
+SPOSÓB ZAPŁATY Przelew
+TERMIN ZAPŁATY 14 dni
+WAŻNOŚĆ OFERTY 14 dni
+WARUNKI DOSTAWY EXW Brilon, Niemcy
+Z poważaniem
+Anna Drabik
+GRUPA WOLFF sp. z o.o. sp.k.
+ul. Spacerowa 5, 32-083 Balice
++48/668136688
+a.drabik@g-w.eu, www.grupa-wolff.eu
+3 / 3
+Dane finansowe (do faktury):
+GRUPA WOLFF
+info@g-w.eu GRUPA WOLFF sp. z o.o. sp.k. (dawniej GRUPA WOLFF sp.j.)
+ul. Spacerowa 5, 32-083 Balice, NIP: 679-22-53-664.
+ul. Spacerowa 5, www.g-w.eu
+Spółka zarejestrowana w Krajowym Rejestrze Sądowym przez
+32-083 Balice +48 12 2018 100 Sąd Rejonowy dla Krakowa - Śródmieścia XII Wydział
+Gospodarczy KRS: 0000942344, REGON: 351258092.
+
+=== PAGE 3 TABLE 1 ===
+SZACOWANY TERMIN DOSTAWY | wysyłka w ciągu 4-5 tygodni z Niemiec (z wyłączeniem okresu świątecznego)
+SPOSÓB ZAPŁATY | Przelew
+TERMIN ZAPŁATY | 14 dni
+WAŻNOŚĆ OFERTY | 14 dni
+WARUNKI DOSTAWY | EXW Brilon, Niemcy
+[PDF_TEXT_END]

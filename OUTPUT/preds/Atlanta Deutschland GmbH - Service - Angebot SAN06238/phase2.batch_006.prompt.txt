@@ -27,117 +27,202 @@ VERY IMPORTANT – DO NOT GUESS:
 - An empty field is better than an invented or incorrect value.
 
 
-PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+PHASE 2 TASK: DETAILED ITEMS (MINIMAL OfferItem SCHEMA)
 
-Your goal in this phase is to build only the 'items_preview' list.
+You will receive:
+- the same offer text,
+- a subset of items from Phase 1 ("items_preview").
 
-Ignore the offer header completely:
-- do NOT analyse offer numbers, dates, supplier names, addresses,
-  logos, sign-off blocks or contact information.
-- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+For EACH of these preview items produce one fully detailed object
+according to the OfferItem schema with EXACTLY the following fields:
 
-Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
-Treat each row of a product table as one potential item if it describes a material,
-component or product.
+- "id": primary key for the item, use a simple running counter "1", "2", "3", ...
+- "id_oferty": offer ID for all items in this file (if unknown, use an empty string "").
+- "opis": original description of the item, based on the PDF text (do not translate).
+- "grupa_materialow": material group or product category inferred from the context.
+- "numer_oem": main OEM / article / item number for this product.
+- "producent": manufacturer name.
+- "serial_numbers": other identification or classification codes (CN, PKWiU, indices, etc.).
 
-For the OfferScan schema:
-- "id": set to "" if unknown.
-- "nazwa_dostawcy": set to "" if unknown.
-- "data_oferty": set to null if unknown.
-- "items_preview": must contain physical goods found in the text.
+GENERAL RULES FOR ALL FIELDS:
+- Use only information that appears in the offer text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Do NOT invent values that are not supported by the text.
+- If a field is missing, use an empty string "".
+- Prefer empty fields over guessed or incorrect values.
 
-TABLE AND HEADER RECOGNITION (IMPORTANT):
-
-First try to identify table headers with column names. Typical examples:
-
-- "Lp", "L.p.", "Poz." – position number (ignore in description).
-- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
-- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
-- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
-- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
-- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
-
-Columns such as:
-- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
-are additional information that you do NOT include in the product description.
-
-For each product row:
-- Build the description mainly from the product code and product name columns if they exist.
-- Quantity and prices are NOT required in the description.
-- You may ignore pure service lines, notes and remarks.
+VERY IMPORTANT – MISSING DATA:
+- If the offer text does not clearly specify an offer ID, OEM number, manufacturer,
+  or other codes, leave the corresponding field empty ("").
+- Empty is BETTER than incorrect. Never fabricate a product code or manufacturer.
 
 DESCRIPTION FIELD ("opis"):
+- Do NOT append price, discounts, totals or other numeric columns to "opis".
+- Do NOT copy "kwota_ceny_oferty" into "opis".
+- "opis" must describe ONLY the product itself (name, type, variant, parameters) and MUST NOT contain the OEM/article number.
+- If the preview opis begins with a product code-like token
+  (short alphanumeric code, often with dashes/slashes),
+  ALWAYS remove it from "opis" and put it into "numer_oem".
+- If the leading token is clearly NOT a product code (e.g. "LP", "JM", "szt.", "Cena"),
+  then do NOT treat it as numer_oem.
+- After removing the OEM from the start, keep everything else exactly as in the PDF (no translation, no rewriting).
 
-For each physical product row in a table create one object in "items_preview" with:
-- "position_id": sequential integer 1, 2, 3, ...
-- "opis": short description based on the whole table row:
-  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
-    ALWAYS keep this code together with the product name in the description.
-  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
-    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
-  • If you do NOT see any clear product code in the row, describe only the product name/type.
-    NEVER invent a product code.
-  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
-  • examples:
-    "140017 EFB O-ring"
-    "100,37036382 Driven roller"
-    "8,21009886 Roller chain 1/2""
+TABLE STRUCTURE AND COLUMN MAPPING:
 
-NOTE:
-In Phase 1 you may keep product codes at the start of "opis".
-These codes will later be extracted into "numer_oem" during Phase 2,
-so do not attempt to remove or separate them here.
+Whenever possible, use the table headers to map columns to fields. Typical mappings:
 
-UNIT PRICE FIELD ("kwota_ceny_oferty"):
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID"
+  → candidate for "numer_oem".
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi"
+  → main product name used in "opis".
+- "CN", "PKWiU", "Indeks", "Nr magazynowy"
+  → candidates for "serial_numbers" (classification or internal codes).
 
-- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
-- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
-  not the total value ("Cena końcowa", "Wartość netto").
-- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+Examples of table headers:
+- "Lp Kod produktu Nazwa produktu Ilość Cena/sztukę Cena końcowa"
+  • numer_oem from "Kod produktu"
+  • opis built mainly from "Nazwa produktu"
+- "Poz. Nr artykułu Ilość j.m. Cena jednostkowa Cena"
+  • numer_oem from "Nr artykułu"
+  • opis built from product name / description column
+- "Lp. Nazwa towaru/usługi Dostępność Ilość jm. Cena przed rabatem Rabat % Cena netto Wartość netto VAT"
+  • typically NO dedicated product code column; in such case numer_oem may be empty if no clear code is present.
 
-OUTPUT SIZE NOTE:
-- If the file contains an extremely large number of rows (hundreds),
-  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+Never treat columns such as "Dostępność", "Rabat %", "VAT", "Cena", "Wartość netto", "Wartość brutto"
+as sources of product codes.
 
-SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
-- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
-- courier costs ("dostawa kurierska", "GLS", "UPS")
-- installation, commissioning, configuration
-- inspections, maintenance, service work, travel costs
-- generic handling fees ("opłata manipulacyjna", "handling costs")
-- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+KEY FIELDS (MUST NOT BE GUESSED):
+
+ADDITIONAL RULES FOR PRODUCT CODES (IMPORTANT):
+
+- If the table contains labels like:
+  "Nr produktu", "Nr produktu SICK", "Indeks", "Code", "Item code", "Material", "Article No."
+  treat the value as the main product code -> put it into "numer_oem".
+- Do NOT put such product codes into "serial_numbers".
+
+1) numer_oem
+
+- This is the MAIN product code (OEM / article / item number).
+- Prefer values from dedicated columns with headers like:
+  "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID".
+- If there is NO dedicated column, you may treat as numer_oem a short alphanumeric code
+  at the very beginning of the row, placed before the product name and separated by a space or dash,
+  for example: "ABC-123 - Moduł wejściowy 24V DC".
+- NEVER assign CN, PKWiU, HS, tariff numbers, or any long numeric codes (8+ digits) to "numer_oem".
+- If a row contains:
+  • a short article number (e.g. "1119902", "3RH2911-1HA22") AND
+  • classification codes ("CN: 85369010", "PKWiU 27.33.13.0"),
+  then:
+  • numer_oem = short article number
+  • serial_numbers = "CN: ...;PKWiU: ..."
+- If you are NOT sure that a value is a product code, set "numer_oem" to an empty string "".
+- If the preview opis contains a product code at the beginning
+  (e.g. "ABC-123 - Opis produktu", "4500123 O-ring"),
+  this code must be extracted into "numer_oem" and removed from "opis".
+- The final opis must NEVER contain the OEM/article number.
 
 
-If a row description starts with or contains mainly these phrases,
-treat it as a service and SKIP it.
+STRICT EXCLUSIONS FOR serial_numbers (MANDATORY):
+- serial_numbers MUST NOT contain:
+  prices (PLN/EUR), discounts (Rabat), VAT, totals (Wartość),
+  quantities (Ilość, J.m., szt.), delivery/availability (na stanie, termin realizacji),
+  URLs (http/https/www), or any logistics notes.
+- If you see only such information and no real codes, set serial_numbers to "".
 
-Work ONLY on the text included in the PDF text section (between the PDF markers).
+2) serial_numbers
 
-The final JSON must have exactly this top-level structure:
+- This field collects all identification or classification codes related to the item
+  that are NOT the main OEM/article number.
+- Typical examples:
+  • customs codes (e.g. "CN 85369010"),
+  • PKWiU codes,
+  • internal warehouse numbers or catalogue indices,
+  • any additional structured codes that clearly refer to this item.
+- If a header contains words "CN", "PKWiU", "Indeks", "Nr magazynowy", etc.,
+  you may treat the values from that column as elements of "serial_numbers".
+- Merge all such codes into ONE string separated by semicolons, for example:
+  "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456".
+- Always add prefixes like "CN:" or "PKWiU:" when the code type is clear.
+- Do NOT include pure technical parameters such as voltage, current, power, frequency,
+  IP rating, dimensions, weight, etc.
+- Do NOT duplicate numer_oem here (even if the same number appears again with a different label).
+- If you do not see any such codes, set "serial_numbers" to "".
 
-{
-  "id": "",
-  "nazwa_dostawcy": "",
-  "data_oferty": null,
-  "items_preview": [
-    {
-      "position_id": 1,
-      "opis": "...",
-      "kwota_ceny_oferty": 0.0
-    }
-  ]
-}
 
-You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
-but the main goal is a correct and complete "items_preview" list.
-Return only ONE JSON object and nothing else.
+
+
+OTHER FIELDS:
+
+- id:
+  • Use a simple integer-like string "1", "2", "3", ...
+  • The order should follow the order of items in Phase 1.
+
+- id_oferty:
+  • If an offer ID is visible in the header or in a dedicated field, copy it exactly.
+  • If multiple IDs are present, use the one that clearly identifies the offer document.
+  • If you cannot find any offer ID, use an empty string "".
+
+  To extract id_oferty, search the header for typical patterns:
+  - "Numer / Data wystawienia: <ID> / <date>"
+  - "Oferta Nr <ID>"
+  - "Offer No.: <ID>"
+  - "Numer Oferty / data <ID>"
+  If multiple values look like offer IDs, choose the one explicitly labeled as the offer number.
+  If none exists, set "".
+
+- grupa_materialow:
+  • Assign a short, general category based on the description and context of the item.
+  • Examples of categories: "złączki", "kable", "wyłączniki", "bezpieczniki",
+    "akcesoria montażowe", "automatyka", "mechanika", "inne".
+  • If you are not sure, choose the closest reasonable category.
+
+- producent:
+  • Use the manufacturer name present directly in the item line or clearly associated with the product
+    (e.g. SIEMENS, LAPP, SICK, KRONES).
+  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
+    that the supplier is also the manufacturer.
+  • If no manufacturer can be determined with certainty, set producent to "".
+
+STRICT CARDINALITY CONSTRAINT (CRUCIAL):
+
+You are given exactly 3 preview items (Item 19 to Item 21).
+For EACH input item you MUST return EXACTLY ONE OfferItem object.
+
+- The output JSON ARRAY MUST contain exactly 3 elements.
+- The order of objects in the output array MUST match the order of input items
+  (first object corresponds to Item 19, last object to Item 21).
+- Do NOT merge different items into one object.
+- Do NOT create any additional or synthetic items.
+- Do NOT repeat the same item multiple times.
+- If you are uncertain, still return exactly one best-effort object per input item,
+  but never invent fields that are not visible in the text.
+
+ITEMS TO PROCESS:
+
+Item 19 (preview):
+  opis: 40600005318 Pneumatic cylinder 2 PCS
+  kwota_ceny_oferty: 162.8
+
+Item 20 (preview):
+  opis: 40300010368 Flow controller 4 PCS
+  kwota_ceny_oferty: 39.6
+
+Item 21 (preview):
+  opis: 40300010369 Adjustment 4 PCS
+  kwota_ceny_oferty: 43.0
+
+
+OUTPUT FORMAT (MANDATORY):
+
+Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
+The array MUST have exactly 3 elements and MUST be the ONLY thing in your answer.
+Return only ONE JSON array and NO additional text, comments or explanations.
 
 
 [PDF_TEXT_START]
 === PAGE 1 TEXT ===
 Atlanta Deutschland GmbH • Kammererstraße 18 • 71636 Ludwigsburg
 Quote no. Date
-Spoldzielnia Mleczarska "Mlekpol" W Grajewie SAN06239 21.02.2025
+Spoldzielnia Mleczarska "Mlekpol" W Grajewie SAN06238 21.02.2025
 Grzegorz Lehr
 ul. Elewatorska 13
 85-453 Bydgoszcz
@@ -151,19 +236,21 @@ Quote
 inquiry per Mail Grzegorz Lehr 21.02.2025
 Ship to:
 Spoldzielnia Mleczarska "Mlekpol" W Grajewie
-ul. Elewatorska 13
+Oddział Zakład Produkcji Mleczarskiej w
+Bydgoszczy
+ul. Niklowa 4
 85-453 Bydgoszcz
 Polen
 Project Mlekpol
-KOM-Number K824-E07
-Serial Number A131205
+KOM-Number K824-2LS
+Serial Number A172748
 Type of machine Omega
 Item No. Description Quantity Price Amount
 EUR EUR
 Validity of quotation: 4 weeks
-Serviceartikelnr. SCODE00282
-Artikel 8200-169 Mlekpol
-Serial Number A131205
+Serviceartikelnr. SCODE00716
+Artikel 8200-169 Mlekpol Polen
+Serial Number A172748
 10010003002 tie rod extension attack chain 2 PCS 299,20 598,40
 country of origin: IT
 material: ST37
@@ -174,8 +261,6 @@ total weight net/Pos.: 3 kg
 10000002308 spacer 2 PCS 73,60 147,20
 country of origin: IT
 material: ST37
-tariff no: 73181900
-delivery time: 21 days
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -187,6 +272,8 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 2
 Item No. Description Quantity Price Amount
 EUR EUR
+tariff no: 73181900
+delivery time: 21 days
 net weight: 0,546 kg
 total weight net/Pos.: 1,092 kg
 10000002972 shaft 2 PCS 56,50 113,00
@@ -196,13 +283,6 @@ tariff no: 84831095
 delivery time: 20 days
 net weight: 0,292 kg
 total weight net/Pos.: 0,584 kg
-20410001071 Deep groove ball bearings 4 PCS 14,40 57,60
-country of origin: IT
-material: ST37
-tariff no: 84821090
-delivery time: 21 days
-net weight: 0,098 kg
-total weight net/Pos.: 0,392 kg
 94200060 Shaft 4 PCS 171,70 686,80
 country of origin: IT
 material: ST37
@@ -210,6 +290,13 @@ tariff no: 73269098
 delivery time: 28 days
 net weight: 4,75 kg
 total weight net/Pos.: 19 kg
+20410001071 Deep groove ball bearings 4 PCS 14,40 57,60
+country of origin: IT
+material: ST37
+tariff no: 84821090
+delivery time: 21 days
+net weight: 0,098 kg
+total weight net/Pos.: 0,392 kg
 94000170 Mechanical stop 1 PCS 190,80 190,80
 country of origin: IT
 material: ST37
@@ -286,8 +373,6 @@ total weight net/Pos.: 0,016 kg
 82405004006 Magnetic Sensor 12 PCS 59,40 712,80
 country of origin: IT
 material: ST37
-tariff no: 85365019
-delivery time: 21 days
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -299,6 +384,8 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 4
 Item No. Description Quantity Price Amount
 EUR EUR
+tariff no: 85365019
+delivery time: 21 days
 net weight: 0,037 kg
 total weight net/Pos.: 0,444 kg
 40600004501 Pneumatic cylinder 2 PCS 352,38 704,76
@@ -398,8 +485,6 @@ net weight: 0,118 kg
 total weight net/Pos.: 1,888 kg
 10000001634 Spacer 4 PCS 12,10 48,40
 country of origin: IT
-material: ST37
-tariff no: 94039010
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -411,10 +496,12 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 6
 Item No. Description Quantity Price Amount
 EUR EUR
+material: ST37
+tariff no: 94039010
 delivery time: 40 days
 net weight: 0,06 kg
 total weight net/Pos.: 0,24 kg
-10000001635 Spacer 4 PCS 24,68 98,70
+10000001635 Spacer 4 PCS 24,68 98,72
 country of origin: IT
 material: ST37
 tariff no: 94039010
@@ -455,7 +542,6 @@ material: AlMg3
 tariff no: 76169990
 delivery time: 21 days
 net weight: 2,92 kg
-total weight net/Pos.: 5,84 kg
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -467,13 +553,14 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 7
 Item No. Description Quantity Price Amount
 EUR EUR
-10000001551 Pulley for bolt 10000001284 6 PCS 29,40 176,40
+total weight net/Pos.: 5,84 kg
+10000001284 Pulley 6 PCS 85,00 510,00
 country of origin: IT
 material: ST37
-tariff no: 73182900
-delivery time: 14 days
-net weight: 0,057 kg
-total weight net/Pos.: 0,342 kg
+tariff no: 84835020
+delivery time: 30 days
+net weight: 0,54 kg
+total weight net/Pos.: 3,24 kg
 20410001552 Deep groove ball bearings 2 PCS 42,90 85,80
 country of origin: DE
 material: ST37
@@ -481,7 +568,7 @@ tariff no: 84821090
 delivery time: 21 days
 net weight: 0,018 kg
 total weight net/Pos.: 0,036 kg
-10000001865 Shaft for locking 2 PCS 96,79 193,58
+10000001865 Shaft for locking 2 PCS 96,80 193,60
 country of origin: IT
 material: ST37
 tariff no: 84831095
@@ -502,15 +589,14 @@ tariff no: 84831095
 delivery time: 28 days
 net weight: 1,7 kg
 total weight net/Pos.: 3,4 kg
+20450001681 Flanged bearing 4 PCS 90,90 363,60
+country of origin: JP
+material: ST37
+tariff no: 84832000
+delivery time: 14 days
+net weight: 1,119 kg
+total weight net/Pos.: 4,476 kg
 10000007992 Shaft 2 PCS 151,50 303,00
-country of origin: IT
-material: STAHL
-tariff no: 84835080
-delivery time: 21 days
-net weight: 1,32 kg
-total weight net/Pos.: 2,64 kg
-10000006774 bilanciere 2 PCS 279,90 559,80
-country of origin: IT
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -522,6 +608,14 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 8
 Item No. Description Quantity Price Amount
 EUR EUR
+country of origin: IT
+material: STAHL
+tariff no: 84835080
+delivery time: 21 days
+net weight: 1,32 kg
+total weight net/Pos.: 2,64 kg
+10000006774 bilanciere 2 PCS 279,90 559,80
+country of origin: IT
 material: ST37
 tariff no: 84229090
 delivery time: 21 days
@@ -555,19 +649,11 @@ tariff no: 84835080
 delivery time: 21 days
 net weight: 0,05 kg
 total weight net/Pos.: 0,2 kg
-20410001071 Deep groove ball bearings 8 PCS 14,40 115,20
+20410001071 Deep groove ball bearings 4 PCS 14,40 57,60
 country of origin: IT
 material: ST37
 tariff no: 84821090
 delivery time: 21 days
-net weight: 0,098 kg
-total weight net/Pos.: 0,784 kg
-10000005802 Steel track with double cutting 4 PCS 629,45 2.517,80
-country of origin: IT
-material: ST37
-tariff no: 84229090
-delivery time: 21 days
-net weight: 23,82 kg
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de

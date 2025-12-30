@@ -1,0 +1,27 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "6933095 WKH4.4-10/TFG",
+      "kwota_ceny_oferty": 124.69
+    },
+    {
+      "position_id": 2,
+      "opis": "6933088 RKH4.4-10/TFG",
+      "kwota_ceny_oferty": 121.56
+    },
+    {
+      "position_id": 3,
+      "opis": "6933094 WKH4.4-5/TFG",
+      "kwota_ceny_oferty": 96.51
+    },
+    {
+      "position_id": 4,
+      "opis": "6933087 RKH4.4-5/TFG",
+      "kwota_ceny_oferty": 93.91
+    }
+  ]
+}

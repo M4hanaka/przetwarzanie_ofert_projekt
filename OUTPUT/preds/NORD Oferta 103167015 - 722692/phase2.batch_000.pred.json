@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "103167015",
+    "opis": "WAŁ WYJŚCIOWY 20x40 SK01 seryjny",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "50130000",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "SK01"
+  },
+  {
+    "id": "2",
+    "id_oferty": "103167015",
+    "opis": "KOLO BIERNE Z=46 D=75,0 6P9 20M6",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "50173050",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "6P9 20M6"
+  },
+  {
+    "id": "3",
+    "id_oferty": "103167015",
+    "opis": "WAŁ ZĘBATY Z=14",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "50172050",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": ""
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "63/10/2023",
+    "nazwa_dostawcy": "FRISTAM POLSKA",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "63/10/2023",
+        "opis": "Wirnik FC 50 Ø154 do pompy s/n: 0584530005",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "s/n: 0584530005;0584632009"
+      },
+      {
+        "id": "2",
+        "id_oferty": "63/10/2023",
+        "opis": "Wirnik FC 50 Ø166 do pompy s/n: 0584530003",
+        "grupa_materialow": "złączki",
+        "numer_oem": "",
+        "producent": "FRISTAM POLSKA",
+        "serial_numbers": "0584530003;0584632014"
+      },
+      {
+        "id": "3",
+        "id_oferty": "63/10/2023",
+        "opis": "Zestaw naprawczy uszczelnienia wału 9.400B 2N21V2",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "FRISTAM POLSKA",
+        "serial_numbers": "0826390018"
+      },
+      {
+        "id": "4",
+        "id_oferty": "63/10/2023",
+        "opis": "Wałek FC 50-154/4,5 F - 1.4404",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "FRISTAM POLSKA",
+        "serial_numbers": "0584650002"
+      },
+      {
+        "id": "5",
+        "id_oferty": "63/10/2023",
+        "opis": "Nakrętka M16x1,5",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "FRISTAM POLSKA",
+        "serial_numbers": "0133200000"
+      }
+    ],
+    "liczba_elementow": 5
+  }
+]

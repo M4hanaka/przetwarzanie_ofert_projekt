@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Shaft for locking 2 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "10000001865",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Flanged bearing 4 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "20450001681",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Shaft 2 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "10000001682",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

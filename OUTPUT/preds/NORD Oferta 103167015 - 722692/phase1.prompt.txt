@@ -1,0 +1,271 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text included in the PDF text section (between the PDF markers).
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+N_O_RD_ N_ap_ęd_y S_p._ z o_.o_., Z_ak_rzó_w _41_4, _32-_00_3 P_od_łęż_e___________
+Kupujący Oferta
+Spółdzielnia Mleczarska MLEKPOL
+w Grajewie Numer|Data 103167015|18.03.2025
+ul. Elewatorska 13 Numer zapytania|Data 722692|18.03.2025
+19-203 Grajewo Nazwisko zleceniodawcy Dudziński Robert
+Numer Kupującego 750002253
+Numer NIP 7190000425
+Opiekun regionu Marcin Mytnik
+Osoba prowadząca Marcin Szydlik
+Telefon (012) 288-99-51
+Miejsce dostawy
+E-mail marcin.szydlik@nord.com
+Zakład Produkcji Mleczarskiej
+Okres ważności 16.05.2025
+ul. Kormoranów 1
+11-700 Mrągowo
+W odpowiedzi na Państwa zapytanie mamy przyjemność złożyć ofertę na wyroby firmy Getriebebau NORD GmbH.
+Oferta została sporządzona w oparciu o otrzymane lub uzgodnione z Państwem założenia, z zastrzeżeniem, że
+parametry niesprecyzowane w zapytaniu, przyjęto zgodnie ze standardami producenta dla danego produktu,
+ujętymi w katalogach i instrukcjach dostępnych na stronie www.nord.pl.
+Prosimy o sprawdzenie parametrów towaru, szczególnie zwracając uwagę na parametry nie uzgodnione.
+Objaśnienia i rysunki pomocne do właściwego określenia towaru znajdują się w załączniku "Warunki
+techniczne" na stronie: https://www.nord.com/media/documents/forms/technicalannex.pdf oraz w katalogach
+producenta.
+_______________________________________________________________________
+P_o_z.__N_a_zw_a_ t_o_wa_r_u _l_ub_ _us_ł_ug_i______________________N_r._ _cz_ę_śc_i______I_l_oś_ć_______W_ar_t_oś_ć_ n_e_tt_o
+100 WAŁ WYJŚCIOWY 20x40 SK01 seryjny 50130000
+Waga około 0,292KG/SZT
+Cena poz.netto z rab.sp. 44,00 EUR/ 1 SZT 4 SZT 176,00 EUR
+200 KOLO BIERNE Z=46 D=75,0 6P9 20M6 50173050
+Waga około 0,330KG/SZT
+Cena poz.netto z rab.sp. 54,00 EUR/ 1 SZT 4 SZT 216,00 EUR
+300 WAŁ ZĘBATY Z=14 50172050
+Waga około 0,092KG/SZT
+Cena poz.netto z rab.sp. 54,00 EUR/ 1 SZT 4 SZT 216,00 EUR
+400 ŁOŻYSKO 6004 2Z 24600420
+Waga około 0,066KG/SZT
+Cena poz.netto z rab.sp. 16,00 EUR/ 1 SZT 4 SZT 64,00 EUR
+Konta bankowe: S.W.I.F.T/BIC Numer NORD Napędy Sp. z o.o.
+mBank S.A. PLN 61 1140 1081 0000 4726 7100 1001 Zakrzów 414
+mBank S.A. BREX PL PW KRA EUR 93 1140 1081 0000 4726 7100 1007 32-003 Podłęże
+KRS: Sąd Rejonowy dla Krakowa Śródmieście KRS, Numer: 0000087588. Kapitał zakładowy: 770 000,00 PLN Tel.: +48 12 2889900
+Zarząd: Ullrich Küchenmeister, Jutta Humbert
+REGON: 351471578 NIP: 6831720355 UE: PL6831720355 BDO: 000049817
+Email: biuro@nord.com Internet: http://www.NORD.com
+
+=== PAGE 1 TABLE 1 ===
+Oferta
+Numer|Data 103167015|18.03.2025 Numer zapytania|Data 722692|18.03.2025 Nazwisko zleceniodawcy Dudziński Robert Numer Kupującego 750002253 Numer NIP 7190000425 Opiekun regionu Marcin Mytnik Osoba prowadząca Marcin Szydlik Telefon (012) 288-99-51 E-mail marcin.szydlik@nord.com Okres ważności 16.05.2025
+
+=== PAGE 2 TEXT ===
+Spółdzielnia Mleczarska MLEKPOL Nr dokumentu|Data Strona
+19-203 Grajewo 103167015|18.03.2025 2
+_______________________________________________________________________
+P_o_z.__N_a_zw_a_ t_o_wa_r_u _l_ub_ _us_ł_ug_i______________________N_r._ _cz_ę_śc_i______I_l_oś_ć_______W_ar_t_oś_ć_ n_e_tt_o
+500 ŁOŻYSKO 6004 24600400
+Waga około 0,069KG/SZT
+Cena poz.netto z rab.sp. 13,00 EUR/ 1 SZT 4 SZT 52,00 EUR
+600 KOŁO ZĘBATE Z=78 V M=1,00 LI 50171040
+Waga około 0,320KG/SZT
+Cena poz.netto z rab.sp. 57,00 EUR/ 1 SZT 2 SZT 114,00 EUR
+700 ŁOŻYSKO 6201 24620100
+Waga około 0,035KG/SZT
+Cena poz.netto z rab.sp. 8,00 EUR/ 1 SZT 4 SZT 32,00 EUR
+800 ŁOŻYSKO 6201 2Z 24620120
+Waga około 0,037KG/SZT
+Cena poz.netto z rab.sp. 11,00 EUR/ 1 SZT 4 SZT 44,00 EUR
+900 PIERŚC USZCZ. WDR 25x42x7 AS NBR902 25025000
+Waga około 10G/SZT
+Cena poz.netto z rab.sp. 8,00 EUR/ 1 SZT 8 SZT 64,00 EUR
+_______________________________________________________________________
+Wartość netto EUR 978,00 EUR
+Podatek VAT 23,00 % _ _ _ _ _ _2_2_4_,_9_4_ _E_U_R_
+Wartość łącznie z VAT __ __ __ __ 1__ .__ 2__ 0__ 2__ ,__ 9__ 4__ __ E__ U__ R__
+TERMIN DOSTAWY
+Około 2-4 dni od dnia zawarcia umowy sprzedaży.
+Termin dostawy może ulec zmianie w zależności od aktualnego stanu magazynowego.
+CENA
+Cena sprzedaży jest ceną wyrażoną w EUR. Faktury będą wystawione na wierzytelność w
+EUR, przy czym dodatkowo kwota wierzytelności w EUR, będzie również przeliczona na
+PLN w oparciu o średni kurs EUR ogłoszony przez NBP w dniu poprzedzającym dzień
+sprzedaży. Przeliczenie kwoty EUR na PLN nie zmienia charakteru ceny, która nadal
+będzie ceną w EUR. Natomiast nabywca ma prawo, według swojego wyboru, dokonać zapłaty
+ceny w walucie EUR lub w PLN (w kwocie przeliczonej z EUR na PLN). Zasada ta nie
+dotyczy zaliczek, które płatne są wyłączenie w EUR. Cena powiększona zostaje o
+Konta bankowe: S.W.I.F.T/BIC Numer NORD Napędy Sp. z o.o.
+mBank S.A. PLN 61 1140 1081 0000 4726 7100 1001 Zakrzów 414
+mBank S.A. BREX PL PW KRA EUR 93 1140 1081 0000 4726 7100 1007 32-003 Podłęże
+KRS: Sąd Rejonowy dla Krakowa Śródmieście KRS, Numer: 0000087588. Kapitał zakładowy: 770 000,00 PLN Tel.: +48 12 2889900
+Zarząd: Ullrich Küchenmeister, Jutta Humbert
+REGON: 351471578 NIP: 6831720355 UE: PL6831720355 BDO: 000049817
+Email: biuro@nord.com Internet: http://www.NORD.com
+
+=== PAGE 3 TEXT ===
+Spółdzielnia Mleczarska MLEKPOL Nr dokumentu|Data Strona
+19-203 Grajewo 103167015|18.03.2025 3
+podatek VAT wg obowiązującej stawki. Cena sprzedaży obowiązuje dla klientów, którzy
+wyrazili zgodę na wysyłkę faktur w formie elektronicznej.
+Ofertę uważa się za przyjętą jedynie wtedy jeżeli Sprzedawca w okresie ważności
+oferty otrzyma odpowiedź od Kupującego zawierającą oświadczenie o przyjęciu jej
+treści bez zmian i uzupełnień.
+Przedstawione w ofercie warunki płatności obowiązują wyłącznie do wartości
+przyznanego limitu kupieckiego.
+Dokument wygenerowany automatycznie jest ważny również bez podpisu Sprzedawcy.
+Pozostałe warunki niniejszej oferty sprzedaży:
+Warunki płatności W terminie 21 dni od dnia wystawienia faktury
+Warunki dostawy DAP Grajewo Zgodnie z Incoterms 2020
+Koszty dostawy będą doliczone na fakturze.
+Łącznie z opakowaniem
+Spedytor Raben Polska Sp. z o.o. Oddział w Gądkach k. Poznania
+Cena towaru nie obejmuje kosztów dostawy. Kupujący ponosi koszty dostawy towaru do miejsca dostawy,
+których wysokość ustalana jest według wagi brutto dostarczanego towaru.
+Informacja o kosztach dostawy znajduje się na naszej stronie internetowej pod adresem
+https://www.nord.com/pl/grupa-nord/nord-w-polsce/dostawy/pl_dostawy.jsp
+Wymiary gabarytowe, przekroje, wykazy części zamiennych i inne parametry konstrukcyjne towaru jak i wymogi
+dotyczące obsługi i konserwacji zawarte są w odpowiednich katalogach oraz w instrukcjach obsługi i
+konserwacji dostępnych na stronie internetowej producenta / producentów.
+W zakresie nieokreślonym w niniejszym dokumencie zastosowanie maja przepisy określone w dokumencie
+oznaczonym jako Ogólne Warunki Sprzedaży (OWS), które stanowią integralna część dokumentu oznaczonego jako
+Potwierdzenia Zamówienia lub Oferta. Sprzedawca (Nord Napędy Sp. z .o.o.) oświadcza, że treść dokumentu
+OWS dostępna jest na stronie https://www.nord.com/media/documents/forms/ows_pl.pdf oraz może być przesłana
+Kupującemu w dowolny sposób, na każde żądanie Kupującego. Kupujący przyjmując Potwierdzenie Zamówienia lub
+Ofertę oświadcza, że zapoznał się z OWS. W przypadku kiedy występują różnice w zapisach ujętych w
+niniejszym dokumencie z zapisami ujętymi w dokumencie OWS, instrukcjach lub katalogach wiążące są zapisy
+ujęte w niniejszym dokumencie.
+Konta bankowe: S.W.I.F.T/BIC Numer NORD Napędy Sp. z o.o.
+mBank S.A. PLN 61 1140 1081 0000 4726 7100 1001 Zakrzów 414
+mBank S.A. BREX PL PW KRA EUR 93 1140 1081 0000 4726 7100 1007 32-003 Podłęże
+KRS: Sąd Rejonowy dla Krakowa Śródmieście KRS, Numer: 0000087588. Kapitał zakładowy: 770 000,00 PLN Tel.: +48 12 2889900
+Zarząd: Ullrich Küchenmeister, Jutta Humbert
+REGON: 351471578 NIP: 6831720355 UE: PL6831720355 BDO: 000049817
+Email: biuro@nord.com Internet: http://www.NORD.com
+[PDF_TEXT_END]

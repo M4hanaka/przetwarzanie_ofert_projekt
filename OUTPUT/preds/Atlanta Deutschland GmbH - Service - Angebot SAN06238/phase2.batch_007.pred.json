@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Compression Spring 2 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "10000002912",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Welding contrast 2 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "10010004407",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Contrast Rubber 2 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "10000004406",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

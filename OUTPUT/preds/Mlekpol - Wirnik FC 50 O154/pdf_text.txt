@@ -1,0 +1,54 @@
+=== PAGE 1 TEXT ===
+SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE Warszawa, 26.10.2023
+ul. Elewatorska 13
+19-203 Grajewo
+Pan Robert Dudziński
+Dostawa do:
+MLEKPOL Grajewo ZPM w Zambrowie
+Polowa 8
+18-300 Zambrów
+Oferta nr 63/10/2023
+Szanowni Państwo,
+dziękujemy za zainteresowanie i pozwalamy sobie przedstawić ofertę na części zamienne
+do pompy Fristam:
+Lp. Numer artykułu Nazwa części Ilość Cena Wartość
+szt. EUR/szt. EUR
+1 0584632009 Wirnik FC 50 Ø154 2 199,82 399,64
+do pompy s/n: 0584530005
+2 0584632014 Wirnik FC 50 Ø166 2 192,21 384,42
+do pompy s/n: 0584530003
+3 0826390018 Zestaw naprawczy uszczelnienia wału 9.400B 2N21V2 6 171,39 1 028,34
+4 0584650002 Wałek FC 50-154/4,5 F - 1.4404 1 242,77 242,77
+5 0133200000 Nakrętka M16x1,5 6 10,61 63,66
+Razem 2 118,83
+Rabat 12,50% 264,87
+Do zapłaty 1 853,96
+Warunki dostawy:
+Cena: FCA Zambrów, bez VAT
+Termin dostawy: ok. 5 tygodni od daty złożenia zamówienia
+Warunki płatności: 100% płatne w ciągu 30 dni od daty dostawy w PLN po kursie NBP sprzedaż
+z dnia wystawienia faktury
+Ważność oferty: 31.12.2023
+Łączymy pozdrowienia
+FRISTAM POLSKA
+Przemysław Kierznowski
+FRISTAM POLSKA Sp. z o.o.; ul. Belgradzka 4 / 56; 02-793 Warszawa
+Tel. : + 48 22 852 02 04; K. +48 608 369 333
+fristam@fristam.com.pl
+Siedziba: ul. Belgradzka 4 / 56; 02-793 Warszawa
+Prezes Zarządu: Joachim Friedsch
+Prokurent: Dariusz Szymański
+Sąd Rejonowy dla Miasta Stołecznego Warszawy, XIII Wydział Gospodarczy KRS 0000205658
+NIP: 951-16-37-714 REGON: 012330998 Kapitał zakładowy 91 800 PLN
+Citi BH (SWIFT CITIPLPX): PLN: 15 1030 0019 0109 8530 0013 8951 €: PL 85 1030 0019 0109 7860 1003 2708
+
+=== PAGE 1 TABLE 1 ===
+Lp. | Numer artykułu | Nazwa części | Ilość szt. | Cena EUR/szt. | Wartość EUR
+1 | 0584632009 | Wirnik FC 50 Ø154 do pompy s/n: 0584530005 | 2 | 199,82 | 399,64
+2 | 0584632014 | Wirnik FC 50 Ø166 do pompy s/n: 0584530003 | 2 | 192,21 | 384,42
+3 | 0826390018 | Zestaw naprawczy uszczelnienia wału 9.400B 2N21V2 | 6 | 171,39 | 1 028,34
+4 | 0584650002 | Wałek FC 50-154/4,5 F - 1.4404 | 1 | 242,77 | 242,77
+5 | 0133200000 | Nakrętka M16x1,5 | 6 | 10,61 | 63,66
+ |  |  | Razem |  | 2 118,83
+ |  |  | Rabat 12,50% |  | 264,87
+ |  |  | Do zapłaty |  | 1 853,96
