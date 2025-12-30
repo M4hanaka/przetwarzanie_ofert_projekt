@@ -9,9 +9,9 @@
         "id_oferty": "21004439",
         "opis": "Presence Inspection License",
         "grupa_materialow": "oprogramowanie",
-        "numer_oem": "1128701",
+        "numer_oem": "",
         "producent": "SICK",
-        "serial_numbers": ""
+        "serial_numbers": "1128701"
       },
       {
         "id": "2",
@@ -20,7 +20,7 @@
         "grupa_materialow": "automatyka",
         "numer_oem": "V3S145-1AAAAAA",
         "producent": "SICK",
-        "serial_numbers": ""
+        "serial_numbers": "1127086"
       },
       {
         "id": "3",

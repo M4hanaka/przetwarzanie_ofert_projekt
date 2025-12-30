@@ -1,0 +1,46 @@
+[
+  {
+    "id": "0000094249",
+    "nazwa_dostawcy": "Ampack GmbH",
+    "data_oferty": "2025-02-17",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "0000094249",
+        "opis": "Drosselrückschlagventil;Throttle check valve;CRGRLA-1/8-B",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "8116005324",
+        "producent": "",
+        "serial_numbers": "Old item no.: ZP040121CRGRLA18"
+      },
+      {
+        "id": "2",
+        "id_oferty": "0000094249",
+        "opis": "Ventil;valve;STOPPVENTIL G1/8",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "8116274983",
+        "producent": "",
+        "serial_numbers": "Old item no.: ZP04032218000200"
+      },
+      {
+        "id": "3",
+        "id_oferty": "0000094249",
+        "opis": "Steckverschraubung;plug-in screw;G1/8; DRM. 8; WINKEL; DREHBAR",
+        "grupa_materialow": "inne",
+        "numer_oem": "8116275485",
+        "producent": "",
+        "serial_numbers": "Old item no.: ZP0601GCK18WE080"
+      },
+      {
+        "id": "4",
+        "id_oferty": "0000094249",
+        "opis": "Winkeleinschraubverschrbg;Elbow male connector;930X4M-6FF-1/8",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "8180010560",
+        "producent": "",
+        "serial_numbers": "Old item no.: ZP0609ELSAWFF1806VA"
+      }
+    ],
+    "liczba_elementow": 4
+  }
+]

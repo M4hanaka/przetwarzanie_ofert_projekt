@@ -1,9 +1,27 @@
 [
   {
+    "id": "1",
+    "id_oferty": "0000092758",
+    "opis": "Cup station; Gelenklager articulated bearing",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116282543",
+    "producent": "",
+    "serial_numbers": "633 991 12"
+  },
+  {
+    "id": "2",
+    "id_oferty": "0000092758",
+    "opis": "Dosing station; Membran Membrane",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8104981201",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
     "id": "3",
-    "id_oferty": "",
-    "opis": "Pump",
-    "grupa_materialow": "inne",
+    "id_oferty": "0000092758",
+    "opis": "Pump; O-Ring 120x3 AP302 EPDM-70 FDA+3A",
+    "grupa_materialow": "mechanika",
     "numer_oem": "8180004311",
     "producent": "",
     "serial_numbers": ""

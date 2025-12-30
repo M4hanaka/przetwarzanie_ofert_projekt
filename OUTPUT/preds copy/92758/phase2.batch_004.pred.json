@@ -1,10 +1,28 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Outlet 8104684427",
-    "grupa_materialow": "inne",
+    "id": "13",
+    "id_oferty": "0000092758",
+    "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8180028493",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "14",
+    "id_oferty": "0000092758",
+    "opis": "Outlet; Dichtungssatz Seal Kit 600-1000ml DS D80 FKM",
+    "grupa_materialow": "mechanika",
     "numer_oem": "8104684427",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "15",
+    "id_oferty": "0000092758",
+    "opis": "Usit-Ring Bonded Seal Ring HY 6,1-13,1-1 EPDM 291/1.4404",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8180015678",
     "producent": "",
     "serial_numbers": ""
   }

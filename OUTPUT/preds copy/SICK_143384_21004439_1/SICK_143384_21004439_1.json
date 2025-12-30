@@ -1,0 +1,64 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "SICK Sp. z o.o.",
+    "data_oferty": "2024-01-17",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "21004439",
+        "opis": "Presence Inspection License",
+        "grupa_materialow": "oprogramowanie",
+        "numer_oem": "",
+        "producent": "SICK",
+        "serial_numbers": "1128701"
+      },
+      {
+        "id": "2",
+        "id_oferty": "21004439",
+        "opis": "Czujnik wizyjny 3D Visionary-T Mini",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "V3S145-1AAAAAA",
+        "producent": "SICK",
+        "serial_numbers": "1127086"
+      },
+      {
+        "id": "3",
+        "id_oferty": "21004439",
+        "opis": "Radiator Visionary",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "2127749",
+        "producent": "SICK",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "21004439",
+        "opis": "Zestaw do mocowania Visionary",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "2124497",
+        "producent": "SICK",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "21004439",
+        "opis": "YN2X18-100EG1MRJA8",
+        "grupa_materialow": "przewody",
+        "numer_oem": "2094785",
+        "producent": "SICK",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "21004439",
+        "opis": "YG2A28-100UA6XLEAX",
+        "grupa_materialow": "przewody",
+        "numer_oem": "2114689",
+        "producent": "SICK",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 6
+  }
+]

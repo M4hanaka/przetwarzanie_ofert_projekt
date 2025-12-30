@@ -1,0 +1,37 @@
+[
+  {
+    "id": "OF/2025/88521/DSiM/1",
+    "nazwa_dostawcy": "AUTOMATYKA-POMIARY-STEROWANIE SA",
+    "data_oferty": "2025-04-08",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OF/2025/88521/DSiM/1",
+        "opis": "Przekładnia",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "MVF 30 F2 1/10 P.63B14",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "OF/2025/88521/DSiM/1",
+        "opis": "Silnik B14 0,18kW 1310obr 230/400V 50Hz PTC",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "TMS63B4",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "OF/2025/88521/DSiM/1",
+        "opis": "Przekładnia",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "MVF 30 F2 1/10 P.63B14",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 3
+  }
+]

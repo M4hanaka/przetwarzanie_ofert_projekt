@@ -216,10 +216,7 @@ def process_pdf_text(
 
 def _phase1_scan_pdf(pdf_text: str, offer_key: str, status_tracker: StatusTracker) -> Dict[str, Any]:
     _update_progress(status_tracker, 5, "Faza 1: Skanowanie listy pozycji z tabel...", 1)
-
-    print("\n" + "=" * 60)
     print("PHASE 1: Initial Scan - Items Preview From Tables (LLM)")
-    print("=" * 60)
 
     base_prompt = get_base_prompt()
     phase1_prompt = get_phase1_prompt(base_prompt)
@@ -294,10 +291,8 @@ def _phase2_batch_process_items(
     total_items: int,
     status_tracker: StatusTracker,
 ) -> Tuple[List[Dict], List[Dict]]:
-
-    print("\n" + "=" * 60)
     print("PHASE 2: Batch Processing - Detailed Item Extraction")
-    print("=" * 60)
+
 
     num_batches = (total_items + BATCH_SIZE - 1) // BATCH_SIZE
     all_processed_items: List[Dict[str, Any]] = []
@@ -490,9 +485,7 @@ def _phase3_assemble_and_validate(
     total_items: int,
     status_tracker: StatusTracker,
 ) -> Dict[str, Any]:
-    print("\n" + "=" * 60)
     print("PHASE 3: Assembly & Validation")
-    print("=" * 60)
 
     _update_progress(status_tracker, 50, "Walidacja i składanie wyników...", 1)
 
@@ -803,9 +796,9 @@ def run_batch_dir(
             print(f"[{idx}/{len(pdf_files)}] SKIP (exists): {pdf_path.name}")
             continue
 
-        print("\n" + "=" * 80)
+        print("\n" + "=" * 20)
         print(f"[{idx}/{len(pdf_files)}] Przetwarzam: {pdf_path.name}")
-        print("=" * 80)
+        print("=" * 20)
 
         try:
             pdf_bytes = pdf_path.read_bytes()
@@ -839,7 +832,7 @@ def run_batch_dir(
             import traceback
             traceback.print_exc()
 
-    print("\n" + "-" * 80)
+    print("\n" + "-" * 20)
     print(f"Batch processing finished. Failed files: {failed}/{len(pdf_files)}")
-    print("-" * 80)
+    print("-" * 20)
     return 1 if failed else 0

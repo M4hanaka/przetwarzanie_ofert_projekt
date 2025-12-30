@@ -1,0 +1,29 @@
+[
+  {
+    "id": "10",
+    "id_oferty": "OO/000144/25/1",
+    "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B2A",
+    "grupa_materialow": "wyłączniki",
+    "numer_oem": "5SL4102-6",
+    "producent": "",
+    "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+  },
+  {
+    "id": "11",
+    "id_oferty": "OO/000144/25/1",
+    "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B4A",
+    "grupa_materialow": "wyłączniki",
+    "numer_oem": "5SL4104-6",
+    "producent": "",
+    "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+  },
+  {
+    "id": "12",
+    "id_oferty": "OO/000144/25/1",
+    "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B, 6A",
+    "grupa_materialow": "wyłączniki",
+    "numer_oem": "5SL4106-6",
+    "producent": "",
+    "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "10010 O-Ring 51x2,5 NBR 70SH",
+      "kwota_ceny_oferty": 0.38
+    },
+    {
+      "position_id": 2,
+      "opis": "10020 O-Ring 38x5 60SH",
+      "kwota_ceny_oferty": 6.18
+    }
+  ]
+}

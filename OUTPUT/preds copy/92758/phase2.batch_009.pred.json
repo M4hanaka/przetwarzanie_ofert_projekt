@@ -1,29 +1,29 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Lagerbuchse",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116000227",
+    "id": "28",
+    "id_oferty": "0000092758",
+    "opis": "Dichtung; Seal SAUGLEITUNG",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8116306115",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: EA000-011-00028"
   },
   {
-    "id": "2",
-    "id_oferty": "",
-    "opis": "Lagerbuchse",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116306112",
+    "id": "29",
+    "id_oferty": "0000092758",
+    "opis": "Spiralschlauch; spiral hose; 20/27x3,5, 50m",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116005387",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: ZP08000020T000"
   },
   {
-    "id": "3",
-    "id_oferty": "",
-    "opis": "Lagerbuchse",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116632376",
+    "id": "30",
+    "id_oferty": "0000092758",
+    "opis": "Auflage; support",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116305493",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: EA108-107-00017"
   }
 ]

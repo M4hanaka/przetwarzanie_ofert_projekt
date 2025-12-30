@@ -20,7 +20,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -132,7 +132,7 @@ SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
 If a row description starts with or contains mainly these phrases,
 treat it as a service and SKIP it.
 
-Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+Work ONLY on the text included in the PDF text section (between the PDF markers).
 
 The final JSON must have exactly this top-level structure:
 
@@ -315,11 +315,11 @@ OTHER FIELDS:
   • If you are not sure, choose the closest reasonable category.
 
 - producent:
-  • Use the manufacturer name present directly in the item line or clearly associated with the product
-    (e.g. SIEMENS, LAPP, SICK, KRONES).
-  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
-    that the supplier is also the manufacturer.
-  • If no manufacturer can be determined with certainty, set producent to "".
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 

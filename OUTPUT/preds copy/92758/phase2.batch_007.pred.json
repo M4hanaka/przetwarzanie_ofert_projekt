@@ -1,11 +1,29 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "O-Ring 22,0x3,5-E7502-EPDM70 FDA+3A",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116290532",
+    "id": "22",
+    "id_oferty": "0000092758",
+    "opis": "Cup lifter; Führungsstange Guide Rod; 30h9 x 480",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116626993",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: EA000-300-00001A02"
+  },
+  {
+    "id": "23",
+    "id_oferty": "0000092758",
+    "opis": "Lid station; Gleitdichtring slide sealing ring; D 56 I",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116000138",
+    "producent": "",
+    "serial_numbers": "Old item no.: AA01-0009-00999006"
+  },
+  {
+    "id": "24",
+    "id_oferty": "0000092758",
+    "opis": "O-Ring; 229 / 59,92X3,53",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8116004866",
+    "producent": "",
+    "serial_numbers": "Old item no.: ZM050000022900V"
   }
 ]

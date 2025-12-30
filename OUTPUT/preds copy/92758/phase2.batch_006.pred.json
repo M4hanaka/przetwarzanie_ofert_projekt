@@ -1,11 +1,29 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Dichtungssatz 600-1000ml DS D80 FKM",
+    "id": "19",
+    "id_oferty": "0000092758",
+    "opis": "O-Ring DIN11864-R-40X5-FKM-80+3A+FDA",
     "grupa_materialow": "akcesoria montażowe",
-    "numer_oem": "8104684829",
+    "numer_oem": "8116312284",
     "producent": "",
-    "serial_numbers": "Old item no.: 8104684829;Reference: enquiry 0000092758 Pos.: 190"
+    "serial_numbers": ""
+  },
+  {
+    "id": "20",
+    "id_oferty": "0000092758",
+    "opis": "Vapour distributor; O-Ring 22,0x3,5-E7502-EPDM70 FDA+3A",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116290531",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "21",
+    "id_oferty": "0000092758",
+    "opis": "Connection; O-Ring 28,0x3,50-E7502-EPDM70 FDA+3A",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116290532",
+    "producent": "",
+    "serial_numbers": ""
   }
 ]

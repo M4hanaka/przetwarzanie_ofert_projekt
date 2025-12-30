@@ -1,0 +1,91 @@
+[
+  {
+    "id": "33862911",
+    "nazwa_dostawcy": "KRONES AG",
+    "data_oferty": "2024-06-17",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "33862911",
+        "opis": "Dichtungssatz",
+        "grupa_materialow": "złączki",
+        "numer_oem": "0904304222",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "33862911",
+        "opis": "Verschleißteilsatz Lagerung",
+        "grupa_materialow": "złączki",
+        "numer_oem": "0904805912",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "33862911",
+        "opis": "Zylinderstift ISO 2338 5 m6x12 A2",
+        "grupa_materialow": "złączki",
+        "numer_oem": "0720513202",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "33862911",
+        "opis": "O-Ring 70x2 EPDM peroxid 70SH",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "0901233402",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "33862911",
+        "opis": "O-Ring 67x3 FKM/FEP-coated",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "0905444106",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "33862911",
+        "opis": "O-Ring 180x3 EPDM peroxid 70SH",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "0902402758",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "33862911",
+        "opis": "O-Ring 119x3 EPDM peroxid 70SH",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "0901799288",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "33862911",
+        "opis": "Rillenkugellager 95x120x13",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "0904226594",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "33862911",
+        "opis": "Rillenkugellager 120x150x16",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "0904226599",
+        "producent": "KRONES AG",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 9
+  }
+]

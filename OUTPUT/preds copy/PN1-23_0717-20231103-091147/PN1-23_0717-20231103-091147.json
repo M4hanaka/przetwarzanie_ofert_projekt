@@ -1,0 +1,109 @@
+[
+  {
+    "id": "",
+    "nazwa_dostawcy": "ZPM ZAMBROW",
+    "data_oferty": "2023-10-24",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "23/0717",
+        "opis": "Drive of blockade",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054458",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "23/0717",
+        "opis": "Driven roller",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "036382",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "23/0717",
+        "opis": "Roller chain 1/2\"",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "009886",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "23/0717",
+        "opis": "ROLLER GAMMA",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054283",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "23/0717",
+        "opis": "Bearing plate Al",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054485",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "23/0717",
+        "opis": "Bearing plate Al",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054484",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "23/0717",
+        "opis": "Drive complex",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054448",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "23/0717",
+        "opis": "Fixing plate",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "068166",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "23/0717",
+        "opis": "03284055_Z",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "068167",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "23/0717",
+        "opis": "Lever bolt head",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "068076",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "23/0717",
+        "opis": "Torque arm VF 49",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "054496",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 11
+  }
+]

@@ -1,0 +1,136 @@
+[
+  {
+    "id": "OO/000144/25/1",
+    "nazwa_dostawcy": "Elmark Spółka Jawna Jędrzejewska",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "TERMSERIES, Relay module, Number of contacts: 1, CO contact AgNi, Rated control voltage: 24 V DC ±20 %, Continuous current: 6 A, PUSH IN, Test button available: No",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "TRP 24VDC 1CO",
+        "producent": "",
+        "serial_numbers": "CN: 85369010"
+      },
+      {
+        "id": "2",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "Przelotowa rzędowa listwa zaciskowa, złącze śrubowe, 2.5 mm2, 800 V, 24 A, Ciemnobeżowy",
+        "grupa_materialow": "złączki",
+        "numer_oem": "WDU 2.5",
+        "producent": "",
+        "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0"
+      },
+      {
+        "id": "3",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "ZŁĄCZKA 2-PIĘTROWA",
+        "grupa_materialow": "złączki",
+        "numer_oem": "WDK 2.5",
+        "producent": "",
+        "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0"
+      },
+      {
+        "id": "4",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "Zacisk PE, złącze śrubowe, zielony / żółty, 2.5 mm2, 800 V, liczba przyłączeń: 2, liczba poziomów: 1, TS 35, V-0, Wemid",
+        "grupa_materialow": "złączki",
+        "numer_oem": "WPE 2.5",
+        "producent": "Wemid",
+        "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0"
+      },
+      {
+        "id": "5",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "TRZYMACZ",
+        "grupa_materialow": "złączki",
+        "numer_oem": "ZEW 35/2",
+        "producent": "",
+        "serial_numbers": "CN: 85389099;PKWiU: 27.12.40.0"
+      },
+      {
+        "id": "6",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "H05V-K 1X0,75 BU; Linki pojedyncze",
+        "grupa_materialow": "kable",
+        "numer_oem": "4510022",
+        "producent": "",
+        "serial_numbers": "CN: 85444995;PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "7",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "H05V-K 1X0,75 BK; Linki pojedyncze",
+        "grupa_materialow": "kable",
+        "numer_oem": "4510012",
+        "producent": "",
+        "serial_numbers": "CN: 85444995;PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "8",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "ÖLFLEX CLASSIC 110 3G2,5; ÖLFLEX® PVC, żyły numerowane",
+        "grupa_materialow": "kable",
+        "numer_oem": "1119403",
+        "producent": "",
+        "serial_numbers": "CN: 85444995;PKWiU: 27.32.13.0"
+      },
+      {
+        "id": "9",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B1A",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "5SL4101-6",
+        "producent": "",
+        "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+      },
+      {
+        "id": "10",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B2A",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "5SL4102-6",
+        "producent": "",
+        "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+      },
+      {
+        "id": "11",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B4A",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "5SL4104-6",
+        "producent": "",
+        "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+      },
+      {
+        "id": "12",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B, 6A",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "5SL4106-6",
+        "producent": "",
+        "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+      },
+      {
+        "id": "13",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B10A",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "5SL4110-6",
+        "producent": "",
+        "serial_numbers": "CN: 85362010;PKWiU: 27.12.22.0"
+      },
+      {
+        "id": "14",
+        "id_oferty": "OO/000144/25/1",
+        "opis": "Akumulator SSB 9Ah / 12V AGM, szeroki konektor",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "M-WAM-SBL-9-12000",
+        "producent": "",
+        "serial_numbers": "CN: 85072080;PKWiU: 27.20.22.0"
+      }
+    ],
+    "liczba_elementow": 14
+  }
+]

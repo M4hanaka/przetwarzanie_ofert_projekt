@@ -1,29 +1,29 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Dichtung",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116306115",
+    "id": "31",
+    "id_oferty": "0000092758",
+    "opis": "Buchse; Bushing",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116631456",
     "producent": "",
-    "serial_numbers": "SAUGLEITUNG"
+    "serial_numbers": "Old item no.: EA000-107-00018"
   },
   {
-    "id": "2",
-    "id_oferty": "",
-    "opis": "Spiralschlauch 25,000STK",
-    "grupa_materialow": "kable",
-    "numer_oem": "8116005387",
+    "id": "32",
+    "id_oferty": "0000092758",
+    "opis": "Hülse; Sleeve",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116631469",
     "producent": "",
-    "serial_numbers": "20/27x3,5, 50m"
+    "serial_numbers": "Old item no.: EA000-107-00029"
   },
   {
-    "id": "3",
-    "id_oferty": "",
-    "opis": "Auflage",
-    "grupa_materialow": "akcesoria montażowe",
-    "numer_oem": "8116305493",
+    "id": "33",
+    "id_oferty": "0000092758",
+    "opis": "Gelenklager; articulated bearing; ",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116281969",
     "producent": "",
-    "serial_numbers": "support"
+    "serial_numbers": "Old item no.: 8116281969; 633 991 20"
   }
 ]

@@ -1,10 +1,28 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Sink plate",
-    "grupa_materialow": "inne",
+    "id": "16",
+    "id_oferty": "0000092758",
+    "opis": "Sink plate; O-Ring 235/78,97x3,53-E7502-EPDM70 FD",
+    "grupa_materialow": "mechanika",
     "numer_oem": "8116312377",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "17",
+    "id_oferty": "0000092758",
+    "opis": "O-Ring 31,34x3,53 AP302 EPDM70 FDA+3A",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8108148496",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "18",
+    "id_oferty": "0000092758",
+    "opis": "Tank; Dichtungssatz Seal Kit 120L FKM",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8104684829",
     "producent": "",
     "serial_numbers": ""
   }

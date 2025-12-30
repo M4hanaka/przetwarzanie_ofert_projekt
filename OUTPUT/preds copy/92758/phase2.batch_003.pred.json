@@ -1,28 +1,28 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Rotary valve attachment",
-    "grupa_materialow": "inne",
+    "id": "10",
+    "id_oferty": "0000092758",
+    "opis": "Rotary valve attachment; Abstreifer Scraper AS-30x38x4/7-FKM3-85",
+    "grupa_materialow": "mechanika",
     "numer_oem": "8108177837",
     "producent": "",
     "serial_numbers": ""
   },
   {
-    "id": "2",
-    "id_oferty": "",
-    "opis": "Abstreifer",
-    "grupa_materialow": "inne",
-    "numer_oem": "8108177837",
-    "producent": "",
-    "serial_numbers": ""
-  },
-  {
-    "id": "3",
-    "id_oferty": "",
-    "opis": "Führungsring",
-    "grupa_materialow": "inne",
+    "id": "11",
+    "id_oferty": "0000092758",
+    "opis": "Führungsring Guide Ring D30 I",
+    "grupa_materialow": "mechanika",
     "numer_oem": "8104683442",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "12",
+    "id_oferty": "0000092758",
+    "opis": "Wellendichtring shaft gasket 238B-00300-40A-FKM",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8180005780",
     "producent": "",
     "serial_numbers": ""
   }

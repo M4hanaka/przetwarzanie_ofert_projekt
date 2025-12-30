@@ -1,0 +1,29 @@
+[
+  {
+    "id": "13",
+    "id_oferty": "O/2024/606",
+    "opis": "uszczelka",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "GU00112",
+    "producent": "",
+    "serial_numbers": "Kod: GU00112;J.m.: szt.;Ilość: 64;Cena netto EUR: 7,01;Wartość netto EUR: 448,64"
+  },
+  {
+    "id": "14",
+    "id_oferty": "O/2024/606",
+    "opis": "uszczelka",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "GU00113",
+    "producent": "",
+    "serial_numbers": "Kod: GU00113;J.m.: szt.;Ilość: 32;Cena netto EUR: 5,94;Wartość netto EUR: 190,08"
+  },
+  {
+    "id": "15",
+    "id_oferty": "O/2024/606",
+    "opis": "sprężyna",
+    "grupa_materialow": "sprężyny",
+    "numer_oem": "WP01054",
+    "producent": "",
+    "serial_numbers": "Kod: WP01054;J.m.: szt.;Ilość: 32;Cena netto EUR: 6,97;Wartość netto EUR: 223,04"
+  }
+]

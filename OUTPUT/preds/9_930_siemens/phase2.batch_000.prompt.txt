@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.

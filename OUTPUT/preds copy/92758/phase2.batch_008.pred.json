@@ -1,29 +1,29 @@
 [
   {
-    "id": "1",
-    "id_oferty": "",
-    "opis": "Cup lifter",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116626993",
+    "id": "25",
+    "id_oferty": "0000092758",
+    "opis": "Lagerbuchse; bearing bush",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116000227",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: AA01-0011-00238"
   },
   {
-    "id": "2",
-    "id_oferty": "",
-    "opis": "Führungsstange",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116000138",
+    "id": "26",
+    "id_oferty": "0000092758",
+    "opis": "Lagerbuchse; bearing bush",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "8116306112",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: EA000-011-00025"
   },
   {
-    "id": "3",
-    "id_oferty": "",
-    "opis": "Gleitdichtring",
-    "grupa_materialow": "inne",
-    "numer_oem": "8116004866",
+    "id": "27",
+    "id_oferty": "0000092758",
+    "opis": "Dichtung; Seal D=78",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8116632376",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "Old item no.: EA000-011-00127"
   }
 ]

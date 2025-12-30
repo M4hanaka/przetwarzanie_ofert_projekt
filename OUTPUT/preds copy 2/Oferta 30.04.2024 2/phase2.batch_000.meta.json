@@ -1,0 +1,11 @@
+{
+  "offer_key": "Oferta 30.04.2024 2",
+  "phase": "phase2",
+  "batch_index": 0,
+  "batch_start": 0,
+  "items_in_batch": 2,
+  "prompt_version": "prompts_v1",
+  "created_utc": "2025-12-23T13:57:31.377274Z",
+  "pdf_text_sha256": "1146318f33cb36b4030fc1d4063cc802510030146e527060190b3b5269a0e925",
+  "prompt_sha256": "ec4b7ac66c3ac1110ddf0df481ac640285ff1b32de758d8190172fa68bf15570"
+}
