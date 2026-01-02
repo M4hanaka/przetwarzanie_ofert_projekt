@@ -1,18 +1,9 @@
 [
   {
-    "id": "4",
-    "id_oferty": "",
-    "opis": "Zacisk PE, złącze śrubowe, zielony / żółty, 2.5 mm2, 800 V, liczba przyłączeń: 2, liczba poziomów: 1, TS 35, V-0, Wemid",
-    "grupa_materialow": "złączki",
-    "numer_oem": "WPE 2.5",
-    "producent": "Wemid",
-    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0"
-  },
-  {
     "id": "5",
     "id_oferty": "",
     "opis": "TRZYMACZ",
-    "grupa_materialow": "złączki",
+    "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "ZEW 35/2",
     "producent": "",
     "serial_numbers": "CN: 85389099;PKWiU: 27.12.40.0"
@@ -20,7 +11,7 @@
   {
     "id": "6",
     "id_oferty": "",
-    "opis": "H05V-K 1X0,75 BU; Linki pojedyncze",
+    "opis": "Linki pojedyncze",
     "grupa_materialow": "kable",
     "numer_oem": "4510022",
     "producent": "",

@@ -1,18 +1,3 @@
-# llm_client.py
-# --------------------------------------------------------------------------------------
-# Klient LLM (Qwen3-8B) + Outlines (wymuszanie struktury JSON).
-#
-# Cel poprawek:
-# - Automatyczne dopasowanie liczby tokenów wyjściowych tak, aby nie dostawać 32 tokenów,
-#   co prowadzi do uciętego JSON ("Unterminated string ...").
-# - Gdy prompt jest zbyt długi, ucinamy WYŁĄCZNIE fragment PDF_TEXT pomiędzy markerami
-#   [PDF_TEXT_START] i [PDF_TEXT_END], rezerwując stabilny budżet na wyjście JSON.
-#
-# Założenia:
-# - Nie stosujemy strategii "bierz końcówkę PDF" (Twoje wymaganie).
-# - Zachowujemy Qwen chat template i wyłączamy thinking.
-# --------------------------------------------------------------------------------------
-
 from __future__ import annotations
 
 import json

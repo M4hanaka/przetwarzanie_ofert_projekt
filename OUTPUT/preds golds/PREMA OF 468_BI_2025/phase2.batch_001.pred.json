@@ -1,0 +1,20 @@
+[
+  {
+    "id": "4",
+    "id_oferty": "468/BI/2025",
+    "opis": "SF-204 SNR Oprawa nierdzewna",
+    "grupa_materialow": "inne",
+    "numer_oem": "SF-204 SNR",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "5",
+    "id_oferty": "468/BI/2025",
+    "opis": "TPS-UCFB-205 NEUTRAL Zespół z oprawą plastik.",
+    "grupa_materialow": "inne",
+    "numer_oem": "TPS-UCFB-205",
+    "producent": "NEUTRAL",
+    "serial_numbers": ""
+  }
+]

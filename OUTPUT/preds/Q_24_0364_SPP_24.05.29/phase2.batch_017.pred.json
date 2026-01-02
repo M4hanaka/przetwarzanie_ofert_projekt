@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "O-RING szt 1",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-4321-533",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GASKET szt 1",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-8051-533",
+    "producent": "GEA",
+    "serial_numbers": ""
+  }
+]

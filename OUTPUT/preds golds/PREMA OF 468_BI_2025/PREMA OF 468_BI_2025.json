@@ -1,0 +1,55 @@
+[
+  {
+    "id": "468/BI/2025",
+    "nazwa_dostawcy": "PREMA SP. Z O.O.",
+    "data_oferty": "2025-04-01",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "468/BI/2025",
+        "opis": "608-2RS FAG łożysko",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "608-2RS",
+        "producent": "FAG",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "468/BI/2025",
+        "opis": "84.0050.04.3810 CPP Złączka kątowa",
+        "grupa_materialow": "złączki",
+        "numer_oem": "84.0050.04.3810",
+        "producent": "CPP",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "468/BI/2025",
+        "opis": "A-8*12*16 AMES Tuleja spiekana",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "A-8*12*16",
+        "producent": "AMES",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "468/BI/2025",
+        "opis": "SF-204 SNR Oprawa nierdzewna",
+        "grupa_materialow": "inne",
+        "numer_oem": "SF-204 SNR",
+        "producent": "SNR",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "468/BI/2025",
+        "opis": "TPS-UCFB-205 NEUTRAL Zespół z oprawą plastik.",
+        "grupa_materialow": "inne",
+        "numer_oem": "TPS-UCFB-205",
+        "producent": "NEUTRAL",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 5
+  }
+]

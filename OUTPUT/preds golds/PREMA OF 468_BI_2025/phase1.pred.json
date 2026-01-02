@@ -1,0 +1,32 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "608-2RS FAG łożysko",
+      "kwota_ceny_oferty": 6.71
+    },
+    {
+      "position_id": 2,
+      "opis": "84.0050.04.3810 CPP Złączka kątowa",
+      "kwota_ceny_oferty": 7.01
+    },
+    {
+      "position_id": 3,
+      "opis": "A-8*12*16 AMES Tuleja spiekana",
+      "kwota_ceny_oferty": 4.58
+    },
+    {
+      "position_id": 4,
+      "opis": "SF-204 SNR Oprawa nierdzewna",
+      "kwota_ceny_oferty": 97.56
+    },
+    {
+      "position_id": 5,
+      "opis": "TPS-UCFB-205 NEUTRAL Zespół z oprawą plastik.",
+      "kwota_ceny_oferty": 79.27
+    }
+  ]
+}

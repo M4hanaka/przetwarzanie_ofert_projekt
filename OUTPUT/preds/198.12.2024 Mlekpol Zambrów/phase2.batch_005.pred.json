@@ -1,7 +1,7 @@
 [
   {
-    "id": "16",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id": "1",
+    "id_oferty": "",
     "opis": "O-ring",
     "grupa_materialow": "inne",
     "numer_oem": "140119",
@@ -9,8 +9,8 @@
     "serial_numbers": ""
   },
   {
-    "id": "17",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id": "2",
+    "id_oferty": "",
     "opis": "EFB O-ring",
     "grupa_materialow": "inne",
     "numer_oem": "140011EFB",
@@ -18,8 +18,8 @@
     "serial_numbers": ""
   },
   {
-    "id": "18",
-    "id_oferty": "Oferta cenowa Nr 198/12/2024",
+    "id": "3",
+    "id_oferty": "",
     "opis": "Gasket",
     "grupa_materialow": "inne",
     "numer_oem": "160131",

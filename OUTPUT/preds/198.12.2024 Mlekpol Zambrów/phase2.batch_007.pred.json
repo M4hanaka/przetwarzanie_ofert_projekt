@@ -1,29 +1,29 @@
 [
   {
-    "id": "22",
+    "id": "1",
     "id_oferty": "Oferta cenowa Nr 198/12/2024",
     "opis": "O-ring",
     "grupa_materialow": "inne",
     "numer_oem": "1711353P",
-    "producent": "",
+    "producent": "EFB",
     "serial_numbers": ""
   },
   {
-    "id": "23",
+    "id": "2",
     "id_oferty": "Oferta cenowa Nr 198/12/2024",
     "opis": "Spring",
     "grupa_materialow": "inne",
     "numer_oem": "0129226-1",
-    "producent": "",
+    "producent": "EFB",
     "serial_numbers": ""
   },
   {
-    "id": "24",
+    "id": "3",
     "id_oferty": "Oferta cenowa Nr 198/12/2024",
     "opis": "Packing",
     "grupa_materialow": "inne",
     "numer_oem": "95341792859",
-    "producent": "",
+    "producent": "EFB",
     "serial_numbers": ""
   }
 ]

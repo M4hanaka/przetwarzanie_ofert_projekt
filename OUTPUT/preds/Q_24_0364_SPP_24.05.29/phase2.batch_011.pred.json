@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GEA O-RING",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-4033-591",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GEA O-RING",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-3120-533",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GEA BRONZE BUSHING",
+    "grupa_materialow": "inne",
+    "numer_oem": "9510-4166-000",
+    "producent": "GEA",
+    "serial_numbers": ""
+  }
+]

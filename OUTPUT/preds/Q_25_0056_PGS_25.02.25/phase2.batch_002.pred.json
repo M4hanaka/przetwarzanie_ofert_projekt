@@ -1,0 +1,29 @@
+[
+  {
+    "id": "7",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT ANGULAR CONTACT BALL BEARING",
+    "grupa_materialow": "wyłączniki",
+    "numer_oem": "0011-3210-470",
+    "producent": "ALT",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 1723-183;"
+  },
+  {
+    "id": "8",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT FELT RING",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "0004-1957-830",
+    "producent": "ALT",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 1723-183;"
+  },
+  {
+    "id": "9",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT GROOVED BALL BEARING",
+    "grupa_materialow": "wyłączniki",
+    "numer_oem": "0011-6213-110",
+    "producent": "ALT",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 1723-183;"
+  }
+]

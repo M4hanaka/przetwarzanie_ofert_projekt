@@ -1,0 +1,19 @@
+[
+  {
+    "id": "136404",
+    "nazwa_dostawcy": "PNEUMATYKA AUTOMATYKA Marcin Romański Jacek Romański sp. k",
+    "data_oferty": "2025-04-23",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "136404",
+        "opis": "FTL31-13J8/0 Liquiphant FTL31 wibracyjny sygnalizator poziomu ok. 8 dni roboczych",
+        "grupa_materialow": "sygnalizatory",
+        "numer_oem": "FTL31-AA4M2AAW5J",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

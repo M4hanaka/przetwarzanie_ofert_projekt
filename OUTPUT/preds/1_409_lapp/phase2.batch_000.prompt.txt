@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -176,11 +176,11 @@ OTHER FIELDS:
   • If you are not sure, choose the closest reasonable category.
 
 - producent:
-  • Use the manufacturer name present directly in the item line or clearly associated with the product
-    (e.g. SIEMENS, LAPP, SICK, KRONES).
-  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
-    that the supplier is also the manufacturer.
-  • If no manufacturer can be determined with certainty, set producent to "".
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
@@ -199,15 +199,15 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
 ITEMS TO PROCESS:
 
 Item 1 (preview):
-  opis: 1119902 - ÖLFLEX CLASSIC 110 2X1,5; ÖLFLEX® PVC, żyły numerowane CN: 85444995 PKWiU: 27.32.13.0
+  opis: 1119902 - ÖLFLEX CLASSIC 110 2X1,5; ÖLFLEX® PVC, żyły numerowane
   kwota_ceny_oferty: 3.08
 
 Item 2 (preview):
-  opis: 1119752 - ÖLFLEX CLASSIC 110 2X0,5; ÖLFLEX® PVC, żyły numerowane CN: 85444995 PKWiU: 27.32.13.0
+  opis: 1119752 - ÖLFLEX CLASSIC 110 2X0,5; ÖLFLEX® PVC, żyły numerowane
   kwota_ceny_oferty: 1.72
 
 Item 3 (preview):
-  opis: 1135752 - ÖLFLEX CLASSIC 110 CY 2X0,5; ÖLFLEX® PVC, żyły numerowane, ekranowany CN: 85444995 PKWiU: 27.32.13.0
+  opis: 1135752 - ÖLFLEX CLASSIC 110 CY 2X0,5; ÖLFLEX® PVC, żyły numerowane, ekranowany
   kwota_ceny_oferty: 5.67
 
 

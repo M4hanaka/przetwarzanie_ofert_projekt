@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -176,20 +176,20 @@ OTHER FIELDS:
   • If you are not sure, choose the closest reasonable category.
 
 - producent:
-  • Use the manufacturer name present directly in the item line or clearly associated with the product
-    (e.g. SIEMENS, LAPP, SICK, KRONES).
-  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
-    that the supplier is also the manufacturer.
-  • If no manufacturer can be determined with certainty, set producent to "".
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
-You are given exactly 2 preview items (Item 8 to Item 9).
+You are given exactly 3 preview items (Item 7 to Item 9).
 For EACH input item you MUST return EXACTLY ONE OfferItem object.
 
-- The output JSON ARRAY MUST contain exactly 2 elements.
+- The output JSON ARRAY MUST contain exactly 3 elements.
 - The order of objects in the output array MUST match the order of input items
-  (first object corresponds to Item 8, last object to Item 9).
+  (first object corresponds to Item 7, last object to Item 9).
 - Do NOT merge different items into one object.
 - Do NOT create any additional or synthetic items.
 - Do NOT repeat the same item multiple times.
@@ -198,19 +198,23 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
 
 ITEMS TO PROCESS:
 
+Item 7 (preview):
+  opis: 061B001066 - MBC 5100 Presostat
+  kwota_ceny_oferty: 915.0
+
 Item 8 (preview):
-  opis: PLT1.5I-M109 - Cable Tie, 5.6"L (142mm), Intermediate, Polypropylene, Green CN: 39269097 PKWiU: 22.29.29.0
+  opis: PLT1.5I-M109 - Cable Tie, 5.6"L (142mm), Intermediate, Polypropylene, Green
   kwota_ceny_oferty: 167.2
 
 Item 9 (preview):
-  opis: PLT2S-M109 - Opaska zaciskowa 1opk=1000szt CN: 39269097 PKWiU: 22.29.29.0
+  opis: PLT2S-M109 - Opaska zaciskowa 1opk=1000szt
   kwota_ceny_oferty: 237.64
 
 
 OUTPUT FORMAT (MANDATORY):
 
 Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
-The array MUST have exactly 2 elements and MUST be the ONLY thing in your answer.
+The array MUST have exactly 3 elements and MUST be the ONLY thing in your answer.
 Return only ONE JSON array and NO additional text, comments or explanations.
 
 

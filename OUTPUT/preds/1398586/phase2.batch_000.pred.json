@@ -1,11 +1,11 @@
 [
   {
-    "id": "3",
-    "id_oferty": "1398586",
+    "id": "1",
+    "id_oferty": "",
     "opis": "IM18-CCM_SIINEOS_LICENCE",
-    "grupa_materialow": "A1",
+    "grupa_materialow": "inne",
     "numer_oem": "100047244",
     "producent": "TURCK Sp z o o",
-    "serial_numbers": "CN: 49119900;PKWiU: 49119900;EAN: 4047101635331;Grupa materiałowaA1"
+    "serial_numbers": "Kod celny: 49119900;Kraj pochodzenia: DE;EAN: 4047101635331;Grupa materiałowaA1;Waga:0,001KG;Szac.data dostawy:1 SZTna 15.11.2023;Uzależnione od aktualnych stanów magazynowych"
   }
 ]

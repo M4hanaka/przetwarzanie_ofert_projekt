@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -111,7 +111,7 @@ SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
 If a row description starts with or contains mainly these phrases,
 treat it as a service and SKIP it.
 
-Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+Work ONLY on the text included in the PDF text section (between the PDF markers).
 
 The final JSON must have exactly this top-level structure:
 

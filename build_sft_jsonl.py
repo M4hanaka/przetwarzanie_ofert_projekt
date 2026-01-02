@@ -91,10 +91,6 @@ def build_records_for_offer(cfg: SFTBuildConfig, offer_dir: Path) -> List[Dict[s
 
     # ---- Phase2 records (batching prompt zależy od Phase1 GOLD items_preview)
     items_preview = phase1_gold.get("items_preview", []) or []
-    # batch_start musi odpowiadać temu, co było użyte przy tworzeniu goldów
-    # Używamy tego samego indeksowania jak w generatorze pred/gold: start=0, batch_size=...
-    # Ale tu nie znamy batch_size z generatora – więc rekonstruujemy na podstawie liczby itemów w pliku.
-    # W praktyce najbezpieczniej: trzymać batch_size w metadanych; na razie robimy "odczyt batchów" i liczymy start kumulacyjnie.
 
     phase2_batches = _load_phase2_batches(offer_dir)
     cum_start = 0

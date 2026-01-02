@@ -28,8 +28,6 @@ CN_REGEX = re.compile(r"\bCN[:\s]*([0-9]{4,})", re.IGNORECASE)
 PKWIU_REGEX = re.compile(r"\bPKWIU[:\s]*([\d\.]+)", re.IGNORECASE)
 
 
-
-
 def _sha256(text: str) -> str:
     return hashlib.sha256((text or "").encode("utf-8")).hexdigest()
 
@@ -237,7 +235,7 @@ def _phase1_scan_pdf(pdf_text: str, offer_key: str, status_tracker: StatusTracke
         scan_dict = call_llama_structured(
             full_prompt,
             OfferScan,
-            max_new_tokens=2500,
+            max_new_tokens=2800,
         )
 
         # --- DODANE: zapis PRED Phase1 ---
@@ -718,7 +716,6 @@ def run_single_pdf(
 ) -> int:
     """
     SINGLE: przetwarza jeden PDF -> zapisuje JSON.
-    Opcjonalnie zapisuje też preview TXT (przydatne do debugowania).
     """
     pdf_path = Path(pdf_path)
     output_json_path = Path(output_json_path)

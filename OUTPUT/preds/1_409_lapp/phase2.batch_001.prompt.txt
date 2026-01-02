@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -176,11 +176,11 @@ OTHER FIELDS:
   • If you are not sure, choose the closest reasonable category.
 
 - producent:
-  • Use the manufacturer name present directly in the item line or clearly associated with the product
-    (e.g. SIEMENS, LAPP, SICK, KRONES).
-  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
-    that the supplier is also the manufacturer.
-  • If no manufacturer can be determined with certainty, set producent to "".
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
@@ -199,15 +199,15 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
 ITEMS TO PROCESS:
 
 Item 4 (preview):
-  opis: 4510012 - H05V-K 1X0,75 BK; Linki pojedyncze CN: 85444995 PKWiU: 27.32.13.0
+  opis: 4510012 - H05V-K 1X0,75 BK; Linki pojedyncze
   kwota_ceny_oferty: 0.64
 
 Item 5 (preview):
-  opis: RKH4.4-5/TFG - Przewód podłączeniowy, Seria Food & Beverage hygienic (dla przemysłu spożywczego), TPE, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej, 5M CN: 85444290 PKWiU: 27.90.44.0
+  opis: RKH4.4-5/TFG - Przewód podłączeniowy, Seria Food & Beverage hygienic (dla przemysłu spożywczego), TPE, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej, 5M
   kwota_ceny_oferty: 115.16
 
 Item 6 (preview):
-  opis: RKH4.4-10/TFG - Przewód podłączeniowy, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej CN: 85444290 PKWiU: 27.90.44.0
+  opis: RKH4.4-10/TFG - Przewód podłączeniowy, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej
   kwota_ceny_oferty: 149.47
 
 

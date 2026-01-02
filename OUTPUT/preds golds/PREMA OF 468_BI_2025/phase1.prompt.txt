@@ -1,0 +1,190 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text included in the PDF text section (between the PDF markers).
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Miejsce wystawienia:
+PREMA SP. Z O.O.
+WYSOCKIEGO 150, 15-167 BIAŁYSTOK Białystok
+Tel.: +48 85 675-19-36, NIP: 966-13-91-775
+Data wystawienia:
+CITI HANLDOWY,
+01.04.2025
+83 1030 1654 0000 0000 5388 0201
+Sprzedawca: Klient:
+PREMA SP. Z O.O. Spółdzielnia Mleczarska "MLEKPOL" Oddział Zakład
+Produkcji Mleczarskiej w Sokółce
+WYSOCKIEGO 150 Hugona Kołłątaja 65
+15-167 BIAŁYSTOK 16-100 Sokółka
+NIP: 966-13-91-775 NIP:
+OFERTA 468/BI/2025
+Lp Nazwa Ilość j.m. Cena VAT Wartość netto Kwota VAT Wartość brutto
+jednostkowa [%]
+netto po
+rabacie
+1 608-2RS FAG łożysko 20,000 szt. 6,71 23 134,20 30,87 165,07
+2 84.0050.04.3810 CPP Złączka kątowa 20,000 szt. 7,01 23 140,20 32,25 172,45
+3 A-8*12*16 AMES Tuleja spiekana 20,000 szt. 4,58 23 91,60 21,07 112,67
+4 SF-204 SNR Oprawa nierdzewna 4,000 szt. 97,56 23 390,24 89,76 480,00
+5 TPS-UCFB-205 NEUTRAL Zespół z oprawą plastik. 2,000 szt. 79,27 23 158,54 36,46 195,00
+według stawki VAT wartość netto kwota VAT wartość brutto
+Podstawowy podatek VAT 23% 914,78 210,40 1 125,18
+Razem: 914,78 210,40 1 125,18
+Razem: 1 125,18PLN
+Dokument wystawiony w walucie: PLN
+Słownie: jeden tysiąc sto dwadzieścia pięć PLN 18/100
+Termin realizacji: 08.04.2025
+Sugerowany sposób płatności:
+Płatność odroczona: 1 125,18
+W terminie: 30 dni
+Wystawił(a): Odebrał(a):
+Marcin Zdrodowski
+Podpis osoby upoważnionej do wystawienia zamówienia Podpis osoby upoważnionej do odbioru zamówienia
+
+=== PAGE 1 TABLE 1 ===
+Lp | Nazwa | Ilość | j.m. | Cena jednostkowa netto po rabacie | VAT [%] | Wartość netto | Kwota VAT | Wartość brutto
+1 | 608-2RS FAG łożysko | 20,000 | szt. | 6,71 | 23 | 134,20 | 30,87 | 165,07
+2 | 84.0050.04.3810 CPP Złączka kątowa | 20,000 | szt. | 7,01 | 23 | 140,20 | 32,25 | 172,45
+3 | A-8*12*16 AMES Tuleja spiekana | 20,000 | szt. | 4,58 | 23 | 91,60 | 21,07 | 112,67
+4 | SF-204 SNR Oprawa nierdzewna | 4,000 | szt. | 97,56 | 23 | 390,24 | 89,76 | 480,00
+5 | TPS-UCFB-205 NEUTRAL Zespół z oprawą plastik. | 2,000 | szt. | 79,27 | 23 | 158,54 | 36,46 | 195,00
+
+=== PAGE 1 TABLE 2 ===
+według stawki VAT | wartość netto | kwota VAT | wartość brutto
+Podstawowy podatek VAT 23% | 914,78 | 210,40 | 1 125,18
+
+=== PAGE 1 TABLE 3 ===
+Razem: | 1 125,18 | PLN
+[PDF_TEXT_END]

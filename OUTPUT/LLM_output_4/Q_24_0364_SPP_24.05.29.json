@@ -1,0 +1,451 @@
+[
+  {
+    "id": "0364/SPP/2024",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "O-RING szt 5",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4085-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "FLANGE szt 2",
+        "grupa_materialow": "inne",
+        "numer_oem": "9513-5066-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "PACKING szt 5",
+        "grupa_materialow": "inne",
+        "numer_oem": "9534-1792-759",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA WASHER",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-5003-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA WASHER",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-5385-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA SPRING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9512-9226-010",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA PLUNGER",
+        "grupa_materialow": "inne",
+        "numer_oem": "9512-4559-350",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-3031-543",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-3027-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4071-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4253-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "12",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4257-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "13",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4045-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4206-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4041-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA VALVE SEAT",
+        "grupa_materialow": "inne",
+        "numer_oem": "9512-3695-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA BALL",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-9044-010",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4017-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "19",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4188-595",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "20",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA IMPACT HEAD",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-0867-090",
+        "producent": "GEA",
+        "serial_numbers": "szt;2;1 586,03;3 172,06"
+      },
+      {
+        "id": "21",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA IMPACT RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-0504-100",
+        "producent": "GEA",
+        "serial_numbers": "szt;2;719,08;1 438,16"
+      },
+      {
+        "id": "22",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA PASSAGE HEAD",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-3107-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "23",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA SPACER",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-0882-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "24",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4065-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "25",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4018-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "26",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4205-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "27",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4033-591",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "28",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-3120-533",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "29",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA BRONZE BUSHING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9510-4166-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "30",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA CROSS-HEAD",
+        "grupa_materialow": "inne",
+        "numer_oem": "9512-6778-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "31",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA BRONZE BUSHING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9513-5774-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "32",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA ROD SCRAPER",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-6131-516",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "33",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA GASKET",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-6130-516",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "34",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA BELLOWS",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-3774-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "35",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA WASHER",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9513-1521-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "36",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA SEEGER",
+        "grupa_materialow": "inne",
+        "numer_oem": "9532-1096-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "37",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "SCREW",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9537-0130-080",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "38",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "TAPER BUSHING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9536-1111-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "39",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "WHRIST PIN",
+        "grupa_materialow": "inne",
+        "numer_oem": "9532-5019-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "40",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA BEARING",
+        "grupa_materialow": "inne",
+        "numer_oem": "9532-2400-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "41",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA GASKET",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-8006-585",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "42",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA WASHER",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9511-2597-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "43",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4119-533",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "44",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA GASKET",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9536-3005-576",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "45",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA O-RING",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "9531-4116-533",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "46",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "O-RING szt 1",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-4321-533",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "47",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GASKET szt 1",
+        "grupa_materialow": "inne",
+        "numer_oem": "9531-8051-533",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "48",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA FILTER KIT",
+        "grupa_materialow": "inne",
+        "numer_oem": "9532-6920-100",
+        "producent": "GEA",
+        "serial_numbers": ""
+      },
+      {
+        "id": "49",
+        "id_oferty": "0364/SPP/2024",
+        "opis": "GEA FILTER",
+        "grupa_materialow": "inne",
+        "numer_oem": "9532-3014-000",
+        "producent": "GEA",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 49
+  }
+]
