@@ -1,0 +1,172 @@
+[
+  {
+    "id": "833/2014",
+    "nazwa_dostawcy": "Tetra Pak sp. z o.o.",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "24649061",
+        "opis": "O-ring 97.79 x 5.33",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 6562 46",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "2",
+        "id_oferty": "24649061",
+        "opis": "Support ring axial 5.33 x 110",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 7153 02",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "3",
+        "id_oferty": "24649061",
+        "opis": "Guide band 110",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4306 0000 07",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "4",
+        "id_oferty": "24649061",
+        "opis": "Guide band 40 x 9.5",
+        "grupa_materialow": "kable",
+        "numer_oem": "6-4722 1418 03",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "24649061",
+        "opis": "O-ring 40.87x3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 08",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "24649061",
+        "opis": "Support ring axial 3.53 x 40.2",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "6-4722 7151 02",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "24649061",
+        "opis": "O-ring 32.92x3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 06",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "8",
+        "id_oferty": "24649061",
+        "opis": "O-ring 69.44x3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 15",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "9",
+        "id_oferty": "24649061",
+        "opis": "O-ring 16.3x2.4 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 35",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "10",
+        "id_oferty": "24649061",
+        "opis": "O-ring 100x3.55 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 34",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "11",
+        "id_oferty": "24649061",
+        "opis": "Support ring radial 3.53 x 109.8",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 7152 02",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "12",
+        "id_oferty": "24649061",
+        "opis": "O-ring 63.09x3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 14",
+        "producent": "",
+        "serial_numbers": "CN:"
+      },
+      {
+        "id": "13",
+        "id_oferty": "24649061",
+        "opis": "Guide ring 4",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 5033 03",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "24649061",
+        "opis": "O-ring 72x4 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 74",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "24649061",
+        "opis": "O-ring 89x5 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 72",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "24649061",
+        "opis": "O-ring 150 x 4 NBR",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 5289 01",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "24649061",
+        "opis": "Support ring 110",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 1178 19",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "24649061",
+        "opis": "Valve sealing 100 x 110 x 7.5",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 0942 17",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 18
+  }
+]

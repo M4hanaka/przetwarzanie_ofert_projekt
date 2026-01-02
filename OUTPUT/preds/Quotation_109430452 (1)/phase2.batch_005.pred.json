@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "24649061",
+    "opis": "O-ring 150 x 4 NBR",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4722 5289 01",
+    "producent": "",
+    "serial_numbers": "PKWiU: 22.19.73.0"
+  },
+  {
+    "id": "2",
+    "id_oferty": "24649061",
+    "opis": "Support ring 110",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4722 1178 19",
+    "producent": "",
+    "serial_numbers": "PKWiU: 28.29.23.0"
+  },
+  {
+    "id": "3",
+    "id_oferty": "24649061",
+    "opis": "Valve sealing 100 x 110 x 7.5",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4722 0942 17",
+    "producent": "",
+    "serial_numbers": "PKWiU: 28.29.85.0"
+  }
+]

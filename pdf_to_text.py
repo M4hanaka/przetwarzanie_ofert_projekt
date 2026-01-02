@@ -10,7 +10,6 @@ from pathlib import Path
 import pdfplumber
 
 
-
 # ---------------------------
 # Konfiguracja
 # ---------------------------
@@ -25,6 +24,10 @@ class PdfToTextConfig:
     max_table_columns: int = 15
     min_table_density: float = 0.30
 
+    # NOWE: odfiltruj mikrotabelki z nagłówka/stopki
+    min_table_rows: int = 2
+    min_table_cols: int = 4
+
     # Deduplikacja tabel vs tekst strony (jeśli tabela w dużym stopniu jest już w tekście)
     table_duplicate_line_ratio: float = 0.60
     min_line_len_for_duplicate_check: int = 10
@@ -35,6 +38,7 @@ class PdfToTextConfig:
 
     # Czy dołączać nagłówki stron/sekcji (pomaga debugować)
     include_page_headers: bool = True
+
 
 
 # ---------------------------
@@ -102,6 +106,105 @@ def format_table_as_text(table: List[List[Optional[str]]]) -> str:
 
     return "\n".join(lines).strip()
 
+LINE_ITEMS_HEADER_RE = re.compile(
+    r"(?i)\b(indeks)\b.*\b(ilo(?:ść|sc))\b.*\b(jm|j\.m\.)\b.*\b(cena)\b.*\b(warto(?:ść|sc))\b"
+)
+
+LINE_ITEM_ROW_RE = re.compile(
+    r"^\s*(\d{1,3})\s+(\S+)\s+(\d+(?:[.,]\d+)?)\s+(\S+)\s+"
+    r"(\d+(?:[.,]\d+)?)\s+(PLN|EUR)\s+"
+    r"(\d+(?:[.,]\d+)?)\s*%\s+"
+    r"(\d+(?:[.,]\d+)?)\s+(PLN|EUR)\s+"
+    r"(\d+(?:[.,]\d+)?)\s+(PLN|EUR)\s*$"
+)
+
+TOTALS_STOP_RE = re.compile(r"(?i)^\s*(razem|suma|podsumowanie)\b")
+
+def synthesize_line_items_table_from_text(page_text: str) -> str:
+    """
+    Fallback: gdy pdfplumber nie wykrył tabeli pozycji,
+    spróbuj zbudować ją z tekstu (nagłówek + wiersze).
+    """
+    if not page_text:
+        return ""
+
+    lines = [ln.strip() for ln in page_text.splitlines() if ln.strip()]
+    if not lines:
+        return ""
+
+    # znajdź nagłówek tabeli
+    header_idx = None
+    for i, ln in enumerate(lines):
+        if LINE_ITEMS_HEADER_RE.search(ln):
+            header_idx = i
+            break
+    if header_idx is None:
+        return ""
+
+    rows = []
+    i = header_idx + 1
+
+    current = None  # trzymamy bieżący rekord, żeby dołączyć opis z kolejnej linii
+    while i < len(lines):
+        ln = lines[i]
+
+        if TOTALS_STOP_RE.search(ln):
+            break
+
+        m = LINE_ITEM_ROW_RE.match(ln)
+        if m:
+            # zamknij poprzedni
+            if current is not None:
+                rows.append(current)
+
+            current = {
+                "lp": m.group(1),
+                "indeks": m.group(2),
+                "ilosc": m.group(3),
+                "jm": m.group(4),
+                "cena_netto": m.group(5),
+                "waluta1": m.group(6),
+                "rabat_proc": m.group(7),
+                "cena_po_rabacie": m.group(8),
+                "waluta2": m.group(9),
+                "wartosc_netto": m.group(10),
+                "waluta3": m.group(11),
+                "opis_i_termin": "",
+            }
+            i += 1
+            continue
+
+        # jeśli to nie jest nowy wiersz, a mamy current: doklej jako opis/termin
+        if current is not None:
+            # stopka/numery stron często zaczynają się od "Oferta nr", "strona"
+            if re.search(r"(?i)\b(oferta\s*nr|strona)\b", ln):
+                break
+            if current["opis_i_termin"]:
+                current["opis_i_termin"] += " " + ln
+            else:
+                current["opis_i_termin"] = ln
+
+        i += 1
+
+    if current is not None:
+        rows.append(current)
+
+    if not rows:
+        return ""
+
+    # zbuduj “tabelę” tekstową (kolumny stałe)
+    out_lines = []
+    out_lines.append("LP | Indeks | Ilość | JM | Cena netto | Rabat % | Cena po rabacie | Wartość netto | Opis / termin")
+    for r in rows:
+        out_lines.append(
+            f"{r['lp']} | {r['indeks']} | {r['ilosc']} | {r['jm']} | "
+            f"{r['cena_netto']} {r['waluta1']} | {r['rabat_proc']} | "
+            f"{r['cena_po_rabacie']} {r['waluta2']} | {r['wartosc_netto']} {r['waluta3']} | "
+            f"{r['opis_i_termin']}".strip()
+        )
+
+    return "\n".join(out_lines).strip()
+
 
 def is_useful_table(table: List[List[Optional[str]]], cfg: PdfToTextConfig) -> bool:
     """
@@ -113,12 +216,19 @@ def is_useful_table(table: List[List[Optional[str]]], cfg: PdfToTextConfig) -> b
     if not table:
         return False
 
-    # liczba kolumn = max długość wiersza
+    min_rows = getattr(cfg, "min_table_rows", 2)
+    min_cols = getattr(cfg, "min_table_cols", 4)
+
+    n_rows = len([r for r in table if r and any((c or "").strip() for c in r)])
+    if n_rows < min_rows:
+        return False
+
     n_cols = 0
     for row in table:
         if row is not None:
             n_cols = max(n_cols, len(row))
-    if n_cols == 0:
+
+    if n_cols < min_cols:
         return False
     if n_cols > cfg.max_table_columns:
         return False
@@ -140,8 +250,18 @@ def is_useful_table(table: List[List[Optional[str]]], cfg: PdfToTextConfig) -> b
     return density >= cfg.min_table_density
 
 
+_punct_strip_re = re.compile(r"[^\w\s\.\,/%:-]+", re.UNICODE)
+
 def _normalize_for_duplicate_check(text: str) -> str:
-    return re.sub(r"\s+", " ", text or "").strip().lower()
+    t = text or ""
+    # usuń separatory tabel i “ASCII-art”
+    t = t.replace("|", " ")
+    # wyczyść znaki, które psują dopasowanie, ale zostaw liczby, /, %, ., :, -
+    t = _punct_strip_re.sub(" ", t)
+    # ujednolicenie białych znaków
+    t = re.sub(r"\s+", " ", t).strip().lower()
+    return t
+
 
 
 def is_table_duplicate_of_page_text(
@@ -202,6 +322,7 @@ def pdf_bytes_to_text(
     Zwraca:
       - Jeden spójny string, obcięty do cfg.max_chars.
     """
+
     if not pdf_bytes:
         raise ValueError("pdf_bytes is empty")
 
@@ -226,6 +347,15 @@ def pdf_bytes_to_text(
             else:
                 if cleaned_text:
                     page_parts.append(cleaned_text)
+                    
+            # 1b) Fallback: syntetyczna tabela pozycji z tekstu, jeśli wygląda na ofertę z tabelą
+            synth_table = synthesize_line_items_table_from_text(cleaned_text)
+            if synth_table:
+                if cfg.include_page_headers:
+                    page_parts.append(f"=== PAGE {page_idx + 1} TABLE LINE_ITEMS (SYNTH) ===\n{synth_table}")
+                else:
+                    page_parts.append(synth_table)
+
 
             # 2) Tabele
             try:

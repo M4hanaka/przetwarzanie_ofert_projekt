@@ -1,0 +1,504 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 2 TASK: DETAILED ITEMS (MINIMAL OfferItem SCHEMA)
+
+You will receive:
+- the same offer text,
+- a subset of items from Phase 1 ("items_preview").
+
+For EACH of these preview items produce one fully detailed object
+according to the OfferItem schema with EXACTLY the following fields:
+
+- "id": primary key for the item, use a simple running counter "1", "2", "3", ...
+- "id_oferty": offer ID for all items in this file (if unknown, use an empty string "").
+- "opis": original description of the item, based on the PDF text (do not translate).
+- "grupa_materialow": material group or product category inferred from the context.
+- "numer_oem": main OEM / article / item number for this product.
+- "producent": manufacturer name.
+- "serial_numbers": other identification or classification codes (CN, PKWiU, indices, etc.).
+
+GENERAL RULES FOR ALL FIELDS:
+- Use only information that appears in the offer text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Do NOT invent values that are not supported by the text.
+- If a field is missing, use an empty string "".
+- Prefer empty fields over guessed or incorrect values.
+
+VERY IMPORTANT – MISSING DATA:
+- If the offer text does not clearly specify an offer ID, OEM number, manufacturer,
+  or other codes, leave the corresponding field empty ("").
+- Empty is BETTER than incorrect. Never fabricate a product code or manufacturer.
+
+DESCRIPTION FIELD ("opis"):
+- Do NOT append price, discounts, totals or other numeric columns to "opis".
+- Do NOT copy "kwota_ceny_oferty" into "opis".
+- "opis" must describe ONLY the product itself (name, type, variant, parameters) and MUST NOT contain the OEM/article number.
+- If the preview opis begins with a product code-like token
+  (short alphanumeric code, often with dashes/slashes),
+  ALWAYS remove it from "opis" and put it into "numer_oem".
+- If the leading token is clearly NOT a product code (e.g. "LP", "JM", "szt.", "Cena"),
+  then do NOT treat it as numer_oem.
+- After removing the OEM from the start, keep everything else exactly as in the PDF (no translation, no rewriting).
+
+TABLE STRUCTURE AND COLUMN MAPPING:
+
+Whenever possible, use the table headers to map columns to fields. Typical mappings:
+
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID"
+  → candidate for "numer_oem".
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi"
+  → main product name used in "opis".
+- "CN", "PKWiU", "Indeks", "Nr magazynowy"
+  → candidates for "serial_numbers" (classification or internal codes).
+
+Examples of table headers:
+- "Lp Kod produktu Nazwa produktu Ilość Cena/sztukę Cena końcowa"
+  • numer_oem from "Kod produktu"
+  • opis built mainly from "Nazwa produktu"
+- "Poz. Nr artykułu Ilość j.m. Cena jednostkowa Cena"
+  • numer_oem from "Nr artykułu"
+  • opis built from product name / description column
+- "Lp. Nazwa towaru/usługi Dostępność Ilość jm. Cena przed rabatem Rabat % Cena netto Wartość netto VAT"
+  • typically NO dedicated product code column; in such case numer_oem may be empty if no clear code is present.
+
+Never treat columns such as "Dostępność", "Rabat %", "VAT", "Cena", "Wartość netto", "Wartość brutto"
+as sources of product codes.
+
+KEY FIELDS (MUST NOT BE GUESSED):
+
+ADDITIONAL RULES FOR PRODUCT CODES (IMPORTANT):
+
+- If the table contains labels like:
+  "Nr produktu", "Nr produktu SICK", "Indeks", "Code", "Item code", "Material", "Article No."
+  treat the value as the main product code -> put it into "numer_oem".
+- Do NOT put such product codes into "serial_numbers".
+
+1) numer_oem
+
+- This is the MAIN product code (OEM / article / item number).
+- Prefer values from dedicated columns with headers like:
+  "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID".
+- If there is NO dedicated column, you may treat as numer_oem a short alphanumeric code
+  at the very beginning of the row, placed before the product name and separated by a space or dash,
+  for example: "ABC-123 - Moduł wejściowy 24V DC".
+- NEVER assign CN, PKWiU, HS, tariff numbers, or any long numeric codes (8+ digits) to "numer_oem".
+- If a row contains:
+  • a short article number (e.g. "1119902", "3RH2911-1HA22") AND
+  • classification codes ("CN: 85369010", "PKWiU 27.33.13.0"),
+  then:
+  • numer_oem = short article number
+  • serial_numbers = "CN: ...;PKWiU: ..."
+- If you are NOT sure that a value is a product code, set "numer_oem" to an empty string "".
+- If the preview opis contains a product code at the beginning
+  (e.g. "ABC-123 - Opis produktu", "4500123 O-ring"),
+  this code must be extracted into "numer_oem" and removed from "opis".
+- The final opis must NEVER contain the OEM/article number.
+
+
+STRICT EXCLUSIONS FOR serial_numbers (MANDATORY):
+- serial_numbers MUST NOT contain:
+  prices (PLN/EUR), discounts (Rabat), VAT, totals (Wartość),
+  quantities (Ilość, J.m., szt.), delivery/availability (na stanie, termin realizacji),
+  URLs (http/https/www), or any logistics notes.
+- If you see only such information and no real codes, set serial_numbers to "".
+
+2) serial_numbers
+
+- This field collects all identification or classification codes related to the item
+  that are NOT the main OEM/article number.
+- Typical examples:
+  • customs codes (e.g. "CN 85369010"),
+  • PKWiU codes,
+  • internal warehouse numbers or catalogue indices,
+  • any additional structured codes that clearly refer to this item.
+- If a header contains words "CN", "PKWiU", "Indeks", "Nr magazynowy", etc.,
+  you may treat the values from that column as elements of "serial_numbers".
+- Merge all such codes into ONE string separated by semicolons, for example:
+  "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456".
+- Always add prefixes like "CN:" or "PKWiU:" when the code type is clear.
+- Do NOT include pure technical parameters such as voltage, current, power, frequency,
+  IP rating, dimensions, weight, etc.
+- Do NOT duplicate numer_oem here (even if the same number appears again with a different label).
+- If you do not see any such codes, set "serial_numbers" to "".
+
+
+
+
+OTHER FIELDS:
+
+- id:
+  • Use a simple integer-like string "1", "2", "3", ...
+  • The order should follow the order of items in Phase 1.
+
+- id_oferty:
+  • If an offer ID is visible in the header or in a dedicated field, copy it exactly.
+  • If multiple IDs are present, use the one that clearly identifies the offer document.
+  • If you cannot find any offer ID, use an empty string "".
+
+  To extract id_oferty, search the header for typical patterns:
+  - "Numer / Data wystawienia: <ID> / <date>"
+  - "Oferta Nr <ID>"
+  - "Offer No.: <ID>"
+  - "Numer Oferty / data <ID>"
+  If multiple values look like offer IDs, choose the one explicitly labeled as the offer number.
+  If none exists, set "".
+
+- grupa_materialow:
+  • Assign a short, general category based on the description and context of the item.
+  • Examples of categories: "złączki", "kable", "wyłączniki", "bezpieczniki",
+    "akcesoria montażowe", "automatyka", "mechanika", "inne".
+  • If you are not sure, choose the closest reasonable category.
+
+- producent:
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
+
+STRICT CARDINALITY CONSTRAINT (CRUCIAL):
+
+You are given exactly 3 preview items (Item 22 to Item 24).
+For EACH input item you MUST return EXACTLY ONE OfferItem object.
+
+- The output JSON ARRAY MUST contain exactly 3 elements.
+- The order of objects in the output array MUST match the order of input items
+  (first object corresponds to Item 22, last object to Item 24).
+- Do NOT merge different items into one object.
+- Do NOT create any additional or synthetic items.
+- Do NOT repeat the same item multiple times.
+- If you are uncertain, still return exactly one best-effort object per input item,
+  but never invent fields that are not visible in the text.
+
+ITEMS TO PROCESS:
+
+Item 22 (preview):
+  opis: 90458-0639 Uszczelka obrotowa, 20.00/30.0mm TURCON
+  kwota_ceny_oferty: 204.46
+
+Item 23 (preview):
+  opis: 90458-1704 Łożysko kulkowe, 15.00x35.00x11.00mm
+  kwota_ceny_oferty: 135.07
+
+Item 24 (preview):
+  opis: 90459-1627 O-ring, 114.02x1.78mm FKM-70A
+  kwota_ceny_oferty: 18.66
+
+
+OUTPUT FORMAT (MANDATORY):
+
+Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
+The array MUST have exactly 3 elements and MUST be the ONLY thing in your answer.
+Return only ONE JSON array and NO additional text, comments or explanations.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Strona 1 ( 5)
+Oferta 24649067
+Nasza referencja Wasza referencja Waluta Data
+European Sales Administration Centr Robert Dudzinski PLN 24.04.2025
+Tel. +48 22 543 40 41 Okres ważności
+24.04.2025 24.05.2025
+-
+Kupujący 110066 Adres dostawy/usługi 110136
+Spółdzielnia Mleczarska "Mlekpol" Firma
+w Grajewie Spółdzielnia Mleczarska MLEKPOL
+ul. Elewatorska 13 ZPM w Zambrowie
+19-203 GRAJEWO ul. Polowa 8
+18-300 ZAMBRÓW
+Zamawiający 110136
+Spółdzielnia Mleczarska MLEKPOL
+ZPM w Zambrowie
+ul. Polowa 8
+18-300 ZAMBRÓW
+Warunki dostawy (Incoterms 2020) Nasz adres e-mail
+DAP ZAMBROW parts.europe6@tetrapak.com
+Warunki płatności
+30 dni po wystawieniu faktury
+Niniejsza oferta została przygotowana na podstawie Warunków ogólnych dot yczących Tetra Pak® Services (GTC) określających
+zasady sprzedaży i zaku pu produktów podanych poniżej, do których GTC odnoszą się i mają zastoso wanie. GTC są dostępne na
+portalu eBusiness. Zamówienie przez Klienta of erowanych produktów jest równoznaczne z akceptacją postanowień GTC, z wy
+łączeniem jakichkolwiek innych warunków.
+Niniejsza propozycja/oferta nie stanowi oferty w rozumieniu Kodeksu Cywilnego, lecz zaproszenie do rozpoczęcia rokowań, w
+związku z powyższym Tetra Pak sp. z o.o. nie jest związana propozycjami warunków finansowych oraz innych warunków
+określonych w niniejszym piśmie.
+________________________________________________________________________________________
+Poz. Nr artykułu Opis Ilość/jedn. miary Cena/jedn. Wartość nettoData dostawy
+________________________________________________________________________________________
+Wasza referencja: Z24042024Oferta2
+10 3013521-0000 Roller 2 szt 801,40 1 602,80 15.05.2025
+Upust Zam.Planowane -3,000 % -48,08
+Upust -2,500 % -40,07
+-----------
+1 514,65
+PKWiU Code::28.29.85.0
+20 321155-0062 Łożysko ślizgowe kołnierzowe, 6.00x8.00x 60 szt 18,27 1 096,20 15.05.2025
+Upust Zam.Planowane -3,000 % -32,89
+Upust -9,000 % -98,66
+-----------
+964,65
+30 2898561-0000 PLATE 4 szt 474,43 1 897,72 15.05.2025
+Upust Zam.Planowane -3,000 % -56,93
+Upust -2,500 % -47,44
+-----------
+1 793,35
+PKWiU Code::28.29.85.0
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 2 TEXT ===
+Strona 2 ( 5)
+Oferta 24649067
+Okres ważności
+24.04.2025 24.05.2025
+-
+40 1556626-0000 Wheel 12 szt 54,11 649,32 15.05.2025
+Upust Zam.Planowane -3,000 % -19,48
+Upust -2,500 % -16,23
+-----------
+613,61
+PKWiU Code::28.29.85.0
+50 2703725-0000 ROLLER 54 szt 87,88 4 745,52 15.05.2025
+Upust Zam.Planowane -3,000 % -142,37
+Upust -2,500 % -118,64
+-----------
+4 484,51
+PKWiU Code::28.29.85.0
+60 90240-0262 Łożysko ślizgowe kołnierzowe, 12.00x14.0 81 szt 25,54 2 068,74 15.05.2025
+Upust Zam.Planowane -3,000 % -62,06
+Upust -9,000 % -186,19
+-----------
+1 820,49
+70 2766444-0000 Roller 2 szt 395,51 791,02 15.05.2025
+Upust Zam.Planowane -3,000 % -23,73
+Upust -2,500 % -19,78
+-----------
+747,51
+PKWiU Code::28.29.85.0
+80 90240-0172 Łożysko ślizgowe kołnierzowe, 8.00x12.00 10 szt 11,73 117,30 15.05.2025
+Upust Zam.Planowane -3,000 % -3,52
+Upust -9,000 % -10,56
+-----------
+103,22
+90 1478359-0000 Roller 2 szt 445,03 890,06 15.05.2025
+Upust Zam.Planowane -3,000 % -26,70
+Upust -2,500 % -22,25
+-----------
+841,11
+PKWiU Code::28.29.85.0
+100 351517-1017 O-ring, 17.17x1.78mm FKM-80A 4 szt 4,68 18,72 15.05.2025
+Upust Zam.Planowane -3,000 % -0,56
+Upust -9,000 % -1,68
+-----------
+16,48
+PKWiU Code::28.29.85.0
+110 351517-1044 O-ring, 44.17x1.78mm FKM-80A 6 szt 8,44 50,64 15.05.2025
+Upust Zam.Planowane -3,000 % -1,52
+Upust -9,000 % -4,56
+-----------
+44,56
+PKWiU Code::22.19.73.0
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 3 TEXT ===
+Strona 3 ( 5)
+Oferta 24649067
+Okres ważności
+24.04.2025 24.05.2025
+-
+120 90600-6017 Uszczelka tłoka, 30.00/21.8mm SINTEK HTP 10 szt 101,73 1 017,30 15.05.2025
+Upust Zam.Planowane -3,000 % -30,52
+Upust -9,000 % -91,56
+-----------
+895,22
+PKWiU Code::28.29.85.0
+130 90606-6965 Łożysko kulkowe, 20.00x47.00x14.00mm 4 szt 358,45 1 433,80 15.05.2025
+Upust Zam.Planowane -3,000 % -43,01
+Upust -9,000 % -129,04
+-----------
+1 261,75
+PKWiU Code::28.29.85.0
+140 3099422-0000 Roller 1 szt 396,81 396,81 15.05.2025
+Upust Zam.Planowane -3,000 % -11,90
+Upust -2,500 % -9,92
+-----------
+374,99
+PKWiU Code::28.29.85.0
+150 2512737-0000 Roller 1 szt 425,12 425,12 15.05.2025
+Upust Zam.Planowane -3,000 % -12,75
+Upust -2,500 % -10,63
+-----------
+401,74
+PKWiU Code::28.29.85.0
+160 2512738-0000 Roller 1 szt 427,76 427,76 15.05.2025
+Upust Zam.Planowane -3,000 % -12,83
+Upust -2,500 % -10,69
+-----------
+404,24
+PKWiU Code::28.29.85.0
+170 90600-3313 Łożysko ślizgowe wału, 10.00x14.00x10.00 2 szt 60,61 121,22 15.05.2025
+Upust Zam.Planowane -3,000 % -3,64
+Upust -9,000 % -10,91
+-----------
+106,67
+PKWiU Code::22.21.30.0
+180 1538726-0000 Bushing 2 szt 484,08 968,16 15.05.2025
+Upust Zam.Planowane -3,000 % -29,04
+Upust -2,500 % -24,20
+-----------
+914,92
+PKWiU Code::28.29.85.0
+190 315204-0209 O-ring, 10.30x2.40mm FKM-80A 2 szt 1,82 3,64 15.05.2025
+Upust Zam.Planowane -3,000 % -0,11
+Upust -9,000 % -0,33
+-----------
+3,20
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 4 TEXT ===
+Strona 4 ( 5)
+Oferta 24649067
+Okres ważności
+24.04.2025 24.05.2025
+-
+200 315205-0801 O-ring, 37.82x1.78mm FKM-70A 2 szt 5,80 11,60 15.05.2025
+Upust Zam.Planowane -3,000 % -0,35
+Upust -9,000 % -1,04
+-----------
+10,21
+210 351517-1047 O-ring, 47.35x1.78mm FKM-80A 1 szt 18,87 18,87 15.05.2025
+Upust Zam.Planowane -3,000 % -0,57
+Upust -9,000 % -1,70
+-----------
+16,60
+PKWiU Code::22.19.73.0
+220 90458-0639 Uszczelka obrotowa, 20.00/30.0mm TURCON 2 szt 204,46 408,92 15.05.2025
+Upust Zam.Planowane -3,000 % -12,27
+Upust -9,000 % -36,80
+-----------
+359,85
+PKWiU Code::28.29.23.0
+230 90458-1704 Łożysko kulkowe, 15.00x35.00x11.00mm 4 szt 135,07 540,28 15.05.2025
+Upust Zam.Planowane -3,000 % -16,21
+Upust -9,000 % -48,63
+-----------
+475,44
+PKWiU Code::28.15.10.0
+240 90459-1627 O-ring, 114.02x1.78mm FKM-70A 1 szt 18,66 18,66 15.05.2025
+Upust Zam.Planowane -3,000 % -0,56
+Upust -9,000 % -1,68
+-----------
+16,42
+PKWiU Code::22.19.73.0
+250 90607-2554 Uszczelka obrotowa, 15.00/26.0mm TURCON 1 szt 297,63 297,63 15.05.2025
+Upust Zam.Planowane -3,000 % -8,93
+Upust -9,000 % -26,79
+-----------
+261,91
+260 315751-0112 Pierścień ustalający, 15.0x1.00mm DIN471 2 szt 1,73 3,46 15.05.2025
+Upust Zam.Planowane -3,000 % -0,10
+Upust -9,000 % -0,31
+-----------
+3,05
+PKWiU Code::25.94.12.0
+270 351517-1041 O-ring, 41.00x1.78mm FKM-80A 2 szt 8,44 16,88 15.05.2025
+Upust Zam.Planowane -3,000 % -0,51
+Upust -9,000 % -1,52
+-----------
+14,85
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 5 TEXT ===
+Strona 5 ( 5)
+Oferta 24649067
+Okres ważności
+24.04.2025 24.05.2025
+-
+PKWiU Code::28.29.85.0
+Części łącznie 18 465,20
+Opłata transportowa (PLN) 51,95
+Wartość netto (PLN) 18 517,15
+________________________________________________________________________________________
+Razem VAT (PLN) 23,00 % 18 517,15 4 258,94
+W____ar__t__oś__ć __br__u__tt__o __(P__L__N__)________________________________________________________________________________________________________________________22__ 7__7__6,__09______________________
+1. Klient nie sprzeda, nie będzie eksportował ani reeksportował, bezpośrednio lub za pośrednictwem innych podmiotów, do Federacji Rosyjskiej lub na Białoruś lub do
+użytku w Federacji Rosyjskiej lub na Białorusi jakichkolwiek towarów dostarczonych w ramach lub w związku z niniejszym potwierdzeniem zamówienia, jeżeli
+towary te podlegają sankcjom gospodarczym lub finansowym lub embargom handlowym nałożonym, nadzorowanym lub egzekwowanym przez Organizację Narodów
+Zjednoczonych, Stany Zjednoczone Ameryki lub Unię Europejską, w związku m.in., ale nie tylko z art. 12 g rozporządzenia Rady (UE) Nr 833/2014 oraz art. 8 g
+rozporządzenia Rady (EU) Nr 765/2006.
+2. Klient dołoży wszelkich starań, aby postanowienia punktu (1) były przestrzegane przez osoby trzecie w ramach całego łańcucha sprzedaży, w tym przez
+ewentualnych dystrybutorów.
+3. Klient ustanowi i będzie utrzymywał odpowiedni mechanizm monitorowania w celu wykrywania działań osób trzecich w łańcuchu sprzedaży, w tym potencjalnych
+dystrybutorów, które mogłyby stanowić naruszenie postanowień punktu (1).
+4. Jakiekolwiek naruszenie postanowień punktów (1), (2) i (3) uznaje się za istotne naruszenie umowy w zastosowaniu do niniejszej dostawy ("Umowa"), a Tetra Pak
+będzie uprawniona do:
+(i) wypowiedzenia Umowy; oraz
+(ii) odszkodowania w wysokości 100% całkowitej wartości Umowy lub ceny eksportowanych towarów, w zależności od tego, która z powyższych kwot będzie wyższa.
+5. Klient niezwłocznie poinformuje Tetra Pak o jakichkolwiek problemach związanych ze stosowaniem punktów (1), (2) lub (3), w tym o wszelkich istotnych
+działaniach osób trzecich, które mogłyby spowodować naruszenie postanowień punktu (1). Klient udostępni Tetra Pak informacje dotyczące wykonania zobowiązań
+określonych w punkcie (1), (2) i (3) w terminie dwóch tygodni od zawnioskowania o udzielenie takich informacji.
+Podana cena jest wartością szacunkową i ulegnie zmianie w zależności od obowiązującego kursu sprzedaży EUR/PLN
+wg NBP w dacie wystawienia faktury dokumentującej dokonanie/zakończenie dostawy towaru lub wykonania usługi.
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+[PDF_TEXT_END]

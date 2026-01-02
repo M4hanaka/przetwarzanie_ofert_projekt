@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "24649067",
+    "opis": "Uszczelka obrotowa, 15.00/26.0mm TURCON",
+    "grupa_materialow": "uszczełki",
+    "numer_oem": "90607-2554",
+    "producent": "TURCON",
+    "serial_numbers": "PKWiU Code::28.29.23.0;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "24649067",
+    "opis": "Pierścień ustalający, 15.0x1.00mm DIN471",
+    "grupa_materialow": "pierścienie ustalające",
+    "numer_oem": "315751-0112",
+    "producent": "DIN471",
+    "serial_numbers": "PKWiU Code::25.94.12.0;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "24649067",
+    "opis": "O-ring, 41.00x1.78mm FKM-80A",
+    "grupa_materialow": "O-rings",
+    "numer_oem": "351517-1041",
+    "producent": "FKM-80A",
+    "serial_numbers": "PKWiU Code::22.19.73.0;"
+  }
+]

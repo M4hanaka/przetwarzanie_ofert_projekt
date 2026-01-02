@@ -1,0 +1,29 @@
+[
+  {
+    "id": "13",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT SPRING PISTON",
+    "grupa_materialow": "inne",
+    "numer_oem": "0026-0841-110",
+    "producent": "ALT",
+    "serial_numbers": "szt 9;111,63;1 004,67"
+  },
+  {
+    "id": "14",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT USIT RING",
+    "grupa_materialow": "inne",
+    "numer_oem": "0004-2289-400",
+    "producent": "ALT",
+    "serial_numbers": "szt 1;8,05;8,05"
+  },
+  {
+    "id": "15",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT GASKET",
+    "grupa_materialow": "inne",
+    "numer_oem": "0007-2564-750",
+    "producent": "ALT",
+    "serial_numbers": "szt 2;10,91;21,82"
+  }
+]

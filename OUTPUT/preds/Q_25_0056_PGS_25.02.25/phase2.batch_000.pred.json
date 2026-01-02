@@ -6,7 +6,7 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "0004-5294-780",
     "producent": "ALT",
-    "serial_numbers": ""
+    "serial_numbers": "szt 1 7,52 7,52"
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "0004-5056-780",
     "producent": "ALT",
-    "serial_numbers": ""
+    "serial_numbers": "szt 1 11,46 11,46"
   },
   {
     "id": "3",
@@ -24,6 +24,6 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "0004-5762-260",
     "producent": "ALT",
-    "serial_numbers": ""
+    "serial_numbers": "szt 2 62,35 124,70"
   }
 ]

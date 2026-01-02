@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "24649061",
+    "opis": "Guide band 40 x 9.5",
+    "grupa_materialow": "kable",
+    "numer_oem": "6-4722 1418 03",
+    "producent": "",
+    "serial_numbers": "PKWiU Code::28.30.94.0"
+  },
+  {
+    "id": "2",
+    "id_oferty": "24649061",
+    "opis": "O-ring 40.87x3.53 Foodgrade",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4723 1370 08",
+    "producent": "",
+    "serial_numbers": "PKWiU Code::28.29.85.0"
+  },
+  {
+    "id": "3",
+    "id_oferty": "24649061",
+    "opis": "Support ring axial 3.53 x 40.2",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "6-4722 7151 02",
+    "producent": "",
+    "serial_numbers": "PKWiU Code::28.29.23.0"
+  }
+]

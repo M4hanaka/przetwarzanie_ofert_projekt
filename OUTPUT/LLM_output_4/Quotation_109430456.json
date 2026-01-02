@@ -1,0 +1,253 @@
+[
+  {
+    "id": "00/21",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "24649067",
+        "opis": "Roller",
+        "grupa_materialow": "inne",
+        "numer_oem": "3013521-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "24649067",
+        "opis": "Łożysko ślizgowe kołnierzowe, 6.00x8.00x",
+        "grupa_materialow": "inne",
+        "numer_oem": "321155-0062",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "24649067",
+        "opis": "PLATE",
+        "grupa_materialow": "inne",
+        "numer_oem": "2898561-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "24649067",
+        "opis": "Wheel",
+        "grupa_materialow": "inne",
+        "numer_oem": "1556626-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "24649067",
+        "opis": "ROLLER",
+        "grupa_materialow": "inne",
+        "numer_oem": "2703725-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "24649067",
+        "opis": "Łożysko ślizgowe kołnierzowe, 12.00x14.0",
+        "grupa_materialow": "inne",
+        "numer_oem": "90240-0262",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "24649067",
+        "opis": "Roller",
+        "grupa_materialow": "inne",
+        "numer_oem": "2766444-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "24649067",
+        "opis": "Łożysko ślizgowe kołnierzowe, 8.00x12.00",
+        "grupa_materialow": "inne",
+        "numer_oem": "90240-0172",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "24649067",
+        "opis": "Roller",
+        "grupa_materialow": "inne",
+        "numer_oem": "1478359-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 17.17x1.78mm FKM-80A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "351517-1017",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 44.17x1.78mm FKM-80A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "351517-1044",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "12",
+        "id_oferty": "24649067",
+        "opis": "Uszczelka tłoka, 30.00/21.8mm SINTEK HTP",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90600-6017",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "13",
+        "id_oferty": "24649067",
+        "opis": "Łożysko kulkowe, 20.00x47.00x14.00mm",
+        "grupa_materialow": "wyłączniki",
+        "numer_oem": "90606-6965",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "24649067",
+        "opis": "Roller",
+        "grupa_materialow": "inne",
+        "numer_oem": "3099422-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "24649067",
+        "opis": "Roller",
+        "grupa_materialow": "inne",
+        "numer_oem": "2512737-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "24649067",
+        "opis": "Roller",
+        "grupa_materialow": "inne",
+        "numer_oem": "2512738-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "24649067",
+        "opis": "Łożysko ślizgowe wału, 10.00x14.00x10.00",
+        "grupa_materialow": "inne",
+        "numer_oem": "90600-3313",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "24649067",
+        "opis": "Bushing",
+        "grupa_materialow": "inne",
+        "numer_oem": "1538726-0000",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "19",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 10.30x2.40mm FKM-80A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "315204-0209",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "20",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 37.82x1.78mm FKM-70A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "315205-0801",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "21",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 47.35x1.78mm FKM-80A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "351517-1047",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "22",
+        "id_oferty": "24649067",
+        "opis": "Uszczelka obrotowa, 20.00/30.0mm TURCON",
+        "grupa_materialow": "uszczełki",
+        "numer_oem": "90458-0639",
+        "producent": "TURCON",
+        "serial_numbers": ""
+      },
+      {
+        "id": "23",
+        "id_oferty": "24649067",
+        "opis": "Łożysko kulkowe, 15.00x35.00x11.00mm",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "90458-1704",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "24",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 114.02x1.78mm FKM-70A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "90459-1627",
+        "producent": "FKM-70A",
+        "serial_numbers": ""
+      },
+      {
+        "id": "25",
+        "id_oferty": "24649067",
+        "opis": "Uszczelka obrotowa, 15.00/26.0mm TURCON",
+        "grupa_materialow": "uszczełki",
+        "numer_oem": "90607-2554",
+        "producent": "TURCON",
+        "serial_numbers": ""
+      },
+      {
+        "id": "26",
+        "id_oferty": "24649067",
+        "opis": "Pierścień ustalający, 15.0x1.00mm DIN471",
+        "grupa_materialow": "pierścienie ustalające",
+        "numer_oem": "315751-0112",
+        "producent": "DIN471",
+        "serial_numbers": ""
+      },
+      {
+        "id": "27",
+        "id_oferty": "24649067",
+        "opis": "O-ring, 41.00x1.78mm FKM-80A",
+        "grupa_materialow": "O-rings",
+        "numer_oem": "351517-1041",
+        "producent": "FKM-80A",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 27
+  }
+]

@@ -8,19 +8,19 @@
         "id": "1",
         "id_oferty": "136404",
         "opis": "AA4M2AAW5J",
-        "grupa_materialow": "sygnalizatory",
+        "grupa_materialow": "automatyka",
         "numer_oem": "FTL31-AA4M2AAW5J",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "CN: 85369010;ID: 123456"
       },
       {
         "id": "2",
         "id_oferty": "136404",
-        "opis": "FTL31-13J8/0 Liquiphant FTL31 wibracyjny sygnalizator poziomu ok. 8 dni roboczych",
-        "grupa_materialow": "sygnalizatory",
+        "opis": "Liquiphant FTL31 wibracyjny sygnalizator poziomu",
+        "grupa_materialow": "automatyka",
         "numer_oem": "FTL31-13J8/0",
         "producent": "Liquiphant",
-        "serial_numbers": ""
+        "serial_numbers": "CN: 85369010;ID: 123456"
       }
     ],
     "liczba_elementow": 2
