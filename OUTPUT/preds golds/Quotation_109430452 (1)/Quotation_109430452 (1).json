@@ -1,0 +1,172 @@
+[
+  {
+    "id": "24649061",
+    "nazwa_dostawcy": "Tetra Pak sp. z o.o.",
+    "data_oferty": "2025-04-24",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "24649061",
+        "opis": "O-ring 97.79 x 5.33",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 6562 46",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "24649061",
+        "opis": "Support ring axial 5.33 x 110",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 7153 02",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "24649061",
+        "opis": "Guide band 110",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4306 0000 07",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "24649061",
+        "opis": "Guide band 40 x 9.5",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 1418 03",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "24649061",
+        "opis": "O-ring 40.87 x 3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 08",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "24649061",
+        "opis": "Support ring axial 3.53 x 40.2",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 7151 02",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "24649061",
+        "opis": "O-ring 32.92 x 3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 06",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "24649061",
+        "opis": "O-ring 69.44 x 3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 15",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "24649061",
+        "opis": "O-ring 16.3 x 2.4 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 35",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "24649061",
+        "opis": "O-ring 100 x 3.55 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 34",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "24649061",
+        "opis": "Support ring radial 3.53 x 109.8",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 7152 02",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "12",
+        "id_oferty": "24649061",
+        "opis": "O-ring 63.09 x 3.53 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 14",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "13",
+        "id_oferty": "24649061",
+        "opis": "Guide ring 4",
+        "grupa_materialow": "inne",
+        "numer_oem": "6-4722 5033 03",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "24649061",
+        "opis": "O-ring 72 x 4 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 74",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "24649061",
+        "opis": "O-ring 89 x 5 Foodgrade",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4723 1370 72",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "24649061",
+        "opis": "O-ring 150 x 4 NBR",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 5289 01",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "24649061",
+        "opis": "Support ring 110",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 1178 19",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "24649061",
+        "opis": "Valve sealing 100 x 110 x 7.5",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "6-4722 0942 17",
+        "producent": "Tetra Pak",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 18
+  }
+]

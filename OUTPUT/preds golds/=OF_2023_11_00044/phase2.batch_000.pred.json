@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "2023/11/00044",
+    "opis": "Terminal Zebra MC9300",
+    "grupa_materialow": "terminale",
+    "numer_oem": "MC9300",
+    "producent": "Zebra",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "2023/11/00044",
+    "opis": "3-letni kontrakt serwisowy do terminali Zebra MC9300",
+    "grupa_materialow": "usługi serwisowe",
+    "numer_oem": "",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "2023/11/00044",
+    "opis": "Bateria do terminali Zebra MC9300 (7000mAh)",
+    "grupa_materialow": "akcesoria",
+    "numer_oem": "MC9300",
+    "producent": "Zebra",
+    "serial_numbers": ""
+  }
+]

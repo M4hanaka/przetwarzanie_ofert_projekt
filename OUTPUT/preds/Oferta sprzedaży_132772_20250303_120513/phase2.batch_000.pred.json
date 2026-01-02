@@ -3,19 +3,19 @@
     "id": "1",
     "id_oferty": "132772",
     "opis": "przyłączka kątowa wtykowa 8mm-G1/8 wew. z mag.",
-    "grupa_materialow": "przyłączki",
+    "grupa_materialow": "przyłącza",
     "numer_oem": "3192 08 10 10",
     "producent": "",
-    "serial_numbers": "Indeks: 3192 08 10 10;Ilość: szt.;Cena netto: 21,94 PLN;rabat: 60,3464 %;Cena netto-rabat: 8,70 PLN;Wartość netto: 87,00 PLN;Termin realizacji: 1;LP: 1;JM: szt."
+    "serial_numbers": ""
   },
   {
     "id": "2",
     "id_oferty": "132772",
     "opis": "przyłączka kątowa wtykowa 6mm-R3/8 z mag.",
-    "grupa_materialow": "przyłączki",
+    "grupa_materialow": "przyłącza",
     "numer_oem": "3109 06 17 10",
     "producent": "",
-    "serial_numbers": "Indeks: 3109 06 17 10;Ilość: szt.;Cena netto: 22,11 PLN;rabat: 60,199 %;Cena netto-rabat: 8,80 PLN;Wartość netto: 88,00 PLN;Termin realizacji: 2;LP: 2;JM: szt."
+    "serial_numbers": ""
   },
   {
     "id": "3",
@@ -24,6 +24,6 @@
     "grupa_materialow": "mufki",
     "numer_oem": "0902 00 17 10",
     "producent": "",
-    "serial_numbers": "Indeks: 0902 00 17 10;Ilość: szt.;Cena netto: 13,83 PLN;rabat: 55,1699 %;Cena netto-rabat: 6,20 PLN;Wartość netto: 62,00 PLN;Termin realizacji: 3;LP: 3;JM: szt."
+    "serial_numbers": ""
   }
 ]

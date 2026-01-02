@@ -1,0 +1,22 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "MGUM-030001-002 Uszczelka korpusu 4D157-1 SILIKON (GA,GU15,GU30-GU70,LR20)",
+      "kwota_ceny_oferty": 37.05
+    },
+    {
+      "position_id": 2,
+      "opis": "MUSZ-200006-002 Uszczelnienie SZBE-A-BQ1E1GG",
+      "kwota_ceny_oferty": 351.5
+    },
+    {
+      "position_id": 3,
+      "opis": "USŁ-Transport Transport materiału",
+      "kwota_ceny_oferty": 25.0
+    }
+  ]
+}

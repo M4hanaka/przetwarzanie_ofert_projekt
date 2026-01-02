@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "23/VII/31-3",
+    "opis": "Zestaw N DN80 EPDM",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "GEA-T 221-304.03",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "23/VII/31-3",
+    "opis": "Zestaw W/ECO-E DN80 EPDM",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "GEA-T 221-001328",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "23/VII/31-3",
+    "opis": "Zestaw K 80 FKM",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "GEA-T 221-519.34",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

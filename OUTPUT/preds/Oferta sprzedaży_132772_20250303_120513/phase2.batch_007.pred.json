@@ -1,29 +1,29 @@
 [
   {
-    "id": "1",
+    "id": "22",
     "id_oferty": "132772",
     "opis": "HELUTOP HT-PG 11 IP 68, RAL 7035 (5-10mm) z mag.",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "99302.HL",
-    "producent": "HELUTOP",
-    "serial_numbers": "Indeks: 3192 08 10;Ilość: 10;szt.: szt.;Cena netto: 21,94 PLN;rabat: 60,3464 %;Cena netto-rabat: 8,70 PLN;Wartość netto: 87,00 PLN;Termin realizacji: 1-2 dni;mag.: z mag."
+    "producent": "",
+    "serial_numbers": ""
   },
   {
-    "id": "2",
+    "id": "23",
     "id_oferty": "132772",
     "opis": "HELUTOP HT-PG 9 IP 68, RAL 7035 z mag.",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "99301.HL",
-    "producent": "HELUTOP",
-    "serial_numbers": "Indeks: 3109 06 10;Ilość: 30;szt.: szt.;Cena netto: 15,93 PLN;rabat: 65,4739 %;Cena netto-rabat: 5,50 PLN;Wartość netto: 165,00 PLN;Termin realizacji: 1-2 dni;mag.: z mag."
+    "producent": "",
+    "serial_numbers": ""
   },
   {
-    "id": "3",
+    "id": "24",
     "id_oferty": "132772",
     "opis": "HELUTOP HT-PG 16 IP 68, RAL 7035 z mag.",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "99304.HL",
-    "producent": "HELUTOP",
-    "serial_numbers": "Indeks: 3109 04 10;Ilość: 10;szt.: szt.;Cena netto: 14,58 PLN;rabat: 60,2195 %;Cena netto-rabat: 5,80 PLN;Wartość netto: 58,00 PLN;Termin realizacji: 1-2 dni;mag.: z mag."
+    "producent": "",
+    "serial_numbers": ""
   }
 ]

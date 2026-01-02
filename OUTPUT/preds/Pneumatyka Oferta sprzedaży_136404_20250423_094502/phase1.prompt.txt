@@ -170,4 +170,10 @@ Podany rabat obowiązuje przy zamówieniu ilości zawartych w ofercie.
 Prosimy o zapoznanie się z Ogólnymi Warunkami Sprzedaży (OWS): https://pneumatykanet.pl/ogolne-warunki-sprzedazy.html
 Oferta nr 136404
 strona 1 z 1
+
+=== PAGE 1 TABLE 5 ===
+Forma płatności: |  | przelew 45 dni
+Oferta ważna: |  | 7 dni od daty wystawienia
+Transport: |  | Koszt transportu (25,00 PLN) będzie dopisany do FV, w przypadku własnego kuriera doliczamy 20,00 PLN netto kosztów pakowania. Podane stawki nie dotyczą systemu Transair, AIRpipe, długości elem. powyżej 2mb, paczek nietypowych i powyżej 30kg, te podlegają indywidualnej wycenie.
+Uwagi:
 [PDF_TEXT_END]

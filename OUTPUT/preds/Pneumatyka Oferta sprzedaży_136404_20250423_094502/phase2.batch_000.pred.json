@@ -6,15 +6,15 @@
     "grupa_materialow": "automatyka",
     "numer_oem": "FTL31-AA4M2AAW5J",
     "producent": "",
-    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+    "serial_numbers": ""
   },
   {
     "id": "2",
     "id_oferty": "136404",
-    "opis": "Liquiphant FTL31 wibracyjny sygnalizator poziomu",
+    "opis": "FTL31-13J8/0 Liquiphant FTL31 wibracyjny sygnalizator poziomu",
     "grupa_materialow": "automatyka",
     "numer_oem": "FTL31-13J8/0",
     "producent": "Liquiphant",
-    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+    "serial_numbers": ""
   }
 ]

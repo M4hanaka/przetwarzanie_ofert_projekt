@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0543/2025",
+    "opis": "ruba M10x'80 A2 DIN 933",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "M10x'80",
+    "producent": "PePe",
+    "serial_numbers": "DIN 933"
+  },
+  {
+    "id": "2",
+    "id_oferty": "0543/2025",
+    "opis": "ruba M'8x'50 A2 DIN 912",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "M'8x'50",
+    "producent": "PePe",
+    "serial_numbers": "DIN 912"
+  },
+  {
+    "id": "3",
+    "id_oferty": "0543/2025",
+    "opis": "ruba M'6x'16 A2 DIN 933",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "M'6x'16",
+    "producent": "PePe",
+    "serial_numbers": "DIN 933"
+  }
+]

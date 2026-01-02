@@ -1,0 +1,46 @@
+[
+  {
+    "id": "003580/22",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "BZO 003580/22",
+        "opis": "WKH4.4-10/TFG",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "WKH4.4-10/TFG",
+        "producent": "TURCK",
+        "serial_numbers": "6933095"
+      },
+      {
+        "id": "2",
+        "id_oferty": "BZO 003580/22",
+        "opis": "RKH4.4-10/TFG",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "RKH4.4-10/TFG",
+        "producent": "TURCK",
+        "serial_numbers": "6933088"
+      },
+      {
+        "id": "3",
+        "id_oferty": "BZO 003580/22",
+        "opis": "WKH4.4-5/TFG",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "WKH4.4-5/TFG",
+        "producent": "TURCK",
+        "serial_numbers": "6933094"
+      },
+      {
+        "id": "4",
+        "id_oferty": "BZO 003580/22",
+        "opis": "RKH4.4-5/TFG",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "RKH4.4-5/TFG",
+        "producent": "TURCK",
+        "serial_numbers": "6933087"
+      }
+    ],
+    "liczba_elementow": 4
+  }
+]

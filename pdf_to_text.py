@@ -39,6 +39,9 @@ class PdfToTextConfig:
     # Czy dołączać nagłówki stron/sekcji (pomaga debugować)
     include_page_headers: bool = True
 
+    table_duplicate_line_ratio: float = 0.85
+
+
 
 
 # ---------------------------
@@ -83,28 +86,57 @@ def clean_pdf_text(text: str, cfg: PdfToTextConfig) -> str:
     return text.strip()
 
 
-def format_table_as_text(table: List[List[Optional[str]]]) -> str:
+def format_table_as_text(
+    table: List[List[Optional[str]]],
+    cfg: Optional[PdfToTextConfig] = None,
+) -> str:
     """
     Zamienia tabelę (list[list[str]]) na tekst.
-    Każdy wiersz = jedna linia, kolumny rozdzielone ' | '.
+    Redukuje szum typu: '|  |  |' wynikający z pustych komórek.
     """
     lines: List[str] = []
+    cfg = cfg or PdfToTextConfig()
 
     for row in table or []:
         if not row:
             continue
-        cleaned_cells: List[str] = []
-        for cell in row:
-            c = cell or ""
-            c = " ".join(c.split())  # usuwa \n, taby, wielokrotne spacje
-            cleaned_cells.append(c)
 
-        if not any(cleaned_cells):
+        # 1) czyszczenie komórek
+        cleaned: List[str] = []
+        for cell in row:
+            c = (cell or "")
+            c = " ".join(c.split())
+            cleaned.append(c)
+
+        # jeśli cały wiersz pusty -> pomiń
+        if not any(cleaned):
             continue
 
-        lines.append(" | ".join(cleaned_cells))
+        # 2) przytnij puste komórki z lewej i prawej strony
+        left = 0
+        right = len(cleaned)
+        while left < right and cleaned[left] == "":
+            left += 1
+        while right > left and cleaned[right - 1] == "":
+            right -= 1
+        trimmed = cleaned[left:right]
+
+        if not trimmed:
+            continue
+
+        # 3) jeśli wiersz jest bardzo rzadki (dużo pustych), spłaszcz do niepustych
+        nonempty = [c for c in trimmed if c]
+
+        # heurystyka: jeśli większość to pustki -> drukuj tylko niepuste
+        # (to usuwa '| | |' a zachowuje treść)
+        empty_ratio = 1.0 - (len(nonempty) / max(1, len(trimmed)))
+        if empty_ratio >= 0.40:
+            lines.append(" | ".join(nonempty))
+        else:
+            lines.append(" | ".join(trimmed))
 
     return "\n".join(lines).strip()
+
 
 LINE_ITEMS_HEADER_RE = re.compile(
     r"(?i)\b(indeks)\b.*\b(ilo(?:ść|sc))\b.*\b(jm|j\.m\.)\b.*\b(cena)\b.*\b(warto(?:ść|sc))\b"
@@ -263,6 +295,35 @@ def _normalize_for_duplicate_check(text: str) -> str:
     return t
 
 
+LINE_ITEMS_TABLE_HEADER_RE = re.compile(
+    r"(?i)\b(lp\.?|l\.p\.?)\b.*\b(ilo(?:ść|sc)|ilo)\b.*\b(cena|warto)",
+    re.UNICODE,
+)
+LINE_ITEMS_ROW_PIPE_RE = re.compile(r"^\s*\d{1,3}\s*\|\s*\S", re.UNICODE)
+
+def looks_like_line_items_table(table_text: str) -> bool:
+    """
+    True, gdy tabela wygląda jak tabela pozycji (Lp + Ilość + Cena/Wartość
+    albo przynajmniej 2 wiersze zaczynające się od '1 |', '2 |', ...).
+    """
+    if not table_text:
+        return False
+
+    lines = [ln.strip() for ln in table_text.splitlines() if ln.strip()]
+    if not lines:
+        return False
+
+    # nagłówek
+    if LINE_ITEMS_TABLE_HEADER_RE.search(lines[0]):
+        return True
+
+    # wiersze pozycji
+    row_like = 0
+    for ln in lines[:10]:
+        if LINE_ITEMS_ROW_PIPE_RE.match(ln):
+            row_like += 1
+    return row_like >= 2
+
 
 def is_table_duplicate_of_page_text(
     table_text: str,
@@ -359,7 +420,15 @@ def pdf_bytes_to_text(
 
             # 2) Tabele
             try:
-                tables = page.extract_tables() or []
+                TABLE_SETTINGS = {
+                    "vertical_strategy": "lines",
+                    "horizontal_strategy": "lines",
+                    "snap_tolerance": 3,
+                    "join_tolerance": 3,
+                    "edge_min_length": 3,
+                    "intersection_tolerance": 3,
+                }
+                tables = page.extract_tables(table_settings=TABLE_SETTINGS) or []
             except Exception:
                 tables = []
 
@@ -367,13 +436,14 @@ def pdf_bytes_to_text(
                 if not is_useful_table(table, cfg):
                     continue
 
-                table_text = format_table_as_text(table)
+                table_text = format_table_as_text(table, cfg=cfg)
                 if not table_text:
                     continue
 
-                # deduplikacja: pomiń tabele, które są głównie kopią tekstu strony
-                if is_table_duplicate_of_page_text(table_text, cleaned_text, cfg):
-                    continue
+                # NIE wycinaj tabel pozycji nawet jeśli są w tekście strony (Siemens przypadek)
+                if not looks_like_line_items_table(table_text):
+                    if is_table_duplicate_of_page_text(table_text, cleaned_text, cfg):
+                        continue
 
                 if cfg.include_page_headers:
                     page_parts.append(

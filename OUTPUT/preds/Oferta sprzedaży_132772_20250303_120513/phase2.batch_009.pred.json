@@ -1,20 +1,20 @@
 [
   {
-    "id": "28",
+    "id": "1",
     "id_oferty": "132772",
     "opis": "Nakrętka KMK-PA PG9 szara z mag.",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "90711.HL",
     "producent": "KMK",
-    "serial_numbers": "Indeks: 90711.HL;Ilość: 30 szt.;JM: szt.;Cena netto: 0,48 PLN;rabat: 30 %;Cena netto-rabat: 0,34 PLN;Wartość netto: 10,20 PLN;Termin realizacji: 1-2 dni;mag."
+    "serial_numbers": "Indeks: 90711.HL;Ilość: 30;szt: szt;Cena netto: 0,48 PLN;Rabat %: 30;Cena po rabacie: 0,34 PLN;Wartość netto: 10,20 PLN;Termin realizacji: z mag."
   },
   {
-    "id": "29",
+    "id": "2",
     "id_oferty": "132772",
     "opis": "Nakrętka KMK-PA PG16 szara z mag.",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "90714.HL",
     "producent": "KMK",
-    "serial_numbers": "Indeks: 90714.HL;Ilość: 30 szt.;JM: szt.;Cena netto: 0,50 PLN;rabat: 30 %;Cena netto-rabat: 0,35 PLN;Wartość netto: 10,50 PLN;Termin realizacji: 1-2 dni;mag."
+    "serial_numbers": "Indeks: 90714.HL;Ilość: 30;szt: szt;Cena netto: 0,50 PLN;Rabat %: 30;Cena po rabacie: 0,35 PLN;Wartość netto: 10,50 PLN;Termin realizacji: z mag."
   }
 ]

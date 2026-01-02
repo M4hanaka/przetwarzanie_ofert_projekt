@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -176,11 +176,11 @@ OTHER FIELDS:
   • If you are not sure, choose the closest reasonable category.
 
 - producent:
-  • Use the manufacturer name present directly in the item line or clearly associated with the product
-    (e.g. SIEMENS, LAPP, SICK, KRONES).
-  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
-    that the supplier is also the manufacturer.
-  • If no manufacturer can be determined with certainty, set producent to "".
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
@@ -199,15 +199,15 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
 ITEMS TO PROCESS:
 
 Item 22 (preview):
-  opis: 99302.HL HELUTOP HT-PG 11 IP 68, RAL 7035 (5-10mm) z mag.
+  opis: 99302.HL 30 HELUTOP HT-PG 11 IP 68, RAL 7035 (5-10mm) z mag.
   kwota_ceny_oferty: 2.53
 
 Item 23 (preview):
-  opis: 99301.HL HELUTOP HT-PG 9 IP 68, RAL 7035 z mag.
+  opis: 99301.HL 30 HELUTOP HT-PG 9 IP 68, RAL 7035 z mag.
   kwota_ceny_oferty: 2.41
 
 Item 24 (preview):
-  opis: 99304.HL HELUTOP HT-PG 16 IP 68, RAL 7035 z mag.
+  opis: 99304.HL 30 HELUTOP HT-PG 16 IP 68, RAL 7035 z mag.
   kwota_ceny_oferty: 3.37
 
 
@@ -284,19 +284,21 @@ HELUTOP HT-PG 16 IP 68, RAL 7035 z mag.
 Oferta nr 132772
 strona 1 z 2
 
-=== PAGE 1 TABLE 2 ===
-| Olsztyn, |
+=== PAGE 1 TABLE LINE_ITEMS (SYNTH) ===
+LP | Indeks | Ilość | JM | Cena netto | Rabat % | Cena po rabacie | Wartość netto | Opis / termin
+19 | PTFE4x2 | 50 | mb. | 13,95 PLN | 33,3333 | 9,30 PLN | 465,00 PLN | przewód teflonowy Ø4x2mm, naturalny z mag.
+20 | 99300.HL | 30 | szt | 2,04 PLN | 30 | 1,43 PLN | 42,90 PLN | HELUTOP HT-PG 7 IP 68, RAL 7035 1-2 dni
+21 | 99303.HL | 30 | szt | 2,52 PLN | 30 | 1,76 PLN | 52,80 PLN | HELUTOP HT-PG 13.5 IP 68, RAL 7035 (6-12mm) z mag.
+22 | 99302.HL | 30 | szt | 2,53 PLN | 30 | 1,77 PLN | 53,10 PLN | HELUTOP HT-PG 11 IP 68, RAL 7035 (5-10mm) z mag.
+23 | 99301.HL | 30 | szt | 2,41 PLN | 30 | 1,69 PLN | 50,70 PLN | HELUTOP HT-PG 9 IP 68, RAL 7035 z mag.
+24 | 99304.HL | 30 | szt | 3,37 PLN | 30 | 2,36 PLN | 70,80 PLN | HELUTOP HT-PG 16 IP 68, RAL 7035 z mag.
 
 === PAGE 1 TABLE 3 ===
-Spółdzielnia Mleczarska "Mlekpol" w Grajewie |  |  | 
-ul.Elewatorska 13 |  |  | 
-19-203 Grajewo |  |  | 
-NIP | : 7190000425 |  | 
- | efaktury |  |
-
-=== PAGE 1 TABLE 5 ===
-|  | Oferta nr |  | 132772 |  | 
- |  |  | strona | 1 | z | 2
+Spółdzielnia Mleczarska "Mlekpol" w Grajewie
+ul.Elewatorska 13
+19-203 Grajewo
+NIP | : 7190000425
+efaktury
 
 === PAGE 2 TEXT ===
 Indeks Ilość JM Cena netto rabat Cena netto-rabat Wartość netto
@@ -333,13 +335,11 @@ Prosimy o zapoznanie się z Ogólnymi Warunkami Sprzedaży (OWS): https://pneuma
 Oferta nr 132772
 strona 2 z 2
 
-=== PAGE 2 TABLE 2 ===
-Forma płatności: |  | przelew 45 dni |  | 
-Oferta ważna: |  | 7 dni od daty wystawienia |  | 
-Transport: |  | Koszt transportu (25,00 PLN) będzie dopisany do FV, w przypadku własnego kuriera doliczamy 20,00 PLN netto kosztów pakowania. Podane stawki nie dotyczą systemu Transair, długości elem. powyżej 2mb, paczek nietypowych i powyżej 30kg, te podlegają indywidualnej wycenie. |  | 
-Uwagi: |  |  |  |
-
-=== PAGE 2 TABLE 4 ===
-|  | Oferta nr |  | 132772 |  |  | 
- |  |  | strona | 2 | z |  | 2
+=== PAGE 2 TABLE LINE_ITEMS (SYNTH) ===
+LP | Indeks | Ilość | JM | Cena netto | Rabat % | Cena po rabacie | Wartość netto | Opis / termin
+25 | 90710.HL | 30 | szt | 0,41 PLN | 30 | 0,29 PLN | 8,70 PLN | Nakrętka KMK-PA PG7 szara z mag.
+26 | 90713.HL | 30 | szt | 0,42 PLN | 30 | 0,29 PLN | 8,70 PLN | Nakrętka KMK-PA PG13,5 szara z mag.
+27 | 90712.HL | 30 | szt | 0,35 PLN | 30 | 0,25 PLN | 7,50 PLN | Nakrętka KMK-PA PG11 szara z mag.
+28 | 90711.HL | 30 | szt | 0,48 PLN | 30 | 0,34 PLN | 10,20 PLN | Nakrętka KMK-PA PG9 szara z mag.
+29 | 90714.HL | 30 | szt | 0,50 PLN | 30 | 0,35 PLN | 10,50 PLN | Nakrętka KMK-PA PG16 szara z mag.
 [PDF_TEXT_END]

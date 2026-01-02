@@ -1,0 +1,57 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "1 (cid:285)ruba M10x'80 A2 DIN 933",
+      "kwota_ceny_oferty": 110.4
+    },
+    {
+      "position_id": 2,
+      "opis": "2 (cid:285)ruba M'8x'50 A2 DIN 912",
+      "kwota_ceny_oferty": 63.4
+    },
+    {
+      "position_id": 3,
+      "opis": "3 (cid:285)ruba M'6x'16 A2 DIN 933",
+      "kwota_ceny_oferty": 16.02
+    },
+    {
+      "position_id": 4,
+      "opis": "4 (cid:285)ruba M'4x40 A2 DIN 912",
+      "kwota_ceny_oferty": 21.3
+    },
+    {
+      "position_id": 5,
+      "opis": "5 (cid:285)ruba M'6x'25 A2 DIN 912",
+      "kwota_ceny_oferty": 25.4
+    },
+    {
+      "position_id": 6,
+      "opis": "6 Podk(cid:225)adka '8,4 A2 DIN 125",
+      "kwota_ceny_oferty": 7.47
+    },
+    {
+      "position_id": 7,
+      "opis": "7 Podk(cid:225)adka '6,4 A2 DIN 125",
+      "kwota_ceny_oferty": 6.65
+    },
+    {
+      "position_id": 8,
+      "opis": "8 Podk(cid:225)adka '5,3 A2 DIN 125",
+      "kwota_ceny_oferty": 3.58
+    },
+    {
+      "position_id": 9,
+      "opis": "9 Podk(cid:225)adka '4,3 A2 DIN 125",
+      "kwota_ceny_oferty": 3.15
+    },
+    {
+      "position_id": 10,
+      "opis": "10 Nakr(cid:266)tka M12 DIN 934 A2",
+      "kwota_ceny_oferty": 24.7
+    }
+  ]
+}

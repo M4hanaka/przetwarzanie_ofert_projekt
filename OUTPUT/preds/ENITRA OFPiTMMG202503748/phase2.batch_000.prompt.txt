@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -176,20 +176,20 @@ OTHER FIELDS:
   • If you are not sure, choose the closest reasonable category.
 
 - producent:
-  • Use the manufacturer name present directly in the item line or clearly associated with the product
-    (e.g. SIEMENS, LAPP, SICK, KRONES).
-  • DO NOT copy the supplier name (distributor) into "producent" unless the PDF explicitly states
-    that the supplier is also the manufacturer.
-  • If no manufacturer can be determined with certainty, set producent to "".
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
-You are given exactly 2 preview items (Item 1 to Item 2).
+You are given exactly 1 preview items (Item 2 to Item 2).
 For EACH input item you MUST return EXACTLY ONE OfferItem object.
 
-- The output JSON ARRAY MUST contain exactly 2 elements.
+- The output JSON ARRAY MUST contain exactly 1 elements.
 - The order of objects in the output array MUST match the order of input items
-  (first object corresponds to Item 1, last object to Item 2).
+  (first object corresponds to Item 2, last object to Item 2).
 - Do NOT merge different items into one object.
 - Do NOT create any additional or synthetic items.
 - Do NOT repeat the same item multiple times.
@@ -197,10 +197,6 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
   but never invent fields that are not visible in the text.
 
 ITEMS TO PROCESS:
-
-Item 1 (preview):
-  opis: Taśma transportująca EDU06W-FF NA B= 120 +/-2 mm x L= 4300 +/-15 mm Połączenie Flexproof EF (zgrzewane na zygzak)
-  kwota_ceny_oferty: 315.0
 
 Item 2 (preview):
   opis: Koszt spedycji 030G 03G
@@ -210,7 +206,7 @@ Item 2 (preview):
 OUTPUT FORMAT (MANDATORY):
 
 Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
-The array MUST have exactly 2 elements and MUST be the ONLY thing in your answer.
+The array MUST have exactly 1 elements and MUST be the ONLY thing in your answer.
 Return only ONE JSON array and NO additional text, comments or explanations.
 
 
@@ -247,8 +243,8 @@ Strona 1 z 2
 L.p. | Produkt | Ilość | J.m | Cena jedn. PLN | R [%] | VAT | Wartość netto w PLN
 1 | Taśma transportująca EDU06W-FF NA B= 120 +/-2 mm x L= 4300 +/-15 mm Połączenie Flexproof EF (zgrzewane na zygzak) | 1,00 | szt | 315,00 | 0,00 | 23% | 315,00
 2 | Koszt spedycji 030G 03G | 1,00 | szt | 30,00 | 0,00 | 23% | 30,00
- |  |  |  |  | Suma netto: Suma brutto: |  | 345.00 424.35
-Termin realizacji: poz. 1 => 4 dni robocze GLS (0.96kg) poz. 2 => 2 dni robocze GLS Warunki dostawy: dostawa kurierska na koszt odbiorcy Warunki płatności: Przelew 30 dni |  |  |  |  |  |  |
+Suma netto: Suma brutto: |  | 345.00 424.35
+Termin realizacji: poz. 1 => 4 dni robocze GLS (0.96kg) poz. 2 => 2 dni robocze GLS Warunki dostawy: dostawa kurierska na koszt odbiorcy Warunki płatności: Przelew 30 dni
 
 === PAGE 2 TEXT ===
 Uwaga !!!

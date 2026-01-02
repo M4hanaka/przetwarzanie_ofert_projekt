@@ -1,0 +1,29 @@
+[
+  {
+    "id": "4",
+    "id_oferty": "0543/2025",
+    "opis": "ruba M'4x40 A2 DIN 912",
+    "grupa_materialow": "złączki",
+    "numer_oem": "M'4x40",
+    "producent": "PePe",
+    "serial_numbers": ""
+  },
+  {
+    "id": "5",
+    "id_oferty": "0543/2025",
+    "opis": "ruba M'6x'25 A2 DIN 912",
+    "grupa_materialow": "złączki",
+    "numer_oem": "M'6x'25",
+    "producent": "PePe",
+    "serial_numbers": ""
+  },
+  {
+    "id": "6",
+    "id_oferty": "0543/2025",
+    "opis": "Podk(cid:225)adka '8,4 A2 DIN 125",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "'8,4",
+    "producent": "PePe",
+    "serial_numbers": "DIN 125"
+  }
+]

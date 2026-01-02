@@ -1,0 +1,185 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text included in the PDF text section (between the PDF markers).
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Spomasz Zamość S.A.
+Ul. Szczebrzeska 19, 22-400 Zamość
+NIP: 922-13-32-679 REGON: 950273811 Nr KRS 0000041580
+Sąd Rejonowy Lublin - Wschód w Lublinie z siedzibą w Świdniku ,
+VI Wydział Gospodarczy Krajowego Rejestru Sądowego
+Tel: +48 84 639 28 95 Centrala +48 84 639 36 71
+marketing@spomasz.biz.pl www.spomasz.biz.pl
+Zamość, dnia: 26.02.2025
+Oferta Nr TE/AW/250141
+uszczelnienie do Ga14
+ODPOWIEDŹ NA ZAPYTANIE OFERTOWE Z DNIA: 26.02.2025
+KONTRAHENT:
+00225
+SPÓŁDZIELNIA MLECZARSKA "MLEKPOL" W GRAJEWIE
+Grajewo, ul. Elewatorska 13, 19203 Grajewo
+NIP: 7190000425
+Sz.P. Dudziński Robert , tel.:600872701 , e-mail: robert.dudzinski@mlekpol.com.pl
+TEMAT: uszczelnienie do Ga14
+Lp Nazwa Ilość Jm Cena netto RabatCena netto po Wartość netto
+[zł] % rabacie [zł] [zł]
+Index
+1 Uszczelka korpusu 4D157-1 SILIKON 6 szt 39,00 5 37,05 222,30
+(GA,GU15,GU30-GU70,LR20)
+MGUM-030001-002
+2 Uszczelnienie SZBE-A-BQ1E1GG 1 szt 370,00 5 351,50 351,50
+MUSZ-200006-002
+3 Transport materiału 1 szt 25,00 0 25,00 25,00
+USŁ-Transport
+RAZEM: 598,80
+Oferta ważna do: 2025-03-26
+Czas realizacji: 7 dni
+Warunki dostawy: FCA Zamość wg INCOTERMS 2010 Mlekpol/ Zambrów
+Do podanych cen zostanie doliczony VAT w wysokości 23,00%.
+W sprawie niniejszej oferty prosimy o kontakt z: Agnieszka Wróbel, tel.:846392895, e-
+mail:wrobel@spomasz.biz.pl
+Forma dostawy: FCA Zamość wg INCOTERMS 2010
+Miejsce dostawy: Mlekpol/ Zambrów
+Forma płatności: Przelew, Termin płatności: 30 dni
+Agnieszka Wróbel
+Podpis osoby wystawiającej dokument
+
+=== PAGE 1 TABLE 2 ===
+Lp | Nazwa Index | Ilość | Jm | Cena netto [zł] | Rabat % | Cena netto po rabacie [zł] | Wartość netto [zł]
+1 | Uszczelka korpusu 4D157-1 SILIKON (GA,GU15,GU30-GU70,LR20) MGUM-030001-002 | 6 | szt | 39,00 | 5 | 37,05 | 222,30
+2 | Uszczelnienie SZBE-A-BQ1E1GG MUSZ-200006-002 | 1 | szt | 370,00 | 5 | 351,50 | 351,50
+3 | Transport materiału USŁ-Transport | 1 | szt | 25,00 | 0 | 25,00 | 25,00
+ |  |  |  |  |  |  | 598,80
+[PDF_TEXT_END]

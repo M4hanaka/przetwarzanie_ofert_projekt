@@ -7,7 +7,7 @@ CONTEXT:
 - The input you receive is plain text extracted from a PDF file.
 
 GENERAL RULES:
-- Work ONLY on text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
 - Ignore all service-type items:
   transport, installation, inspections, maintenance, travel costs,
   surcharges, "Dopłata", "Praca serwisu", etc.
@@ -111,7 +111,7 @@ SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
 If a row description starts with or contains mainly these phrases,
 treat it as a service and SKIP it.
 
-Work ONLY on the text between [PDF_TEXT_START] and [PDF_TEXT_END].
+Work ONLY on the text included in the PDF text section (between the PDF markers).
 
 The final JSON must have exactly this top-level structure:
 
@@ -166,8 +166,8 @@ Strona 1 z 2
 L.p. | Produkt | Ilość | J.m | Cena jedn. PLN | R [%] | VAT | Wartość netto w PLN
 1 | Taśma transportująca EDU06W-FF NA B= 120 +/-2 mm x L= 4300 +/-15 mm Połączenie Flexproof EF (zgrzewane na zygzak) | 1,00 | szt | 315,00 | 0,00 | 23% | 315,00
 2 | Koszt spedycji 030G 03G | 1,00 | szt | 30,00 | 0,00 | 23% | 30,00
- |  |  |  |  | Suma netto: Suma brutto: |  | 345.00 424.35
-Termin realizacji: poz. 1 => 4 dni robocze GLS (0.96kg) poz. 2 => 2 dni robocze GLS Warunki dostawy: dostawa kurierska na koszt odbiorcy Warunki płatności: Przelew 30 dni |  |  |  |  |  |  |
+Suma netto: Suma brutto: |  | 345.00 424.35
+Termin realizacji: poz. 1 => 4 dni robocze GLS (0.96kg) poz. 2 => 2 dni robocze GLS Warunki dostawy: dostawa kurierska na koszt odbiorcy Warunki płatności: Przelew 30 dni
 
 === PAGE 2 TEXT ===
 Uwaga !!!

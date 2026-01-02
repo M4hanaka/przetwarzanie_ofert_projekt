@@ -1,0 +1,343 @@
+[
+  {
+    "id": "0056/SPP/2025",
+    "nazwa_dostawcy": "POLSKA GRUPA SERWISOWA SP. Z O.O. S.K.",
+    "data_oferty": "2025-02-25",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-5294-780",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-5056-780",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-5762-260",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT SHAFT SEALING RING",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-5566-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-1996-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GROOVED BALL BEARING",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "0011-6210-110",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT ANGULAR CONTACT BALL BEARING",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "0011-3210-470",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT FELT RING",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-1957-830",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GROOVED BALL BEARING",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "0011-6213-110",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT PENDULUM BALL BEARING",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "0011-2308-120",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT ANGULAR CONTACT BALL BEARING",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "0011-7307-100",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "12",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT SET OF NECK BEARING SPRINGS",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "0006-3863-090",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "13",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT SPRING PISTON",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "0026-0841-110",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT USIT RING",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-2289-400",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2564-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3055-760",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2960-760",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "18",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2854-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "19",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2929-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "20",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-1936-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "21",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2925-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "22",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-2341-481",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "23",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2920-760",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "24",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT PISTON GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3452-830",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "25",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT PISTON GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3453-830",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "26",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3202-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "27",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3203-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "28",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-1941-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "29",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-5406-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "30",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3061-840",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "31",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-5762-260",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "32",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-1905-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "33",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0004-1796-760",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "34",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-3002-540",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "35",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2546-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "36",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-2571-750",
+        "producent": "ALT",
+        "serial_numbers": ""
+      },
+      {
+        "id": "37",
+        "id_oferty": "0056/SPP/2025",
+        "opis": "ALT GASKET",
+        "grupa_materialow": "uszczelnienia",
+        "numer_oem": "0007-1970-840",
+        "producent": "ALT",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 37
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "SaniGut-stal",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "GEA-T 221-304.03 Zestaw N DN80 EPDM",
+      "kwota_ceny_oferty": 52.35
+    },
+    {
+      "position_id": 2,
+      "opis": "GEA-T 221-001328 Zestaw W/ECO-E DN80 EPDM",
+      "kwota_ceny_oferty": 75.95
+    },
+    {
+      "position_id": 3,
+      "opis": "GEA-T 221-519.34 Zestaw K 80 FKM",
+      "kwota_ceny_oferty": 228.0
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "TE/AW/250141",
+    "opis": "Uszczelka korpusu 4D157-1 SILIKON (GA,GU15,GU30-GU70,LR20)",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "MGUM-030001-002",
+    "producent": "",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+  },
+  {
+    "id": "2",
+    "id_oferty": "TE/AW/250141",
+    "opis": "Uszczelnienie SZBE-A-BQ1E1GG",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "MUSZ-200006-002",
+    "producent": "",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+  },
+  {
+    "id": "3",
+    "id_oferty": "TE/AW/250141",
+    "opis": "Transport materiału",
+    "grupa_materialow": "usługi",
+    "numer_oem": "USŁ-Transport",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

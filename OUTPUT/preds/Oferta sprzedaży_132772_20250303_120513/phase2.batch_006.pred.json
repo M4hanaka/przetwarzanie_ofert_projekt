@@ -11,11 +11,11 @@
   {
     "id": "2",
     "id_oferty": "132772",
-    "opis": "HELUTOP HT-PG 7 IP 68, RAL 7035",
+    "opis": "HELUTOP HT-PG 7 IP 68, RAL 7035 1-2 dni",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "99300.HL",
-    "producent": "HELUTOP",
-    "serial_numbers": "30 szt;1-2 dni"
+    "producent": "",
+    "serial_numbers": "30 szt"
   },
   {
     "id": "3",
@@ -23,7 +23,7 @@
     "opis": "HELUTOP HT-PG 13.5 IP 68, RAL 7035 (6-12mm) z mag.",
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "99303.HL",
-    "producent": "HELUTOP",
-    "serial_numbers": "30 szt;6-12mm"
+    "producent": "",
+    "serial_numbers": "30 szt"
   }
 ]
