@@ -7,7 +7,7 @@
       {
         "id": "1",
         "id_oferty": "0000092758",
-        "opis": "Cup station; Gelenklager articulated bearing",
+        "opis": "Cup station Gelenklager articulated bearing",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116282543",
         "producent": "",
@@ -16,7 +16,7 @@
       {
         "id": "2",
         "id_oferty": "0000092758",
-        "opis": "Dosing station; Membran Membrane",
+        "opis": "Dosing station Membran Membrane",
         "grupa_materialow": "mechanika",
         "numer_oem": "8104981201",
         "producent": "",
@@ -25,7 +25,7 @@
       {
         "id": "3",
         "id_oferty": "0000092758",
-        "opis": "Pump; O-Ring 120x3 AP302 EPDM-70 FDA+3A",
+        "opis": "Pump O-Ring o-ring 120x3 AP302 EPDM-70 FDA+3A",
         "grupa_materialow": "mechanika",
         "numer_oem": "8180004311",
         "producent": "",
@@ -52,7 +52,7 @@
       {
         "id": "6",
         "id_oferty": "0000092758",
-        "opis": "Piston attachment; O-Ring 77X3-V70SW-FKM70 FDA+3A",
+        "opis": "Piston attachment O-Ring o-ring 77X3-V70SW-FKM70 FDA+3A",
         "grupa_materialow": "mechanika",
         "numer_oem": "8180028493",
         "producent": "",
@@ -88,7 +88,7 @@
       {
         "id": "10",
         "id_oferty": "0000092758",
-        "opis": "Rotary valve attachment; Abstreifer Scraper AS-30x38x4/7-FKM3-85",
+        "opis": "Rotary valve attachment Abstreifer Scraper AS-30x38x4/7-FKM3-85",
         "grupa_materialow": "mechanika",
         "numer_oem": "8108177837",
         "producent": "",
@@ -115,7 +115,7 @@
       {
         "id": "13",
         "id_oferty": "0000092758",
-        "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
+        "opis": "O-Ring o-ring 77X3-V70SW-FKM70 FDA+3A",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "8180028493",
         "producent": "",
@@ -124,7 +124,7 @@
       {
         "id": "14",
         "id_oferty": "0000092758",
-        "opis": "Outlet; Dichtungssatz Seal Kit 600-1000ml DS D80 FKM",
+        "opis": "Outlet Dichtungssatz Seal Kit 600-1000ml DS D80 FKM",
         "grupa_materialow": "mechanika",
         "numer_oem": "8104684427",
         "producent": "",
@@ -142,11 +142,11 @@
       {
         "id": "16",
         "id_oferty": "0000092758",
-        "opis": "Sink plate; O-Ring 235/78,97x3,53-E7502-EPDM70 FD",
+        "opis": "Sink plate O-Ring 235/78,97x3,53-E7502-EPDM70 FD",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116312377",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "Old item no.:ZM050000023500"
       },
       {
         "id": "17",
@@ -160,7 +160,7 @@
       {
         "id": "18",
         "id_oferty": "0000092758",
-        "opis": "Tank; Dichtungssatz Seal Kit 120L FKM",
+        "opis": "Tank Dichtungssatz Seal Kit 120L FKM",
         "grupa_materialow": "mechanika",
         "numer_oem": "8104684829",
         "producent": "",
@@ -169,7 +169,7 @@
       {
         "id": "19",
         "id_oferty": "0000092758",
-        "opis": "O-Ring DIN11864-R-40X5-FKM-80+3A+FDA",
+        "opis": "O-Ring o-ring DIN11864-R-40X5-FKM-80+3A+FDA",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "8116312284",
         "producent": "",
@@ -178,25 +178,25 @@
       {
         "id": "20",
         "id_oferty": "0000092758",
-        "opis": "Vapour distributor; O-Ring 22,0x3,5-E7502-EPDM70 FDA+3A",
+        "opis": "Vapour distributor O-Ring o-ring 22,0x3,5-E7502-EPDM70 FDA+3A",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116290531",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "Old item no.:ZM050000002203"
       },
       {
         "id": "21",
         "id_oferty": "0000092758",
-        "opis": "Connection; O-Ring 28,0x3,50-E7502-EPDM70 FDA+3A",
+        "opis": "Connection O-Ring o-ring 28,0x3,50-E7502-EPDM70 FDA+3A",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116290532",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "Old item no.: ZM050000002835"
       },
       {
         "id": "22",
         "id_oferty": "0000092758",
-        "opis": "Cup lifter; Führungsstange Guide Rod; 30h9 x 480",
+        "opis": "Cup lifter Führungsstange Guide Rod; 30h9 x 480",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116626993",
         "producent": "",
@@ -205,7 +205,7 @@
       {
         "id": "23",
         "id_oferty": "0000092758",
-        "opis": "Lid station; Gleitdichtring slide sealing ring; D 56 I",
+        "opis": "Lid station Gleitdichtring slide sealing ring D 56 I",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116000138",
         "producent": "",
@@ -214,7 +214,7 @@
       {
         "id": "24",
         "id_oferty": "0000092758",
-        "opis": "O-Ring; 229 / 59,92X3,53",
+        "opis": "O-Ring o-ring 229 / 59,92X3,53",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "8116004866",
         "producent": "",
@@ -223,7 +223,7 @@
       {
         "id": "25",
         "id_oferty": "0000092758",
-        "opis": "Lagerbuchse; bearing bush",
+        "opis": "Lagerbuchse bearing bush",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116000227",
         "producent": "",
@@ -232,7 +232,7 @@
       {
         "id": "26",
         "id_oferty": "0000092758",
-        "opis": "Lagerbuchse; bearing bush",
+        "opis": "Lagerbuchse bearing bush",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116306112",
         "producent": "",
@@ -241,7 +241,7 @@
       {
         "id": "27",
         "id_oferty": "0000092758",
-        "opis": "Dichtung; Seal D=78",
+        "opis": "Dichtung Seal D=78",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "8116632376",
         "producent": "",
@@ -250,7 +250,7 @@
       {
         "id": "28",
         "id_oferty": "0000092758",
-        "opis": "Dichtung; Seal SAUGLEITUNG",
+        "opis": "Dichtung Seal SAUGLEITUNG",
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "8116306115",
         "producent": "",
@@ -259,7 +259,7 @@
       {
         "id": "29",
         "id_oferty": "0000092758",
-        "opis": "Spiralschlauch; spiral hose; 20/27x3,5, 50m",
+        "opis": "Spiralschlauch spiral hose 20/27x3,5, 50m",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116005387",
         "producent": "",
@@ -268,7 +268,7 @@
       {
         "id": "30",
         "id_oferty": "0000092758",
-        "opis": "Auflage; support",
+        "opis": "Auflage support",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116305493",
         "producent": "",
@@ -277,7 +277,7 @@
       {
         "id": "31",
         "id_oferty": "0000092758",
-        "opis": "Buchse; Bushing",
+        "opis": "Buchse Bushing",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116631456",
         "producent": "",
@@ -286,7 +286,7 @@
       {
         "id": "32",
         "id_oferty": "0000092758",
-        "opis": "Hülse; Sleeve",
+        "opis": "Hülse Sleeve",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116631469",
         "producent": "",
@@ -295,11 +295,11 @@
       {
         "id": "33",
         "id_oferty": "0000092758",
-        "opis": "Gelenklager; articulated bearing; ",
+        "opis": "Gelenklager articulated bearing; ",
         "grupa_materialow": "mechanika",
         "numer_oem": "8116281969",
         "producent": "",
-        "serial_numbers": "Old item no.: 8116281969; 633 991 20"
+        "serial_numbers": "633 991 20;Old item no.: 8116281969"
       }
     ],
     "liczba_elementow": 33

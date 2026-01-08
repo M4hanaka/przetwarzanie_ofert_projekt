@@ -1,0 +1,334 @@
+[
+  {
+    "id": "291/1",
+    "nazwa_dostawcy": "Ampack GmbH",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "0000092758",
+        "opis": "Cup station",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116282543"
+      },
+      {
+        "id": "2",
+        "id_oferty": "0000092758",
+        "opis": "Dosing station",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104981201"
+      },
+      {
+        "id": "3",
+        "id_oferty": "0000092758",
+        "opis": "Pump",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8180004311"
+      },
+      {
+        "id": "4",
+        "id_oferty": "0000092758",
+        "opis": "O-Ring 120x3 AP302 EPDM-70 FDA+3A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Old item no.: 8180004311;Reference: enquiry 0000092758 Pos.: 40;8104684145"
+      },
+      {
+        "id": "5",
+        "id_oferty": "0000092758",
+        "opis": "Gleitdichtring mit O-Ring D75A",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104684148"
+      },
+      {
+        "id": "6",
+        "id_oferty": "0000092758",
+        "opis": "Führungsring D75A",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104684148"
+      },
+      {
+        "id": "7",
+        "id_oferty": "0000092758",
+        "opis": "Piston attachment",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8180028493"
+      },
+      {
+        "id": "8",
+        "id_oferty": "0000092758",
+        "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8180011862"
+      },
+      {
+        "id": "9",
+        "id_oferty": "0000092758",
+        "opis": "Dichtring 545B-00250-27A-FKM-13-75",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8108114300"
+      },
+      {
+        "id": "10",
+        "id_oferty": "0000092758",
+        "opis": "Abstreifring AS25-33x4/7FKM3-85",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104683953"
+      },
+      {
+        "id": "11",
+        "id_oferty": "0000092758",
+        "opis": "Rotary valve attachment",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8108177837"
+      },
+      {
+        "id": "12",
+        "id_oferty": "0000092758",
+        "opis": "Abstreifer AS-30x38x4/7-FKM3-85",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104683442"
+      },
+      {
+        "id": "13",
+        "id_oferty": "0000092758",
+        "opis": "Führungsring D30 I",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Old item no.: 8104683442;Reference: enquiry 0000092758 Pos.: 120;8104683442"
+      },
+      {
+        "id": "14",
+        "id_oferty": "0000092758",
+        "opis": "Wellendichtring 238B-00300-40A-FKM",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "Old item no.: 8180005780;Reference: enquiry 000092758 Pos.: 130;8180005780"
+      },
+      {
+        "id": "15",
+        "id_oferty": "0000092758",
+        "opis": "O-Ring 77X3-V70SW-FKM70 FDA+3A",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8180028493"
+      },
+      {
+        "id": "16",
+        "id_oferty": "0000092758",
+        "opis": "Outlet",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104684427"
+      },
+      {
+        "id": "17",
+        "id_oferty": "0000092758",
+        "opis": "Dichtungssatz 600-1000ml DS D80 FKM",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104684427"
+      },
+      {
+        "id": "18",
+        "id_oferty": "0000092758",
+        "opis": "Usit-Ring HY 6,1-13,1-1 EPDM 291/1.4404",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8180015678"
+      },
+      {
+        "id": "19",
+        "id_oferty": "0000092758",
+        "opis": "Sink plate",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116312377"
+      },
+      {
+        "id": "20",
+        "id_oferty": "0000092758",
+        "opis": "O-Ring 31,34x3,53 AP302 EPDM70 FDA+3A",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8108148496"
+      },
+      {
+        "id": "21",
+        "id_oferty": "0000092758",
+        "opis": "Tank",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8104684829"
+      },
+      {
+        "id": "22",
+        "id_oferty": "0000092758",
+        "opis": "DIN11864-R-40X5-FKM-80+3A+FDA",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN11864-R-40X5-FKM-80+3A+FDA",
+        "producent": "",
+        "serial_numbers": "8116312284"
+      },
+      {
+        "id": "23",
+        "id_oferty": "0000092758",
+        "opis": "Vapour distributor",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116290531"
+      },
+      {
+        "id": "24",
+        "id_oferty": "0000092758",
+        "opis": "Connection",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116290532"
+      },
+      {
+        "id": "25",
+        "id_oferty": "0000092758",
+        "opis": "Cup lifter",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116626993"
+      },
+      {
+        "id": "26",
+        "id_oferty": "0000092758",
+        "opis": "Führungsstange 30h9 x 480",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116000138"
+      },
+      {
+        "id": "27",
+        "id_oferty": "0000092758",
+        "opis": "O-Ring 229 / 59,92X3,53",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116004866"
+      },
+      {
+        "id": "28",
+        "id_oferty": "0000092758",
+        "opis": "Lagerbuchse",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116000227"
+      },
+      {
+        "id": "29",
+        "id_oferty": "0000092758",
+        "opis": "Lagerbuchse",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116306112"
+      },
+      {
+        "id": "30",
+        "id_oferty": "0000092758",
+        "opis": "Dichtung D=78",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116632376"
+      },
+      {
+        "id": "31",
+        "id_oferty": "0000092758",
+        "opis": "Dichtung SAUGLEITUNG",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "EA000-011-00028;8116306115"
+      },
+      {
+        "id": "32",
+        "id_oferty": "0000092758",
+        "opis": "Spiralschlauch 25,000STK 20/27x3,5, 50m",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "ZP08000020T000;8116005387"
+      },
+      {
+        "id": "33",
+        "id_oferty": "0000092758",
+        "opis": "Auflage",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "EA108-107-00017;8116305493"
+      },
+      {
+        "id": "34",
+        "id_oferty": "0000092758",
+        "opis": "Buchse",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116631456"
+      },
+      {
+        "id": "35",
+        "id_oferty": "0000092758",
+        "opis": "Hülse",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116631469"
+      },
+      {
+        "id": "36",
+        "id_oferty": "0000092758",
+        "opis": "Gelenklager 633 991 20",
+        "grupa_materialow": "inne",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": "8116281969"
+      }
+    ],
+    "liczba_elementow": 36
+  }
+]

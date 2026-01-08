@@ -1,0 +1,194 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text included in the PDF text section (between the PDF markers).
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+SPRZEDAWCA:
+ANGA Uszczelnienia Mechaniczne Sp. z o.o.
+43-340 Kozy, ul. Wyzwolenia 550
+NIP: 937-00-00-505, BDO: 000015500
+Terenowe Biuro Techniczno-Handlowe
+Biuro Techniczno Handlowe ANGA - Gdańsk
+tel. +48 725 888 585
+Strona 1/1
+OFER TA N R 147985
+Data oferty: 2025.01.07 ZAMAWIAJĄCY:
+Spółdzielnia Mleczarska Mlekpol
+19-203 Grajewo ul. Elewatorska 13
+DOTYCZY: Zakład Prod. Mleczarskiej w Zambrowie
+Zapytania ofertowego 18-300 ZAMBRÓW
+wasz znak: z dnia 07.01.2024 ul. Polowa 8
+Oferta ważna do: 2025.02.06 Pan Robert Dudziński
+E-mail: robert.dudzinski@mlekpol.com.pl
+Cena netto Cena po Wartość netto Stawka
+Lp Nazwa towaru Ilość Jm Rabat Termin dostawy
+PLN rabacie PLN VAT
+Części zamienne do uszczel.
+mieszadła TETRA PAK
+1 1 szt 3 350.00 3% 3 249.50 3 249.50 23% 10 dni r.
+035/RH8/P02
+I: DRH8035P02004
+Razem: 3 249.50 PLN
+Udzielono rabatu w kwocie: 100.50 PLN
+Całkowita wartość oferty: 3 249.50 PLN
+Do zapłaty brutto: 3 996.89 PLN Transport: DHL na koszt ANGA
+Forma płatności:
+Przelew 30 dni
+Konto: PKOBP O. w Bielsku-Białej PL25102013900000600203787272
+Z poważaniem
+Osoba kontaktowa Osoba kontaktowa w biurze głównym w Kozach
+Wiktor Zdunek Robert Turek
+Tel. 725 888 585 Tel. +48 33 827 80 22
+Tel.
+E-mail: wzdunek@anga.com.pl E-mail: rturek@anga.com.pl
+............. ............
+podpis
+Zachęcamy Państwa do przejścia na faktury elektroniczne (e-faktury) i rezygnację z faktur papierowych. To łatwa, szybka,
+bezpieczna i ekologiczna forma dostarczania faktur w formacie PDF. Aby aktywować e-fakturę, prosimy o kontakt e-mailowy na
+adres anga@anga.com.pl. Prześlemy propozycję porozumienia.
+Sprzedaż, dostawa towarów lub świadczenie usług przez ANGA Uszczelnienia Mechaniczne Sp. z o.o. podlega Ogólnym Warunkom Sprzedaży dostępnym na stronie internetowej
+www.anga.com.pl w wersji aktualnej na dzień złożenia zamówienia (dalej: OWS). Prosimy o zapoznanie się z nimi przed złożeniem zamówienia. Złożenie zamówienia oznacza akceptację OWS
+przez składającego zamówienie. Akceptacja jakichkolwiek innych warunków przez ANGA Uszczelnienia Mechaniczne Sp. z o.o. wymaga wyraźnej zgody wyrażonej w formie pisemnej lub
+elektronicznej.
+Siedziba spółki: 43-340 Kozy, ul Wyzwolenia 550
+Sąd Rejestrowy: Sąd Rejonowy w Bielsku-Białej, VIII Wydział Gospodarczy KRS
+Rejestr przedsiębiorców: KRS 0000018137
+Kapitał zakładowy: 7 134 000 zł
+
+=== PAGE 1 TABLE 1 ===
+Lp | Nazwa towaru | Ilość | Jm | Cena netto PLN | Rabat | Cena po rabacie | Wartość netto PLN | Stawka VAT | Termin dostawy
+1 | Części zamienne do uszczel. mieszadła TETRA PAK 035/RH8/P02 I: DRH8035P02004 | 1 | szt | 3 350.00 | 3% | 3 249.50 | 3 249.50 | 23% | 10 dni r.
+Razem: | 3 249.50 PLN
+[PDF_TEXT_END]

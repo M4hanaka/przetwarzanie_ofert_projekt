@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "33862911",
+    "opis": "O-Ring 119x3 EPDM peroxid 70SH",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10070",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "33862911",
+    "opis": "Rillenkugellager 95x120x13",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "10080",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "33862911",
+    "opis": "Rillenkugellager 120x150x16",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "10090",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

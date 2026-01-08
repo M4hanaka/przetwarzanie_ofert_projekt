@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "kółko Acla",
+    "grupa_materialow": "inne",
+    "numer_oem": "1K-ZB-1101",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Pasek 450",
+    "grupa_materialow": "inne",
+    "numer_oem": "1K-RE-0303",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Pasek 475",
+    "grupa_materialow": "inne",
+    "numer_oem": "1K-RE-0304",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

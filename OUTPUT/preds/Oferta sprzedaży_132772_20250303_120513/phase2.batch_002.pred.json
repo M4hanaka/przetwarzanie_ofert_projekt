@@ -6,7 +6,7 @@
     "grupa_materialow": "przyłączki",
     "numer_oem": "3109 06 10 30",
     "producent": "",
-    "serial_numbers": "CN: 3109 06 10 30;PKWiU: 3109 06 10 30;Indeks: 3109 06 10 30;ID: 3109 06 10 30"
+    "serial_numbers": ""
   },
   {
     "id": "8",
@@ -15,7 +15,7 @@
     "grupa_materialow": "przyłączki",
     "numer_oem": "3109 04 10 10",
     "producent": "",
-    "serial_numbers": "CN: 3109 04 10 10;PKWiU: 3109 04 10 10;Indeks: 3109 04 10 10;ID: 3109 04 10 10"
+    "serial_numbers": ""
   },
   {
     "id": "9",
@@ -24,6 +24,6 @@
     "grupa_materialow": "przyłączki",
     "numer_oem": "3175 08 13 10",
     "producent": "",
-    "serial_numbers": "CN: 3175 08 13 10;PKWiU: 3175 08 13 10;Indeks: 3175 08 13 10;ID: 3175 08 13 10"
+    "serial_numbers": ""
   }
 ]

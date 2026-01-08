@@ -1,0 +1,77 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "TRP 24VDC 1CO - TERMSERIES, Relay module, Number of contacts: 1, CO contact AgNi, Rated control voltage: 24 V DC ±20 %, Continuous current: 6 A, PUSH IN, Test CN: 85369010",
+      "kwota_ceny_oferty": 33.1
+    },
+    {
+      "position_id": 2,
+      "opis": "WDU 2.5 - Przelotowa rzędowa listwa zaciskowa, złącze śrubowe, 2.5 mm2, 800 V, 24 A, Ciemnobeżowy CN: 85369010 PKWiU: 27.33.13.0",
+      "kwota_ceny_oferty": 1.88
+    },
+    {
+      "position_id": 3,
+      "opis": "WDK 2.5 - ZŁĄCZKA 2-PIĘTROWA CN: 85369010 PKWiU: 27.33.13.0",
+      "kwota_ceny_oferty": 7.6
+    },
+    {
+      "position_id": 4,
+      "opis": "WPE 2.5 - Zacisk PE, złącze śrubowe, zielony / żółty, 2.5 mm2, 800 V, liczba przyłączeń: 2, liczba poziomów: 1, TS 35, V-0, Wemid CN: 85369010 PKWiU: 27.33.13.0",
+      "kwota_ceny_oferty": 7.69
+    },
+    {
+      "position_id": 5,
+      "opis": "ZEW 35/2 - TRZYMACZ CN: 85389099 PKWiU: 27.12.40.0",
+      "kwota_ceny_oferty": 1.72
+    },
+    {
+      "position_id": 6,
+      "opis": "4510022 - H05V-K 1X0,75 BU; Linki pojedyncze CN: 85444995 PKWiU: 27.32.13.0",
+      "kwota_ceny_oferty": 0.49
+    },
+    {
+      "position_id": 7,
+      "opis": "4510012 - H05V-K 1X0,75 BK; Linki pojedyncze CN: 85444995 PKWiU: 27.32.13.0",
+      "kwota_ceny_oferty": 0.49
+    },
+    {
+      "position_id": 8,
+      "opis": "1119403 - ÖLFLEX CLASSIC 110 3G2,5; ÖLFLEX® PVC, żyły numerowane CN: 85444995 PKWiU: 27.32.13.0",
+      "kwota_ceny_oferty": 4.82
+    },
+    {
+      "position_id": 9,
+      "opis": "5SL4101-6 - WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B1A CN: 85362010 PKWiU: 27.12.22.0",
+      "kwota_ceny_oferty": 23.73
+    },
+    {
+      "position_id": 10,
+      "opis": "5SL4102-6 - WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B2A CN: 85362010 PKWiU: 27.12.22.0",
+      "kwota_ceny_oferty": 23.73
+    },
+    {
+      "position_id": 11,
+      "opis": "5SL4104-6 - WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B4A CN: 85362010 PKWiU: 27.12.22.0",
+      "kwota_ceny_oferty": 23.73
+    },
+    {
+      "position_id": 12,
+      "opis": "5SL4106-6 - WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B, 6A CN: 85362010 PKWiU: 27.12.22.0",
+      "kwota_ceny_oferty": 23.73
+    },
+    {
+      "position_id": 13,
+      "opis": "5SL4110-6 - WYŁĄCZNIK NADMIAROWOPRĄDOWY, 230/400V, 10KA, 1-BIEG., B10A CN: 85362010 PKWiU: 27.12.22.0",
+      "kwota_ceny_oferty": 19.94
+    },
+    {
+      "position_id": 14,
+      "opis": "M-WAM-SBL-9-12000 - Akumulator SSB 9Ah / 12V AGM, szeroki konektor CN: 85072080 PKWiU: 27.20.22.0",
+      "kwota_ceny_oferty": 72.49
+    }
+  ]
+}

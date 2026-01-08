@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Stożek",
+    "grupa_materialow": "inne",
+    "numer_oem": "RTA-3.0-17-03",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Rozeta M10",
+    "grupa_materialow": "inne",
+    "numer_oem": "1K-ZB-0404",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Pas 600-5M",
+    "grupa_materialow": "inne",
+    "numer_oem": "1K-RE-0306",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

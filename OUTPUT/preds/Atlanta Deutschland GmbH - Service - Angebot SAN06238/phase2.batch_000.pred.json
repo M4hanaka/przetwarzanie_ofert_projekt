@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "tie rod extension attack chain 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10010003002",
+    "producent": "",
+    "serial_numbers": "tariff no: 84229090;country of origin: IT;material: ST37;delivery time: 21 days;net weight: 1,5 kg;total weight net/Pos.: 3 kg;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "spacer 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10000002308",
+    "producent": "",
+    "serial_numbers": "tariff no: 73181900;country of origin: IT;material: ST37;delivery time: 21 days;net weight: 0,546 kg;total weight net/Pos.: 1,092 kg;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "shaft 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10000002972",
+    "producent": "",
+    "serial_numbers": "tariff no: 84831095;country of origin: IT;material: ST37;delivery time: 20 days;net weight: 0,292 kg;total weight net/Pos.: 0,584 kg;"
+  }
+]

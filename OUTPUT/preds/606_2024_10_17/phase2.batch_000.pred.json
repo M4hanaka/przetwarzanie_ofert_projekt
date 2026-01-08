@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "O/2024/606",
+    "opis": "o-ring",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "GU00064",
+    "producent": "",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+  },
+  {
+    "id": "2",
+    "id_oferty": "O/2024/606",
+    "opis": "o-ring",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "GU00077",
+    "producent": "",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+  },
+  {
+    "id": "3",
+    "id_oferty": "O/2024/606",
+    "opis": "uszczelka",
+    "grupa_materialow": "uszczelki",
+    "numer_oem": "GU00112",
+    "producent": "",
+    "serial_numbers": "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456"
+  }
+]

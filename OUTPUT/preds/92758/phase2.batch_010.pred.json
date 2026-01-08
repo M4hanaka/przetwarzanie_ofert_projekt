@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0000092758",
+    "opis": "Dichtung SAUGLEITUNG",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116306115",
+    "producent": "",
+    "serial_numbers": "EA000-011-00028"
+  },
+  {
+    "id": "2",
+    "id_oferty": "0000092758",
+    "opis": "Spiralschlauch 25,000STK 20/27x3,5, 50m",
+    "grupa_materialow": "kable",
+    "numer_oem": "8116005387",
+    "producent": "",
+    "serial_numbers": "ZP08000020T000"
+  },
+  {
+    "id": "3",
+    "id_oferty": "0000092758",
+    "opis": "Auflage",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "8116305493",
+    "producent": "",
+    "serial_numbers": "EA108-107-00017"
+  }
+]

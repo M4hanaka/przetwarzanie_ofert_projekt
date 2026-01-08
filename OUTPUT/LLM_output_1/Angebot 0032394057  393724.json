@@ -1,6 +1,6 @@
 [
   {
-    "id": "",
+    "id": "3937/24",
     "nazwa_dostawcy": "",
     "data_oferty": null,
     "pozycje_oferty": [
@@ -20,10 +20,9 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "10020",
         "producent": "",
-        "serial_numbers": "ST 0903004792"
+        "serial_numbers": ""
       }
     ],
     "liczba_elementow": 2
   }
 ]
-

@@ -42,8 +42,6 @@ class PdfToTextConfig:
     table_duplicate_line_ratio: float = 0.85
 
 
-
-
 # ---------------------------
 # OCR: interfejs (opcjonalny)
 # ---------------------------
@@ -241,7 +239,6 @@ def synthesize_line_items_table_from_text(page_text: str) -> str:
 def is_useful_table(table: List[List[Optional[str]]], cfg: PdfToTextConfig) -> bool:
     """
     Heurystyka: czy tabela jest warta dołączenia do tekstu.
-
     - odrzucamy bardzo szerokie (np. 30 kolumn),
     - odrzucamy bardzo puste (gęstość niepustych komórek < min_table_density).
     """

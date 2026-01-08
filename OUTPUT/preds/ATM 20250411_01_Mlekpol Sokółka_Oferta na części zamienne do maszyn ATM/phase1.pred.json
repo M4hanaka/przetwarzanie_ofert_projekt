@@ -1,0 +1,32 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "1 Nakrętka DST - Maszyna Pick&place",
+      "kwota_ceny_oferty": 420.0
+    },
+    {
+      "position_id": 2,
+      "opis": "201.07.03.02.25 Izolator plastra PEEK 1kg. – LWB-004",
+      "kwota_ceny_oferty": 510.0
+    },
+    {
+      "position_id": 3,
+      "opis": "201.07.03.02.27 Izolator plastra PEEK 3/5kg. – LWB-004",
+      "kwota_ceny_oferty": 590.0
+    },
+    {
+      "position_id": 4,
+      "opis": "201.07.03.02.21 Izolator plastra PEEK 10kg. – LWB-004",
+      "kwota_ceny_oferty": 640.0
+    },
+    {
+      "position_id": 5,
+      "opis": "Merkel 16x26 FDA Uszczelnienie końcówki nalewowej PAC 12.0",
+      "kwota_ceny_oferty": 46.0
+    }
+  ]
+}

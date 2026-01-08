@@ -1,0 +1,29 @@
+[
+  {
+    "id": "7",
+    "id_oferty": "23/0717",
+    "opis": "Drive complex",
+    "grupa_materialow": "inne",
+    "numer_oem": "054448",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "8",
+    "id_oferty": "23/0717",
+    "opis": "Fixing plate",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "068166",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "9",
+    "id_oferty": "23/0717",
+    "opis": "03284055_Z",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "068167",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "21004439",
+    "opis": "Zestaw do mocowania Visionary",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "2124497",
+    "producent": "SICK",
+    "serial_numbers": "Nr produktu SICK 2124497;Czas dostawy: na stanie;https://www.sick.com/2124497;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "21004439",
+    "opis": "YN2X18-100EG1MRJA8",
+    "grupa_materialow": "przewody",
+    "numer_oem": "2094785",
+    "producent": "SICK",
+    "serial_numbers": "Nr produktu SICK 2094785;Czas dostawy: na stanie;https://www.sick.com/2094785;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "21004439",
+    "opis": "YG2A28-100UA6XLEAX",
+    "grupa_materialow": "przewody",
+    "numer_oem": "2114689",
+    "producent": "SICK",
+    "serial_numbers": "Nr produktu SICK 2114689;Czas dostawy: na stanie;https://www.sick.com/2114689;"
+  }
+]

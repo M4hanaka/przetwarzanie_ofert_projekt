@@ -1,0 +1,299 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 2 TASK: DETAILED ITEMS (MINIMAL OfferItem SCHEMA)
+
+You will receive:
+- the same offer text,
+- a subset of items from Phase 1 ("items_preview").
+
+For EACH of these preview items produce one fully detailed object
+according to the OfferItem schema with EXACTLY the following fields:
+
+- "id": primary key for the item, use a simple running counter "1", "2", "3", ...
+- "id_oferty": offer ID for all items in this file (if unknown, use an empty string "").
+- "opis": original description of the item, based on the PDF text (do not translate).
+- "grupa_materialow": material group or product category inferred from the context.
+- "numer_oem": main OEM / article / item number for this product.
+- "producent": manufacturer name.
+- "serial_numbers": other identification or classification codes (CN, PKWiU, indices, etc.).
+
+GENERAL RULES FOR ALL FIELDS:
+- Use only information that appears in the offer text between [PDF_TEXT_START] and [PDF_TEXT_END].
+- Do NOT invent values that are not supported by the text.
+- If a field is missing, use an empty string "".
+- Prefer empty fields over guessed or incorrect values.
+
+VERY IMPORTANT – MISSING DATA:
+- If the offer text does not clearly specify an offer ID, OEM number, manufacturer,
+  or other codes, leave the corresponding field empty ("").
+- Empty is BETTER than incorrect. Never fabricate a product code or manufacturer.
+
+DESCRIPTION FIELD ("opis"):
+- Do NOT append price, discounts, totals or other numeric columns to "opis".
+- Do NOT copy "kwota_ceny_oferty" into "opis".
+- "opis" must describe ONLY the product itself (name, type, variant, parameters) and MUST NOT contain the OEM/article number.
+- If the preview opis begins with a product code-like token
+  (short alphanumeric code, often with dashes/slashes),
+  ALWAYS remove it from "opis" and put it into "numer_oem".
+- If the leading token is clearly NOT a product code (e.g. "LP", "JM", "szt.", "Cena"),
+  then do NOT treat it as numer_oem.
+- After removing the OEM from the start, keep everything else exactly as in the PDF (no translation, no rewriting).
+
+TABLE STRUCTURE AND COLUMN MAPPING:
+
+Whenever possible, use the table headers to map columns to fields. Typical mappings:
+
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID"
+  → candidate for "numer_oem".
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi"
+  → main product name used in "opis".
+- "CN", "PKWiU", "Indeks", "Nr magazynowy"
+  → candidates for "serial_numbers" (classification or internal codes).
+
+Examples of table headers:
+- "Lp Kod produktu Nazwa produktu Ilość Cena/sztukę Cena końcowa"
+  • numer_oem from "Kod produktu"
+  • opis built mainly from "Nazwa produktu"
+- "Poz. Nr artykułu Ilość j.m. Cena jednostkowa Cena"
+  • numer_oem from "Nr artykułu"
+  • opis built from product name / description column
+- "Lp. Nazwa towaru/usługi Dostępność Ilość jm. Cena przed rabatem Rabat % Cena netto Wartość netto VAT"
+  • typically NO dedicated product code column; in such case numer_oem may be empty if no clear code is present.
+
+Never treat columns such as "Dostępność", "Rabat %", "VAT", "Cena", "Wartość netto", "Wartość brutto"
+as sources of product codes.
+
+KEY FIELDS (MUST NOT BE GUESSED):
+
+ADDITIONAL RULES FOR PRODUCT CODES (IMPORTANT):
+
+- If the table contains labels like:
+  "Nr produktu", "Nr produktu SICK", "Indeks", "Code", "Item code", "Material", "Article No."
+  treat the value as the main product code -> put it into "numer_oem".
+- Do NOT put such product codes into "serial_numbers".
+
+1) numer_oem
+
+- This is the MAIN product code (OEM / article / item number).
+- Prefer values from dedicated columns with headers like:
+  "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID".
+- If there is NO dedicated column, you may treat as numer_oem a short alphanumeric code
+  at the very beginning of the row, placed before the product name and separated by a space or dash,
+  for example: "ABC-123 - Moduł wejściowy 24V DC".
+- NEVER assign CN, PKWiU, HS, tariff numbers, or any long numeric codes (8+ digits) to "numer_oem".
+- If a row contains:
+  • a short article number (e.g. "1119902", "3RH2911-1HA22") AND
+  • classification codes ("CN: 85369010", "PKWiU 27.33.13.0"),
+  then:
+  • numer_oem = short article number
+  • serial_numbers = "CN: ...;PKWiU: ..."
+- If you are NOT sure that a value is a product code, set "numer_oem" to an empty string "".
+- If the preview opis contains a product code at the beginning
+  (e.g. "ABC-123 - Opis produktu", "4500123 O-ring"),
+  this code must be extracted into "numer_oem" and removed from "opis".
+- The final opis must NEVER contain the OEM/article number.
+
+
+STRICT EXCLUSIONS FOR serial_numbers (MANDATORY):
+- serial_numbers MUST NOT contain:
+  prices (PLN/EUR), discounts (Rabat), VAT, totals (Wartość),
+  quantities (Ilość, J.m., szt.), delivery/availability (na stanie, termin realizacji),
+  URLs (http/https/www), or any logistics notes.
+- If you see only such information and no real codes, set serial_numbers to "".
+
+2) serial_numbers
+
+- This field collects all identification or classification codes related to the item
+  that are NOT the main OEM/article number.
+- Typical examples:
+  • customs codes (e.g. "CN 85369010"),
+  • PKWiU codes,
+  • internal warehouse numbers or catalogue indices,
+  • any additional structured codes that clearly refer to this item.
+- If a header contains words "CN", "PKWiU", "Indeks", "Nr magazynowy", etc.,
+  you may treat the values from that column as elements of "serial_numbers".
+- Merge all such codes into ONE string separated by semicolons, for example:
+  "CN: 85369010;PKWiU: 27.33.13.0;ID: 123456".
+- Always add prefixes like "CN:" or "PKWiU:" when the code type is clear.
+- Do NOT include pure technical parameters such as voltage, current, power, frequency,
+  IP rating, dimensions, weight, etc.
+- Do NOT duplicate numer_oem here (even if the same number appears again with a different label).
+- If you do not see any such codes, set "serial_numbers" to "".
+
+
+
+
+OTHER FIELDS:
+
+- id:
+  • Use a simple integer-like string "1", "2", "3", ...
+  • The order should follow the order of items in Phase 1.
+
+- id_oferty:
+  • If an offer ID is visible in the header or in a dedicated field, copy it exactly.
+  • If multiple IDs are present, use the one that clearly identifies the offer document.
+  • If you cannot find any offer ID, use an empty string "".
+
+  To extract id_oferty, search the header for typical patterns:
+  - "Numer / Data wystawienia: <ID> / <date>"
+  - "Oferta Nr <ID>"
+  - "Offer No.: <ID>"
+  - "Numer Oferty / data <ID>"
+  If multiple values look like offer IDs, choose the one explicitly labeled as the offer number.
+  If none exists, set "".
+
+- grupa_materialow:
+  • Assign a short, general category based on the description and context of the item.
+  • Examples of categories: "złączki", "kable", "wyłączniki", "bezpieczniki",
+    "akcesoria montażowe", "automatyka", "mechanika", "inne".
+  • If you are not sure, choose the closest reasonable category.
+
+- producent:
+  • Set producent ONLY if the manufacturer name appears in the SAME ROW/LINE as the item
+    or in an immediately adjacent label that clearly refers to this item.
+  • If the manufacturer is visible only as a logo/header and not tied to the specific item line,
+    set producent to "".
+  • Never copy supplier name or assume the manufacturer for all items.
+
+STRICT CARDINALITY CONSTRAINT (CRUCIAL):
+
+You are given exactly 2 preview items (Item 2 to Item 3).
+For EACH input item you MUST return EXACTLY ONE OfferItem object.
+
+- The output JSON ARRAY MUST contain exactly 2 elements.
+- The order of objects in the output array MUST match the order of input items
+  (first object corresponds to Item 2, last object to Item 3).
+- Do NOT merge different items into one object.
+- Do NOT create any additional or synthetic items.
+- Do NOT repeat the same item multiple times.
+- If you are uncertain, still return exactly one best-effort object per input item,
+  but never invent fields that are not visible in the text.
+
+ITEMS TO PROCESS:
+
+Item 2 (preview):
+  opis: TMS63B4 Silnik TMS63B4 B14 0,18kW1310obr 230/400V50Hz PTC
+  kwota_ceny_oferty: 690.0
+
+Item 3 (preview):
+  opis: MVF 30 F2 1/10 P.63B14 Przekładnia
+  kwota_ceny_oferty: 925.0
+
+
+OUTPUT FORMAT (MANDATORY):
+
+Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
+The array MUST have exactly 2 elements and MUST be the ONLY thing in your answer.
+Return only ONE JSON array and NO additional text, comments or explanations.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+AUTOMATYKA-POMIARY-STEROWANIE SA, A. Mickiewicza 95 F, 15-257 Białystok
+http://www.sklep.aps.pl, e-mail: aps@aps.pl, +48 (85) 74 83 400, +48 (85) 74 83 419
+NIP: 542-00-13-354 * KRS 0000298380 * REGON: P-050141167 * BDO: 000013931
+Prezes Zarządu: Maciej Krajewski * Kapitał Zakładowy: 529 683,90 PLN
+Białystok, dn. 08.04.2025
+Spółdzielnia Mleczarska Mlekpol w Grajewie
+Elewatorska 13
+OFERTA - TRANSAKCJA nr
+19-203 Grajewo
+OF/2025/88521/DSiM/1
+Tel. (86) 273 04 00 fax.
+Dziękujemy za zainteresowanie produktami i usługami oferowanymi przez naszą firmę. W odpowiedzi na Państwa
+zapytanie, przesyłamy ofertę przygotowaną zgodnie z naszą najlepszą wiedzą i doświadczeniem.
+1. Dane do doboru:
+Zapytanie: @ z dnia: 2025-03-03
+Treść zapytania:
+2. Opis i cena:
+Cena z
+Lp. Nazwa produktu Ilość Cena Rabat rabatem Wartość netto
+Item Description Qty Unit Price Discount Discount Total Net
+price
+MVF 30 F2 1/10 P.63B14 Przekładnia
+1 Szczegóły: 1.00 sztuka 570.00 PLN 0.00 570.00 PLN 570.00 PLN
+Gwarancja: 12 miesięcy
+Termin realizacji: do 3 dni, gdy brak na magazynie
+Ilość na magazynie: 0.00
+TMS63B4 Silnik TMS63B4 B14 0,18kW1310obr
+230/400V50Hz PTC
+2 2.00 sztuka 690.00 PLN 0.00 690.00 PLN 1380.00 PLN
+Szczegóły:
+Gwarancja: 12 miesięcy
+Termin realizacji: do 3 dni, gdy brak na magazynie
+Ilość na magazynie: 0.00
+MVF 30 F2 1/10 P.63B14 Przekładnia
+3 Szczegóły: 1.00 sztuka 925.00 PLN 925.00 PLN 925.00 PLN
+Gwarancja: 12 miesięcy
+Termin realizacji: do 8 tygodni, gdy brak w magazynie
+Ilość na magazynie: 0.00
+Wartość
+netto / 2875.00 PLN
+Total net:
+Kwota VAT /
+661.25 PLN
+Total VAT:
+Wartość
+brutto / 3536.25 PLN
+Gross value:
+Dane urządzeń zgodnie z kartą katalogową.
+3. Warunki płatności, dostawy, gwarancji:
+• termin płatności: przelew 30 dni
+• termin realizacji - dostawy: zgodnie z tabelą od daty wpływu zamówienia
+• okres ważności oferty: 2025-04-22
+• okres gwarancji: zgodnie z tabelą, pozostałe warunki zgodnie z Ogólnymi Warunkami Gwarancji
+dostępnymi na stronie http://www.sklep.aps.pl
+• płatność w PLN po przeliczeniu walut obcych po kursie sprzedaży NBP obowiązującym w dniu wystawienia
+faktury VAT
+• podane warunki handlowe obowiązują w przypadku złożenia zamówienia zgodnego z zestawieniem
+zawartym w powyższej ofercie. Przy zamówieniu proszę o podanie naszego numeru oferty.
+
+=== PAGE 1 TABLE 3 ===
+Lp. Item | Nazwa produktu Description | Ilość Qty | Cena Unit Price | Rabat Discount | Cena z rabatem Discount price | Wartość netto Total Net
+1 | MVF 30 F2 1/10 P.63B14 Przekładnia Szczegóły: Gwarancja: 12 miesięcy Termin realizacji: do 3 dni, gdy brak na magazynie Ilość na magazynie: 0.00 | 1.00 sztuka | 570.00 PLN | 0.00 | 570.00 PLN | 570.00 PLN
+2 | TMS63B4 Silnik TMS63B4 B14 0,18kW1310obr 230/400V50Hz PTC Szczegóły: Gwarancja: 12 miesięcy Termin realizacji: do 3 dni, gdy brak na magazynie Ilość na magazynie: 0.00 | 2.00 sztuka | 690.00 PLN | 0.00 | 690.00 PLN | 1380.00 PLN
+3 | MVF 30 F2 1/10 P.63B14 Przekładnia Szczegóły: Gwarancja: 12 miesięcy Termin realizacji: do 8 tygodni, gdy brak w magazynie Ilość na magazynie: 0.00 | 1.00 sztuka | 925.00 PLN |  | 925.00 PLN | 925.00 PLN
+Wartość netto / Total net: | 2875.00 PLN
+Kwota VAT / Total VAT: | 661.25 PLN
+Wartość brutto / Gross value: | 3536.25 PLN
+
+=== PAGE 2 TEXT ===
+• podstawą do wystawienia faktury ( uznaniem usługi za wykonaną) w przypadku usług naprawy urządzeń
+jest moment potwierdzenia przez klienta poprawności działania urządzenia. Potwierdzenie powinno
+nastąpić najpóźniej w terminie 7 dni od daty doręczenia urządzenia, w przypadku braku informacji od
+klienta w w/w terminie uznaje się usługę za wykonaną co skutkuje wystawieniem faktury.
+Z poważaniem
+Łukasz Paluch
+Kom. +48 885 561 025, e-mail: lukasz.paluch@aps.pl
+A.P.S. S.A. posiada system zarządzania jakością zgodny z wymaganiami normy ISO 9001:2000.
+Certyfikat SGS nr HU03/0106 w zakresie: "PROJEKTOWANIE I USŁUGI W ZAKRESIE UKŁADÓW ELEKTRYCZNYCH, STEROWAŃ, POMIARÓW WIELKOŚCI
+ELEKTRYCZNYCH I NIEELEKTRYCZNYCH, AUTOMATYKI ZABEZPIECZEŃ ELEKTRYCZNYCH I TECHNOLOGICZNYCH, AUTOMATYZACJI PROCESÓW
+TECHNOLOGICZNYCH, SPRZEDAŻ OSPRZĘTU ELEKTRYCZNEGO I AUTOMATYKI.”
+[PDF_TEXT_END]

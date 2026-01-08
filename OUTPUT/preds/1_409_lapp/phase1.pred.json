@@ -1,0 +1,62 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "1119902 - ÖLFLEX CLASSIC 110 2X1,5; ÖLFLEX® PVC, żyły numerowane",
+      "kwota_ceny_oferty": 3.08
+    },
+    {
+      "position_id": 2,
+      "opis": "1119752 - ÖLFLEX CLASSIC 110 2X0,5; ÖLFLEX® PVC, żyły numerowane",
+      "kwota_ceny_oferty": 1.72
+    },
+    {
+      "position_id": 3,
+      "opis": "1135752 - ÖLFLEX CLASSIC 110 CY 2X0,5; ÖLFLEX® PVC, żyły numerowane, ekranowany",
+      "kwota_ceny_oferty": 5.67
+    },
+    {
+      "position_id": 4,
+      "opis": "4510012 - H05V-K 1X0,75 BK; Linki pojedyncze",
+      "kwota_ceny_oferty": 0.64
+    },
+    {
+      "position_id": 5,
+      "opis": "RKH4.4-5/TFG - Przewód podłączeniowy, Seria Food & Beverage hygienic (dla przemysłu spożywczego), TPE, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej, 5M",
+      "kwota_ceny_oferty": 115.16
+    },
+    {
+      "position_id": 6,
+      "opis": "RKH4.4-10/TFG - Przewód podłączeniowy, złącze żeńskie M12, proste, 4-stykowe, Nakrętka/śruba ze stali nierdzewnej",
+      "kwota_ceny_oferty": 149.47
+    },
+    {
+      "position_id": 7,
+      "opis": "061B001066 - MBC 5100 Presostat",
+      "kwota_ceny_oferty": 915.0
+    },
+    {
+      "position_id": 8,
+      "opis": "PLT1.5I-M109 - Cable Tie, 5.6\"L (142mm), Intermediate, Polypropylene, Green",
+      "kwota_ceny_oferty": 167.2
+    },
+    {
+      "position_id": 9,
+      "opis": "PLT2S-M109 - Opaska zaciskowa 1opk=1000szt",
+      "kwota_ceny_oferty": 237.64
+    },
+    {
+      "position_id": 10,
+      "opis": "2170296 - ETHERLINE H CAT.5e4X2XAWG24/1; ETHERLINE®, okablowanie przemysłowe",
+      "kwota_ceny_oferty": 6.46
+    },
+    {
+      "position_id": 11,
+      "opis": "2170886 - ETHERLINE Y FLEX FC UL (CMG) CAT5 2x2x22; ETHERLINE®, okablowanie przemysłowe",
+      "kwota_ceny_oferty": 8.0
+    }
+  ]
+}

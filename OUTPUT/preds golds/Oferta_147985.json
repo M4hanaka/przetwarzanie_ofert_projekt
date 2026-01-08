@@ -1,0 +1,19 @@
+[
+  {
+    "id": "147985",
+    "nazwa_dostawcy": "ANGA Uszczelnienia Mechaniczne Sp. z o.o.",
+    "data_oferty": "2025-01-07",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "147985",
+        "opis": "Części zamienne do uszczel. mieszadła TETRA PAK",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "035/RH8/P02",
+        "producent": "",
+        "serial_numbers": "I: DRH8035P02004"
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

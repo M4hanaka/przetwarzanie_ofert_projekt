@@ -1,29 +1,19 @@
 [
   {
-    "id": "",
+    "id": "OF/PiT/MMG/2025/03748",
     "nazwa_dostawcy": "",
     "data_oferty": null,
     "pozycje_oferty": [
       {
         "id": "1",
-        "id_oferty": "202503748",
+        "id_oferty": "OF/PiT/MMG/2025/03748",
         "opis": "Taśma transportująca EDU06W-FF NA B= 120 +/-2 mm x L= 4300 +/-15 mm Połączenie Flexproof EF (zgrzewane na zygzak)",
         "grupa_materialow": "taśmy",
         "numer_oem": "EDU06W-FF",
         "producent": "",
         "serial_numbers": "B= 120 +/-2 mm;L= 4300 +/-15 mm;Połączenie Flexproof EF (zgrzewane na zygzak)"
-      },
-      {
-        "id": "2",
-        "id_oferty": "202503748",
-        "opis": "Koszt spedycji 030G 03G",
-        "grupa_materialow": "inne",
-        "numer_oem": "",
-        "producent": "",
-        "serial_numbers": "030G;03G"
       }
     ],
-    "liczba_elementow": 2
+    "liczba_elementow": 1
   }
 ]
-

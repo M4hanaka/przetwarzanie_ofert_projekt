@@ -1,0 +1,19 @@
+[
+  {
+    "id": "4348/24",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "33796817",
+        "opis": "Trgerblech D= 720 20 tlg.",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "10010",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

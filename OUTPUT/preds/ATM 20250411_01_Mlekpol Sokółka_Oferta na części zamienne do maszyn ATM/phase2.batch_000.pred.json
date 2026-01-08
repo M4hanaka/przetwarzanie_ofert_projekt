@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "20250411_01",
+    "opis": "Maszyna Pick&place",
+    "grupa_materialow": "inne",
+    "numer_oem": "Nakrętka DST",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "20250411_01",
+    "opis": "Izolator plastra PEEK 1kg. – LWB-004",
+    "grupa_materialow": "inne",
+    "numer_oem": "201.07.03.02.25",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "20250411_01",
+    "opis": "Izolator plastra PEEK 3/5kg. – LWB-004",
+    "grupa_materialow": "inne",
+    "numer_oem": "201.07.03.02.27",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

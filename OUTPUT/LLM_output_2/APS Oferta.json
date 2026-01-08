@@ -1,0 +1,28 @@
+[
+  {
+    "id": "OF/2025/88521/DSiM/1",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OF/2025/88521/DSiM/1",
+        "opis": "MVF 30 F2 1/10 P.63B14 Przekładnia",
+        "grupa_materialow": "przekładnie",
+        "numer_oem": "MVF 30 F2 1/10 P.63B14",
+        "producent": "",
+        "serial_numbers": "P.63B14"
+      },
+      {
+        "id": "2",
+        "id_oferty": "OF/2025/88521/DSiM/1",
+        "opis": "TMS63B4 Silnik TMS63B4 B14 0,18kW1310obr 230/400V50Hz PTC",
+        "grupa_materialow": "silniki",
+        "numer_oem": "TMS63B4",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

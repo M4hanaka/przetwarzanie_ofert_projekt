@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Buchse",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116631456",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Hülse",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116631469",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Gelenklager 633 991 20",
+    "grupa_materialow": "inne",
+    "numer_oem": "8116281969",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

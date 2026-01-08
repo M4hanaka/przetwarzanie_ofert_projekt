@@ -1,0 +1,187 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "Ampack GmbH",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "8116282543 Cup station",
+      "kwota_ceny_oferty": 70.05
+    },
+    {
+      "position_id": 2,
+      "opis": "8104981201 Dosing station",
+      "kwota_ceny_oferty": 330.29
+    },
+    {
+      "position_id": 3,
+      "opis": "8180004311 Pump",
+      "kwota_ceny_oferty": 12.6
+    },
+    {
+      "position_id": 4,
+      "opis": "8104684145 O-Ring 120x3 AP302 EPDM-70 FDA+3A",
+      "kwota_ceny_oferty": 121.77
+    },
+    {
+      "position_id": 5,
+      "opis": "8104684148 Gleitdichtring mit O-Ring D75A",
+      "kwota_ceny_oferty": 50.53
+    },
+    {
+      "position_id": 6,
+      "opis": "8104684148 Führungsring D75A",
+      "kwota_ceny_oferty": 50.53
+    },
+    {
+      "position_id": 7,
+      "opis": "8180028493 Piston attachment",
+      "kwota_ceny_oferty": 9.82
+    },
+    {
+      "position_id": 8,
+      "opis": "8180011862 O-Ring 77X3-V70SW-FKM70 FDA+3A",
+      "kwota_ceny_oferty": 105.14
+    },
+    {
+      "position_id": 9,
+      "opis": "8108114300 Dichtring 545B-00250-27A-FKM-13-75",
+      "kwota_ceny_oferty": 35.37
+    },
+    {
+      "position_id": 10,
+      "opis": "8104683953 Abstreifring AS25-33x4/7FKM3-85",
+      "kwota_ceny_oferty": 15.39
+    },
+    {
+      "position_id": 11,
+      "opis": "8108177837 Rotary valve attachment",
+      "kwota_ceny_oferty": 42.56
+    },
+    {
+      "position_id": 12,
+      "opis": "8104683442 Abstreifer AS-30x38x4/7-FKM3-85",
+      "kwota_ceny_oferty": 25.39
+    },
+    {
+      "position_id": 13,
+      "opis": "8104683442 Führungsring D30 I",
+      "kwota_ceny_oferty": 25.39
+    },
+    {
+      "position_id": 14,
+      "opis": "8180005780 Wellendichtring 238B-00300-40A-FKM",
+      "kwota_ceny_oferty": 33.17
+    },
+    {
+      "position_id": 15,
+      "opis": "8180028493 O-Ring 77X3-V70SW-FKM70 FDA+3A",
+      "kwota_ceny_oferty": 9.82
+    },
+    {
+      "position_id": 16,
+      "opis": "8104684427 Outlet",
+      "kwota_ceny_oferty": 127.51
+    },
+    {
+      "position_id": 17,
+      "opis": "8104684427 Dichtungssatz 600-1000ml DS D80 FKM",
+      "kwota_ceny_oferty": 127.51
+    },
+    {
+      "position_id": 18,
+      "opis": "8180015678 Usit-Ring HY 6,1-13,1-1 EPDM 291/1.4404",
+      "kwota_ceny_oferty": 23.72
+    },
+    {
+      "position_id": 19,
+      "opis": "8116312377 Sink plate",
+      "kwota_ceny_oferty": 11.83
+    },
+    {
+      "position_id": 20,
+      "opis": "8108148496 O-Ring 31,34x3,53 AP302 EPDM70 FDA+3A",
+      "kwota_ceny_oferty": 8.07
+    },
+    {
+      "position_id": 21,
+      "opis": "8104684829 Tank",
+      "kwota_ceny_oferty": 2044.3
+    },
+    {
+      "position_id": 22,
+      "opis": "8116312284 O-Ring DIN11864-R-40X5-FKM-80+3A+FDA",
+      "kwota_ceny_oferty": 33.26
+    },
+    {
+      "position_id": 23,
+      "opis": "8116290531 Vapour distributor",
+      "kwota_ceny_oferty": 8.27
+    },
+    {
+      "position_id": 24,
+      "opis": "8116290532 Connection",
+      "kwota_ceny_oferty": 12.26
+    },
+    {
+      "position_id": 25,
+      "opis": "8116626993 Cup lifter",
+      "kwota_ceny_oferty": 198.1
+    },
+    {
+      "position_id": 26,
+      "opis": "8116000138 Führungsstange 30h9 x 480",
+      "kwota_ceny_oferty": 16.2
+    },
+    {
+      "position_id": 27,
+      "opis": "8116004866 O-Ring 229 / 59,92X3,53",
+      "kwota_ceny_oferty": 7.53
+    },
+    {
+      "position_id": 28,
+      "opis": "8116000227 Lagerbuchse",
+      "kwota_ceny_oferty": 93.26
+    },
+    {
+      "position_id": 29,
+      "opis": "8116306112 Lagerbuchse",
+      "kwota_ceny_oferty": 186.35
+    },
+    {
+      "position_id": 30,
+      "opis": "8116632376 Dichtung D=78",
+      "kwota_ceny_oferty": 9.65
+    },
+    {
+      "position_id": 31,
+      "opis": "8116306115 Dichtung SAUGLEITUNG",
+      "kwota_ceny_oferty": 19.82
+    },
+    {
+      "position_id": 32,
+      "opis": "8116005387 Spiralschlauch 25,000STK 20/27x3,5, 50m",
+      "kwota_ceny_oferty": 12.27
+    },
+    {
+      "position_id": 33,
+      "opis": "8116305493 Auflage",
+      "kwota_ceny_oferty": 163.06
+    },
+    {
+      "position_id": 34,
+      "opis": "8116631456 Buchse",
+      "kwota_ceny_oferty": 8.9
+    },
+    {
+      "position_id": 35,
+      "opis": "8116631469 Hülse",
+      "kwota_ceny_oferty": 11.65
+    },
+    {
+      "position_id": 36,
+      "opis": "8116281969 Gelenklager 633 991 20",
+      "kwota_ceny_oferty": 95.19
+    }
+  ]
+}

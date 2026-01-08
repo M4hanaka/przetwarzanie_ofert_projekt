@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Krańcówka",
+    "grupa_materialow": "inne",
+    "numer_oem": "1E-sq-0113",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Guma docisku do spawania folii",
+    "grupa_materialow": "inne",
+    "numer_oem": "RTF-4.1-10.20",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Taśma oporowa",
+    "grupa_materialow": "inne",
+    "numer_oem": "RTA-4.0-11.09",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

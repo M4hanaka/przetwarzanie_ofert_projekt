@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "32255581",
+    "opis": "O-Ring 67x3 FKM/FEP-coated",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10040",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "32255581",
+    "opis": "O-Ring 58x2 FFKM 70SH",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10050",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "32255581",
+    "opis": "Rillenkugellager 61916 80,04x1",
+    "grupa_materialow": "mechanika",
+    "numer_oem": "10060",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

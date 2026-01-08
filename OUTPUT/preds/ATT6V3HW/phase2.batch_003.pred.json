@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Koło pasowe 62",
+    "grupa_materialow": "kable",
+    "numer_oem": "RTA-3.0-01-25",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Walec 52",
+    "grupa_materialow": "kable",
+    "numer_oem": "RTA-3.0-15-00",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Kółko Acla",
+    "grupa_materialow": "kable",
+    "numer_oem": "1K-ZB-1101",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

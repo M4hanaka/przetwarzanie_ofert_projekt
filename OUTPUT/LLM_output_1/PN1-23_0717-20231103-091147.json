@@ -1,12 +1,12 @@
 [
   {
-    "id": "",
+    "id": "1/2",
     "nazwa_dostawcy": "",
     "data_oferty": null,
     "pozycje_oferty": [
       {
         "id": "1",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Drive of blockade",
         "grupa_materialow": "mechanika",
         "numer_oem": "",
@@ -15,7 +15,7 @@
       },
       {
         "id": "2",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Driven roller",
         "grupa_materialow": "mechanika",
         "numer_oem": "",
@@ -24,8 +24,8 @@
       },
       {
         "id": "3",
-        "id_oferty": "230717",
-        "opis": "Roller chain 1/2\"",
+        "id_oferty": "23/0717",
+        "opis": "Roller chain 1/2",
         "grupa_materialow": "mechanika",
         "numer_oem": "",
         "producent": "",
@@ -33,7 +33,7 @@
       },
       {
         "id": "4",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "ROLLER GAMMA",
         "grupa_materialow": "inne",
         "numer_oem": "",
@@ -42,16 +42,16 @@
       },
       {
         "id": "5",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Bearing plate Al",
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "02020057_Symmetry;054485"
+        "serial_numbers": "054485"
       },
       {
         "id": "6",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Bearing plate Al",
         "grupa_materialow": "inne",
         "numer_oem": "",
@@ -60,34 +60,34 @@
       },
       {
         "id": "7",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Drive complex",
-        "grupa_materialow": "mechanika",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "054448"
       },
       {
         "id": "8",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Fixing plate",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "068166"
       },
       {
         "id": "9",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "03284055_Z",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "03284055_Z",
         "producent": "",
         "serial_numbers": "068167"
       },
       {
         "id": "10",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Lever bolt head",
         "grupa_materialow": "inne",
         "numer_oem": "",
@@ -96,7 +96,7 @@
       },
       {
         "id": "11",
-        "id_oferty": "230717",
+        "id_oferty": "23/0717",
         "opis": "Torque arm VF 49",
         "grupa_materialow": "inne",
         "numer_oem": "",

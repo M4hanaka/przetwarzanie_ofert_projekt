@@ -6,7 +6,7 @@
     "grupa_materialow": "przyłącza",
     "numer_oem": "3192 08 10 10",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "szt."
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "grupa_materialow": "przyłącza",
     "numer_oem": "3109 06 17 10",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "szt."
   },
   {
     "id": "3",
@@ -24,6 +24,6 @@
     "grupa_materialow": "mufki",
     "numer_oem": "0902 00 17 10",
     "producent": "",
-    "serial_numbers": ""
+    "serial_numbers": "szt."
   }
 ]

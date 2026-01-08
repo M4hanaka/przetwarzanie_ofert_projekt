@@ -6,7 +6,7 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "90711.HL",
     "producent": "KMK",
-    "serial_numbers": "Indeks: 90711.HL;Ilość: 30;szt: szt;Cena netto: 0,48 PLN;Rabat %: 30;Cena po rabacie: 0,34 PLN;Wartość netto: 10,20 PLN;Termin realizacji: z mag."
+    "serial_numbers": "Indeks: 90711.HL;Ilość: 30;JM: szt;Cena netto: 0,48 PLN;Rabat %: 30;Cena po rabacie: 0,34 PLN;Wartość netto: 10,20 PLN;Termin realizacji: z mag."
   },
   {
     "id": "2",
@@ -15,6 +15,6 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "90714.HL",
     "producent": "KMK",
-    "serial_numbers": "Indeks: 90714.HL;Ilość: 30;szt: szt;Cena netto: 0,50 PLN;Rabat %: 30;Cena po rabacie: 0,35 PLN;Wartość netto: 10,50 PLN;Termin realizacji: z mag."
+    "serial_numbers": "Indeks: 90714.HL;Ilość: 30;JM: szt;Cena netto: 0,50 PLN;Rabat %: 30;Cena po rabacie: 0,35 PLN;Wartość netto: 10,50 PLN;Termin realizacji: z mag."
   }
 ]

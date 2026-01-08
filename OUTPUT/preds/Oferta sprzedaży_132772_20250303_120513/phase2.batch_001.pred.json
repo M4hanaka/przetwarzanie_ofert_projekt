@@ -6,7 +6,7 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "3114 08 13 10",
     "producent": "",
-    "serial_numbers": "CN: 3114 08 13 10;PKWiU: 3114 08 13 10;ID: 3114 08 13 10;"
+    "serial_numbers": ""
   },
   {
     "id": "5",
@@ -15,7 +15,7 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "3109 12 13 10",
     "producent": "",
-    "serial_numbers": "CN: 3109 12 13 10;PKWiU: 3109 12 13 10;ID: 3109 12 13 10;"
+    "serial_numbers": ""
   },
   {
     "id": "6",
@@ -24,6 +24,6 @@
     "grupa_materialow": "akcesoria montażowe",
     "numer_oem": "3199 16 17 5",
     "producent": "",
-    "serial_numbers": "CN: 3199 16 17 5;PKWiU: 3199 16 17 5;ID: 3199 16 17 5;"
+    "serial_numbers": ""
   }
 ]

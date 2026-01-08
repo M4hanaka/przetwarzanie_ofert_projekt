@@ -1,0 +1,29 @@
+[
+  {
+    "id": "4",
+    "id_oferty": "",
+    "opis": "łożysko",
+    "grupa_materialow": "inne",
+    "numer_oem": "RTA-3.0-01-12",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "5",
+    "id_oferty": "",
+    "opis": "Wałek 86",
+    "grupa_materialow": "inne",
+    "numer_oem": "RTA-3.0-14-00 a",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "6",
+    "id_oferty": "",
+    "opis": "wałek",
+    "grupa_materialow": "inne",
+    "numer_oem": "RTA-2.0-00-05",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]
