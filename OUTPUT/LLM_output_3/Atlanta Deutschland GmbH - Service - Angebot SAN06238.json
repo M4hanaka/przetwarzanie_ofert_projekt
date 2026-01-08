@@ -11,25 +11,25 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "tariff no: 84229090;10010003002"
+        "serial_numbers": "tariff no: 84229090;country of origin: IT;material: ST37;net weight: 1,5 kg;total weight net/Pos.: 3 kg;10010003002"
       },
       {
         "id": "2",
         "id_oferty": "7141/14156",
         "opis": "spacer 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "10000002308"
+        "serial_numbers": "tariff no: 73181900;country of origin: IT;material: ST37;net weight: 0,546 kg;total weight net/Pos.: 1,092 kg;10000002308"
       },
       {
         "id": "3",
         "id_oferty": "7141/14156",
         "opis": "shaft 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "10000002972"
+        "serial_numbers": "tariff no: 84831095;country of origin: IT;material: ST37;net weight: 0,292 kg;total weight net/Pos.: 0,584 kg;10000002972"
       },
       {
         "id": "4",
@@ -38,7 +38,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "tariff no: 73269098;country of origin: IT;material: ST37;net weight: 4,75 kg;total weight net/Pos.: 19 kg;94200060"
+        "serial_numbers": "tariff no: 73269098;country of origin: IT;material: ST37;94200060"
       },
       {
         "id": "5",
@@ -56,7 +56,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "tariff no: 73269098;country of origin: IT;material: ST37;net weight: 0,53 kg;total weight net/Pos.: 0,53 kg;94000170"
+        "serial_numbers": "tariff no: 73269098;94000170"
       },
       {
         "id": "7",
@@ -101,16 +101,16 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "tariff no: 84229090;country of origin: IT;material: ST37;10000002305"
+        "serial_numbers": "tariff no: 84229090;country of origin: IT;material: ST37;net weight: 0,5 kg;total weight net/Pos.: 1 kg;10000002305"
       },
       {
         "id": "12",
         "id_oferty": "7141/14156",
         "opis": "Console 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "tariff no: 84799070;country of origin: IT;94200020"
+        "serial_numbers": "tariff no: 84799070;country of origin: IT;net weight: 0,134 kg;total weight net/Pos.: 0,268 kg;94200020"
       },
       {
         "id": "13",
@@ -128,16 +128,16 @@
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 73182400;net weight: 0,008 kg;total weight net/Pos.: 0,016 kg;20525000093"
+        "serial_numbers": "tariff no: 73182400;country of origin: IT;material: ST37;net weight: 0,008 kg;total weight net/Pos.: 0,016 kg;20525000093"
       },
       {
         "id": "15",
         "id_oferty": "7141/14156",
         "opis": "Magnetic Sensor 12 PCS",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 85365019;net weight: 0,037 kg;total weight net/Pos.: 0,444 kg;82405004006"
+        "serial_numbers": "tariff no: 85365019;country of origin: IT;material: ST37;net weight: 0,037 kg;total weight net/Pos.: 0,444 kg;82405004006"
       },
       {
         "id": "16",
@@ -170,7 +170,7 @@
         "id": "19",
         "id_oferty": "7141/14156",
         "opis": "Pneumatic cylinder 2 PCS",
-        "grupa_materialow": "mechanika",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "country of origin: DE;material:;tariff no: 84123100;net weight: 0,304 kg;total weight net/Pos.: 0,608 kg;40600005318"
@@ -179,7 +179,7 @@
         "id": "20",
         "id_oferty": "7141/14156",
         "opis": "Flow controller 4 PCS",
-        "grupa_materialow": "mechanika",
+        "grupa_materialow": "automatyka",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "country of origin: DE-HE;material: ST37;tariff no: 84818059;net weight: 0,03 kg;total weight net/Pos.: 0,12 kg;40300010368"
@@ -188,7 +188,7 @@
         "id": "21",
         "id_oferty": "7141/14156",
         "opis": "Adjustment 4 PCS",
-        "grupa_materialow": "mechanika",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "country of origin: IT;material: Stahl, Kunststoff;tariff no: 73181491;net weight: 0,033 kg;total weight net/Pos.: 0,132 kg;40300010369"
@@ -200,7 +200,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "10000002912"
+        "serial_numbers": "country of origin: IT;tariff no: 73202081;net weight: 0,003 kg;total weight net/Pos.: 0,006 kg;10000002912"
       },
       {
         "id": "23",
@@ -209,7 +209,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "10010004407"
+        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 83016000;net weight: 2,88 kg;total weight net/Pos.: 5,76 kg;10010004407"
       },
       {
         "id": "24",
@@ -218,34 +218,34 @@
         "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "10000004406"
+        "serial_numbers": "country of origin: IT;material: Gummi;tariff no: 84229090;net weight: 0,096 kg;total weight net/Pos.: 0,192 kg;10000004406"
       },
       {
         "id": "25",
         "id_oferty": "7141/14156",
         "opis": "Pulley Pin 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 84229090;net weight: 1,9 kg;total weight net/Pos.: 3,8 kg;10000001630"
+        "serial_numbers": "10000001630"
       },
       {
         "id": "26",
         "id_oferty": "7141/14156",
         "opis": "Pulley Pin 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 73269098;net weight: 1,12 kg;total weight net/Pos.: 2,24 kg;10000001631"
+        "serial_numbers": "10000001631"
       },
       {
         "id": "27",
         "id_oferty": "7141/14156",
         "opis": "Deep groove ball bearing 16 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "wyłączniki",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: KR;material: ST37;tariff no: 84821090;net weight: 0,118 kg;total weight net/Pos.: 1,888 kg;20410001632"
+        "serial_numbers": "20410001632"
       },
       {
         "id": "28",
@@ -260,7 +260,7 @@
         "id": "29",
         "id_oferty": "7141/14156",
         "opis": "Spacer 4 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "10000001635"
@@ -269,7 +269,7 @@
         "id": "30",
         "id_oferty": "7141/14156",
         "opis": "Clamping unit 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "10000001636"
@@ -308,13 +308,13 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: IT;material: AlMg3;tariff no: 76169990;net weight: 2,92 kg;total weight net/Pos.: 5,84 kg;10010006947"
+        "serial_numbers": "10010006947"
       },
       {
         "id": "35",
         "id_oferty": "7141/14156",
         "opis": "Pulley 6 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "10000001284"
@@ -323,7 +323,7 @@
         "id": "36",
         "id_oferty": "7141/14156",
         "opis": "Deep groove ball bearings 2 PCS",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "wyłączniki",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "20410001552"
@@ -332,7 +332,7 @@
         "id": "37",
         "id_oferty": "7141/14156",
         "opis": "Shaft for locking 2 PCS",
-        "grupa_materialow": "mechanika",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "10000001865"
@@ -341,10 +341,10 @@
         "id": "38",
         "id_oferty": "7141/14156",
         "opis": "Flanged bearing 4 PCS",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "country of origin: JP;material: ST37;tariff no: 84832000;net weight: 1,119 kg;total weight net/Pos.: 4,476 kg;20450001681"
+        "serial_numbers": "20450001681"
       },
       {
         "id": "39",
@@ -395,7 +395,7 @@
         "id": "44",
         "id_oferty": "7141/14156",
         "opis": "Tensioner pulley 4 PCS",
-        "grupa_materialow": "mechanika",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
         "serial_numbers": "country of origin: IT;material: ST37;tariff no: 84835080;net weight: 0,467 kg;total weight net/Pos.: 1,868 kg;10000006775"
@@ -407,7 +407,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "",
-        "serial_numbers": "10000006781"
+        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 84835080;net weight: 0,05 kg;total weight net/Pos.: 0,2 kg;10000006781"
       }
     ],
     "liczba_elementow": 45

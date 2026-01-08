@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Clamping unit 2 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10010006947",
+    "producent": "",
+    "serial_numbers": "country of origin: IT;material: AlMg3;tariff no: 76169990;delivery time: 21 days;net weight: 2,92 kg;total weight net/Pos.: 5,84 kg"
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Pulley for bolt 10000001284 6 PCS",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "10000001551",
+    "producent": "",
+    "serial_numbers": "country of origin: IT;material: ST37;tariff no: 73182900;delivery time: 14 days;net weight: 0,057 kg;total weight net/Pos.: 0,342 kg"
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Deep groove ball bearings 2 PCS",
+    "grupa_materialow": "wyłączniki",
+    "numer_oem": "20410001552",
+    "producent": "",
+    "serial_numbers": "country of origin: DE;material: ST37;tariff no: 84821090;delivery time: 21 days;net weight: 0,018 kg;total weight net/Pos.: 0,036 kg"
+  }
+]

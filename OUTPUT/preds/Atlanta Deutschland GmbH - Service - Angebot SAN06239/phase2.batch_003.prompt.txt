@@ -184,12 +184,12 @@ OTHER FIELDS:
 
 STRICT CARDINALITY CONSTRAINT (CRUCIAL):
 
-You are given exactly 2 preview items (Item 11 to Item 12).
+You are given exactly 1 preview items (Item 12 to Item 12).
 For EACH input item you MUST return EXACTLY ONE OfferItem object.
 
-- The output JSON ARRAY MUST contain exactly 2 elements.
+- The output JSON ARRAY MUST contain exactly 1 elements.
 - The order of objects in the output array MUST match the order of input items
-  (first object corresponds to Item 11, last object to Item 12).
+  (first object corresponds to Item 12, last object to Item 12).
 - Do NOT merge different items into one object.
 - Do NOT create any additional or synthetic items.
 - Do NOT repeat the same item multiple times.
@@ -197,10 +197,6 @@ For EACH input item you MUST return EXACTLY ONE OfferItem object.
   but never invent fields that are not visible in the text.
 
 ITEMS TO PROCESS:
-
-Item 11 (preview):
-  opis: 10000002305 Mounting base sliding clamp 2 PCS
-  kwota_ceny_oferty: 22.6
 
 Item 12 (preview):
   opis: 94200020 Console 2 PCS
@@ -210,7 +206,7 @@ Item 12 (preview):
 OUTPUT FORMAT (MANDATORY):
 
 Provide the result as a JSON ARRAY of OfferItem objects following the schema above.
-The array MUST have exactly 2 elements and MUST be the ONLY thing in your answer.
+The array MUST have exactly 1 elements and MUST be the ONLY thing in your answer.
 Return only ONE JSON array and NO additional text, comments or explanations.
 
 
@@ -218,7 +214,7 @@ Return only ONE JSON array and NO additional text, comments or explanations.
 === PAGE 1 TEXT ===
 Atlanta Deutschland GmbH • Kammererstraße 18 • 71636 Ludwigsburg
 Quote no. Date
-Spoldzielnia Mleczarska "Mlekpol" W Grajewie SAN06238 21.02.2025
+Spoldzielnia Mleczarska "Mlekpol" W Grajewie SAN06239 21.02.2025
 Grzegorz Lehr
 ul. Elewatorska 13
 85-453 Bydgoszcz
@@ -232,21 +228,19 @@ Quote
 inquiry per Mail Grzegorz Lehr 21.02.2025
 Ship to:
 Spoldzielnia Mleczarska "Mlekpol" W Grajewie
-Oddział Zakład Produkcji Mleczarskiej w
-Bydgoszczy
-ul. Niklowa 4
+ul. Elewatorska 13
 85-453 Bydgoszcz
 Polen
 Project Mlekpol
-KOM-Number K824-2LS
-Serial Number A172748
+KOM-Number K824-E07
+Serial Number A131205
 Type of machine Omega
 Item No. Description Quantity Price Amount
 EUR EUR
 Validity of quotation: 4 weeks
-Serviceartikelnr. SCODE00716
-Artikel 8200-169 Mlekpol Polen
-Serial Number A172748
+Serviceartikelnr. SCODE00282
+Artikel 8200-169 Mlekpol
+Serial Number A131205
 10010003002 tie rod extension attack chain 2 PCS 299,20 598,40
 country of origin: IT
 material: ST37
@@ -257,6 +251,8 @@ total weight net/Pos.: 3 kg
 10000002308 spacer 2 PCS 73,60 147,20
 country of origin: IT
 material: ST37
+tariff no: 73181900
+delivery time: 21 days
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -268,8 +264,6 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 2
 Item No. Description Quantity Price Amount
 EUR EUR
-tariff no: 73181900
-delivery time: 21 days
 net weight: 0,546 kg
 total weight net/Pos.: 1,092 kg
 10000002972 shaft 2 PCS 56,50 113,00
@@ -279,13 +273,6 @@ tariff no: 84831095
 delivery time: 20 days
 net weight: 0,292 kg
 total weight net/Pos.: 0,584 kg
-94200060 Shaft 4 PCS 171,70 686,80
-country of origin: IT
-material: ST37
-tariff no: 73269098
-delivery time: 28 days
-net weight: 4,75 kg
-total weight net/Pos.: 19 kg
 20410001071 Deep groove ball bearings 4 PCS 14,40 57,60
 country of origin: IT
 material: ST37
@@ -293,6 +280,13 @@ tariff no: 84821090
 delivery time: 21 days
 net weight: 0,098 kg
 total weight net/Pos.: 0,392 kg
+94200060 Shaft 4 PCS 171,70 686,80
+country of origin: IT
+material: ST37
+tariff no: 73269098
+delivery time: 28 days
+net weight: 4,75 kg
+total weight net/Pos.: 19 kg
 94000170 Mechanical stop 1 PCS 190,80 190,80
 country of origin: IT
 material: ST37
@@ -369,6 +363,8 @@ total weight net/Pos.: 0,016 kg
 82405004006 Magnetic Sensor 12 PCS 59,40 712,80
 country of origin: IT
 material: ST37
+tariff no: 85365019
+delivery time: 21 days
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -380,8 +376,6 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 4
 Item No. Description Quantity Price Amount
 EUR EUR
-tariff no: 85365019
-delivery time: 21 days
 net weight: 0,037 kg
 total weight net/Pos.: 0,444 kg
 40600004501 Pneumatic cylinder 2 PCS 352,38 704,76
@@ -481,6 +475,8 @@ net weight: 0,118 kg
 total weight net/Pos.: 1,888 kg
 10000001634 Spacer 4 PCS 12,10 48,40
 country of origin: IT
+material: ST37
+tariff no: 94039010
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -492,12 +488,10 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 6
 Item No. Description Quantity Price Amount
 EUR EUR
-material: ST37
-tariff no: 94039010
 delivery time: 40 days
 net weight: 0,06 kg
 total weight net/Pos.: 0,24 kg
-10000001635 Spacer 4 PCS 24,68 98,72
+10000001635 Spacer 4 PCS 24,68 98,70
 country of origin: IT
 material: ST37
 tariff no: 94039010
@@ -538,6 +532,7 @@ material: AlMg3
 tariff no: 76169990
 delivery time: 21 days
 net weight: 2,92 kg
+total weight net/Pos.: 5,84 kg
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -549,14 +544,13 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 7
 Item No. Description Quantity Price Amount
 EUR EUR
-total weight net/Pos.: 5,84 kg
-10000001284 Pulley 6 PCS 85,00 510,00
+10000001551 Pulley for bolt 10000001284 6 PCS 29,40 176,40
 country of origin: IT
 material: ST37
-tariff no: 84835020
-delivery time: 30 days
-net weight: 0,54 kg
-total weight net/Pos.: 3,24 kg
+tariff no: 73182900
+delivery time: 14 days
+net weight: 0,057 kg
+total weight net/Pos.: 0,342 kg
 20410001552 Deep groove ball bearings 2 PCS 42,90 85,80
 country of origin: DE
 material: ST37
@@ -564,7 +558,7 @@ tariff no: 84821090
 delivery time: 21 days
 net weight: 0,018 kg
 total weight net/Pos.: 0,036 kg
-10000001865 Shaft for locking 2 PCS 96,80 193,60
+10000001865 Shaft for locking 2 PCS 96,79 193,58
 country of origin: IT
 material: ST37
 tariff no: 84831095
@@ -585,14 +579,15 @@ tariff no: 84831095
 delivery time: 28 days
 net weight: 1,7 kg
 total weight net/Pos.: 3,4 kg
-20450001681 Flanged bearing 4 PCS 90,90 363,60
-country of origin: JP
-material: ST37
-tariff no: 84832000
-delivery time: 14 days
-net weight: 1,119 kg
-total weight net/Pos.: 4,476 kg
 10000007992 Shaft 2 PCS 151,50 303,00
+country of origin: IT
+material: STAHL
+tariff no: 84835080
+delivery time: 21 days
+net weight: 1,32 kg
+total weight net/Pos.: 2,64 kg
+10000006774 bilanciere 2 PCS 279,90 559,80
+country of origin: IT
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de
@@ -604,14 +599,6 @@ Giovanni Berardi VAT No. DE251951122 Sitz und Gerichtsstand 71636 Ludwigsburg
 page 8
 Item No. Description Quantity Price Amount
 EUR EUR
-country of origin: IT
-material: STAHL
-tariff no: 84835080
-delivery time: 21 days
-net weight: 1,32 kg
-total weight net/Pos.: 2,64 kg
-10000006774 bilanciere 2 PCS 279,90 559,80
-country of origin: IT
 material: ST37
 tariff no: 84229090
 delivery time: 21 days
@@ -645,11 +632,19 @@ tariff no: 84835080
 delivery time: 21 days
 net weight: 0,05 kg
 total weight net/Pos.: 0,2 kg
-20410001071 Deep groove ball bearings 4 PCS 14,40 57,60
+20410001071 Deep groove ball bearings 8 PCS 14,40 115,20
 country of origin: IT
 material: ST37
 tariff no: 84821090
 delivery time: 21 days
+net weight: 0,098 kg
+total weight net/Pos.: 0,784 kg
+10000005802 Steel track with double cutting 4 PCS 629,45 2.517,80
+country of origin: IT
+material: ST37
+tariff no: 84229090
+delivery time: 21 days
+net weight: 23,82 kg
 Atlanta Deutschland GmbH Kreissparkasse Ludwigsburg BW Bank Stuttgart Tel: +49 7141/14156-10
 Kammererstraße 18 Konto 30181889 Konto 8960513 Fax +49 7141/14156-30
 71636 Ludwigsburg (BLZ 604 500 50) (BLZ 600 501 01) e-mail: info@atlanta-deutschland.de

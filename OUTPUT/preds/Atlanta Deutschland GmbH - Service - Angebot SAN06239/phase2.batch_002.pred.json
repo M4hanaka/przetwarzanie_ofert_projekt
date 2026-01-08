@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Welder shape 1 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "94000120",
+    "producent": "",
+    "serial_numbers": "tariff no: 73269098;country of origin: IT;delivery time: 14 days;net weight: 0,359 kg;total weight net/Pos.: 0,359 kg;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Cartridge Heater 2 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "86000001141",
+    "producent": "",
+    "serial_numbers": "tariff no: 85168020;country of origin: ES;material: V2A;delivery time: 21 days;net weight: 0,116 kg;total weight net/Pos.: 0,232 kg;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Adjusting ring 5 PCS",
+    "grupa_materialow": "inne",
+    "numer_oem": "20545000745",
+    "producent": "",
+    "serial_numbers": "tariff no: 73269098;country of origin: IT;material: ST37;delivery time: 21 days;net weight: 0,103 kg;total weight net/Pos.: 0,515 kg;"
+  }
+]
