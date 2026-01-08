@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GEA CROSS-HEAD",
+    "grupa_materialow": "inne",
+    "numer_oem": "9512-6778-000",
+    "producent": "GEA",
+    "serial_numbers": "szt 5;1 969,76;9 848,80"
+  },
+  {
+    "id": "2",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GEA BRONZE BUSHING",
+    "grupa_materialow": "inne",
+    "numer_oem": "9513-5774-000",
+    "producent": "GEA",
+    "serial_numbers": "szt 5;234,23;1 171,15"
+  },
+  {
+    "id": "3",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GEA ROD SCRAPER",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-6131-516",
+    "producent": "GEA",
+    "serial_numbers": "szt 5;12,23;61,15"
+  }
+]

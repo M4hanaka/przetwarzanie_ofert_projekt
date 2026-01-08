@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "BALL GEA",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-9044-010",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "O-RING GEA",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-4017-591",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "O-RING GEA",
+    "grupa_materialow": "inne",
+    "numer_oem": "9531-4188-595",
+    "producent": "GEA",
+    "serial_numbers": ""
+  }
+]

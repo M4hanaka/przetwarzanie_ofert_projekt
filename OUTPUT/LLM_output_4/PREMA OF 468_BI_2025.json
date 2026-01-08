@@ -7,16 +7,16 @@
       {
         "id": "1",
         "id_oferty": "468/BI/2025",
-        "opis": "FAG łożysko",
+        "opis": "608-2RS FAG łożysko",
         "grupa_materialow": "łożyska",
         "numer_oem": "608-2RS",
         "producent": "FAG",
-        "serial_numbers": ""
+        "serial_numbers": "23;134,20;30,87;165,07"
       },
       {
         "id": "2",
         "id_oferty": "468/BI/2025",
-        "opis": "Złączka kątowa",
+        "opis": "84.0050.04.3810 CPP Złączka kątowa",
         "grupa_materialow": "złączki",
         "numer_oem": "84.0050.04.3810",
         "producent": "CPP",
@@ -25,8 +25,8 @@
       {
         "id": "3",
         "id_oferty": "468/BI/2025",
-        "opis": "Tuleja spiekana",
-        "grupa_materialow": "akcesoria montażowe",
+        "opis": "A-8*12*16 AMES Tuleja spiekana",
+        "grupa_materialow": "inne",
         "numer_oem": "A-8*12*16",
         "producent": "AMES",
         "serial_numbers": ""
@@ -46,7 +46,7 @@
         "opis": "TPS-UCFB-205 NEUTRAL Zespół z oprawą plastik.",
         "grupa_materialow": "inne",
         "numer_oem": "TPS-UCFB-205",
-        "producent": "NEUTRAL",
+        "producent": "",
         "serial_numbers": ""
       }
     ],

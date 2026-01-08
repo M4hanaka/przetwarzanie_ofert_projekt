@@ -1,0 +1,224 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text included in the PDF text section (between the PDF markers).
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+PGS
+POLSKA GRUPA SERWISOWA SP. Z O.O. S.K.
+03-236 Warszawa, Annopol 22
+NIP: 5242840203
+OFERTA NR 0364/SPP/2024
+KLIENT Termin dostawy : 2-4 tygodni
+SM "MLEKPOL" W GRAJEWIE Numer zapytania :
+Elewatorska 13 Data wystawienia : 4.06.2024
+19-203 Grajewo Data ważności : 4.07.2024
+NIP: 719-000-04-25 Płatność : 21 dni
+ADRES DOSTAWY Warunki dostawy : EXW Warszawa
+ZPM Bydgoszcz Kontakt : Pan Grzegorz Lehr
+Niklowa 4 Telefon :
+85-453 Bydgoszcz Maszyna : NS5132H
+Odb.: Pan Grzegorz Lehr Numer seryjny : 7492
+No. KOD PRODUCENT NAZWA JEDN. ILOŚĆ CENA JEDN. WARTOŚĆ POZ.
+1 9531-4085-591 GEA O-RING szt 5 17,13 85,65
+2 9513-5066-000 GEA FLANGE szt 2 846,50 1 693,00
+3 9534-1792-759 GEA PACKING szt 5 174,21 871,05
+4 9513-5003-000 GEA WASHER szt 10 100,59 1 005,90
+5 9513-5385-000 GEA WASHER szt 5 117,41 587,05
+6 9512-9226-010 GEA SPRING szt 5 20,96 104,80
+7 9512-4559-350 GEA PLUNGER szt 5 2 758,34 13 791,70
+8 9531-3031-543 GEA O-RING szt 1 2,20 2,20
+9 9531-3027-591 GEA O-RING szt 1 10,27 10,27
+10 9531-4071-591 GEA O-RING szt 5 14,35 71,75
+11 9531-4253-591 GEA O-RING szt 1 17,57 17,57
+12 9531-4257-591 GEA O-RING szt 1 26,38 26,38
+13 9531-4253-591 GEA O-RING szt 1 17,57 17,57
+14 9531-4045-591 GEA O-RING szt 1 16,97 16,97
+15 9531-4257-591 GEA O-RING szt 2 26,38 52,76
+16 9531-4253-591 GEA O-RING szt 1 17,57 17,57
+17 9531-4206-591 GEA O-RING szt 1 7,76 7,76
+18 9531-4257-591 GEA O-RING szt 1 26,38 26,38
+19 9531-4041-591 GEA O-RING szt 1 3,82 3,82
+20 9531-3027-591 GEA O-RING szt 1 10,27 10,27
+21 9512-3695-000 GEA VALVE SEAT szt 1 162,20 162,20
+22 9531-9044-010 GEA BALL szt 1 57,25 57,25
+23 9531-4017-591 GEA O-RING szt 1 6,47 6,47
+24 9531-4188-595 GEA O-RING szt 1 2,98 2,98
+25 9531-3031-543 GEA O-RING szt 1 2,20 2,20
+26 9513-0867-090 GEA IMPACT HEAD szt 2 1 586,03 3 172,06
+27 9513-0504-100 GEA IMPACT RING szt 2 719,08 1 438,16
+28 9513-3107-000 GEA PASSAGE HEAD szt 2 1 063,27 2 126,54
+29 9513-0882-000 GEA SPACER szt 2 224,54 449,08
+30 9531-4041-591 GEA O-RING szt 2 3,82 7,64
+31 9531-4065-591 GEA O-RING szt 2 11,41 22,82
+32 9531-4018-591 GEA O-RING szt 2 9,11 18,22
+33 9531-4205-591 GEA O-RING szt 2 5,75 11,50
+34 9531-4033-591 GEA O-RING szt 2 7,49 14,98
+35 9531-3120-533 GEA O-RING szt 2 17,75 35,50
+36 9510-4166-000 GEA BRONZE BUSHING szt 4 767,36 3 069,44
+Strona 1 z 2
+
+=== PAGE 2 TEXT ===
+37 9512-6778-000 GEA CROSS-HEAD szt 5 1 969,76 9 848,80
+38 9513-5774-000 GEA BRONZE BUSHING szt 5 234,23 1 171,15
+39 9531-6131-516 GEA ROD SCRAPER szt 5 12,23 61,15
+40 9531-6130-516 GEA GASKET szt 5 31,21 156,05
+41 9513-3774-000 GEA BELLOWS szt 5 56,58 282,90
+42 9513-1521-000 GEA WASHER szt 1 268,30 268,30
+43 9532-1096-000 GEA SEEGER szt 1 83,30 83,30
+44 9537-0130-080 GEA SCREW szt 1 2,20 2,20
+45 9536-1111-000 GEA TAPER BUSHING szt 1 179,59 179,59
+58 9534-0023-150 GEA BELT szt 6 141,52 849,12
+47 9532-5019-000 GEA WHRIST PIN szt 5 88,72 443,60
+48 9532-2400-000 GEA BEARING szt 2 1 557,29 3 114,58
+49 9531-8006-585 GEA GASKET szt 1 113,40 113,40
+50 9511-2597-000 GEA WASHER szt 10 30,57 305,70
+51 9531-4119-533 GEA O-RING szt 5 2,20 11,00
+52 9536-3005-576 GEA GASKET szt 4 6,83 27,32
+53 9531-4116-533 GEA O-RING szt 1 2,20 2,20
+54 9531-4321-533 GEA O-RING szt 1 11,13 11,13
+55 9531-8051-533 GEA GASKET szt 1 26,60 26,60
+56 9532-6920-100 GEA FILTER KIT szt 1 149,65 149,65
+57 9532-3014-000 GEA FILTER szt 1 14,51 14,51
+WARTOŚĆ WARTOŚĆ
+NETTO BRUTTO
+SUMA EUR 46 139,71 56 751,84
+Ofertę wystawił
+Marcin Niewiadomski
+Do wartości zamówienia zostanie refakturowany koszt transportu.
+W zamówieniu prosimy powołać się na numer niniejszej oferty oraz podać numer seryjny maszyny.
+W przypadku zmiany przepisów VAT w zakresie stawek, cena brutto zostanie przeliczona z zastosowaniem aktualnie obowiązujących stawek VAT.
+Cena wyrażona w walucie zostanie przeliczona na PLN wg kursu sprzedaży NBP, obowiązującego w dniu wystawienia faktury.
+Strona 2 z 2
+[PDF_TEXT_END]

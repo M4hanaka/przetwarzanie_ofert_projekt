@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "SEEGER",
+    "grupa_materialow": "inne",
+    "numer_oem": "9532-1096-000",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "SCREW",
+    "grupa_materialow": "inne",
+    "numer_oem": "9537-0130-080",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "TAPER BUSHING",
+    "grupa_materialow": "inne",
+    "numer_oem": "9536-1111-000",
+    "producent": "GEA",
+    "serial_numbers": ""
+  }
+]

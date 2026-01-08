@@ -1,27 +1,9 @@
 [
   {
-    "id": "1",
-    "id_oferty": "468/BI/2025",
-    "opis": "608-2RS FAG łożysko",
-    "grupa_materialow": "łożyska",
-    "numer_oem": "608-2RS",
-    "producent": "FAG",
-    "serial_numbers": ""
-  },
-  {
-    "id": "2",
-    "id_oferty": "468/BI/2025",
-    "opis": "84.0050.04.3810 CPP Złączka kątowa",
-    "grupa_materialow": "złączki",
-    "numer_oem": "84.0050.04.3810",
-    "producent": "CPP",
-    "serial_numbers": ""
-  },
-  {
     "id": "3",
     "id_oferty": "468/BI/2025",
     "opis": "A-8*12*16 AMES Tuleja spiekana",
-    "grupa_materialow": "tuleje",
+    "grupa_materialow": "inne",
     "numer_oem": "A-8*12*16",
     "producent": "AMES",
     "serial_numbers": ""

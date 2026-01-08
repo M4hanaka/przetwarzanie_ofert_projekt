@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "WHRIST PIN",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "9532-5019-000",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "BEARING",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "9532-2400-000",
+    "producent": "GEA",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "0364/SPP/2024",
+    "opis": "GASKET",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "9531-8006-585",
+    "producent": "GEA",
+    "serial_numbers": ""
+  }
+]
