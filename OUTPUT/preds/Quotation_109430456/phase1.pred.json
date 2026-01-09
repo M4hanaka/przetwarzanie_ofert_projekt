@@ -1,0 +1,142 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "3013521-0000 Roller",
+      "kwota_ceny_oferty": 801.4
+    },
+    {
+      "position_id": 2,
+      "opis": "321155-0062 Łożysko ślizgowe kołnierzowe, 6.00x8.00x",
+      "kwota_ceny_oferty": 18.27
+    },
+    {
+      "position_id": 3,
+      "opis": "2898561-0000 PLATE",
+      "kwota_ceny_oferty": 474.43
+    },
+    {
+      "position_id": 4,
+      "opis": "1556626-0000 Wheel",
+      "kwota_ceny_oferty": 54.11
+    },
+    {
+      "position_id": 5,
+      "opis": "2703725-0000 ROLLER",
+      "kwota_ceny_oferty": 87.88
+    },
+    {
+      "position_id": 6,
+      "opis": "90240-0262 Łożysko ślizgowe kołnierzowe, 12.00x14.0",
+      "kwota_ceny_oferty": 25.54
+    },
+    {
+      "position_id": 7,
+      "opis": "2766444-0000 Roller",
+      "kwota_ceny_oferty": 395.51
+    },
+    {
+      "position_id": 8,
+      "opis": "90240-0172 Łożysko ślizgowe kołnierzowe, 8.00x12.00",
+      "kwota_ceny_oferty": 11.73
+    },
+    {
+      "position_id": 9,
+      "opis": "1478359-0000 Roller",
+      "kwota_ceny_oferty": 445.03
+    },
+    {
+      "position_id": 10,
+      "opis": "351517-1017 O-ring, 17.17x1.78mm FKM-80A",
+      "kwota_ceny_oferty": 4.68
+    },
+    {
+      "position_id": 11,
+      "opis": "351517-1044 O-ring, 44.17x1.78mm FKM-80A",
+      "kwota_ceny_oferty": 8.44
+    },
+    {
+      "position_id": 12,
+      "opis": "90600-6017 Uszczelka tłoka, 30.00/21.8mm SINTEK HTP",
+      "kwota_ceny_oferty": 101.73
+    },
+    {
+      "position_id": 13,
+      "opis": "90606-6965 Łożysko kulkowe, 20.00x47.00x14.00mm",
+      "kwota_ceny_oferty": 358.45
+    },
+    {
+      "position_id": 14,
+      "opis": "3099422-0000 Roller",
+      "kwota_ceny_oferty": 396.81
+    },
+    {
+      "position_id": 15,
+      "opis": "2512737-0000 Roller",
+      "kwota_ceny_oferty": 425.12
+    },
+    {
+      "position_id": 16,
+      "opis": "2512738-0000 Roller",
+      "kwota_ceny_oferty": 427.76
+    },
+    {
+      "position_id": 17,
+      "opis": "90600-3313 Łożysko ślizgowe wału, 10.00x14.00x10.00",
+      "kwota_ceny_oferty": 60.61
+    },
+    {
+      "position_id": 18,
+      "opis": "1538726-0000 Bushing",
+      "kwota_ceny_oferty": 484.08
+    },
+    {
+      "position_id": 19,
+      "opis": "315204-0209 O-ring, 10.30x2.40mm FKM-80A",
+      "kwota_ceny_oferty": 1.82
+    },
+    {
+      "position_id": 20,
+      "opis": "315205-0801 O-ring, 37.82x1.78mm FKM-70A",
+      "kwota_ceny_oferty": 5.8
+    },
+    {
+      "position_id": 21,
+      "opis": "351517-1047 O-ring, 47.35x1.78mm FKM-80A",
+      "kwota_ceny_oferty": 18.87
+    },
+    {
+      "position_id": 22,
+      "opis": "90458-0639 Uszczelka obrotowa, 20.00/30.0mm TURCON",
+      "kwota_ceny_oferty": 204.46
+    },
+    {
+      "position_id": 23,
+      "opis": "90458-1704 Łożysko kulkowe, 15.00x35.00x11.00mm",
+      "kwota_ceny_oferty": 135.07
+    },
+    {
+      "position_id": 24,
+      "opis": "90459-1627 O-ring, 114.02x1.78mm FKM-70A",
+      "kwota_ceny_oferty": 18.66
+    },
+    {
+      "position_id": 25,
+      "opis": "90607-2554 Uszczelka obrotowa, 15.00/26.0mm TURCON",
+      "kwota_ceny_oferty": 297.63
+    },
+    {
+      "position_id": 26,
+      "opis": "315751-0112 Pierścień ustalający, 15.0x1.00mm DIN471",
+      "kwota_ceny_oferty": 1.73
+    },
+    {
+      "position_id": 27,
+      "opis": "351517-1041 O-ring, 41.00x1.78mm FKM-80A",
+      "kwota_ceny_oferty": 8.44
+    }
+  ]
+}

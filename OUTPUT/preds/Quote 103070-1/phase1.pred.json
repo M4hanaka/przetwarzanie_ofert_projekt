@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "802 067 Stretching Wheel 1/2' Z=18",
+      "kwota_ceny_oferty": 5.14
+    },
+    {
+      "position_id": 2,
+      "opis": "420 065 Driv.roller SKE 80-950 D:80 GA20/M10 AL:950 EL:950 Igm 10x22 El=950",
+      "kwota_ceny_oferty": 68.48
+    },
+    {
+      "position_id": 3,
+      "opis": "802 100 Chain 5/8'-S Sold in 50 meter spools",
+      "kwota_ceny_oferty": 5.78
+    },
+    {
+      "position_id": 4,
+      "opis": "802 291 Friction Wheel 5/8'-21 D=25 Kedjehjul U110-21 & Lagerbussning. Monterat.",
+      "kwota_ceny_oferty": 148.15
+    },
+    {
+      "position_id": 5,
+      "opis": "400 060 Drivi.roller Sro 30-02-150 D:30 FA8 AL:190 EL:170 El=170",
+      "kwota_ceny_oferty": 8.71
+    },
+    {
+      "position_id": 6,
+      "opis": "420 553 Driv. Roller Sro 63-500 D:63,5 GA20/M10 AL:520 EL:520 Igm10 El=520 A20 Igm10 El=520",
+      "kwota_ceny_oferty": 58.24
+    }
+  ]
+}

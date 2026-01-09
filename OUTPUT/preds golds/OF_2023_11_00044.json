@@ -1,0 +1,163 @@
+[
+  {
+    "id": "2023/11/00044",
+    "nazwa_dostawcy": "Elandis sp. z o.o. sp.k. (ganeo.pl)",
+    "data_oferty": "2023-11-07",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "2023/11/00044",
+        "opis": "Terminal Zebra MC9300",
+        "grupa_materialow": "terminale",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "2023/11/00044",
+        "opis": "Bateria do terminali Zebra MC9300 (7000mAh)",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "2023/11/00044",
+        "opis": "4-stanowiskowa ładowarka baterii do terminali Zebra MC9300",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "2023/11/00044",
+        "opis": "Zasilacz uniwersalny do terminali, tabletów, skanerów i kiosków Zebra (12 VDC, 4,16 A)",
+        "grupa_materialow": "zasilacze",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "2023/11/00044",
+        "opis": "Kabel DC do zasilaczy skanerów, tabletów, terminali i kiosków Zebra",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "2023/11/00044",
+        "opis": "Folia ochronna na ekran do terminali MC9300 (5pack)",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "2023/11/00044",
+        "opis": "Gumowy futerał do terminali Zebra MC9300",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "2023/11/00044",
+        "opis": "Rysik do terminali i tabletów Zebra (3pack)",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "2023/11/00044",
+        "opis": "Drukarka Zebra ZT411",
+        "grupa_materialow": "drukarki",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "2023/11/00044",
+        "opis": "Tablet Zebra ET40",
+        "grupa_materialow": "tablety",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "11",
+        "id_oferty": "2023/11/00044",
+        "opis": "Zasilacz do terminali, drukarek, skanerów i tabletów Zebra (EU) (5 V, 2.5 A)",
+        "grupa_materialow": "zasilacze",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "12",
+        "id_oferty": "2023/11/00044",
+        "opis": "Kabel USB-C do terminali i skanerów Zebra (1m)",
+        "grupa_materialow": "kable",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "13",
+        "id_oferty": "2023/11/00044",
+        "opis": "Obudowa ochronna do tabletów Zebra ET40/ET45",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "14",
+        "id_oferty": "2023/11/00044",
+        "opis": "Rysik do terminali i tabletów Zebra (3pack)",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "Zebra",
+        "serial_numbers": ""
+      },
+      {
+        "id": "15",
+        "id_oferty": "2023/11/00044",
+        "opis": "Folia ochronna na ekran Gamber-Johnson do tabletów Zebra ET40/ET45",
+        "grupa_materialow": "akcesoria",
+        "numer_oem": "",
+        "producent": "Gamber-Johnson",
+        "serial_numbers": ""
+      },
+      {
+        "id": "16",
+        "id_oferty": "2023/11/00044",
+        "opis": "Uchwyt Brodit do tabletów Zebra ET40/ET45 (Passive holder)",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "Brodit",
+        "serial_numbers": ""
+      },
+      {
+        "id": "17",
+        "id_oferty": "2023/11/00044",
+        "opis": "Blokada sprężynowa Brodit do uchwytów do tabletów Zebra ET40/ET45",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "Brodit",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 17
+  }
+]

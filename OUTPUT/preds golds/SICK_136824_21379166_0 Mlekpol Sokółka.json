@@ -1,0 +1,19 @@
+[
+  {
+    "id": "21379166",
+    "nazwa_dostawcy": "SICK Sp. z o.o.",
+    "data_oferty": "2025-04-24",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "21379166",
+        "opis": "GL10-P7151 G10",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "1089963",
+        "producent": "SICK",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

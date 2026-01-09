@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "202086378",
+    "opis": "IO-LinkMasterCLIoT8PIP20 MasterIO-LinkzinterfejsemIoT;Liczbawejśćbinarnych8;Liczbawyjśćbinarnych8;IP20;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "automatyka",
+    "numer_oem": "AL1950",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:85176200"
+  },
+  {
+    "id": "2",
+    "id_oferty": "202086378",
+    "opis": "ADOGH040MSS0005H04 Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "kable",
+    "numer_oem": "EVC002",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:PL;Kodtaryfycelnej:85444290"
+  },
+  {
+    "id": "3",
+    "id_oferty": "202086378",
+    "opis": "VIBRATIONSENSOR Akcelerometr;analogowy;Liczbaosipomiaru1;Zakrespomiarowywibracji-25...25g;Zakresczęstotliwości1...6000Hz;Temperaturaotoczenia-30...125°C;IP67;IP68;IP69K;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "VSA001",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90318080"
+  }
+]

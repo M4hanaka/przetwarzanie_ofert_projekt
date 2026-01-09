@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "24649067",
+    "opis": "Roller",
+    "grupa_materialow": "inne",
+    "numer_oem": "2512738-0000",
+    "producent": "",
+    "serial_numbers": "PKWiU Code::28.29.85.0"
+  },
+  {
+    "id": "2",
+    "id_oferty": "24649067",
+    "opis": "Łożysko ślizgowe wału, 10.00x14.00x10.00",
+    "grupa_materialow": "inne",
+    "numer_oem": "90600-3313",
+    "producent": "",
+    "serial_numbers": "PKWiU Code::22.21.30.0"
+  },
+  {
+    "id": "3",
+    "id_oferty": "24649067",
+    "opis": "Bushing",
+    "grupa_materialow": "inne",
+    "numer_oem": "1538726-0000",
+    "producent": "",
+    "serial_numbers": "PKWiU Code::28.29.85.0"
+  }
+]

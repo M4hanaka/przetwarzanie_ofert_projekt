@@ -25,7 +25,7 @@ def main() -> int:
             view_text_dir=VIEW_TEXT_DIR,
             text_cfg=text_cfg,
             ocr=None,
-            only_missing=False,
+            only_missing=True,
         )
 
     return run_single_pdf(

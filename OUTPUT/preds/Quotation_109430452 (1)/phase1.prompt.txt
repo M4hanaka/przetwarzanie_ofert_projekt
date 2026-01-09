@@ -1,0 +1,356 @@
+
+You extract structured information from PDF commercial offers.
+
+CONTEXT:
+- The offers are directed to a specific buyer (for example a production company).
+- Supplier fields always describe the company that SENDS the offer.
+- The input you receive is plain text extracted from a PDF file.
+
+GENERAL RULES:
+- Work ONLY on the text included in the PDF text section (between the PDF markers).
+- Ignore all service-type items:
+  transport, installation, inspections, maintenance, travel costs,
+  surcharges, "Dopłata", "Praca serwisu", etc.
+- Extract ONLY physical goods (products, components, materials).
+- Keep all product descriptions ("opis") in the original language from the PDF (usually Polish).
+  Do NOT translate to English.
+
+MISSING DATA RULES:
+- If a field is missing:
+  - textual  -> "",
+  - date     -> null,
+  - numeric  -> 0 or 0.0.
+
+VERY IMPORTANT – DO NOT GUESS:
+- If you are not sure that a value is present in the text, leave the corresponding field
+  empty ("") or 0.0 / null.
+- An empty field is better than an invented or incorrect value.
+
+
+PHASE 1 TASK: ITEMS PREVIEW FROM PRODUCT TABLES (NO HEADER FIELDS)
+
+Your goal in this phase is to build only the 'items_preview' list.
+
+Ignore the offer header completely:
+- do NOT analyse offer numbers, dates, supplier names, addresses,
+  logos, sign-off blocks or contact information.
+- you may leave "id", "nazwa_dostawcy" and "data_oferty" empty or null.
+
+Focus only on product tables and enumerated lists that describe PHYSICAL GOODS.
+Treat each row of a product table as one potential item if it describes a material,
+component or product.
+
+For the OfferScan schema:
+- "id": set to "" if unknown.
+- "nazwa_dostawcy": set to "" if unknown.
+- "data_oferty": set to null if unknown.
+- "items_preview": must contain physical goods found in the text.
+
+TABLE AND HEADER RECOGNITION (IMPORTANT):
+
+First try to identify table headers with column names. Typical examples:
+
+- "Lp", "L.p.", "Poz." – position number (ignore in description).
+- "Kod produktu", "Kod", "Nr artykułu", "Numer artykułu", "Symbol", "ID" – product code column.
+- "Nazwa", "Nazwa produktu", "Nazwa towaru/usługi" – product name column.
+- "Ilość", "Ilość j.m.", "Ilość [szt.]", "j.m.", "jm." – quantity and unit (not required in description).
+- "Cena/sztukę", "Cena jednostkowa", "Cena przed rabatem", "Cena netto" – unit price.
+- "Cena końcowa", "Cena", "Wartość netto", "Wartość brutto" – total value.
+
+Columns such as:
+- "Dostępność", "Rabat %", "VAT", "Stawka VAT", "Wartość brutto", "Uwagi"
+are additional information that you do NOT include in the product description.
+
+For each product row:
+- Build the description mainly from the product code and product name columns if they exist.
+- Quantity and prices are NOT required in the description.
+- You may ignore pure service lines, notes and remarks.
+
+DESCRIPTION FIELD ("opis"):
+
+For each physical product row in a table create one object in "items_preview" with:
+- "position_id": sequential integer 1, 2, 3, ...
+- "opis": short description based on the whole table row:
+  • If there is a dedicated product code column ("Kod produktu", "Nr artykułu", "Symbol", "ID", etc.),
+    ALWAYS keep this code together with the product name in the description.
+  • If there is no dedicated product code column, but a clear code appears at the very beginning of the row
+    before the product name (e.g. "ABC-123 - Moduł wejściowy 24V DC"), you MAY keep that code.
+  • If you do NOT see any clear product code in the row, describe only the product name/type.
+    NEVER invent a product code.
+  • You may omit quantity and prices from the description, but do NOT remove an existing product code if it is present.
+  • examples:
+    "140017 EFB O-ring"
+    "100,37036382 Driven roller"
+    "8,21009886 Roller chain 1/2""
+
+NOTE:
+In Phase 1 you may keep product codes at the start of "opis".
+These codes will later be extracted into "numer_oem" during Phase 2,
+so do not attempt to remove or separate them here.
+
+UNIT PRICE FIELD ("kwota_ceny_oferty"):
+
+- "kwota_ceny_oferty": unit price as a number (float), or 0.0 if you cannot find it.
+- Use unit price from columns like "Cena/sztukę", "Cena jednostkowa", "Cena netto",
+  not the total value ("Cena końcowa", "Wartość netto").
+- If you are not sure which number is the unit price, set "kwota_ceny_oferty" to 0.0.
+
+OUTPUT SIZE NOTE:
+- If the file contains an extremely large number of rows (hundreds),
+  you may skip clearly empty or duplicated rows, but do NOT skip valid product lines.
+
+SERVICE LINES TO IGNORE COMPLETELY (DO NOT CREATE ITEMS):
+- transport, shipment, delivery, forwarding (e.g. "Koszt spedycji", "Koszt transportu")
+- courier costs ("dostawa kurierska", "GLS", "UPS")
+- installation, commissioning, configuration
+- inspections, maintenance, service work, travel costs
+- generic handling fees ("opłata manipulacyjna", "handling costs")
+- freight / forwarding costs even if they include a code-like token (e.g. "Koszt spedycji 030G")
+
+
+If a row description starts with or contains mainly these phrases,
+treat it as a service and SKIP it.
+
+Work ONLY on the text included in the PDF text section (between the PDF markers).
+
+The final JSON must have exactly this top-level structure:
+
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "...",
+      "kwota_ceny_oferty": 0.0
+    }
+  ]
+}
+
+You may fill "id", "nazwa_dostawcy" and "data_oferty" as described above,
+but the main goal is a correct and complete "items_preview" list.
+Return only ONE JSON object and nothing else.
+
+
+[PDF_TEXT_START]
+=== PAGE 1 TEXT ===
+Strona 1 ( 4)
+Oferta 24649061
+Nasza referencja Wasza referencja Waluta Data
+European Sales Administration Centr Robert Dudzinski PLN 24.04.2025
+Tel. +48 22 543 40 41 Okres ważności
+24.04.2025 24.05.2025
+-
+Kupujący 110066 Adres dostawy/usługi 110136
+Spółdzielnia Mleczarska "Mlekpol" Firma
+w Grajewie Spółdzielnia Mleczarska MLEKPOL
+ul. Elewatorska 13 ZPM w Zambrowie
+19-203 GRAJEWO ul. Polowa 8
+18-300 ZAMBRÓW
+Zamawiający 110136
+Spółdzielnia Mleczarska MLEKPOL
+ZPM w Zambrowie
+ul. Polowa 8
+18-300 ZAMBRÓW
+Warunki dostawy (Incoterms 2020) Nasz adres e-mail
+DAP ZAMBROW parts.europe6@tetrapak.com
+Warunki płatności
+30 dni po wystawieniu faktury
+Niniejsza oferta została przygotowana na podstawie Warunków ogólnych dot yczących Tetra Pak® Services (GTC) określających
+zasady sprzedaży i zaku pu produktów podanych poniżej, do których GTC odnoszą się i mają zastoso wanie. GTC są dostępne na
+portalu eBusiness. Zamówienie przez Klienta of erowanych produktów jest równoznaczne z akceptacją postanowień GTC, z wy
+łączeniem jakichkolwiek innych warunków.
+Niniejsza propozycja/oferta nie stanowi oferty w rozumieniu Kodeksu Cywilnego, lecz zaproszenie do rozpoczęcia rokowań, w
+związku z powyższym Tetra Pak sp. z o.o. nie jest związana propozycjami warunków finansowych oraz innych warunków
+określonych w niniejszym piśmie.
+________________________________________________________________________________________
+Poz. Nr artykułu Opis Ilość/jedn. miary Cena/jedn. Wartość nettoData dostawy
+________________________________________________________________________________________
+Wasza referencja: Z24042024Oferta
+10 6-4722 6562 46 O-ring 97.79 x 5.33 2 szt 43,03 86,06 21.05.2025
+Upust Zam.Planowane -3,000 % -2,58
+Upust -9,000 % -7,75
+-----------
+75,73
+PKWiU Code::22.19.73.0
+20 6-4722 7153 02 Support ring axial 5.33 x 110 2 szt 218,66 437,32 21.05.2025
+Upust Zam.Planowane -3,000 % -13,12
+Upust -9,000 % -39,36
+-----------
+384,84
+PKWiU Code::28.29.23.0
+30 6-4306 0000 07 Guide band 110 4 szt 82,82 331,28 21.05.2025
+Upust Zam.Planowane -3,000 % -9,94
+Upust -9,000 % -29,82
+-----------
+291,52
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 2 TEXT ===
+Strona 2 ( 4)
+Oferta 24649061
+Okres ważności
+24.04.2025 24.05.2025
+-
+PKWiU Code::28.30.94.0
+40 6-4722 1418 03 Guide band 40 x 9.5 4 szt 37,06 148,24 21.05.2025
+Upust Zam.Planowane -3,000 % -4,45
+Upust -9,000 % -13,34
+-----------
+130,45
+PKWiU Code::28.30.94.0
+50 6-4723 1370 08 O-ring 40.87x3.53 Foodgrade 2 szt 22,77 45,54 21.05.2025
+Upust Zam.Planowane -3,000 % -1,37
+Upust -9,000 % -4,10
+-----------
+40,07
+PKWiU Code::28.29.85.0
+60 6-4722 7151 02 Support ring axial 3.53 x 40.2 2 szt 118,75 237,50 21.05.2025
+Upust Zam.Planowane -3,000 % -7,13
+Upust -9,000 % -21,38
+-----------
+208,99
+PKWiU Code::28.29.23.0
+70 6-4723 1370 06 O-ring 32.92x3.53 Foodgrade 2 szt 19,96 39,92 21.05.2025
+Upust Zam.Planowane -3,000 % -1,20
+Upust -9,000 % -3,59
+-----------
+35,13
+PKWiU Code::22.19.73.0
+80 6-4723 1370 15 O-ring 69.44x3.53 Foodgrade 2 szt 32,94 65,88 21.05.2025
+Upust Zam.Planowane -3,000 % -1,98
+Upust -9,000 % -5,93
+-----------
+57,97
+PKWiU Code::28.29.85.0
+90 6-4723 1370 35 O-ring 16.3x2.4 Foodgrade 2 szt 13,98 27,96 21.05.2025
+Upust Zam.Planowane -3,000 % -0,84
+Upust -9,000 % -2,52
+-----------
+24,60
+PKWiU Code::28.29.85.0
+100 6-4723 1370 34 O-ring 100x3.55 Foodgrade 5 szt 43,81 219,05 21.05.2025
+Upust Zam.Planowane -3,000 % -6,57
+Upust -9,000 % -19,71
+-----------
+192,77
+PKWiU Code::22.19.73.0
+110 6-4722 7152 02 Support ring radial 3.53 x 109.8 3 szt 218,36 655,08 21.05.2025
+Upust Zam.Planowane -3,000 % -19,65
+Upust -9,000 % -58,96
+-----------
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 3 TEXT ===
+Strona 3 ( 4)
+Oferta 24649061
+Okres ważności
+24.04.2025 24.05.2025
+-
+576,47
+PKWiU Code::28.29.23.0
+120 6-4723 1370 14 O-ring 63.09x3.53 Foodgrade 1 szt 30,65 30,65 21.05.2025
+Upust Zam.Planowane -3,000 % -0,92
+Upust -9,000 % -2,76
+-----------
+26,97
+PKWiU Code::22.19.73.0
+130 6-4722 5033 03 Guide ring 4 szt 203,60 814,40 21.05.2025
+Upust Zam.Planowane -3,000 % -24,43
+Upust -2,500 % -20,36
+-----------
+769,61
+PKWiU Code::28.29.23.0
+140 6-4723 1370 74 O-ring 72x4 Foodgrade 3 szt 33,81 101,43 21.05.2025
+Upust Zam.Planowane -3,000 % -3,04
+Upust -9,000 % -9,13
+-----------
+89,26
+PKWiU Code::28.29.85.0
+150 6-4723 1370 72 O-ring 89x5 Foodgrade 2 szt 39,91 79,82 21.05.2025
+Upust Zam.Planowane -3,000 % -2,39
+Upust -9,000 % -7,18
+-----------
+70,25
+PKWiU Code::28.29.85.0
+160 6-4722 5289 01 O-ring 150 x 4 NBR 6 szt 12,29 73,74 21.05.2025
+Upust Zam.Planowane -3,000 % -2,21
+Upust -9,000 % -6,64
+-----------
+64,89
+PKWiU Code::22.19.73.0
+170 6-4722 1178 19 Support ring 110 15 szt 48,10 721,50 21.05.2025
+Upust Zam.Planowane -3,000 % -21,65
+Upust -9,000 % -64,94
+-----------
+634,91
+PKWiU Code::28.29.23.0
+180 6-4722 0942 17 Valve sealing 100 x 110 x 7.5 15 szt 156,11 2 341,65 21.05.2025
+Upust Zam.Planowane -3,000 % -70,25
+Upust -2,500 % -58,54
+-----------
+2 212,86
+PKWiU Code::28.29.85.0
+Części łącznie 5 887,29
+Opłata transportowa (PLN) 51,95
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+
+=== PAGE 4 TEXT ===
+Strona 4 ( 4)
+Oferta 24649061
+Okres ważności
+24.04.2025 24.05.2025
+-
+Wartość netto (PLN) 5 939,24
+________________________________________________________________________________________
+Razem VAT (PLN) 23,00 % 5 939,24 1 366,03
+W____ar__t__oś__ć __br__u__tt__o __(P__L__N__)________________________________________________________________________________________________________________________7__ 3__0__5,__27______________________
+1. Klient nie sprzeda, nie będzie eksportował ani reeksportował, bezpośrednio lub za pośrednictwem innych podmiotów, do Federacji Rosyjskiej lub na Białoruś lub do
+użytku w Federacji Rosyjskiej lub na Białorusi jakichkolwiek towarów dostarczonych w ramach lub w związku z niniejszym potwierdzeniem zamówienia, jeżeli
+towary te podlegają sankcjom gospodarczym lub finansowym lub embargom handlowym nałożonym, nadzorowanym lub egzekwowanym przez Organizację Narodów
+Zjednoczonych, Stany Zjednoczone Ameryki lub Unię Europejską, w związku m.in., ale nie tylko z art. 12 g rozporządzenia Rady (UE) Nr 833/2014 oraz art. 8 g
+rozporządzenia Rady (EU) Nr 765/2006.
+2. Klient dołoży wszelkich starań, aby postanowienia punktu (1) były przestrzegane przez osoby trzecie w ramach całego łańcucha sprzedaży, w tym przez
+ewentualnych dystrybutorów.
+3. Klient ustanowi i będzie utrzymywał odpowiedni mechanizm monitorowania w celu wykrywania działań osób trzecich w łańcuchu sprzedaży, w tym potencjalnych
+dystrybutorów, które mogłyby stanowić naruszenie postanowień punktu (1).
+4. Jakiekolwiek naruszenie postanowień punktów (1), (2) i (3) uznaje się za istotne naruszenie umowy w zastosowaniu do niniejszej dostawy ("Umowa"), a Tetra Pak
+będzie uprawniona do:
+(i) wypowiedzenia Umowy; oraz
+(ii) odszkodowania w wysokości 100% całkowitej wartości Umowy lub ceny eksportowanych towarów, w zależności od tego, która z powyższych kwot będzie wyższa.
+5. Klient niezwłocznie poinformuje Tetra Pak o jakichkolwiek problemach związanych ze stosowaniem punktów (1), (2) lub (3), w tym o wszelkich istotnych
+działaniach osób trzecich, które mogłyby spowodować naruszenie postanowień punktu (1). Klient udostępni Tetra Pak informacje dotyczące wykonania zobowiązań
+określonych w punkcie (1), (2) i (3) w terminie dwóch tygodni od zawnioskowania o udzielenie takich informacji.
+Podana cena jest wartością szacunkową i ulegnie zmianie w zależności od obowiązującego kursu sprzedaży EUR/PLN
+wg NBP w dacie wystawienia faktury dokumentującej dokonanie/zakończenie dostawy towaru lub wykonania usługi.
+Tetra Pak sp. z o.o. VAT EU: PL5260013901 BANK: ING Bank Śląski S.A.
+ul. Szturmowa 2 NIP 526-00-13-901 SWIFT: INGBPLPW
+02-678 Warszawa REGON: 010092388 Konto Nr:
+Tel. + 48 22 54 34 000 BDO: 000021248 PLN: PL12 1050 0086 1000 0022 7364 5941
+F__a_x_. _+_ _4_8_ 2__2_ 5_4_ _3_4_ _0_0_1_______________________________________________________E_U__R_:_ P__L_4_5_ 1__0_5_0_ 0__0_8_6 1000 0022 7364 5735
+Sąd Rejonowy dla M. St. Warszawy, XIII Wydz. Gosp. KRS Nr 0000027538, Kapitał zakładowy 18.011.100 PLN
+PE1
+ZC06
+[PDF_TEXT_END]

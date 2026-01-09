@@ -1,89 +1,89 @@
 [
   {
     "id": "dokumentu",
-    "nazwa_dostawcy": "",
+    "nazwa_dostawcy": "NORD Napędy Sp. z o.o.",
     "data_oferty": null,
     "pozycje_oferty": [
       {
         "id": "1",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "WAŁ WYJŚCIOWY 20x40 SK01 seryjny",
-        "grupa_materialow": "wały",
+        "grupa_materialow": "wałki",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
-        "serial_numbers": "SK01;50130000"
+        "serial_numbers": "CN: 85369010;ID: 123456;50130000"
       },
       {
         "id": "2",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "KOLO BIERNE Z=46 D=75,0 6P9 20M6",
-        "grupa_materialow": "kola",
+        "grupa_materialow": "kole",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
-        "serial_numbers": "6P9 20M6;50173050"
+        "serial_numbers": "CN: 85369010;ID: 123456;50173050"
       },
       {
         "id": "3",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "WAŁ ZĘBATY Z=14",
-        "grupa_materialow": "wały",
+        "grupa_materialow": "wałki",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
-        "serial_numbers": "Z=14;50172050"
+        "serial_numbers": "CN: 85369010;ID: 123456;50172050"
       },
       {
         "id": "4",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "ŁOŻYSKO 6004 2Z",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "łożyska",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
         "serial_numbers": "6004 2Z;24600420"
       },
       {
         "id": "5",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "ŁOŻYSKO 6004 24600400",
-        "grupa_materialow": "łozyska",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
         "serial_numbers": "6004;24600400"
       },
       {
         "id": "6",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "KOŁO ZĘBATE Z=78 V M=1,00 LI 50171040",
-        "grupa_materialow": "koła zębate",
+        "grupa_materialow": "inne",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
         "serial_numbers": "50171040"
       },
       {
         "id": "7",
-        "id_oferty": "dokumentu",
+        "id_oferty": "103167015",
         "opis": "ŁOŻYSKO 6201 24620100",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "łożyska",
         "numer_oem": "6201",
         "producent": "Getriebebau NORD GmbH",
-        "serial_numbers": ""
+        "serial_numbers": "2Z"
       },
       {
         "id": "8",
-        "id_oferty": "dokumentu",
-        "opis": "ŁOŻYSKO 6201 2Z",
-        "grupa_materialow": "inne",
-        "numer_oem": "",
+        "id_oferty": "103167015",
+        "opis": "ŁOŻYSKO 6201 2Z 24620120",
+        "grupa_materialow": "łożyska",
+        "numer_oem": "6201",
         "producent": "Getriebebau NORD GmbH",
-        "serial_numbers": "CN: 85369010;ID: 24620120;24620120"
+        "serial_numbers": "2Z"
       },
       {
         "id": "9",
-        "id_oferty": "dokumentu",
-        "opis": "PIERŚC USZCZ. WDR 25x42x7 AS NBR902",
-        "grupa_materialow": "inne",
+        "id_oferty": "103167015",
+        "opis": "PIERŚC USZCZ. WDR 25x42x7 AS NBR902 25025000",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "",
         "producent": "Getriebebau NORD GmbH",
-        "serial_numbers": "CN: 85369010;ID: 25025000;25025000"
+        "serial_numbers": "25025000;AS NBR902"
       }
     ],
     "liczba_elementow": 9

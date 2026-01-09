@@ -1,0 +1,37 @@
+[
+  {
+    "id": "7141/14156",
+    "nazwa_dostawcy": "Atlanta Deutschland GmbH",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "7141/14156",
+        "opis": "Artikel 7101 Mlekpol, Polen",
+        "grupa_materialow": "inne",
+        "numer_oem": "SCODE00281",
+        "producent": "Mlekpol",
+        "serial_numbers": "country of origin: IT;material: PA6;tariff no: 84229090;net weight: 0,005 kg;total weight net/Pos.: 0,02 kg"
+      },
+      {
+        "id": "2",
+        "id_oferty": "7141/14156",
+        "opis": "block 4 PCS",
+        "grupa_materialow": "inne",
+        "numer_oem": "CR0160008",
+        "producent": "",
+        "serial_numbers": "country of origin: IT;material: PA6;tariff no: 84229090;net weight: 0,005 kg;total weight net/Pos.: 0,02 kg"
+      },
+      {
+        "id": "3",
+        "id_oferty": "7141/14156",
+        "opis": "blow contrast cut 4 PCS",
+        "grupa_materialow": "inne",
+        "numer_oem": "KFD010009",
+        "producent": "",
+        "serial_numbers": "country of origin: IT;material: ST37;tariff no: 84229090;total weight net/Pos.: 0,02 kg"
+      }
+    ],
+    "liczba_elementow": 3
+  }
+]

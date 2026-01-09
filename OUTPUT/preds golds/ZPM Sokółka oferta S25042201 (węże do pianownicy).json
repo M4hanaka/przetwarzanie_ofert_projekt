@@ -1,0 +1,28 @@
+[
+  {
+    "id": "S25042201",
+    "nazwa_dostawcy": "Ecolab Sp. z o.o.",
+    "data_oferty": "2025-04-22",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "S25042201",
+        "opis": "HOSE 1/2\" X 25M HYBRID PURFLEX GREY",
+        "grupa_materialow": "węże",
+        "numer_oem": "10053109",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "S25042201",
+        "opis": "HOSE 1/2\" X 2.5M HYBRID PURFLEX GREY",
+        "grupa_materialow": "węże",
+        "numer_oem": "10053099",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

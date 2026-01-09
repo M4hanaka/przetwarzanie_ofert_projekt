@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "24649061",
+    "opis": "O-ring 97.79 x 5.33",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4722 6562 46",
+    "producent": "",
+    "serial_numbers": "PKWiU: 22.19.73.0;"
+  },
+  {
+    "id": "2",
+    "id_oferty": "24649061",
+    "opis": "Support ring axial 5.33 x 110",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4722 7153 02",
+    "producent": "",
+    "serial_numbers": "PKWiU: 28.29.23.0;"
+  },
+  {
+    "id": "3",
+    "id_oferty": "24649061",
+    "opis": "Guide band 110",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4306 0000 07",
+    "producent": "",
+    "serial_numbers": "PKWiU: 28.29.23.0;"
+  }
+]

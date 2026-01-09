@@ -1,6 +1,6 @@
 {
   "id": "",
-  "nazwa_dostawcy": "",
+  "nazwa_dostawcy": "POLSKA GRUPA SERWISOWA SP. Z O.O. S.K.",
   "data_oferty": null,
   "items_preview": [
     {
@@ -172,16 +172,6 @@
       "position_id": 34,
       "opis": "0007-3002-540 ALT GASKET",
       "kwota_ceny_oferty": 428.29
-    },
-    {
-      "position_id": 35,
-      "opis": "0007-2546-750 ALT GASKET",
-      "kwota_ceny_oferty": 35.91
-    },
-    {
-      "position_id": 36,
-      "opis": "0007-2571-750 ALT GASKET",
-      "kwota_ceny_oferty": 9.6
     }
   ]
 }

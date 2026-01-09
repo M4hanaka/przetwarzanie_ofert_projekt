@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "202086378",
+    "opis": "Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "czujniki",
+    "numer_oem": "PV7004",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:RO;Kodtaryfycelnej:90262020"
+  },
+  {
+    "id": "2",
+    "id_oferty": "202086378",
+    "opis": "Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-0,1...1MPa;G1/2gwintzewnętrzny;sygnałanalogowy;IO-Link(ustawiany);4...20;(skalowany;1:5)mA;Konektor;-25...110; (Montażzabudowanybezprzeciekówzuszczelnieniemmetal-na-metal.Abysprawdzićdopuszczalnetemperaturydlainnychuszczelnieńproszęsprawdzićmateriałyuszczelekwdziale“Akcesoria”)°C;IP67;IP68;IP69;ciśnieniewzględne;próżnia;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "czujniki",
+    "numer_oem": "PL1504",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90262020"
+  },
+  {
+    "id": "3",
+    "id_oferty": "202086378",
+    "opis": "Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "czujniki",
+    "numer_oem": "PV7004",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:RO;Kodtaryfycelnej:90262020"
+  }
+]

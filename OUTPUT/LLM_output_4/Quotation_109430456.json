@@ -116,7 +116,7 @@
         "id": "13",
         "id_oferty": "24649067",
         "opis": "Łożysko kulkowe, 20.00x47.00x14.00mm",
-        "grupa_materialow": "wyłączniki",
+        "grupa_materialow": "łożyska",
         "numer_oem": "90606-6965",
         "producent": "",
         "serial_numbers": ""
@@ -197,7 +197,7 @@
         "id": "22",
         "id_oferty": "24649067",
         "opis": "Uszczelka obrotowa, 20.00/30.0mm TURCON",
-        "grupa_materialow": "uszczełki",
+        "grupa_materialow": "uszczelek",
         "numer_oem": "90458-0639",
         "producent": "TURCON",
         "serial_numbers": ""
@@ -224,7 +224,7 @@
         "id": "25",
         "id_oferty": "24649067",
         "opis": "Uszczelka obrotowa, 15.00/26.0mm TURCON",
-        "grupa_materialow": "uszczełki",
+        "grupa_materialow": "uszczelki",
         "numer_oem": "90607-2554",
         "producent": "TURCON",
         "serial_numbers": ""
@@ -233,18 +233,18 @@
         "id": "26",
         "id_oferty": "24649067",
         "opis": "Pierścień ustalający, 15.0x1.00mm DIN471",
-        "grupa_materialow": "pierścienie ustalające",
+        "grupa_materialow": "inne",
         "numer_oem": "315751-0112",
-        "producent": "DIN471",
+        "producent": "",
         "serial_numbers": ""
       },
       {
         "id": "27",
         "id_oferty": "24649067",
         "opis": "O-ring, 41.00x1.78mm FKM-80A",
-        "grupa_materialow": "O-rings",
+        "grupa_materialow": "inne",
         "numer_oem": "351517-1041",
-        "producent": "FKM-80A",
+        "producent": "",
         "serial_numbers": ""
       }
     ],

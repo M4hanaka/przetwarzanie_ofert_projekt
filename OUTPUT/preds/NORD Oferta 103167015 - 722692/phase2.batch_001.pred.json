@@ -1,0 +1,20 @@
+[
+  {
+    "id": "5",
+    "id_oferty": "",
+    "opis": "ŁOŻYSKO 6004 24600400",
+    "grupa_materialow": "inne",
+    "numer_oem": "24600400",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "6004"
+  },
+  {
+    "id": "6",
+    "id_oferty": "",
+    "opis": "KOŁO ZĘBATE Z=78 V M=1,00 LI 50171040",
+    "grupa_materialow": "inne",
+    "numer_oem": "50171040",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "Z=78 V M=1,00 LI"
+  }
+]

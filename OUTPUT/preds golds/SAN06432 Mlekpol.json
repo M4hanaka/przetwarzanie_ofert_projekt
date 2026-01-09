@@ -1,0 +1,28 @@
+[
+  {
+    "id": "SAN06432",
+    "nazwa_dostawcy": "Atlanta Deutschland GmbH",
+    "data_oferty": "2025-04-14",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "SAN06432",
+        "opis": "block 4 PCS",
+        "grupa_materialow": "inne",
+        "numer_oem": "CR0160008",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "SAN06432",
+        "opis": "blow contrast cut 4 PCS",
+        "grupa_materialow": "inne",
+        "numer_oem": "KFD010009",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

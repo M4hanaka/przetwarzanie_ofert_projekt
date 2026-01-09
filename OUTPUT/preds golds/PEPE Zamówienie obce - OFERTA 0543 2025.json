@@ -1,0 +1,100 @@
+[
+  {
+    "id": "0543/2025",
+    "nazwa_dostawcy": "\"PePe\" Sp. z o.o.",
+    "data_oferty": "2025-03-25",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "0543/2025",
+        "opis": "Śruba M10x'80 A2 DIN 933",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 933",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "0543/2025",
+        "opis": "Śruba M8x'50 A2 DIN 912",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 912",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "0543/2025",
+        "opis": "Śruba M6x'16 A2 DIN 933",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 933",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "0543/2025",
+        "opis": "Śruba M4x'40 A2 DIN 912",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 912",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "0543/2025",
+        "opis": "Śruba M6x'25 A2 DIN 912",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 912",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "0543/2025",
+        "opis": "Podkładka '8,4 A2 DIN 125",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 125",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "7",
+        "id_oferty": "0543/2025",
+        "opis": "Podkładka '6,4 A2 DIN 125",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 125",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "8",
+        "id_oferty": "0543/2025",
+        "opis": "Podkładka '5,3 A2 DIN 125",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 125",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "9",
+        "id_oferty": "0543/2025",
+        "opis": "Podkładka '4,3 A2 DIN 125",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 125",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "10",
+        "id_oferty": "0543/2025",
+        "opis": "Nakrętka M12 DIN 934 A2",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "DIN 934",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 10
+  }
+]

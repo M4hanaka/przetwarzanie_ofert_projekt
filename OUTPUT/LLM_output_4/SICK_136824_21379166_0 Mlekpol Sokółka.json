@@ -1,0 +1,19 @@
+[
+  {
+    "id": "21379166",
+    "nazwa_dostawcy": "SICK Sp. z o.o.",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "21379166",
+        "opis": "GL10-P7151 G10",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "GL10-P7151",
+        "producent": "SICK",
+        "serial_numbers": "Nr produktu SICK;1089963"
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

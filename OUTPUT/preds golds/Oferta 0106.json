@@ -1,0 +1,19 @@
+[
+  {
+    "id": "0106/24",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "0106/24",
+        "opis": "Przetwornik ciśnienia PC-28/0÷6bar/PM12(IP65)/RM",
+        "grupa_materialow": "przetworniki",
+        "numer_oem": "",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

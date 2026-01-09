@@ -1,35 +1,35 @@
 [
   {
     "id": "833/2014",
-    "nazwa_dostawcy": "Tetra Pak sp. z o.o.",
+    "nazwa_dostawcy": "",
     "data_oferty": null,
     "pozycje_oferty": [
       {
         "id": "1",
         "id_oferty": "24649061",
         "opis": "O-ring 97.79 x 5.33",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 6562 46",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "2",
         "id_oferty": "24649061",
         "opis": "Support ring axial 5.33 x 110",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 7153 02",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "3",
         "id_oferty": "24649061",
         "opis": "Guide band 110",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4306 0000 07",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "4",
@@ -65,7 +65,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4723 1370 06",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "8",
@@ -74,7 +74,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4723 1370 15",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "9",
@@ -83,16 +83,16 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4723 1370 35",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "10",
         "id_oferty": "24649061",
         "opis": "O-ring 100x3.55 Foodgrade",
-        "grupa_materialow": "akcesoria montażowe",
+        "grupa_materialow": "inne",
         "numer_oem": "6-4723 1370 34",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "11",
@@ -101,7 +101,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 7152 02",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "12",
@@ -110,13 +110,13 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4723 1370 14",
         "producent": "",
-        "serial_numbers": "CN:"
+        "serial_numbers": ""
       },
       {
         "id": "13",
         "id_oferty": "24649061",
         "opis": "Guide ring 4",
-        "grupa_materialow": "inne",
+        "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 5033 03",
         "producent": "",
         "serial_numbers": ""
@@ -128,7 +128,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4723 1370 74",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "CN:"
       },
       {
         "id": "15",
@@ -137,7 +137,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4723 1370 72",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "CN:"
       },
       {
         "id": "16",
@@ -146,7 +146,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 5289 01",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "CN:"
       },
       {
         "id": "17",
@@ -155,7 +155,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 1178 19",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "CN:"
       },
       {
         "id": "18",
@@ -164,7 +164,7 @@
         "grupa_materialow": "akcesoria montażowe",
         "numer_oem": "6-4722 0942 17",
         "producent": "",
-        "serial_numbers": ""
+        "serial_numbers": "CN:"
       }
     ],
     "liczba_elementow": 18

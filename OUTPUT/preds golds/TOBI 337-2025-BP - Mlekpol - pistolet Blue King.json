@@ -1,0 +1,19 @@
+[
+  {
+    "id": "OFER/337/2025/BP",
+    "nazwa_dostawcy": "TOBI POLSKA SP. Z O.O.",
+    "data_oferty": "2025-03-26",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "OFER/337/2025/BP",
+        "opis": "Pistolet do płukania niebieski Blue King z GW 1/2``",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "",
+        "producent": "Blue King",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 1
+  }
+]

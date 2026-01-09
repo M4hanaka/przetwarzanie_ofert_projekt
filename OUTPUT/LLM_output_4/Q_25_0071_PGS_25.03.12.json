@@ -11,7 +11,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "1166-3449-020",
         "producent": "GEA",
-        "serial_numbers": ""
+        "serial_numbers": "CN: 85369010;ID: 123456"
       },
       {
         "id": "2",
@@ -20,7 +20,7 @@
         "grupa_materialow": "inne",
         "numer_oem": "1166-3423-000",
         "producent": "GEA",
-        "serial_numbers": ""
+        "serial_numbers": "CN: 85369010;ID: 123456"
       }
     ],
     "liczba_elementow": 2

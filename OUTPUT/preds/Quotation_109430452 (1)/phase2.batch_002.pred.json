@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "24649061",
+    "opis": "O-ring 32.92x3.53 Foodgrade",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4723 1370 06",
+    "producent": "",
+    "serial_numbers": "PKWiU: 22.19.73.0"
+  },
+  {
+    "id": "2",
+    "id_oferty": "24649061",
+    "opis": "O-ring 69.44x3.53 Foodgrade",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4723 1370 15",
+    "producent": "",
+    "serial_numbers": "PKWiU: 28.29.85.0"
+  },
+  {
+    "id": "3",
+    "id_oferty": "24649061",
+    "opis": "O-ring 16.3x2.4 Foodgrade",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "6-4723 1370 35",
+    "producent": "",
+    "serial_numbers": "PKWiU: 28.29.85.0"
+  }
+]

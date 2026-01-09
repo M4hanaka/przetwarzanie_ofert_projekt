@@ -1,0 +1,28 @@
+[
+  {
+    "id": "TE/AW/250141",
+    "nazwa_dostawcy": "Spomasz Zamość S.A.",
+    "data_oferty": "2025-02-26",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "TE/AW/250141",
+        "opis": "Uszczelka korpusu 4D157-1 SILIKON (GA, GU15, GU30-GU70, LR20)",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "MGUM-030001-002",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "TE/AW/250141",
+        "opis": "Uszczelnienie SZBE-A-BQ1E1GG",
+        "grupa_materialow": "uszczelki",
+        "numer_oem": "MUSZ-200006-002",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 2
+  }
+]

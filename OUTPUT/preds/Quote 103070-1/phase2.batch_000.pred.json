@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "Stretching Wheel 1/2' Z=18",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "802 067",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "Driv.roller SKE 80-950 D:80 GA20/M10 AL:950 EL:950 Igm 10x22 El=950",
+    "grupa_materialow": "automatyka",
+    "numer_oem": "420 065",
+    "producent": "",
+    "serial_numbers": ""
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "Chain 5/8'-S Sold in 50 meter spools",
+    "grupa_materialow": "kable",
+    "numer_oem": "802 100",
+    "producent": "",
+    "serial_numbers": ""
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "PV7004 PV-010-REG14-UFRVG/US// Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 116.38
+    },
+    {
+      "position_id": 2,
+      "opis": "PL1504 PL-010-REA12-A-DKG/US// Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-0,1...1MPa;G1/2gwintzewnętrzny;sygnałanalogowy;IO-Link(ustawiany);4...20;(skalowany;1:5)mA;Konektor;-25...110; (Montażzabudowanybezprzeciekówzuszczelnieniemmetal-na-metal.Abysprawdzićdopuszczalnetemperaturydlainnychuszczelnieńproszęsprawdzićmateriałyuszczelekwdziale“Akcesoria”)°C;IP67;IP68;IP69;ciśnieniewzględne;próżnia;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 238.52
+    },
+    {
+      "position_id": 3,
+      "opis": "PV7004 PV-010-REG14-UFRVG/US// Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 116.38
+    },
+    {
+      "position_id": 4,
+      "opis": "AL1950 IO-LinkMasterCLIoT8PIP20 MasterIO-LinkzinterfejsemIoT;Liczbawejśćbinarnych8;Liczbawyjśćbinarnych8;IP20;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 349.67
+    },
+    {
+      "position_id": 5,
+      "opis": "EVC002 ADOGH040MSS0005H04 Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;stykipozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 12.89
+    },
+    {
+      "position_id": 6,
+      "opis": "VSA001 VIBRATIONSENSOR Akcelerometr;analogowy;Liczbaosipomiaru1;Zakrespomiarowywibracji-25...25g;Zakresczęstotliwości1...6000Hz;Temperaturaotoczenia-30...125°C;IP67;IP68;IP69K;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 186.3
+    },
+    {
+      "position_id": 7,
+      "opis": "E30493 ADAPTVIBM08-R/A-M12-S Adaptermontażowy;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 33.48
+    },
+    {
+      "position_id": 8,
+      "opis": "IFT203 IFB3004BBPKG/M/V4A/US-104-DPS Czujnikindukcyjny;M12x1/L=45mm;Strefadziałania4mmmontażzabudowany;normalnieotwarte;DC;PNP;M12Konektor;IP68;IP69K; (",
+      "kwota_ceny_oferty": 41.19
+    },
+    {
+      "position_id": 9,
+      "opis": "VSE100 DIAGNOSTICELECTRONICS Elektronikaprzetwarzającadlaczujnikówwibracji;Całkowitailośćwejśćiwyjść16; (konfigurowalne);Ethernet;TCP/IP;114x50x105mm;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 745.29
+    },
+    {
+      "position_id": 10,
+      "opis": "EVC527 ADOGH040MSS0005C04 Przewódzgniazdem;Napięciezasilania<50VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 13.97
+    },
+    {
+      "position_id": 11,
+      "opis": "EVC002 ADOGH040MSS0005H04 Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 12.89
+    },
+    {
+      "position_id": 12,
+      "opis": "SM6020 SMR12XGXFRKG/US-100 Przepływomierzelektromagnetyczny;PNP/NPN;sygnałprzełączający;sygnałanalogowy;sygnałimpulsowy;IO-Link;sygnałczęstotliwościowy;Zakrespomiarowy0,05...35l/min;Temperaturamedium-20...90°C;Wytrzymałośćnaciśnienie16bar;G1/2DN15;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+      "kwota_ceny_oferty": 459.65
+    }
+  ]
+}

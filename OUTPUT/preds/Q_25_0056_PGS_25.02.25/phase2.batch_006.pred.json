@@ -1,0 +1,29 @@
+[
+  {
+    "id": "19",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT GASKET",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "0007-2929-750",
+    "producent": "ALT",
+    "serial_numbers": "szt 2;4,66;9,32"
+  },
+  {
+    "id": "20",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT GASKET",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "0007-1936-750",
+    "producent": "ALT",
+    "serial_numbers": "szt 2;1,12;2,24"
+  },
+  {
+    "id": "21",
+    "id_oferty": "0056/SPP/2025",
+    "opis": "ALT GASKET",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "0007-2925-750",
+    "producent": "ALT",
+    "serial_numbers": "szt 6;1,12;6,72"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "8",
+    "id_oferty": "202086378",
+    "opis": "Czujnik indukcyjny;M12x1/L=45mm;Strefa działania4mmmontażzabudowany;normalnieotwarte;DC;PNP;M12Konektor;IP68;IP69K; (\"COP\");3-przewodowy;Temperaturaotoczenia0...100°C;Częstotliwość przełączania800Hz;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "czujniki",
+    "numer_oem": "IFB3004BBPKG/M/V4A/US-104-DPS",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:RO;Kodtaryfycelnej:85365019"
+  },
+  {
+    "id": "9",
+    "id_oferty": "202086378",
+    "opis": "Elektronikaprzetwarzającadlaczujnikówwibracji;Całkowitailośćwejśćiwyjść16; (konfigurowalne);Ethernet;TCP/IP;114x50x105mm;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "czujniki",
+    "numer_oem": "VSE100",
+    "producent": "ifm",
+    "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90318080"
+  }
+]

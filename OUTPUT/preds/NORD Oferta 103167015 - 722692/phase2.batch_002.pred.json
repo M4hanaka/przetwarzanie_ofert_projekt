@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "",
+    "opis": "ŁOŻYSKO 6201 24620100",
+    "grupa_materialow": "łożyska",
+    "numer_oem": "6201",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "24620100;2Z"
+  },
+  {
+    "id": "2",
+    "id_oferty": "",
+    "opis": "ŁOŻYSKO 6201 2Z 24620120",
+    "grupa_materialow": "łożyska",
+    "numer_oem": "6201",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "24620120;2Z"
+  },
+  {
+    "id": "3",
+    "id_oferty": "",
+    "opis": "PIERŚC USZCZ. WDR 25x42x7 AS NBR902 25025000",
+    "grupa_materialow": "akcesoria montażowe",
+    "numer_oem": "25025000",
+    "producent": "Getriebebau NORD GmbH",
+    "serial_numbers": "25025000;AS NBR902"
+  }
+]

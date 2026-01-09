@@ -1,0 +1,64 @@
+[
+  {
+    "id": "103070/1",
+    "nazwa_dostawcy": "InterSystem AB",
+    "data_oferty": "2022-09-14",
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "103070/1",
+        "opis": "Stretching Wheel 1/2' Z=18",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "802 067",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "2",
+        "id_oferty": "103070/1",
+        "opis": "Driv.roller SKE 80-950 D:80 GA20/M10 AL:950 EL:950 Igm 10x22 El=950",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "420 065",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "3",
+        "id_oferty": "103070/1",
+        "opis": "Chain 5/8'-S Sold in 50 meter spools",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "802 100",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "4",
+        "id_oferty": "103070/1",
+        "opis": "Friction Wheel 5/8'-21 D=25 Kedjehjul U110-21 & Lagerbussning. Monterat.",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "802 291",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "5",
+        "id_oferty": "103070/1",
+        "opis": "Drivi.roller Sro 30-02-150 D:30 FA8 AL:190 EL:170 El=170",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "400 060",
+        "producent": "",
+        "serial_numbers": ""
+      },
+      {
+        "id": "6",
+        "id_oferty": "103070/1",
+        "opis": "Driv. Roller Sro 63-500 D:63,5 GA20/M10 AL:520 EL:520 Igm10 El=520 A20 Igm10 El=520",
+        "grupa_materialow": "mechanika",
+        "numer_oem": "420 553",
+        "producent": "",
+        "serial_numbers": ""
+      }
+    ],
+    "liczba_elementow": 6
+  }
+]

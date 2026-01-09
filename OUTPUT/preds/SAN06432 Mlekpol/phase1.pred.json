@@ -1,0 +1,22 @@
+{
+  "id": "",
+  "nazwa_dostawcy": "Atlanta Deutschland GmbH",
+  "data_oferty": null,
+  "items_preview": [
+    {
+      "position_id": 1,
+      "opis": "SCODE00281 Artikel 7101 Mlekpol, Polen",
+      "kwota_ceny_oferty": 83.27
+    },
+    {
+      "position_id": 2,
+      "opis": "CR0160008 block 4 PCS",
+      "kwota_ceny_oferty": 333.06
+    },
+    {
+      "position_id": 3,
+      "opis": "KFD010009 blow contrast cut 4 PCS",
+      "kwota_ceny_oferty": 1410.8
+    }
+  ]
+}

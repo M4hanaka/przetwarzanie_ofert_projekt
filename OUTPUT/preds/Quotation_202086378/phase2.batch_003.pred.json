@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "id_oferty": "202086378",
+    "opis": "Przewódzgniazdem;Napięciezasilania<50VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "kable",
+    "numer_oem": "ADOGH040MSS0005C04",
+    "producent": "",
+    "serial_numbers": "Krajpochodzenia:PL;Kodtaryfycelnej:85444290"
+  },
+  {
+    "id": "2",
+    "id_oferty": "202086378",
+    "opis": "Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "kable",
+    "numer_oem": "ADOGH040MSS0005H04",
+    "producent": "",
+    "serial_numbers": "Krajpochodzenia:PL;Kodtaryfycelnej:85444290"
+  },
+  {
+    "id": "3",
+    "id_oferty": "202086378",
+    "opis": "Przepływomierzelektromagnetyczny;PNP/NPN;sygnałprzełączający;sygnałanalogowy;sygnałimpulsowy;IO-Link;sygnałczęstotliwościowy;Zakrespomiarowy0,05...35l/min;Temperaturamedium-20...90°C;Wytrzymałośćnaciśnienie16bar;G1/2DN15;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+    "grupa_materialow": "czujniki",
+    "numer_oem": "SMR12XGXFRKG/US-100",
+    "producent": "",
+    "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90261021"
+  }
+]

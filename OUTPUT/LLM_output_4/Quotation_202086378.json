@@ -1,0 +1,109 @@
+[
+  {
+    "id": "202086378",
+    "nazwa_dostawcy": "",
+    "data_oferty": null,
+    "pozycje_oferty": [
+      {
+        "id": "1",
+        "id_oferty": "202086378",
+        "opis": "Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-100...1000kpa;-0,1...1MPa;G1/4gwintzewnętrzny;sygnałprzełączający;IO-Link;Konektor;-40...90°C;IP67;IP69K;ciśnieniewzględne;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "czujniki",
+        "numer_oem": "PV7004",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:RO;Kodtaryfycelnej:90262020"
+      },
+      {
+        "id": "2",
+        "id_oferty": "202086378",
+        "opis": "Elektronicznyczujnikciśnienia;-1...10bar;-14,5...145psi;-0,1...1MPa;G1/2gwintzewnętrzny;sygnałanalogowy;IO-Link(ustawiany);4...20;(skalowany;1:5)mA;Konektor;-25...110; (Montażzabudowanybezprzeciekówzuszczelnieniemmetal-na-metal.Abysprawdzićdopuszczalnetemperaturydlainnychuszczelnieńproszęsprawdzićmateriałyuszczelekwdziale“Akcesoria”)°C;IP67;IP68;IP69;ciśnieniewzględne;próżnia;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "czujniki",
+        "numer_oem": "PL1504",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90262020"
+      },
+      {
+        "id": "3",
+        "id_oferty": "202086378",
+        "opis": "IO-LinkMasterCLIoT8PIP20 MasterIO-LinkzinterfejsemIoT;Liczbawejśćbinarnych8;Liczbawyjśćbinarnych8;IP20;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "automatyka",
+        "numer_oem": "AL1950",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:85176200"
+      },
+      {
+        "id": "4",
+        "id_oferty": "202086378",
+        "opis": "ADOGH040MSS0005H04 Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "kable",
+        "numer_oem": "EVC002",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:PL;Kodtaryfycelnej:85444290"
+      },
+      {
+        "id": "5",
+        "id_oferty": "202086378",
+        "opis": "VIBRATIONSENSOR Akcelerometr;analogowy;Liczbaosipomiaru1;Zakrespomiarowywibracji-25...25g;Zakresczęstotliwości1...6000Hz;Temperaturaotoczenia-30...125°C;IP67;IP68;IP69K;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "VSA001",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90318080"
+      },
+      {
+        "id": "6",
+        "id_oferty": "202086378",
+        "opis": "Adaptermontażowy;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "akcesoria montażowe",
+        "numer_oem": "E30493",
+        "producent": "",
+        "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90319000"
+      },
+      {
+        "id": "7",
+        "id_oferty": "202086378",
+        "opis": "Czujnik indukcyjny;M12x1/L=45mm;Strefa działania4mmmontażzabudowany;normalnieotwarte;DC;PNP;M12Konektor;IP68;IP69K; (\"COP\");3-przewodowy;Temperaturaotoczenia0...100°C;Częstotliwość przełączania800Hz;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "czujniki",
+        "numer_oem": "IFB3004BBPKG/M/V4A/US-104-DPS",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:RO;Kodtaryfycelnej:85365019"
+      },
+      {
+        "id": "8",
+        "id_oferty": "202086378",
+        "opis": "Elektronikaprzetwarzającadlaczujnikówwibracji;Całkowitailośćwejśćiwyjść16; (konfigurowalne);Ethernet;TCP/IP;114x50x105mm;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "czujniki",
+        "numer_oem": "VSE100",
+        "producent": "ifm",
+        "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90318080"
+      },
+      {
+        "id": "9",
+        "id_oferty": "202086378",
+        "opis": "Przewódzgniazdem;Napięciezasilania<50VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "kable",
+        "numer_oem": "ADOGH040MSS0005C04",
+        "producent": "",
+        "serial_numbers": "Krajpochodzenia:PL;Kodtaryfycelnej:85444290"
+      },
+      {
+        "id": "10",
+        "id_oferty": "202086378",
+        "opis": "Przewódzgniazdem;Napięciezasilania<250VAC;5m;PUR;Materiałobudowyobudowa:TPUkolorpomarańczowy;uszczelnienie:FKM;IP65;IP67;IP68;IP69K;bezsilikonowytak;Bezhalogenutak;styki pozłacanetak;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkami gwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "kable",
+        "numer_oem": "ADOGH040MSS0005H04",
+        "producent": "",
+        "serial_numbers": "Krajpochodzenia:PL;Kodtaryfycelnej:85444290"
+      },
+      {
+        "id": "11",
+        "id_oferty": "202086378",
+        "opis": "Przepływomierzelektromagnetyczny;PNP/NPN;sygnałprzełączający;sygnałanalogowy;sygnałimpulsowy;IO-Link;sygnałczęstotliwościowy;Zakrespomiarowy0,05...35l/min;Temperaturamedium-20...90°C;Wytrzymałośćnaciśnienie16bar;G1/2DN15;Konektor;Sztukwopakowaniu1szt.;gwarancjawmiesiącach:60;Gwarancjazgodnazwarunkamigwarancjifirmyifm(www.ifm.com/pl)",
+        "grupa_materialow": "czujniki",
+        "numer_oem": "SMR12XGXFRKG/US-100",
+        "producent": "",
+        "serial_numbers": "Krajpochodzenia:DE;Kodtaryfycelnej:90261021"
+      }
+    ],
+    "liczba_elementow": 11
+  }
+]
